@@ -1,0 +1,1675 @@
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\cc7PaiZq.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 4
+  10              		.eabi_attribute 34, 0
+  11              		.eabi_attribute 18, 4
+  12              		.code	16
+  13              		.file	"ether_svr.cpp"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text._Z5setupv,"ax",%progbits
+  18              		.align	1
+  19              		.global	_Z5setupv
+  20              		.code	16
+  21              		.thumb_func
+  22              		.type	_Z5setupv, %function
+  23              	_Z5setupv:
+  24              		.fnstart
+  25              	.LFB6:
+  26              		.file 1 ".\\ether_svr.cpp"
+   1:.\ether_svr.cpp **** // telnetクライアントで接続してください
+   2:.\ether_svr.cpp **** // 入力をそのまま返します
+   3:.\ether_svr.cpp **** 
+   4:.\ether_svr.cpp **** extern "C" {
+   5:.\ether_svr.cpp ****   #include "types.h"
+   6:.\ether_svr.cpp **** }
+   7:.\ether_svr.cpp **** 
+   8:.\ether_svr.cpp **** #include "Ethernet.h"
+   9:.\ether_svr.cpp **** 
+  10:.\ether_svr.cpp **** #define byte uint8
+  11:.\ether_svr.cpp **** 
+  12:.\ether_svr.cpp **** // ネットワーク設定 gatewayとsubnetはオプション
+  13:.\ether_svr.cpp **** byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
+  14:.\ether_svr.cpp **** byte ip[] = { 192, 168, 1, 247 };
+  15:.\ether_svr.cpp **** 
+  16:.\ether_svr.cpp **** // telnetのポート(23)を指定
+  17:.\ether_svr.cpp **** Server server = Server(23);
+  18:.\ether_svr.cpp **** 
+  19:.\ether_svr.cpp **** void setup()
+  20:.\ether_svr.cpp **** {
+  27              		.loc 1 20 0
+  28              		.cfi_startproc
+  29 0000 08B5     		push	{r3, lr}
+  30              		.save {r3, lr}
+  31              	.LCFI0:
+  32              		.cfi_def_cfa_offset 8
+  33              		.cfi_offset 3, -8
+  34              		.cfi_offset 14, -4
+  21:.\ether_svr.cpp ****   // デバイスの初期化
+  22:.\ether_svr.cpp ****   Ethernet.begin(mac, ip);
+  35              		.loc 1 22 0
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\cc7PaiZq.s 			page 2
+
+
+  36 0002 0449     		ldr	r1, .L2
+  37 0004 0448     		ldr	r0, .L2+4
+  38 0006 8A1D     		add	r2, r1, #6
+  39 0008 FFF7FEFF 		bl	_ZN13EthernetClass5beginEPhS0_
+  40              	.LVL0:
+  23:.\ether_svr.cpp **** 
+  24:.\ether_svr.cpp ****   // listenを始める
+  25:.\ether_svr.cpp ****   server.begin();
+  41              		.loc 1 25 0
+  42 000c 0348     		ldr	r0, .L2+8
+  43 000e FFF7FEFF 		bl	_ZN6Server5beginEv
+  44              	.LVL1:
+  26:.\ether_svr.cpp **** }
+  45              		.loc 1 26 0
+  46              		@ sp needed for prologue
+  47 0012 08BD     		pop	{r3, pc}
+  48              	.L3:
+  49              		.align	2
+  50              	.L2:
+  51 0014 00000000 		.word	.LANCHOR0
+  52 0018 00000000 		.word	Ethernet
+  53 001c 00000000 		.word	.LANCHOR1
+  54              		.cfi_endproc
+  55              	.LFE6:
+  56              		.fnend
+  57              		.size	_Z5setupv, .-_Z5setupv
+  58              		.section	.text.startup._GLOBAL__sub_I_mac,"ax",%progbits
+  59              		.align	1
+  60              		.code	16
+  61              		.thumb_func
+  62              		.type	_GLOBAL__sub_I_mac, %function
+  63              	_GLOBAL__sub_I_mac:
+  64              		.fnstart
+  65              	.LFB13:
+  27:.\ether_svr.cpp **** 
+  28:.\ether_svr.cpp **** void loop()
+  29:.\ether_svr.cpp **** {
+  30:.\ether_svr.cpp ****   Client client = server.available();
+  31:.\ether_svr.cpp ****   if (client) {
+  32:.\ether_svr.cpp ****     server.write( client.read() );
+  33:.\ether_svr.cpp ****   }
+  34:.\ether_svr.cpp **** }
+  35:.\ether_svr.cpp **** 
+  36:.\ether_svr.cpp **** 
+  37:.\ether_svr.cpp **** int main(void)
+  38:.\ether_svr.cpp **** {
+  39:.\ether_svr.cpp **** 	setup();
+  40:.\ether_svr.cpp ****     
+  41:.\ether_svr.cpp **** 	for (;;)
+  42:.\ether_svr.cpp **** 		loop();
+  43:.\ether_svr.cpp ****         
+  44:.\ether_svr.cpp **** 	return 0;
+  45:.\ether_svr.cpp **** }
+  66              		.loc 1 45 0
+  67              		.cfi_startproc
+  68              	.LVL2:
+  69 0000 08B5     		push	{r3, lr}
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\cc7PaiZq.s 			page 3
+
+
+  70              	.LCFI1:
+  71              		.cfi_def_cfa_offset 8
+  72              		.cfi_offset 3, -8
+  73              		.cfi_offset 14, -4
+  74              	.LBB4:
+  75              	.LBB5:
+  17:.\ether_svr.cpp **** Server server = Server(23);
+  76              		.loc 1 17 0
+  77 0002 0248     		ldr	r0, .L5
+  78 0004 1721     		mov	r1, #23
+  79 0006 FFF7FEFF 		bl	_ZN6ServerC1Et
+  80              	.LVL3:
+  81              	.LBE5:
+  82              	.LBE4:
+  83              		.loc 1 45 0
+  84              		@ sp needed for prologue
+  85 000a 08BD     		pop	{r3, pc}
+  86              	.L6:
+  87              		.align	2
+  88              	.L5:
+  89 000c 00000000 		.word	.LANCHOR1
+  90              		.cfi_endproc
+  91              	.LFE13:
+  92              		.cantunwind
+  93              		.fnend
+  94              		.size	_GLOBAL__sub_I_mac, .-_GLOBAL__sub_I_mac
+  95              		.section	.init_array,"aw",%init_array
+  96              		.align	2
+  97 0000 00000000 		.word	_GLOBAL__sub_I_mac(target1)
+  98              		.section	.text._Z4loopv,"ax",%progbits
+  99              		.align	1
+ 100              		.global	_Z4loopv
+ 101              		.code	16
+ 102              		.thumb_func
+ 103              		.type	_Z4loopv, %function
+ 104              	_Z4loopv:
+ 105              		.fnstart
+ 106              	.LFB7:
+  29:.\ether_svr.cpp **** {
+ 107              		.loc 1 29 0
+ 108              		.cfi_startproc
+ 109 0000 1FB5     		push	{r0, r1, r2, r3, r4, lr}
+ 110              		.save {r0, r1, r2, r3, r4, lr}
+ 111              	.LCFI2:
+ 112              		.cfi_def_cfa_offset 24
+ 113              		.cfi_offset 0, -24
+ 114              		.cfi_offset 1, -20
+ 115              		.cfi_offset 2, -16
+ 116              		.cfi_offset 3, -12
+ 117              		.cfi_offset 4, -8
+ 118              		.cfi_offset 14, -4
+ 119              	.LBB6:
+  30:.\ether_svr.cpp ****   Client client = server.available();
+ 120              		.loc 1 30 0
+ 121 0002 094C     		ldr	r4, .L13
+ 122 0004 01A8     		add	r0, sp, #4
+ 123 0006 211C     		mov	r1, r4
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\cc7PaiZq.s 			page 4
+
+
+ 124 0008 FFF7FEFF 		bl	_ZN6Server9availableEv
+ 125              	.LVL4:
+  31:.\ether_svr.cpp ****   if (client) {
+ 126              		.loc 1 31 0
+ 127 000c 01A8     		add	r0, sp, #4
+ 128 000e FFF7FEFF 		bl	_ZN6ClientcvbEv
+ 129              	.LVL5:
+ 130 0012 0028     		cmp	r0, #0
+ 131 0014 06D0     		beq	.L7
+  32:.\ether_svr.cpp ****     server.write( client.read() );
+ 132              		.loc 1 32 0
+ 133 0016 01A8     		add	r0, sp, #4
+ 134 0018 FFF7FEFF 		bl	_ZN6Client4readEv
+ 135              	.LVL6:
+ 136 001c C1B2     		uxtb	r1, r0
+ 137 001e 201C     		mov	r0, r4
+ 138 0020 FFF7FEFF 		bl	_ZN6Server5writeEh
+ 139              	.LVL7:
+ 140              	.L7:
+ 141              	.LBE6:
+  34:.\ether_svr.cpp **** }
+ 142              		.loc 1 34 0
+ 143              		@ sp needed for prologue
+ 144 0024 1FBD     		pop	{r0, r1, r2, r3, r4, pc}
+ 145              	.L14:
+ 146 0026 C046     		.align	2
+ 147              	.L13:
+ 148 0028 00000000 		.word	.LANCHOR1
+ 149              		.cfi_endproc
+ 150              	.LFE7:
+ 151              		.fnend
+ 152              		.size	_Z4loopv, .-_Z4loopv
+ 153              		.section	.text.startup.main,"ax",%progbits
+ 154              		.align	1
+ 155              		.global	main
+ 156              		.code	16
+ 157              		.thumb_func
+ 158              		.type	main, %function
+ 159              	main:
+ 160              		.fnstart
+ 161              	.LFB11:
+  38:.\ether_svr.cpp **** {
+ 162              		.loc 1 38 0
+ 163              		.cfi_startproc
+ 164 0000 08B5     		push	{r3, lr}
+ 165              		.save {r3, lr}
+ 166              	.LCFI3:
+ 167              		.cfi_def_cfa_offset 8
+ 168              		.cfi_offset 3, -8
+ 169              		.cfi_offset 14, -4
+  39:.\ether_svr.cpp **** 	setup();
+ 170              		.loc 1 39 0
+ 171 0002 FFF7FEFF 		bl	_Z5setupv
+ 172              	.LVL8:
+ 173              	.L16:
+  42:.\ether_svr.cpp **** 		loop();
+ 174              		.loc 1 42 0 discriminator 1
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\cc7PaiZq.s 			page 5
+
+
+ 175 0006 FFF7FEFF 		bl	_Z4loopv
+ 176              	.LVL9:
+ 177 000a FCE7     		b	.L16
+ 178              		.cfi_endproc
+ 179              	.LFE11:
+ 180              		.fnend
+ 181              		.size	main, .-main
+ 182              		.global	server
+ 183              		.global	ip
+ 184              		.global	mac
+ 185              		.data
+ 186              		.set	.LANCHOR0,. + 0
+ 187              		.type	mac, %object
+ 188              		.size	mac, 6
+ 189              	mac:
+ 190 0000 DE       		.byte	-34
+ 191 0001 AD       		.byte	-83
+ 192 0002 BE       		.byte	-66
+ 193 0003 EF       		.byte	-17
+ 194 0004 FE       		.byte	-2
+ 195 0005 ED       		.byte	-19
+ 196              		.type	ip, %object
+ 197              		.size	ip, 4
+ 198              	ip:
+ 199 0006 C0       		.byte	-64
+ 200 0007 A8       		.byte	-88
+ 201 0008 01       		.byte	1
+ 202 0009 F7       		.byte	-9
+ 203              		.bss
+ 204              		.set	.LANCHOR1,. + 0
+ 205              		.type	server, %object
+ 206              		.size	server, 6
+ 207              	server:
+ 208 0000 00000000 		.space	6
+ 208      0000
+ 209              		.text
+ 210              	.Letext0:
+ 211              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\3.0\\psoc creator\\import\\gnu_cs\\arm\\4
+ 212              		.file 3 "./Generated_Source/PSoC4/cytypes.h"
+ 213              		.file 4 ".\\Ethernet.h"
+ 214              		.file 5 ".\\Client.h"
+ 215              		.file 6 ".\\Server.h"
+ 216              		.section	.debug_info,"",%progbits
+ 217              	.Ldebug_info0:
+ 218 0000 14040000 		.4byte	0x414
+ 219 0004 0200     		.2byte	0x2
+ 220 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 221 000a 04       		.byte	0x4
+ 222 000b 01       		.uleb128 0x1
+ 223 000c 64000000 		.4byte	.LASF41
+ 224 0010 04       		.byte	0x4
+ 225 0011 BE000000 		.4byte	.LASF42
+ 226 0015 00000000 		.4byte	.LASF43
+ 227 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 228 001d 00000000 		.4byte	0
+ 229 0021 00000000 		.4byte	0
+ 230 0025 00000000 		.4byte	.Ldebug_line0
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\cc7PaiZq.s 			page 6
+
+
+ 231 0029 02       		.uleb128 0x2
+ 232 002a 01       		.byte	0x1
+ 233 002b 06       		.byte	0x6
+ 234 002c 77010000 		.4byte	.LASF0
+ 235 0030 03       		.uleb128 0x3
+ 236 0031 E8000000 		.4byte	.LASF9
+ 237 0035 02       		.byte	0x2
+ 238 0036 2A       		.byte	0x2a
+ 239 0037 3B000000 		.4byte	0x3b
+ 240 003b 02       		.uleb128 0x2
+ 241 003c 01       		.byte	0x1
+ 242 003d 08       		.byte	0x8
+ 243 003e 69010000 		.4byte	.LASF1
+ 244 0042 02       		.uleb128 0x2
+ 245 0043 02       		.byte	0x2
+ 246 0044 05       		.byte	0x5
+ 247 0045 5A000000 		.4byte	.LASF2
+ 248 0049 02       		.uleb128 0x2
+ 249 004a 02       		.byte	0x2
+ 250 004b 07       		.byte	0x7
+ 251 004c CD010000 		.4byte	.LASF3
+ 252 0050 02       		.uleb128 0x2
+ 253 0051 04       		.byte	0x4
+ 254 0052 05       		.byte	0x5
+ 255 0053 2A010000 		.4byte	.LASF4
+ 256 0057 02       		.uleb128 0x2
+ 257 0058 04       		.byte	0x4
+ 258 0059 07       		.byte	0x7
+ 259 005a 76020000 		.4byte	.LASF5
+ 260 005e 02       		.uleb128 0x2
+ 261 005f 08       		.byte	0x8
+ 262 0060 05       		.byte	0x5
+ 263 0061 15010000 		.4byte	.LASF6
+ 264 0065 02       		.uleb128 0x2
+ 265 0066 08       		.byte	0x8
+ 266 0067 07       		.byte	0x7
+ 267 0068 83010000 		.4byte	.LASF7
+ 268 006c 04       		.uleb128 0x4
+ 269 006d 04       		.byte	0x4
+ 270 006e 05       		.byte	0x5
+ 271 006f 696E7400 		.ascii	"int\000"
+ 272 0073 02       		.uleb128 0x2
+ 273 0074 04       		.byte	0x4
+ 274 0075 07       		.byte	0x7
+ 275 0076 9A010000 		.4byte	.LASF8
+ 276 007a 03       		.uleb128 0x3
+ 277 007b F0000000 		.4byte	.LASF10
+ 278 007f 03       		.byte	0x3
+ 279 0080 5B       		.byte	0x5b
+ 280 0081 3B000000 		.4byte	0x3b
+ 281 0085 02       		.uleb128 0x2
+ 282 0086 04       		.byte	0x4
+ 283 0087 04       		.byte	0x4
+ 284 0088 0A010000 		.4byte	.LASF11
+ 285 008c 02       		.uleb128 0x2
+ 286 008d 08       		.byte	0x8
+ 287 008e 04       		.byte	0x4
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\cc7PaiZq.s 			page 7
+
+
+ 288 008f 88020000 		.4byte	.LASF12
+ 289 0093 02       		.uleb128 0x2
+ 290 0094 01       		.byte	0x1
+ 291 0095 08       		.byte	0x8
+ 292 0096 EA010000 		.4byte	.LASF13
+ 293 009a 05       		.uleb128 0x5
+ 294 009b 3B000000 		.4byte	0x3b
+ 295 009f AA000000 		.4byte	0xaa
+ 296 00a3 06       		.uleb128 0x6
+ 297 00a4 AA000000 		.4byte	0xaa
+ 298 00a8 03       		.byte	0x3
+ 299 00a9 00       		.byte	0
+ 300 00aa 02       		.uleb128 0x2
+ 301 00ab 04       		.byte	0x4
+ 302 00ac 07       		.byte	0x7
+ 303 00ad AF000000 		.4byte	.LASF14
+ 304 00b1 07       		.uleb128 0x7
+ 305 00b2 C4020000 		.4byte	.LASF44
+ 306 00b6 01       		.byte	0x1
+ 307 00b7 04       		.byte	0x4
+ 308 00b8 08       		.byte	0x8
+ 309 00b9 55010000 		.4byte	0x155
+ 310 00bd 08       		.uleb128 0x8
+ 311 00be CE000000 		.4byte	.LASF15
+ 312 00c2 04       		.byte	0x4
+ 313 00c3 0B       		.byte	0xb
+ 314 00c4 9A000000 		.4byte	0x9a
+ 315 00c8 01       		.byte	0x1
+ 316 00c9 01       		.byte	0x1
+ 317 00ca 08       		.uleb128 0x8
+ 318 00cb A7010000 		.4byte	.LASF16
+ 319 00cf 04       		.byte	0x4
+ 320 00d0 0C       		.byte	0xc
+ 321 00d1 55010000 		.4byte	0x155
+ 322 00d5 01       		.byte	0x1
+ 323 00d6 01       		.byte	0x1
+ 324 00d7 09       		.uleb128 0x9
+ 325 00d8 01       		.byte	0x1
+ 326 00d9 B8000000 		.4byte	.LASF17
+ 327 00dd 04       		.byte	0x4
+ 328 00de 0D       		.byte	0xd
+ 329 00df 3B000000 		.4byte	.LASF18
+ 330 00e3 01       		.byte	0x1
+ 331 00e4 EC000000 		.4byte	0xec
+ 332 00e8 FD000000 		.4byte	0xfd
+ 333 00ec 0A       		.uleb128 0xa
+ 334 00ed 65010000 		.4byte	0x165
+ 335 00f1 01       		.byte	0x1
+ 336 00f2 0B       		.uleb128 0xb
+ 337 00f3 6B010000 		.4byte	0x16b
+ 338 00f7 0B       		.uleb128 0xb
+ 339 00f8 6B010000 		.4byte	0x16b
+ 340 00fc 00       		.byte	0
+ 341 00fd 09       		.uleb128 0x9
+ 342 00fe 01       		.byte	0x1
+ 343 00ff B8000000 		.4byte	.LASF17
+ 344 0103 04       		.byte	0x4
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\cc7PaiZq.s 			page 8
+
+
+ 345 0104 0E       		.byte	0xe
+ 346 0105 8F020000 		.4byte	.LASF19
+ 347 0109 01       		.byte	0x1
+ 348 010a 12010000 		.4byte	0x112
+ 349 010e 28010000 		.4byte	0x128
+ 350 0112 0A       		.uleb128 0xa
+ 351 0113 65010000 		.4byte	0x165
+ 352 0117 01       		.byte	0x1
+ 353 0118 0B       		.uleb128 0xb
+ 354 0119 6B010000 		.4byte	0x16b
+ 355 011d 0B       		.uleb128 0xb
+ 356 011e 6B010000 		.4byte	0x16b
+ 357 0122 0B       		.uleb128 0xb
+ 358 0123 6B010000 		.4byte	0x16b
+ 359 0127 00       		.byte	0
+ 360 0128 0C       		.uleb128 0xc
+ 361 0129 01       		.byte	0x1
+ 362 012a B8000000 		.4byte	.LASF17
+ 363 012e 04       		.byte	0x4
+ 364 012f 0F       		.byte	0xf
+ 365 0130 39020000 		.4byte	.LASF45
+ 366 0134 01       		.byte	0x1
+ 367 0135 39010000 		.4byte	0x139
+ 368 0139 0A       		.uleb128 0xa
+ 369 013a 65010000 		.4byte	0x165
+ 370 013e 01       		.byte	0x1
+ 371 013f 0B       		.uleb128 0xb
+ 372 0140 6B010000 		.4byte	0x16b
+ 373 0144 0B       		.uleb128 0xb
+ 374 0145 6B010000 		.4byte	0x16b
+ 375 0149 0B       		.uleb128 0xb
+ 376 014a 6B010000 		.4byte	0x16b
+ 377 014e 0B       		.uleb128 0xb
+ 378 014f 6B010000 		.4byte	0x16b
+ 379 0153 00       		.byte	0
+ 380 0154 00       		.byte	0
+ 381 0155 05       		.uleb128 0x5
+ 382 0156 49000000 		.4byte	0x49
+ 383 015a 65010000 		.4byte	0x165
+ 384 015e 06       		.uleb128 0x6
+ 385 015f AA000000 		.4byte	0xaa
+ 386 0163 03       		.byte	0x3
+ 387 0164 00       		.byte	0
+ 388 0165 0D       		.uleb128 0xd
+ 389 0166 04       		.byte	0x4
+ 390 0167 B1000000 		.4byte	0xb1
+ 391 016b 0D       		.uleb128 0xd
+ 392 016c 04       		.byte	0x4
+ 393 016d 30000000 		.4byte	0x30
+ 394 0171 0E       		.uleb128 0xe
+ 395 0172 F4010000 		.4byte	.LASF46
+ 396 0176 01       		.byte	0x1
+ 397 0177 01       		.byte	0x1
+ 398 0178 93010000 		.4byte	0x193
+ 399 017c 0F       		.uleb128 0xf
+ 400 017d 4A010000 		.4byte	.LASF20
+ 401 0181 01       		.byte	0x1
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\cc7PaiZq.s 			page 9
+
+
+ 402 0182 2D       		.byte	0x2d
+ 403 0183 6C000000 		.4byte	0x6c
+ 404 0187 0F       		.uleb128 0xf
+ 405 0188 1E020000 		.4byte	.LASF21
+ 406 018c 01       		.byte	0x1
+ 407 018d 2D       		.byte	0x2d
+ 408 018e 6C000000 		.4byte	0x6c
+ 409 0192 00       		.byte	0
+ 410 0193 10       		.uleb128 0x10
+ 411 0194 01       		.byte	0x1
+ 412 0195 F6000000 		.4byte	.LASF22
+ 413 0199 01       		.byte	0x1
+ 414 019a 13       		.byte	0x13
+ 415 019b 6C020000 		.4byte	.LASF24
+ 416 019f 00000000 		.4byte	.LFB6
+ 417 01a3 20000000 		.4byte	.LFE6
+ 418 01a7 00000000 		.4byte	.LLST0
+ 419 01ab 01       		.byte	0x1
+ 420 01ac E4010000 		.4byte	0x1e4
+ 421 01b0 11       		.uleb128 0x11
+ 422 01b1 0C000000 		.4byte	.LVL0
+ 423 01b5 D7000000 		.4byte	0xd7
+ 424 01b9 D0010000 		.4byte	0x1d0
+ 425 01bd 12       		.uleb128 0x12
+ 426 01be 01       		.byte	0x1
+ 427 01bf 52       		.byte	0x52
+ 428 01c0 05       		.byte	0x5
+ 429 01c1 03       		.byte	0x3
+ 430 01c2 06000000 		.4byte	.LANCHOR0+6
+ 431 01c6 12       		.uleb128 0x12
+ 432 01c7 01       		.byte	0x1
+ 433 01c8 51       		.byte	0x51
+ 434 01c9 05       		.byte	0x5
+ 435 01ca 03       		.byte	0x3
+ 436 01cb 00000000 		.4byte	.LANCHOR0
+ 437 01cf 00       		.byte	0
+ 438 01d0 13       		.uleb128 0x13
+ 439 01d1 12000000 		.4byte	.LVL1
+ 440 01d5 90030000 		.4byte	0x390
+ 441 01d9 12       		.uleb128 0x12
+ 442 01da 01       		.byte	0x1
+ 443 01db 50       		.byte	0x50
+ 444 01dc 05       		.byte	0x5
+ 445 01dd 03       		.byte	0x3
+ 446 01de 00000000 		.4byte	.LANCHOR1
+ 447 01e2 00       		.byte	0
+ 448 01e3 00       		.byte	0
+ 449 01e4 14       		.uleb128 0x14
+ 450 01e5 D5000000 		.4byte	.LASF47
+ 451 01e9 01       		.byte	0x1
+ 452 01ea 00000000 		.4byte	.LFB13
+ 453 01ee 10000000 		.4byte	.LFE13
+ 454 01f2 20000000 		.4byte	.LLST1
+ 455 01f6 01       		.byte	0x1
+ 456 01f7 37020000 		.4byte	0x237
+ 457 01fb 15       		.uleb128 0x15
+ 458 01fc 71010000 		.4byte	0x171
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\cc7PaiZq.s 			page 10
+
+
+ 459 0200 02000000 		.4byte	.LBB4
+ 460 0204 0A000000 		.4byte	.LBE4
+ 461 0208 01       		.byte	0x1
+ 462 0209 2D       		.byte	0x2d
+ 463 020a 16       		.uleb128 0x16
+ 464 020b 02000000 		.4byte	.LBB5
+ 465 020f 0A000000 		.4byte	.LBE5
+ 466 0213 17       		.uleb128 0x17
+ 467 0214 87010000 		.4byte	0x187
+ 468 0218 FFFF     		.2byte	0xffff
+ 469 021a 18       		.uleb128 0x18
+ 470 021b 7C010000 		.4byte	0x17c
+ 471 021f 01       		.byte	0x1
+ 472 0220 19       		.uleb128 0x19
+ 473 0221 0A000000 		.4byte	.LVL3
+ 474 0225 12       		.uleb128 0x12
+ 475 0226 01       		.byte	0x1
+ 476 0227 51       		.byte	0x51
+ 477 0228 01       		.byte	0x1
+ 478 0229 47       		.byte	0x47
+ 479 022a 12       		.uleb128 0x12
+ 480 022b 01       		.byte	0x1
+ 481 022c 50       		.byte	0x50
+ 482 022d 05       		.byte	0x5
+ 483 022e 03       		.byte	0x3
+ 484 022f 00000000 		.4byte	.LANCHOR1
+ 485 0233 00       		.byte	0
+ 486 0234 00       		.byte	0
+ 487 0235 00       		.byte	0
+ 488 0236 00       		.byte	0
+ 489 0237 10       		.uleb128 0x10
+ 490 0238 01       		.byte	0x1
+ 491 0239 D2020000 		.4byte	.LASF23
+ 492 023d 01       		.byte	0x1
+ 493 023e 1C       		.byte	0x1c
+ 494 023f 59010000 		.4byte	.LASF25
+ 495 0243 00000000 		.4byte	.LFB7
+ 496 0247 2C000000 		.4byte	.LFE7
+ 497 024b 40000000 		.4byte	.LLST2
+ 498 024f 01       		.byte	0x1
+ 499 0250 BF020000 		.4byte	0x2bf
+ 500 0254 16       		.uleb128 0x16
+ 501 0255 02000000 		.4byte	.LBB6
+ 502 0259 24000000 		.4byte	.LBE6
+ 503 025d 1A       		.uleb128 0x1a
+ 504 025e 23010000 		.4byte	.LASF48
+ 505 0262 01       		.byte	0x1
+ 506 0263 1E       		.byte	0x1e
+ 507 0264 BF020000 		.4byte	0x2bf
+ 508 0268 02       		.byte	0x2
+ 509 0269 91       		.byte	0x91
+ 510 026a 6C       		.sleb128 -20
+ 511 026b 11       		.uleb128 0x11
+ 512 026c 0C000000 		.4byte	.LVL4
+ 513 0270 AC030000 		.4byte	0x3ac
+ 514 0274 85020000 		.4byte	0x285
+ 515 0278 12       		.uleb128 0x12
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\cc7PaiZq.s 			page 11
+
+
+ 516 0279 01       		.byte	0x1
+ 517 027a 51       		.byte	0x51
+ 518 027b 02       		.byte	0x2
+ 519 027c 74       		.byte	0x74
+ 520 027d 00       		.sleb128 0
+ 521 027e 12       		.uleb128 0x12
+ 522 027f 01       		.byte	0x1
+ 523 0280 50       		.byte	0x50
+ 524 0281 02       		.byte	0x2
+ 525 0282 91       		.byte	0x91
+ 526 0283 6C       		.sleb128 -20
+ 527 0284 00       		.byte	0
+ 528 0285 11       		.uleb128 0x11
+ 529 0286 12000000 		.4byte	.LVL5
+ 530 028a C9020000 		.4byte	0x2c9
+ 531 028e 99020000 		.4byte	0x299
+ 532 0292 12       		.uleb128 0x12
+ 533 0293 01       		.byte	0x1
+ 534 0294 50       		.byte	0x50
+ 535 0295 02       		.byte	0x2
+ 536 0296 91       		.byte	0x91
+ 537 0297 6C       		.sleb128 -20
+ 538 0298 00       		.byte	0
+ 539 0299 11       		.uleb128 0x11
+ 540 029a 1C000000 		.4byte	.LVL6
+ 541 029e E9020000 		.4byte	0x2e9
+ 542 02a2 AD020000 		.4byte	0x2ad
+ 543 02a6 12       		.uleb128 0x12
+ 544 02a7 01       		.byte	0x1
+ 545 02a8 50       		.byte	0x50
+ 546 02a9 02       		.byte	0x2
+ 547 02aa 91       		.byte	0x91
+ 548 02ab 6C       		.sleb128 -20
+ 549 02ac 00       		.byte	0
+ 550 02ad 13       		.uleb128 0x13
+ 551 02ae 24000000 		.4byte	.LVL7
+ 552 02b2 CC030000 		.4byte	0x3cc
+ 553 02b6 12       		.uleb128 0x12
+ 554 02b7 01       		.byte	0x1
+ 555 02b8 50       		.byte	0x50
+ 556 02b9 02       		.byte	0x2
+ 557 02ba 74       		.byte	0x74
+ 558 02bb 00       		.sleb128 0
+ 559 02bc 00       		.byte	0
+ 560 02bd 00       		.byte	0
+ 561 02be 00       		.byte	0
+ 562 02bf 1B       		.uleb128 0x1b
+ 563 02c0 C6010000 		.4byte	.LASF30
+ 564 02c4 01       		.byte	0x1
+ 565 02c5 06030000 		.4byte	0x306
+ 566 02c9 1C       		.uleb128 0x1c
+ 567 02ca 01       		.byte	0x1
+ 568 02cb 5E020000 		.4byte	.LASF33
+ 569 02cf 05       		.byte	0x5
+ 570 02d0 18       		.byte	0x18
+ 571 02d1 29020000 		.4byte	.LASF35
+ 572 02d5 0A040000 		.4byte	0x40a
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\cc7PaiZq.s 			page 12
+
+
+ 573 02d9 01       		.byte	0x1
+ 574 02da E2020000 		.4byte	0x2e2
+ 575 02de E9020000 		.4byte	0x2e9
+ 576 02e2 0A       		.uleb128 0xa
+ 577 02e3 11040000 		.4byte	0x411
+ 578 02e7 01       		.byte	0x1
+ 579 02e8 00       		.byte	0
+ 580 02e9 1D       		.uleb128 0x1d
+ 581 02ea 01       		.byte	0x1
+ 582 02eb 10010000 		.4byte	.LASF26
+ 583 02ef 05       		.byte	0x5
+ 584 02f0 12       		.byte	0x12
+ 585 02f1 B4010000 		.4byte	.LASF27
+ 586 02f5 6C000000 		.4byte	0x6c
+ 587 02f9 01       		.byte	0x1
+ 588 02fa FE020000 		.4byte	0x2fe
+ 589 02fe 0A       		.uleb128 0xa
+ 590 02ff 11040000 		.4byte	0x411
+ 591 0303 01       		.byte	0x1
+ 592 0304 00       		.byte	0
+ 593 0305 00       		.byte	0
+ 594 0306 1E       		.uleb128 0x1e
+ 595 0307 01       		.byte	0x1
+ 596 0308 EF010000 		.4byte	.LASF28
+ 597 030c 01       		.byte	0x1
+ 598 030d 25       		.byte	0x25
+ 599 030e 6C000000 		.4byte	0x6c
+ 600 0312 00000000 		.4byte	.LFB11
+ 601 0316 0C000000 		.4byte	.LFE11
+ 602 031a 60000000 		.4byte	.LLST3
+ 603 031e 01       		.byte	0x1
+ 604 031f 36030000 		.4byte	0x336
+ 605 0323 1F       		.uleb128 0x1f
+ 606 0324 06000000 		.4byte	.LVL8
+ 607 0328 93010000 		.4byte	0x193
+ 608 032c 1F       		.uleb128 0x1f
+ 609 032d 0A000000 		.4byte	.LVL9
+ 610 0331 37020000 		.4byte	0x237
+ 611 0335 00       		.byte	0
+ 612 0336 20       		.uleb128 0x20
+ 613 0337 FC000000 		.4byte	.LASF29
+ 614 033b 04       		.byte	0x4
+ 615 033c 14       		.byte	0x14
+ 616 033d B1000000 		.4byte	0xb1
+ 617 0341 01       		.byte	0x1
+ 618 0342 01       		.byte	0x1
+ 619 0343 05       		.uleb128 0x5
+ 620 0344 7A000000 		.4byte	0x7a
+ 621 0348 53030000 		.4byte	0x353
+ 622 034c 06       		.uleb128 0x6
+ 623 034d AA000000 		.4byte	0xaa
+ 624 0351 05       		.byte	0x5
+ 625 0352 00       		.byte	0
+ 626 0353 21       		.uleb128 0x21
+ 627 0354 6D616300 		.ascii	"mac\000"
+ 628 0358 01       		.byte	0x1
+ 629 0359 0D       		.byte	0xd
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\cc7PaiZq.s 			page 13
+
+
+ 630 035a 43030000 		.4byte	0x343
+ 631 035e 01       		.byte	0x1
+ 632 035f 05       		.byte	0x5
+ 633 0360 03       		.byte	0x3
+ 634 0361 00000000 		.4byte	mac
+ 635 0365 05       		.uleb128 0x5
+ 636 0366 7A000000 		.4byte	0x7a
+ 637 036a 75030000 		.4byte	0x375
+ 638 036e 06       		.uleb128 0x6
+ 639 036f AA000000 		.4byte	0xaa
+ 640 0373 03       		.byte	0x3
+ 641 0374 00       		.byte	0
+ 642 0375 21       		.uleb128 0x21
+ 643 0376 697000   		.ascii	"ip\000"
+ 644 0379 01       		.byte	0x1
+ 645 037a 0E       		.byte	0xe
+ 646 037b 65030000 		.4byte	0x365
+ 647 037f 01       		.byte	0x1
+ 648 0380 05       		.byte	0x5
+ 649 0381 03       		.byte	0x3
+ 650 0382 00000000 		.4byte	ip
+ 651 0386 1B       		.uleb128 0x1b
+ 652 0387 62010000 		.4byte	.LASF31
+ 653 038b 01       		.byte	0x1
+ 654 038c F2030000 		.4byte	0x3f2
+ 655 0390 09       		.uleb128 0x9
+ 656 0391 01       		.byte	0x1
+ 657 0392 B8000000 		.4byte	.LASF17
+ 658 0396 06       		.byte	0x6
+ 659 0397 13       		.byte	0x13
+ 660 0398 D7020000 		.4byte	.LASF32
+ 661 039c 01       		.byte	0x1
+ 662 039d A5030000 		.4byte	0x3a5
+ 663 03a1 AC030000 		.4byte	0x3ac
+ 664 03a5 0A       		.uleb128 0xa
+ 665 03a6 04040000 		.4byte	0x404
+ 666 03aa 01       		.byte	0x1
+ 667 03ab 00       		.byte	0
+ 668 03ac 1C       		.uleb128 0x1c
+ 669 03ad 01       		.byte	0x1
+ 670 03ae E0010000 		.4byte	.LASF34
+ 671 03b2 06       		.byte	0x6
+ 672 03b3 12       		.byte	0x12
+ 673 03b4 33010000 		.4byte	.LASF36
+ 674 03b8 BF020000 		.4byte	0x2bf
+ 675 03bc 01       		.byte	0x1
+ 676 03bd C5030000 		.4byte	0x3c5
+ 677 03c1 CC030000 		.4byte	0x3cc
+ 678 03c5 0A       		.uleb128 0xa
+ 679 03c6 04040000 		.4byte	0x404
+ 680 03ca 01       		.byte	0x1
+ 681 03cb 00       		.byte	0
+ 682 03cc 22       		.uleb128 0x22
+ 683 03cd 01       		.byte	0x1
+ 684 03ce 2E000000 		.4byte	.LASF37
+ 685 03d2 06       		.byte	0x6
+ 686 03d3 14       		.byte	0x14
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\cc7PaiZq.s 			page 14
+
+
+ 687 03d4 B1020000 		.4byte	.LASF38
+ 688 03d8 01       		.byte	0x1
+ 689 03d9 02       		.byte	0x2
+ 690 03da 10       		.byte	0x10
+ 691 03db 00       		.uleb128 0
+ 692 03dc 86030000 		.4byte	0x386
+ 693 03e0 01       		.byte	0x1
+ 694 03e1 E5030000 		.4byte	0x3e5
+ 695 03e5 0A       		.uleb128 0xa
+ 696 03e6 04040000 		.4byte	0x404
+ 697 03ea 01       		.byte	0x1
+ 698 03eb 0B       		.uleb128 0xb
+ 699 03ec 30000000 		.4byte	0x30
+ 700 03f0 00       		.byte	0
+ 701 03f1 00       		.byte	0
+ 702 03f2 23       		.uleb128 0x23
+ 703 03f3 34000000 		.4byte	.LASF39
+ 704 03f7 01       		.byte	0x1
+ 705 03f8 11       		.byte	0x11
+ 706 03f9 86030000 		.4byte	0x386
+ 707 03fd 01       		.byte	0x1
+ 708 03fe 05       		.byte	0x5
+ 709 03ff 03       		.byte	0x3
+ 710 0400 00000000 		.4byte	server
+ 711 0404 0D       		.uleb128 0xd
+ 712 0405 04       		.byte	0x4
+ 713 0406 86030000 		.4byte	0x386
+ 714 040a 02       		.uleb128 0x2
+ 715 040b 01       		.byte	0x1
+ 716 040c 02       		.byte	0x2
+ 717 040d 05010000 		.4byte	.LASF40
+ 718 0411 0D       		.uleb128 0xd
+ 719 0412 04       		.byte	0x4
+ 720 0413 BF020000 		.4byte	0x2bf
+ 721 0417 00       		.byte	0
+ 722              		.section	.debug_abbrev,"",%progbits
+ 723              	.Ldebug_abbrev0:
+ 724 0000 01       		.uleb128 0x1
+ 725 0001 11       		.uleb128 0x11
+ 726 0002 01       		.byte	0x1
+ 727 0003 25       		.uleb128 0x25
+ 728 0004 0E       		.uleb128 0xe
+ 729 0005 13       		.uleb128 0x13
+ 730 0006 0B       		.uleb128 0xb
+ 731 0007 03       		.uleb128 0x3
+ 732 0008 0E       		.uleb128 0xe
+ 733 0009 1B       		.uleb128 0x1b
+ 734 000a 0E       		.uleb128 0xe
+ 735 000b 55       		.uleb128 0x55
+ 736 000c 06       		.uleb128 0x6
+ 737 000d 11       		.uleb128 0x11
+ 738 000e 01       		.uleb128 0x1
+ 739 000f 52       		.uleb128 0x52
+ 740 0010 01       		.uleb128 0x1
+ 741 0011 10       		.uleb128 0x10
+ 742 0012 06       		.uleb128 0x6
+ 743 0013 00       		.byte	0
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\cc7PaiZq.s 			page 15
+
+
+ 744 0014 00       		.byte	0
+ 745 0015 02       		.uleb128 0x2
+ 746 0016 24       		.uleb128 0x24
+ 747 0017 00       		.byte	0
+ 748 0018 0B       		.uleb128 0xb
+ 749 0019 0B       		.uleb128 0xb
+ 750 001a 3E       		.uleb128 0x3e
+ 751 001b 0B       		.uleb128 0xb
+ 752 001c 03       		.uleb128 0x3
+ 753 001d 0E       		.uleb128 0xe
+ 754 001e 00       		.byte	0
+ 755 001f 00       		.byte	0
+ 756 0020 03       		.uleb128 0x3
+ 757 0021 16       		.uleb128 0x16
+ 758 0022 00       		.byte	0
+ 759 0023 03       		.uleb128 0x3
+ 760 0024 0E       		.uleb128 0xe
+ 761 0025 3A       		.uleb128 0x3a
+ 762 0026 0B       		.uleb128 0xb
+ 763 0027 3B       		.uleb128 0x3b
+ 764 0028 0B       		.uleb128 0xb
+ 765 0029 49       		.uleb128 0x49
+ 766 002a 13       		.uleb128 0x13
+ 767 002b 00       		.byte	0
+ 768 002c 00       		.byte	0
+ 769 002d 04       		.uleb128 0x4
+ 770 002e 24       		.uleb128 0x24
+ 771 002f 00       		.byte	0
+ 772 0030 0B       		.uleb128 0xb
+ 773 0031 0B       		.uleb128 0xb
+ 774 0032 3E       		.uleb128 0x3e
+ 775 0033 0B       		.uleb128 0xb
+ 776 0034 03       		.uleb128 0x3
+ 777 0035 08       		.uleb128 0x8
+ 778 0036 00       		.byte	0
+ 779 0037 00       		.byte	0
+ 780 0038 05       		.uleb128 0x5
+ 781 0039 01       		.uleb128 0x1
+ 782 003a 01       		.byte	0x1
+ 783 003b 49       		.uleb128 0x49
+ 784 003c 13       		.uleb128 0x13
+ 785 003d 01       		.uleb128 0x1
+ 786 003e 13       		.uleb128 0x13
+ 787 003f 00       		.byte	0
+ 788 0040 00       		.byte	0
+ 789 0041 06       		.uleb128 0x6
+ 790 0042 21       		.uleb128 0x21
+ 791 0043 00       		.byte	0
+ 792 0044 49       		.uleb128 0x49
+ 793 0045 13       		.uleb128 0x13
+ 794 0046 2F       		.uleb128 0x2f
+ 795 0047 0B       		.uleb128 0xb
+ 796 0048 00       		.byte	0
+ 797 0049 00       		.byte	0
+ 798 004a 07       		.uleb128 0x7
+ 799 004b 02       		.uleb128 0x2
+ 800 004c 01       		.byte	0x1
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\cc7PaiZq.s 			page 16
+
+
+ 801 004d 03       		.uleb128 0x3
+ 802 004e 0E       		.uleb128 0xe
+ 803 004f 0B       		.uleb128 0xb
+ 804 0050 0B       		.uleb128 0xb
+ 805 0051 3A       		.uleb128 0x3a
+ 806 0052 0B       		.uleb128 0xb
+ 807 0053 3B       		.uleb128 0x3b
+ 808 0054 0B       		.uleb128 0xb
+ 809 0055 01       		.uleb128 0x1
+ 810 0056 13       		.uleb128 0x13
+ 811 0057 00       		.byte	0
+ 812 0058 00       		.byte	0
+ 813 0059 08       		.uleb128 0x8
+ 814 005a 0D       		.uleb128 0xd
+ 815 005b 00       		.byte	0
+ 816 005c 03       		.uleb128 0x3
+ 817 005d 0E       		.uleb128 0xe
+ 818 005e 3A       		.uleb128 0x3a
+ 819 005f 0B       		.uleb128 0xb
+ 820 0060 3B       		.uleb128 0x3b
+ 821 0061 0B       		.uleb128 0xb
+ 822 0062 49       		.uleb128 0x49
+ 823 0063 13       		.uleb128 0x13
+ 824 0064 3F       		.uleb128 0x3f
+ 825 0065 0C       		.uleb128 0xc
+ 826 0066 3C       		.uleb128 0x3c
+ 827 0067 0C       		.uleb128 0xc
+ 828 0068 00       		.byte	0
+ 829 0069 00       		.byte	0
+ 830 006a 09       		.uleb128 0x9
+ 831 006b 2E       		.uleb128 0x2e
+ 832 006c 01       		.byte	0x1
+ 833 006d 3F       		.uleb128 0x3f
+ 834 006e 0C       		.uleb128 0xc
+ 835 006f 03       		.uleb128 0x3
+ 836 0070 0E       		.uleb128 0xe
+ 837 0071 3A       		.uleb128 0x3a
+ 838 0072 0B       		.uleb128 0xb
+ 839 0073 3B       		.uleb128 0x3b
+ 840 0074 0B       		.uleb128 0xb
+ 841 0075 8740     		.uleb128 0x2007
+ 842 0077 0E       		.uleb128 0xe
+ 843 0078 3C       		.uleb128 0x3c
+ 844 0079 0C       		.uleb128 0xc
+ 845 007a 64       		.uleb128 0x64
+ 846 007b 13       		.uleb128 0x13
+ 847 007c 01       		.uleb128 0x1
+ 848 007d 13       		.uleb128 0x13
+ 849 007e 00       		.byte	0
+ 850 007f 00       		.byte	0
+ 851 0080 0A       		.uleb128 0xa
+ 852 0081 05       		.uleb128 0x5
+ 853 0082 00       		.byte	0
+ 854 0083 49       		.uleb128 0x49
+ 855 0084 13       		.uleb128 0x13
+ 856 0085 34       		.uleb128 0x34
+ 857 0086 0C       		.uleb128 0xc
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\cc7PaiZq.s 			page 17
+
+
+ 858 0087 00       		.byte	0
+ 859 0088 00       		.byte	0
+ 860 0089 0B       		.uleb128 0xb
+ 861 008a 05       		.uleb128 0x5
+ 862 008b 00       		.byte	0
+ 863 008c 49       		.uleb128 0x49
+ 864 008d 13       		.uleb128 0x13
+ 865 008e 00       		.byte	0
+ 866 008f 00       		.byte	0
+ 867 0090 0C       		.uleb128 0xc
+ 868 0091 2E       		.uleb128 0x2e
+ 869 0092 01       		.byte	0x1
+ 870 0093 3F       		.uleb128 0x3f
+ 871 0094 0C       		.uleb128 0xc
+ 872 0095 03       		.uleb128 0x3
+ 873 0096 0E       		.uleb128 0xe
+ 874 0097 3A       		.uleb128 0x3a
+ 875 0098 0B       		.uleb128 0xb
+ 876 0099 3B       		.uleb128 0x3b
+ 877 009a 0B       		.uleb128 0xb
+ 878 009b 8740     		.uleb128 0x2007
+ 879 009d 0E       		.uleb128 0xe
+ 880 009e 3C       		.uleb128 0x3c
+ 881 009f 0C       		.uleb128 0xc
+ 882 00a0 64       		.uleb128 0x64
+ 883 00a1 13       		.uleb128 0x13
+ 884 00a2 00       		.byte	0
+ 885 00a3 00       		.byte	0
+ 886 00a4 0D       		.uleb128 0xd
+ 887 00a5 0F       		.uleb128 0xf
+ 888 00a6 00       		.byte	0
+ 889 00a7 0B       		.uleb128 0xb
+ 890 00a8 0B       		.uleb128 0xb
+ 891 00a9 49       		.uleb128 0x49
+ 892 00aa 13       		.uleb128 0x13
+ 893 00ab 00       		.byte	0
+ 894 00ac 00       		.byte	0
+ 895 00ad 0E       		.uleb128 0xe
+ 896 00ae 2E       		.uleb128 0x2e
+ 897 00af 01       		.byte	0x1
+ 898 00b0 03       		.uleb128 0x3
+ 899 00b1 0E       		.uleb128 0xe
+ 900 00b2 34       		.uleb128 0x34
+ 901 00b3 0C       		.uleb128 0xc
+ 902 00b4 20       		.uleb128 0x20
+ 903 00b5 0B       		.uleb128 0xb
+ 904 00b6 01       		.uleb128 0x1
+ 905 00b7 13       		.uleb128 0x13
+ 906 00b8 00       		.byte	0
+ 907 00b9 00       		.byte	0
+ 908 00ba 0F       		.uleb128 0xf
+ 909 00bb 05       		.uleb128 0x5
+ 910 00bc 00       		.byte	0
+ 911 00bd 03       		.uleb128 0x3
+ 912 00be 0E       		.uleb128 0xe
+ 913 00bf 3A       		.uleb128 0x3a
+ 914 00c0 0B       		.uleb128 0xb
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\cc7PaiZq.s 			page 18
+
+
+ 915 00c1 3B       		.uleb128 0x3b
+ 916 00c2 0B       		.uleb128 0xb
+ 917 00c3 49       		.uleb128 0x49
+ 918 00c4 13       		.uleb128 0x13
+ 919 00c5 00       		.byte	0
+ 920 00c6 00       		.byte	0
+ 921 00c7 10       		.uleb128 0x10
+ 922 00c8 2E       		.uleb128 0x2e
+ 923 00c9 01       		.byte	0x1
+ 924 00ca 3F       		.uleb128 0x3f
+ 925 00cb 0C       		.uleb128 0xc
+ 926 00cc 03       		.uleb128 0x3
+ 927 00cd 0E       		.uleb128 0xe
+ 928 00ce 3A       		.uleb128 0x3a
+ 929 00cf 0B       		.uleb128 0xb
+ 930 00d0 3B       		.uleb128 0x3b
+ 931 00d1 0B       		.uleb128 0xb
+ 932 00d2 8740     		.uleb128 0x2007
+ 933 00d4 0E       		.uleb128 0xe
+ 934 00d5 11       		.uleb128 0x11
+ 935 00d6 01       		.uleb128 0x1
+ 936 00d7 12       		.uleb128 0x12
+ 937 00d8 01       		.uleb128 0x1
+ 938 00d9 40       		.uleb128 0x40
+ 939 00da 06       		.uleb128 0x6
+ 940 00db 9742     		.uleb128 0x2117
+ 941 00dd 0C       		.uleb128 0xc
+ 942 00de 01       		.uleb128 0x1
+ 943 00df 13       		.uleb128 0x13
+ 944 00e0 00       		.byte	0
+ 945 00e1 00       		.byte	0
+ 946 00e2 11       		.uleb128 0x11
+ 947 00e3 898201   		.uleb128 0x4109
+ 948 00e6 01       		.byte	0x1
+ 949 00e7 11       		.uleb128 0x11
+ 950 00e8 01       		.uleb128 0x1
+ 951 00e9 31       		.uleb128 0x31
+ 952 00ea 13       		.uleb128 0x13
+ 953 00eb 01       		.uleb128 0x1
+ 954 00ec 13       		.uleb128 0x13
+ 955 00ed 00       		.byte	0
+ 956 00ee 00       		.byte	0
+ 957 00ef 12       		.uleb128 0x12
+ 958 00f0 8A8201   		.uleb128 0x410a
+ 959 00f3 00       		.byte	0
+ 960 00f4 02       		.uleb128 0x2
+ 961 00f5 0A       		.uleb128 0xa
+ 962 00f6 9142     		.uleb128 0x2111
+ 963 00f8 0A       		.uleb128 0xa
+ 964 00f9 00       		.byte	0
+ 965 00fa 00       		.byte	0
+ 966 00fb 13       		.uleb128 0x13
+ 967 00fc 898201   		.uleb128 0x4109
+ 968 00ff 01       		.byte	0x1
+ 969 0100 11       		.uleb128 0x11
+ 970 0101 01       		.uleb128 0x1
+ 971 0102 31       		.uleb128 0x31
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\cc7PaiZq.s 			page 19
+
+
+ 972 0103 13       		.uleb128 0x13
+ 973 0104 00       		.byte	0
+ 974 0105 00       		.byte	0
+ 975 0106 14       		.uleb128 0x14
+ 976 0107 2E       		.uleb128 0x2e
+ 977 0108 01       		.byte	0x1
+ 978 0109 03       		.uleb128 0x3
+ 979 010a 0E       		.uleb128 0xe
+ 980 010b 34       		.uleb128 0x34
+ 981 010c 0C       		.uleb128 0xc
+ 982 010d 11       		.uleb128 0x11
+ 983 010e 01       		.uleb128 0x1
+ 984 010f 12       		.uleb128 0x12
+ 985 0110 01       		.uleb128 0x1
+ 986 0111 40       		.uleb128 0x40
+ 987 0112 06       		.uleb128 0x6
+ 988 0113 9742     		.uleb128 0x2117
+ 989 0115 0C       		.uleb128 0xc
+ 990 0116 01       		.uleb128 0x1
+ 991 0117 13       		.uleb128 0x13
+ 992 0118 00       		.byte	0
+ 993 0119 00       		.byte	0
+ 994 011a 15       		.uleb128 0x15
+ 995 011b 1D       		.uleb128 0x1d
+ 996 011c 01       		.byte	0x1
+ 997 011d 31       		.uleb128 0x31
+ 998 011e 13       		.uleb128 0x13
+ 999 011f 11       		.uleb128 0x11
+ 1000 0120 01       		.uleb128 0x1
+ 1001 0121 12       		.uleb128 0x12
+ 1002 0122 01       		.uleb128 0x1
+ 1003 0123 58       		.uleb128 0x58
+ 1004 0124 0B       		.uleb128 0xb
+ 1005 0125 59       		.uleb128 0x59
+ 1006 0126 0B       		.uleb128 0xb
+ 1007 0127 00       		.byte	0
+ 1008 0128 00       		.byte	0
+ 1009 0129 16       		.uleb128 0x16
+ 1010 012a 0B       		.uleb128 0xb
+ 1011 012b 01       		.byte	0x1
+ 1012 012c 11       		.uleb128 0x11
+ 1013 012d 01       		.uleb128 0x1
+ 1014 012e 12       		.uleb128 0x12
+ 1015 012f 01       		.uleb128 0x1
+ 1016 0130 00       		.byte	0
+ 1017 0131 00       		.byte	0
+ 1018 0132 17       		.uleb128 0x17
+ 1019 0133 05       		.uleb128 0x5
+ 1020 0134 00       		.byte	0
+ 1021 0135 31       		.uleb128 0x31
+ 1022 0136 13       		.uleb128 0x13
+ 1023 0137 1C       		.uleb128 0x1c
+ 1024 0138 05       		.uleb128 0x5
+ 1025 0139 00       		.byte	0
+ 1026 013a 00       		.byte	0
+ 1027 013b 18       		.uleb128 0x18
+ 1028 013c 05       		.uleb128 0x5
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\cc7PaiZq.s 			page 20
+
+
+ 1029 013d 00       		.byte	0
+ 1030 013e 31       		.uleb128 0x31
+ 1031 013f 13       		.uleb128 0x13
+ 1032 0140 1C       		.uleb128 0x1c
+ 1033 0141 0B       		.uleb128 0xb
+ 1034 0142 00       		.byte	0
+ 1035 0143 00       		.byte	0
+ 1036 0144 19       		.uleb128 0x19
+ 1037 0145 898201   		.uleb128 0x4109
+ 1038 0148 01       		.byte	0x1
+ 1039 0149 11       		.uleb128 0x11
+ 1040 014a 01       		.uleb128 0x1
+ 1041 014b 00       		.byte	0
+ 1042 014c 00       		.byte	0
+ 1043 014d 1A       		.uleb128 0x1a
+ 1044 014e 34       		.uleb128 0x34
+ 1045 014f 00       		.byte	0
+ 1046 0150 03       		.uleb128 0x3
+ 1047 0151 0E       		.uleb128 0xe
+ 1048 0152 3A       		.uleb128 0x3a
+ 1049 0153 0B       		.uleb128 0xb
+ 1050 0154 3B       		.uleb128 0x3b
+ 1051 0155 0B       		.uleb128 0xb
+ 1052 0156 49       		.uleb128 0x49
+ 1053 0157 13       		.uleb128 0x13
+ 1054 0158 02       		.uleb128 0x2
+ 1055 0159 0A       		.uleb128 0xa
+ 1056 015a 00       		.byte	0
+ 1057 015b 00       		.byte	0
+ 1058 015c 1B       		.uleb128 0x1b
+ 1059 015d 02       		.uleb128 0x2
+ 1060 015e 01       		.byte	0x1
+ 1061 015f 03       		.uleb128 0x3
+ 1062 0160 0E       		.uleb128 0xe
+ 1063 0161 3C       		.uleb128 0x3c
+ 1064 0162 0C       		.uleb128 0xc
+ 1065 0163 01       		.uleb128 0x1
+ 1066 0164 13       		.uleb128 0x13
+ 1067 0165 00       		.byte	0
+ 1068 0166 00       		.byte	0
+ 1069 0167 1C       		.uleb128 0x1c
+ 1070 0168 2E       		.uleb128 0x2e
+ 1071 0169 01       		.byte	0x1
+ 1072 016a 3F       		.uleb128 0x3f
+ 1073 016b 0C       		.uleb128 0xc
+ 1074 016c 03       		.uleb128 0x3
+ 1075 016d 0E       		.uleb128 0xe
+ 1076 016e 3A       		.uleb128 0x3a
+ 1077 016f 0B       		.uleb128 0xb
+ 1078 0170 3B       		.uleb128 0x3b
+ 1079 0171 0B       		.uleb128 0xb
+ 1080 0172 8740     		.uleb128 0x2007
+ 1081 0174 0E       		.uleb128 0xe
+ 1082 0175 49       		.uleb128 0x49
+ 1083 0176 13       		.uleb128 0x13
+ 1084 0177 3C       		.uleb128 0x3c
+ 1085 0178 0C       		.uleb128 0xc
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\cc7PaiZq.s 			page 21
+
+
+ 1086 0179 64       		.uleb128 0x64
+ 1087 017a 13       		.uleb128 0x13
+ 1088 017b 01       		.uleb128 0x1
+ 1089 017c 13       		.uleb128 0x13
+ 1090 017d 00       		.byte	0
+ 1091 017e 00       		.byte	0
+ 1092 017f 1D       		.uleb128 0x1d
+ 1093 0180 2E       		.uleb128 0x2e
+ 1094 0181 01       		.byte	0x1
+ 1095 0182 3F       		.uleb128 0x3f
+ 1096 0183 0C       		.uleb128 0xc
+ 1097 0184 03       		.uleb128 0x3
+ 1098 0185 0E       		.uleb128 0xe
+ 1099 0186 3A       		.uleb128 0x3a
+ 1100 0187 0B       		.uleb128 0xb
+ 1101 0188 3B       		.uleb128 0x3b
+ 1102 0189 0B       		.uleb128 0xb
+ 1103 018a 8740     		.uleb128 0x2007
+ 1104 018c 0E       		.uleb128 0xe
+ 1105 018d 49       		.uleb128 0x49
+ 1106 018e 13       		.uleb128 0x13
+ 1107 018f 3C       		.uleb128 0x3c
+ 1108 0190 0C       		.uleb128 0xc
+ 1109 0191 64       		.uleb128 0x64
+ 1110 0192 13       		.uleb128 0x13
+ 1111 0193 00       		.byte	0
+ 1112 0194 00       		.byte	0
+ 1113 0195 1E       		.uleb128 0x1e
+ 1114 0196 2E       		.uleb128 0x2e
+ 1115 0197 01       		.byte	0x1
+ 1116 0198 3F       		.uleb128 0x3f
+ 1117 0199 0C       		.uleb128 0xc
+ 1118 019a 03       		.uleb128 0x3
+ 1119 019b 0E       		.uleb128 0xe
+ 1120 019c 3A       		.uleb128 0x3a
+ 1121 019d 0B       		.uleb128 0xb
+ 1122 019e 3B       		.uleb128 0x3b
+ 1123 019f 0B       		.uleb128 0xb
+ 1124 01a0 49       		.uleb128 0x49
+ 1125 01a1 13       		.uleb128 0x13
+ 1126 01a2 11       		.uleb128 0x11
+ 1127 01a3 01       		.uleb128 0x1
+ 1128 01a4 12       		.uleb128 0x12
+ 1129 01a5 01       		.uleb128 0x1
+ 1130 01a6 40       		.uleb128 0x40
+ 1131 01a7 06       		.uleb128 0x6
+ 1132 01a8 9742     		.uleb128 0x2117
+ 1133 01aa 0C       		.uleb128 0xc
+ 1134 01ab 01       		.uleb128 0x1
+ 1135 01ac 13       		.uleb128 0x13
+ 1136 01ad 00       		.byte	0
+ 1137 01ae 00       		.byte	0
+ 1138 01af 1F       		.uleb128 0x1f
+ 1139 01b0 898201   		.uleb128 0x4109
+ 1140 01b3 00       		.byte	0
+ 1141 01b4 11       		.uleb128 0x11
+ 1142 01b5 01       		.uleb128 0x1
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\cc7PaiZq.s 			page 22
+
+
+ 1143 01b6 31       		.uleb128 0x31
+ 1144 01b7 13       		.uleb128 0x13
+ 1145 01b8 00       		.byte	0
+ 1146 01b9 00       		.byte	0
+ 1147 01ba 20       		.uleb128 0x20
+ 1148 01bb 34       		.uleb128 0x34
+ 1149 01bc 00       		.byte	0
+ 1150 01bd 03       		.uleb128 0x3
+ 1151 01be 0E       		.uleb128 0xe
+ 1152 01bf 3A       		.uleb128 0x3a
+ 1153 01c0 0B       		.uleb128 0xb
+ 1154 01c1 3B       		.uleb128 0x3b
+ 1155 01c2 0B       		.uleb128 0xb
+ 1156 01c3 49       		.uleb128 0x49
+ 1157 01c4 13       		.uleb128 0x13
+ 1158 01c5 3F       		.uleb128 0x3f
+ 1159 01c6 0C       		.uleb128 0xc
+ 1160 01c7 3C       		.uleb128 0x3c
+ 1161 01c8 0C       		.uleb128 0xc
+ 1162 01c9 00       		.byte	0
+ 1163 01ca 00       		.byte	0
+ 1164 01cb 21       		.uleb128 0x21
+ 1165 01cc 34       		.uleb128 0x34
+ 1166 01cd 00       		.byte	0
+ 1167 01ce 03       		.uleb128 0x3
+ 1168 01cf 08       		.uleb128 0x8
+ 1169 01d0 3A       		.uleb128 0x3a
+ 1170 01d1 0B       		.uleb128 0xb
+ 1171 01d2 3B       		.uleb128 0x3b
+ 1172 01d3 0B       		.uleb128 0xb
+ 1173 01d4 49       		.uleb128 0x49
+ 1174 01d5 13       		.uleb128 0x13
+ 1175 01d6 3F       		.uleb128 0x3f
+ 1176 01d7 0C       		.uleb128 0xc
+ 1177 01d8 02       		.uleb128 0x2
+ 1178 01d9 0A       		.uleb128 0xa
+ 1179 01da 00       		.byte	0
+ 1180 01db 00       		.byte	0
+ 1181 01dc 22       		.uleb128 0x22
+ 1182 01dd 2E       		.uleb128 0x2e
+ 1183 01de 01       		.byte	0x1
+ 1184 01df 3F       		.uleb128 0x3f
+ 1185 01e0 0C       		.uleb128 0xc
+ 1186 01e1 03       		.uleb128 0x3
+ 1187 01e2 0E       		.uleb128 0xe
+ 1188 01e3 3A       		.uleb128 0x3a
+ 1189 01e4 0B       		.uleb128 0xb
+ 1190 01e5 3B       		.uleb128 0x3b
+ 1191 01e6 0B       		.uleb128 0xb
+ 1192 01e7 8740     		.uleb128 0x2007
+ 1193 01e9 0E       		.uleb128 0xe
+ 1194 01ea 4C       		.uleb128 0x4c
+ 1195 01eb 0B       		.uleb128 0xb
+ 1196 01ec 4D       		.uleb128 0x4d
+ 1197 01ed 0A       		.uleb128 0xa
+ 1198 01ee 1D       		.uleb128 0x1d
+ 1199 01ef 13       		.uleb128 0x13
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\cc7PaiZq.s 			page 23
+
+
+ 1200 01f0 3C       		.uleb128 0x3c
+ 1201 01f1 0C       		.uleb128 0xc
+ 1202 01f2 64       		.uleb128 0x64
+ 1203 01f3 13       		.uleb128 0x13
+ 1204 01f4 00       		.byte	0
+ 1205 01f5 00       		.byte	0
+ 1206 01f6 23       		.uleb128 0x23
+ 1207 01f7 34       		.uleb128 0x34
+ 1208 01f8 00       		.byte	0
+ 1209 01f9 03       		.uleb128 0x3
+ 1210 01fa 0E       		.uleb128 0xe
+ 1211 01fb 3A       		.uleb128 0x3a
+ 1212 01fc 0B       		.uleb128 0xb
+ 1213 01fd 3B       		.uleb128 0x3b
+ 1214 01fe 0B       		.uleb128 0xb
+ 1215 01ff 49       		.uleb128 0x49
+ 1216 0200 13       		.uleb128 0x13
+ 1217 0201 3F       		.uleb128 0x3f
+ 1218 0202 0C       		.uleb128 0xc
+ 1219 0203 02       		.uleb128 0x2
+ 1220 0204 0A       		.uleb128 0xa
+ 1221 0205 00       		.byte	0
+ 1222 0206 00       		.byte	0
+ 1223 0207 00       		.byte	0
+ 1224              		.section	.debug_loc,"",%progbits
+ 1225              	.Ldebug_loc0:
+ 1226              	.LLST0:
+ 1227 0000 00000000 		.4byte	.LFB6
+ 1228 0004 02000000 		.4byte	.LCFI0
+ 1229 0008 0200     		.2byte	0x2
+ 1230 000a 7D       		.byte	0x7d
+ 1231 000b 00       		.sleb128 0
+ 1232 000c 02000000 		.4byte	.LCFI0
+ 1233 0010 20000000 		.4byte	.LFE6
+ 1234 0014 0200     		.2byte	0x2
+ 1235 0016 7D       		.byte	0x7d
+ 1236 0017 08       		.sleb128 8
+ 1237 0018 00000000 		.4byte	0
+ 1238 001c 00000000 		.4byte	0
+ 1239              	.LLST1:
+ 1240 0020 00000000 		.4byte	.LFB13
+ 1241 0024 02000000 		.4byte	.LCFI1
+ 1242 0028 0200     		.2byte	0x2
+ 1243 002a 7D       		.byte	0x7d
+ 1244 002b 00       		.sleb128 0
+ 1245 002c 02000000 		.4byte	.LCFI1
+ 1246 0030 10000000 		.4byte	.LFE13
+ 1247 0034 0200     		.2byte	0x2
+ 1248 0036 7D       		.byte	0x7d
+ 1249 0037 08       		.sleb128 8
+ 1250 0038 00000000 		.4byte	0
+ 1251 003c 00000000 		.4byte	0
+ 1252              	.LLST2:
+ 1253 0040 00000000 		.4byte	.LFB7
+ 1254 0044 02000000 		.4byte	.LCFI2
+ 1255 0048 0200     		.2byte	0x2
+ 1256 004a 7D       		.byte	0x7d
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\cc7PaiZq.s 			page 24
+
+
+ 1257 004b 00       		.sleb128 0
+ 1258 004c 02000000 		.4byte	.LCFI2
+ 1259 0050 2C000000 		.4byte	.LFE7
+ 1260 0054 0200     		.2byte	0x2
+ 1261 0056 7D       		.byte	0x7d
+ 1262 0057 18       		.sleb128 24
+ 1263 0058 00000000 		.4byte	0
+ 1264 005c 00000000 		.4byte	0
+ 1265              	.LLST3:
+ 1266 0060 00000000 		.4byte	.LFB11
+ 1267 0064 02000000 		.4byte	.LCFI3
+ 1268 0068 0200     		.2byte	0x2
+ 1269 006a 7D       		.byte	0x7d
+ 1270 006b 00       		.sleb128 0
+ 1271 006c 02000000 		.4byte	.LCFI3
+ 1272 0070 0C000000 		.4byte	.LFE11
+ 1273 0074 0200     		.2byte	0x2
+ 1274 0076 7D       		.byte	0x7d
+ 1275 0077 08       		.sleb128 8
+ 1276 0078 00000000 		.4byte	0
+ 1277 007c 00000000 		.4byte	0
+ 1278              		.section	.debug_aranges,"",%progbits
+ 1279 0000 34000000 		.4byte	0x34
+ 1280 0004 0200     		.2byte	0x2
+ 1281 0006 00000000 		.4byte	.Ldebug_info0
+ 1282 000a 04       		.byte	0x4
+ 1283 000b 00       		.byte	0
+ 1284 000c 0000     		.2byte	0
+ 1285 000e 0000     		.2byte	0
+ 1286 0010 00000000 		.4byte	.LFB6
+ 1287 0014 20000000 		.4byte	.LFE6-.LFB6
+ 1288 0018 00000000 		.4byte	.LFB13
+ 1289 001c 10000000 		.4byte	.LFE13-.LFB13
+ 1290 0020 00000000 		.4byte	.LFB7
+ 1291 0024 2C000000 		.4byte	.LFE7-.LFB7
+ 1292 0028 00000000 		.4byte	.LFB11
+ 1293 002c 0C000000 		.4byte	.LFE11-.LFB11
+ 1294 0030 00000000 		.4byte	0
+ 1295 0034 00000000 		.4byte	0
+ 1296              		.section	.debug_ranges,"",%progbits
+ 1297              	.Ldebug_ranges0:
+ 1298 0000 00000000 		.4byte	.LFB6
+ 1299 0004 20000000 		.4byte	.LFE6
+ 1300 0008 00000000 		.4byte	.LFB13
+ 1301 000c 10000000 		.4byte	.LFE13
+ 1302 0010 00000000 		.4byte	.LFB7
+ 1303 0014 2C000000 		.4byte	.LFE7
+ 1304 0018 00000000 		.4byte	.LFB11
+ 1305 001c 0C000000 		.4byte	.LFE11
+ 1306 0020 00000000 		.4byte	0
+ 1307 0024 00000000 		.4byte	0
+ 1308              		.section	.debug_line,"",%progbits
+ 1309              	.Ldebug_line0:
+ 1310 0000 73010000 		.section	.debug_str,"MS",%progbits,1
+ 1310      02001E01 
+ 1310      00000201 
+ 1310      FB0E0D00 
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\cc7PaiZq.s 			page 25
+
+
+ 1310      01010101 
+ 1311              	.LASF43:
+ 1312 0000 433A5C55 		.ascii	"C:\\Users\\atsu\\Desktop\\Design01\\Design01.cydsn\000"
+ 1312      73657273 
+ 1312      5C617473 
+ 1312      755C4465 
+ 1312      736B746F 
+ 1313              	.LASF37:
+ 1314 002e 77726974 		.ascii	"write\000"
+ 1314      6500
+ 1315              	.LASF39:
+ 1316 0034 73657276 		.ascii	"server\000"
+ 1316      657200
+ 1317              	.LASF18:
+ 1318 003b 5F5A4E31 		.ascii	"_ZN13EthernetClass5beginEPhS0_\000"
+ 1318      33457468 
+ 1318      65726E65 
+ 1318      74436C61 
+ 1318      73733562 
+ 1319              	.LASF2:
+ 1320 005a 73686F72 		.ascii	"short int\000"
+ 1320      7420696E 
+ 1320      7400
+ 1321              	.LASF41:
+ 1322 0064 474E5520 		.ascii	"GNU C++ 4.7.3 20130312 (release) [ARM/embedded-4_7-"
+ 1322      432B2B20 
+ 1322      342E372E 
+ 1322      33203230 
+ 1322      31333033 
+ 1323 0097 6272616E 		.ascii	"branch revision 196615]\000"
+ 1323      63682072 
+ 1323      65766973 
+ 1323      696F6E20 
+ 1323      31393636 
+ 1324              	.LASF14:
+ 1325 00af 73697A65 		.ascii	"sizetype\000"
+ 1325      74797065 
+ 1325      00
+ 1326              	.LASF17:
+ 1327 00b8 62656769 		.ascii	"begin\000"
+ 1327      6E00
+ 1328              	.LASF42:
+ 1329 00be 2E5C6574 		.ascii	".\\ether_svr.cpp\000"
+ 1329      6865725F 
+ 1329      7376722E 
+ 1329      63707000 
+ 1330              	.LASF15:
+ 1331 00ce 5F737461 		.ascii	"_state\000"
+ 1331      746500
+ 1332              	.LASF47:
+ 1333 00d5 5F474C4F 		.ascii	"_GLOBAL__sub_I_mac\000"
+ 1333      42414C5F 
+ 1333      5F737562 
+ 1333      5F495F6D 
+ 1333      616300
+ 1334              	.LASF9:
+ 1335 00e8 75696E74 		.ascii	"uint8_t\000"
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\cc7PaiZq.s 			page 26
+
+
+ 1335      385F7400 
+ 1336              	.LASF10:
+ 1337 00f0 75696E74 		.ascii	"uint8\000"
+ 1337      3800
+ 1338              	.LASF22:
+ 1339 00f6 73657475 		.ascii	"setup\000"
+ 1339      7000
+ 1340              	.LASF29:
+ 1341 00fc 45746865 		.ascii	"Ethernet\000"
+ 1341      726E6574 
+ 1341      00
+ 1342              	.LASF40:
+ 1343 0105 626F6F6C 		.ascii	"bool\000"
+ 1343      00
+ 1344              	.LASF11:
+ 1345 010a 666C6F61 		.ascii	"float\000"
+ 1345      7400
+ 1346              	.LASF26:
+ 1347 0110 72656164 		.ascii	"read\000"
+ 1347      00
+ 1348              	.LASF6:
+ 1349 0115 6C6F6E67 		.ascii	"long long int\000"
+ 1349      206C6F6E 
+ 1349      6720696E 
+ 1349      7400
+ 1350              	.LASF48:
+ 1351 0123 636C6965 		.ascii	"client\000"
+ 1351      6E7400
+ 1352              	.LASF4:
+ 1353 012a 6C6F6E67 		.ascii	"long int\000"
+ 1353      20696E74 
+ 1353      00
+ 1354              	.LASF36:
+ 1355 0133 5F5A4E36 		.ascii	"_ZN6Server9availableEv\000"
+ 1355      53657276 
+ 1355      65723961 
+ 1355      7661696C 
+ 1355      61626C65 
+ 1356              	.LASF20:
+ 1357 014a 5F5F696E 		.ascii	"__initialize_p\000"
+ 1357      69746961 
+ 1357      6C697A65 
+ 1357      5F7000
+ 1358              	.LASF25:
+ 1359 0159 5F5A346C 		.ascii	"_Z4loopv\000"
+ 1359      6F6F7076 
+ 1359      00
+ 1360              	.LASF31:
+ 1361 0162 53657276 		.ascii	"Server\000"
+ 1361      657200
+ 1362              	.LASF1:
+ 1363 0169 756E7369 		.ascii	"unsigned char\000"
+ 1363      676E6564 
+ 1363      20636861 
+ 1363      7200
+ 1364              	.LASF0:
+ 1365 0177 7369676E 		.ascii	"signed char\000"
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\cc7PaiZq.s 			page 27
+
+
+ 1365      65642063 
+ 1365      68617200 
+ 1366              	.LASF7:
+ 1367 0183 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1367      206C6F6E 
+ 1367      6720756E 
+ 1367      7369676E 
+ 1367      65642069 
+ 1368              	.LASF8:
+ 1369 019a 756E7369 		.ascii	"unsigned int\000"
+ 1369      676E6564 
+ 1369      20696E74 
+ 1369      00
+ 1370              	.LASF16:
+ 1371 01a7 5F736572 		.ascii	"_server_port\000"
+ 1371      7665725F 
+ 1371      706F7274 
+ 1371      00
+ 1372              	.LASF27:
+ 1373 01b4 5F5A4E36 		.ascii	"_ZN6Client4readEv\000"
+ 1373      436C6965 
+ 1373      6E743472 
+ 1373      65616445 
+ 1373      7600
+ 1374              	.LASF30:
+ 1375 01c6 436C6965 		.ascii	"Client\000"
+ 1375      6E7400
+ 1376              	.LASF3:
+ 1377 01cd 73686F72 		.ascii	"short unsigned int\000"
+ 1377      7420756E 
+ 1377      7369676E 
+ 1377      65642069 
+ 1377      6E7400
+ 1378              	.LASF34:
+ 1379 01e0 61766169 		.ascii	"available\000"
+ 1379      6C61626C 
+ 1379      6500
+ 1380              	.LASF13:
+ 1381 01ea 63686172 		.ascii	"char\000"
+ 1381      00
+ 1382              	.LASF28:
+ 1383 01ef 6D61696E 		.ascii	"main\000"
+ 1383      00
+ 1384              	.LASF46:
+ 1385 01f4 5F5F7374 		.ascii	"__static_initialization_and_destruction_0\000"
+ 1385      61746963 
+ 1385      5F696E69 
+ 1385      7469616C 
+ 1385      697A6174 
+ 1386              	.LASF21:
+ 1387 021e 5F5F7072 		.ascii	"__priority\000"
+ 1387      696F7269 
+ 1387      747900
+ 1388              	.LASF35:
+ 1389 0229 5F5A4E36 		.ascii	"_ZN6ClientcvbEv\000"
+ 1389      436C6965 
+ 1389      6E746376 
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\cc7PaiZq.s 			page 28
+
+
+ 1389      62457600 
+ 1390              	.LASF45:
+ 1391 0239 5F5A4E31 		.ascii	"_ZN13EthernetClass5beginEPhS0_S0_S0_\000"
+ 1391      33457468 
+ 1391      65726E65 
+ 1391      74436C61 
+ 1391      73733562 
+ 1392              	.LASF33:
+ 1393 025e 6F706572 		.ascii	"operator bool\000"
+ 1393      61746F72 
+ 1393      20626F6F 
+ 1393      6C00
+ 1394              	.LASF24:
+ 1395 026c 5F5A3573 		.ascii	"_Z5setupv\000"
+ 1395      65747570 
+ 1395      7600
+ 1396              	.LASF5:
+ 1397 0276 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1397      20756E73 
+ 1397      69676E65 
+ 1397      6420696E 
+ 1397      7400
+ 1398              	.LASF12:
+ 1399 0288 646F7562 		.ascii	"double\000"
+ 1399      6C6500
+ 1400              	.LASF19:
+ 1401 028f 5F5A4E31 		.ascii	"_ZN13EthernetClass5beginEPhS0_S0_\000"
+ 1401      33457468 
+ 1401      65726E65 
+ 1401      74436C61 
+ 1401      73733562 
+ 1402              	.LASF38:
+ 1403 02b1 5F5A4E36 		.ascii	"_ZN6Server5writeEh\000"
+ 1403      53657276 
+ 1403      65723577 
+ 1403      72697465 
+ 1403      456800
+ 1404              	.LASF44:
+ 1405 02c4 45746865 		.ascii	"EthernetClass\000"
+ 1405      726E6574 
+ 1405      436C6173 
+ 1405      7300
+ 1406              	.LASF23:
+ 1407 02d2 6C6F6F70 		.ascii	"loop\000"
+ 1407      00
+ 1408              	.LASF32:
+ 1409 02d7 5F5A4E36 		.ascii	"_ZN6Server5beginEv\000"
+ 1409      53657276 
+ 1409      65723562 
+ 1409      6567696E 
+ 1409      457600
+ 1410              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.7.3 20130312 (release) [ARM/embedded-4_7-br

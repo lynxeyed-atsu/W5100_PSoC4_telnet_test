@@ -1,0 +1,166 @@
+ARM Linker, 5.03 [Build 76] [MDK-ARM Lite]
+
+==============================================================================
+
+Memory Map of the image
+
+  Image Entry point : 0x0000011d
+
+  Load Region APPLICATION (Base: 0x00000000, Size: 0x000004fc, Max: 0x00008000, ABSOLUTE)
+
+    Execution Region VECTORS (Base: 0x00000000, Size: 0x00000010, Max: 0xffffffff, ABSOLUTE)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x00000000   0x00000010   Data   RO          137    .romvectors         Cm0Start.o
+
+
+    Execution Region RELOCATION (Base: 0x00000010, Size: 0x0000010c, Max: 0xffffffff, ABSOLUTE)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x00000010   0x0000010c   Code   RO          177    .psocinit           Design01.a(cyfitter_cfg.o)
+
+
+    Execution Region CODE (Base: 0x0000011c, Size: 0x00000304, Max: 0xffffffff, ABSOLUTE, FIXED)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x0000011c   0x00000008   Code   RO          686  * !!!main             c_p.l(__main.o)
+    0x00000124   0x0000003c   Code   RO          863    !!!scatter          c_p.l(__scatter.o)
+    0x00000160   0x0000001a   Code   RO          865    !!handler_copy      c_p.l(__scatter_copy.o)
+    0x0000017a   0x00000002   Code   RO          729    .ARM.Collect$$libinit$$00000000  c_p.l(libinit.o)
+    0x0000017c   0x00000004   Code   RO          744    .ARM.Collect$$libinit$$00000001  c_p.l(libinit2.o)
+    0x00000180   0x00000000   Code   RO          748    .ARM.Collect$$libinit$$00000008  c_p.l(libinit2.o)
+    0x00000180   0x00000000   Code   RO          750    .ARM.Collect$$libinit$$0000000A  c_p.l(libinit2.o)
+    0x00000180   0x00000000   Code   RO          752    .ARM.Collect$$libinit$$0000000C  c_p.l(libinit2.o)
+    0x00000180   0x00000000   Code   RO          755    .ARM.Collect$$libinit$$0000000F  c_p.l(libinit2.o)
+    0x00000180   0x00000000   Code   RO          757    .ARM.Collect$$libinit$$00000011  c_p.l(libinit2.o)
+    0x00000180   0x00000000   Code   RO          759    .ARM.Collect$$libinit$$00000013  c_p.l(libinit2.o)
+    0x00000180   0x00000000   Code   RO          761    .ARM.Collect$$libinit$$00000015  c_p.l(libinit2.o)
+    0x00000180   0x00000000   Code   RO          763    .ARM.Collect$$libinit$$00000017  c_p.l(libinit2.o)
+    0x00000180   0x00000000   Code   RO          765    .ARM.Collect$$libinit$$00000019  c_p.l(libinit2.o)
+    0x00000180   0x00000000   Code   RO          767    .ARM.Collect$$libinit$$0000001B  c_p.l(libinit2.o)
+    0x00000180   0x00000000   Code   RO          769    .ARM.Collect$$libinit$$0000001D  c_p.l(libinit2.o)
+    0x00000180   0x00000000   Code   RO          771    .ARM.Collect$$libinit$$0000001F  c_p.l(libinit2.o)
+    0x00000180   0x00000000   Code   RO          773    .ARM.Collect$$libinit$$00000021  c_p.l(libinit2.o)
+    0x00000180   0x00000000   Code   RO          775    .ARM.Collect$$libinit$$00000023  c_p.l(libinit2.o)
+    0x00000180   0x00000000   Code   RO          779    .ARM.Collect$$libinit$$0000002A  c_p.l(libinit2.o)
+    0x00000180   0x00000000   Code   RO          781    .ARM.Collect$$libinit$$0000002C  c_p.l(libinit2.o)
+    0x00000180   0x00000000   Code   RO          783    .ARM.Collect$$libinit$$0000002E  c_p.l(libinit2.o)
+    0x00000180   0x00000000   Code   RO          785    .ARM.Collect$$libinit$$00000030  c_p.l(libinit2.o)
+    0x00000180   0x00000002   Code   RO          786    .ARM.Collect$$libinit$$00000031  c_p.l(libinit2.o)
+    0x00000182   0x00000002   Code   RO          821    .ARM.Collect$$libshutdown$$00000000  c_p.l(libshutdown.o)
+    0x00000184   0x00000000   Code   RO          848    .ARM.Collect$$libshutdown$$00000003  c_p.l(libshutdown2.o)
+    0x00000184   0x00000000   Code   RO          851    .ARM.Collect$$libshutdown$$00000006  c_p.l(libshutdown2.o)
+    0x00000184   0x00000000   Code   RO          854    .ARM.Collect$$libshutdown$$00000009  c_p.l(libshutdown2.o)
+    0x00000184   0x00000000   Code   RO          856    .ARM.Collect$$libshutdown$$0000000B  c_p.l(libshutdown2.o)
+    0x00000184   0x00000000   Code   RO          859    .ARM.Collect$$libshutdown$$0000000E  c_p.l(libshutdown2.o)
+    0x00000184   0x00000002   Code   RO          860    .ARM.Collect$$libshutdown$$0000000F  c_p.l(libshutdown2.o)
+    0x00000186   0x00000000   Code   RO          688    .ARM.Collect$$rtentry$$00000000  c_p.l(rtentry.o)
+    0x00000186   0x00000000   Code   RO          694    .ARM.Collect$$rtentry$$00000002  c_p.l(rtentry2.o)
+    0x00000186   0x00000004   Code   RO          708    .ARM.Collect$$rtentry$$00000007  c_p.l(rtentry7.o)
+    0x0000018a   0x00000000   Code   RO          696    .ARM.Collect$$rtentry$$00000009  c_p.l(rtentry2.o)
+    0x0000018a   0x00000004   Code   RO          697    .ARM.Collect$$rtentry$$0000000A  c_p.l(rtentry2.o)
+    0x0000018e   0x00000000   Code   RO          699    .ARM.Collect$$rtentry$$0000000C  c_p.l(rtentry2.o)
+    0x0000018e   0x00000008   Code   RO          700    .ARM.Collect$$rtentry$$0000000D  c_p.l(rtentry2.o)
+    0x00000196   0x00000002   PAD
+    0x00000198   0x00000004   Code   RO          709    .ARM.Collect$$rtentry$$00002718  c_p.l(rtentry7.o)
+    0x0000019c   0x00000002   Code   RO          736    .ARM.Collect$$rtexit$$00000000  c_p.l(rtexit.o)
+    0x0000019e   0x00000000   Code   RO          797    .ARM.Collect$$rtexit$$00000002  c_p.l(rtexit2.o)
+    0x0000019e   0x00000004   Code   RO          798    .ARM.Collect$$rtexit$$00000003  c_p.l(rtexit2.o)
+    0x000001a2   0x00000006   Code   RO          799    .ARM.Collect$$rtexit$$00000004  c_p.l(rtexit2.o)
+    0x000001a8   0x00000020   Code   RO          373    .text               Design01.a(CyBootAsmRv.o)
+    0x000001c8   0x00000040   Code   RO          678    .text               c_p.l(rt_memclr.o)
+    0x00000208   0x00000022   Code   RO          680    .text               c_p.l(uread4.o)
+    0x0000022a   0x0000000c   Code   RO          718    .text               c_p.l(exit.o)
+    0x00000236   0x00000002   PAD
+    0x00000238   0x0000000c   Code   RO          791    .text               c_p.l(sys_exit.o)
+    0x00000244   0x00000002   Code   RO          793    .text               c_p.l(use_no_semi.o)
+    0x00000246   0x00000000   Code   RO          795    .text               c_p.l(indicate_semi.o)
+    0x00000246   0x0000000a   Code   RO          131    i.$Sub$$main        Cm0Start.o
+    0x00000250   0x00000014   Code   RO          379    i.CyDelayUs         Design01.a(CyLib.o)
+    0x00000264   0x00000002   Code   RO          132    i.IntDefaultHandler  Cm0Start.o
+    0x00000266   0x00000008   Code   RO          133    i.Reset             Cm0Start.o
+    0x0000026e   0x00000002   PAD
+    0x00000270   0x00000010   Code   RO          191    i.UART_1_Enable     Design01.a(UART_1.o)
+    0x00000280   0x00000010   Code   RO          261    i.UART_1_SpiUartGetRxBufferSize  Design01.a(UART_1_SPI_UART.o)
+    0x00000290   0x0000000c   Code   RO          264    i.UART_1_SpiUartReadRxData  Design01.a(UART_1_SPI_UART.o)
+    0x0000029c   0x00000018   Code   RO          265    i.UART_1_SpiUartWriteTxData  Design01.a(UART_1_SPI_UART.o)
+    0x000002b4   0x0000001c   Code   RO          194    i.UART_1_Start      Design01.a(UART_1.o)
+    0x000002d0   0x0000002c   Code   RO          326    i.UART_1_UartGetChar  Design01.a(UART_1_UART.o)
+    0x000002fc   0x00000068   Code   RO          327    i.UART_1_UartInit   Design01.a(UART_1_UART.o)
+    0x00000364   0x00000016   Code   RO          329    i.UART_1_UartPutString  Design01.a(UART_1_UART.o)
+    0x0000037a   0x00000002   PAD
+    0x0000037c   0x00000044   Code   RO          134    i.initialize_psoc   Cm0Start.o
+    0x000003c0   0x00000034   Code   RO            5    i.main              main.o
+    0x000003f4   0x0000000c   Data   RO          178    .constdata          Design01.a(cyfitter_cfg.o)
+    0x00000400   0x00000020   Data   RO          861    Region$$Table       anon$$obj.o
+
+
+    Execution Region ISRVECTORS (Base: 0x20000000, Size: 0x000000c0, Max: 0xffffffff, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x20000000   0x000000c0   Data   RW          136    .ramvectors         Cm0Start.o
+
+
+    Execution Region NOINIT_DATA (Base: 0x200000c0, Size: 0x00000004, Max: 0xffffffff, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x200000c0   0x00000004   Zero   RW          135    .noinit             Cm0Start.o
+
+
+    Execution Region DATA (Base: 0x200000c4, Size: 0x0000001c, Max: 0xffffffff, ABSOLUTE)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x200000c4   0x00000004   Data   RW          179    .data               Design01.a(cyfitter_cfg.o)
+    0x200000c8   0x00000008   Data   RW          196    .data               Design01.a(UART_1.o)
+    0x200000d0   0x00000010   Data   RW          426    .data               Design01.a(CyLib.o)
+
+
+    Execution Region ARM_LIB_HEAP (Base: 0x20000b00, Size: 0x00000100, Max: 0x00000100, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x20000b00   0x00000100   Zero   RW            1    ARM_LIB_HEAP.bss    anon$$obj.o
+
+
+    Execution Region ARM_LIB_STACK (Base: 0x20000c00, Size: 0x00000400, Max: 0x00000400, ABSOLUTE, UNINIT)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x20000c00   0x00000400   Zero   RW            2    ARM_LIB_STACK.bss   anon$$obj.o
+
+
+
+  Load Region CYFLASHPROTECT (Base: 0x90400000, Size: 0x00000020, Max: 0xffffffff, ABSOLUTE)
+
+    Execution Region .cyflashprotect (Base: 0x90400000, Size: 0x00000020, Max: 0xffffffff, ABSOLUTE)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x90400000   0x00000020   Data   RO          115    .cyflashprotect     cymetadata.o
+
+
+
+  Load Region CYMETA (Base: 0x90500000, Size: 0x0000000c, Max: 0xffffffff, ABSOLUTE)
+
+    Execution Region .cymeta (Base: 0x90500000, Size: 0x0000000c, Max: 0xffffffff, ABSOLUTE)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x90500000   0x0000000c   Data   RO          116    .cymeta             cymetadata.o
+
+
+
+  Load Region CYCHIPPROTECT (Base: 0x90600000, Size: 0x00000004, Max: 0xffffffff, ABSOLUTE)
+
+    Execution Region .cychipprotect (Base: 0x90600000, Size: 0x00000004, Max: 0xffffffff, ABSOLUTE)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x90600000   0x00000001   Data   RO          114    .cychipprotect      cymetadata.o
+

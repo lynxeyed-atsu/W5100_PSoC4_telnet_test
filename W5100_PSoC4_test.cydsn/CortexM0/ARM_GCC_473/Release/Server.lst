@@ -1,0 +1,2775 @@
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccqLnPtR.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 4
+  10              		.eabi_attribute 34, 0
+  11              		.eabi_attribute 18, 4
+  12              		.code	16
+  13              		.file	"Server.cpp"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text._ZN6ServerC2Et,"ax",%progbits
+  18              		.align	1
+  19              		.global	_ZN6ServerC2Et
+  20              		.code	16
+  21              		.thumb_func
+  22              		.type	_ZN6ServerC2Et, %function
+  23              	_ZN6ServerC2Et:
+  24              		.fnstart
+  25              	.LFB4:
+  26              		.file 1 ".\\Server.cpp"
+   1:.\Server.cpp  **** extern "C" {
+   2:.\Server.cpp  ****   #include "types.h"
+   3:.\Server.cpp  ****   #include "w5100.h"
+   4:.\Server.cpp  ****   #include "socket.h"
+   5:.\Server.cpp  **** }
+   6:.\Server.cpp  **** 
+   7:.\Server.cpp  **** #include "Ethernet.h"
+   8:.\Server.cpp  **** #include "Client.h"
+   9:.\Server.cpp  **** #include "Server.h"
+  10:.\Server.cpp  **** 
+  11:.\Server.cpp  **** Server::Server(uint16_t port)
+  27              		.loc 1 11 0
+  28              		.cfi_startproc
+  29              	.LVL0:
+  30              	.LBB10:
+  31              		.loc 1 11 0
+  32 0000 064B     		ldr	r3, .L2
+  12:.\Server.cpp  **** {
+  13:.\Server.cpp  ****   _port = port;
+  33              		.loc 1 13 0
+  34 0002 0171     		strb	r1, [r0, #4]
+  11:.\Server.cpp  **** Server::Server(uint16_t port)
+  35              		.loc 1 11 0
+  36 0004 0833     		add	r3, r3, #8
+  37 0006 1A0A     		lsr	r2, r3, #8
+  38 0008 0370     		strb	r3, [r0]
+  39 000a 4270     		strb	r2, [r0, #1]
+  40              		.loc 1 13 0
+  41 000c 090A     		lsr	r1, r1, #8
+  42              	.LVL1:
+  11:.\Server.cpp  **** Server::Server(uint16_t port)
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccqLnPtR.s 			page 2
+
+
+  43              		.loc 1 11 0
+  44 000e 1A0C     		lsr	r2, r3, #16
+  45 0010 1B0E     		lsr	r3, r3, #24
+  46 0012 8270     		strb	r2, [r0, #2]
+  47 0014 C370     		strb	r3, [r0, #3]
+  48              		.loc 1 13 0
+  49 0016 4171     		strb	r1, [r0, #5]
+  50              	.LBE10:
+  14:.\Server.cpp  **** }
+  51              		.loc 1 14 0
+  52              		@ sp needed for prologue
+  53 0018 7047     		bx	lr
+  54              	.L3:
+  55 001a C046     		.align	2
+  56              	.L2:
+  57 001c 00000000 		.word	.LANCHOR0
+  58              		.cfi_endproc
+  59              	.LFE4:
+  60              		.cantunwind
+  61              		.fnend
+  62              		.size	_ZN6ServerC2Et, .-_ZN6ServerC2Et
+  63              		.global	_ZN6ServerC1Et
+  64              		.thumb_set _ZN6ServerC1Et,_ZN6ServerC2Et
+  65              		.section	.text._ZN6Server5beginEv,"ax",%progbits
+  66              		.align	1
+  67              		.global	_ZN6Server5beginEv
+  68              		.code	16
+  69              		.thumb_func
+  70              		.type	_ZN6Server5beginEv, %function
+  71              	_ZN6Server5beginEv:
+  72              		.fnstart
+  73              	.LFB6:
+  15:.\Server.cpp  **** 
+  16:.\Server.cpp  **** void Server::begin()
+  17:.\Server.cpp  **** {
+  74              		.loc 1 17 0
+  75              		.cfi_startproc
+  76              	.LVL2:
+  77 0000 7FB5     		push	{r0, r1, r2, r3, r4, r5, r6, lr}
+  78              		.save {r0, r1, r2, r3, r4, r5, r6, lr}
+  79              	.LCFI0:
+  80              		.cfi_def_cfa_offset 32
+  81              		.cfi_offset 0, -32
+  82              		.cfi_offset 1, -28
+  83              		.cfi_offset 2, -24
+  84              		.cfi_offset 3, -20
+  85              		.cfi_offset 4, -16
+  86              		.cfi_offset 5, -12
+  87              		.cfi_offset 6, -8
+  88              		.cfi_offset 14, -4
+  89              		.loc 1 17 0
+  90 0002 051C     		mov	r5, r0
+  18:.\Server.cpp  ****   for (int sock = 0; sock < MAX_SOCK_NUM; sock++) {
+  91              		.loc 1 18 0
+  92 0004 0024     		mov	r4, #0
+  93              	.LVL3:
+  94              	.L7:
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccqLnPtR.s 			page 3
+
+
+  95              	.LBB11:
+  96              	.LBB12:
+  19:.\Server.cpp  ****     Client client(sock);
+  97              		.loc 1 19 0
+  98 0006 E6B2     		uxtb	r6, r4
+  99 0008 311C     		mov	r1, r6
+ 100 000a 01A8     		add	r0, sp, #4
+ 101 000c FFF7FEFF 		bl	_ZN6ClientC1Eh
+ 102              	.LVL4:
+  20:.\Server.cpp  ****     if (client.status() == SOCK_CLOSED) {
+ 103              		.loc 1 20 0
+ 104 0010 01A8     		add	r0, sp, #4
+ 105 0012 FFF7FEFF 		bl	_ZN6Client6statusEv
+ 106              	.LVL5:
+ 107 0016 031E     		sub	r3, r0, #0
+ 108 0018 12D1     		bne	.L5
+  21:.\Server.cpp  ****       socket(sock, Sn_MR_TCP, _port, 0);
+ 109              		.loc 1 21 0
+ 110 001a 6A79     		ldrb	r2, [r5, #5]
+ 111 001c 2979     		ldrb	r1, [r5, #4]
+ 112 001e 1202     		lsl	r2, r2, #8
+ 113 0020 0A43     		orr	r2, r1
+ 114 0022 301C     		mov	r0, r6
+ 115 0024 0121     		mov	r1, #1
+ 116 0026 FFF7FEFF 		bl	socket
+ 117              	.LVL6:
+  22:.\Server.cpp  ****       listen(sock);
+ 118              		.loc 1 22 0
+ 119 002a 301C     		mov	r0, r6
+ 120 002c FFF7FEFF 		bl	listen
+ 121              	.LVL7:
+  23:.\Server.cpp  ****       EthernetClass::_server_port[sock] = _port;
+ 122              		.loc 1 23 0
+ 123 0030 6879     		ldrb	r0, [r5, #5]
+ 124 0032 2B79     		ldrb	r3, [r5, #4]
+ 125 0034 044E     		ldr	r6, .L10
+ 126 0036 0502     		lsl	r5, r0, #8
+ 127              	.LVL8:
+ 128 0038 1D43     		orr	r5, r3
+ 129 003a 6400     		lsl	r4, r4, #1
+ 130 003c A553     		strh	r5, [r4, r6]
+ 131 003e 02E0     		b	.L4
+ 132              	.LVL9:
+ 133              	.L5:
+ 134              	.LBE12:
+  18:.\Server.cpp  ****   for (int sock = 0; sock < MAX_SOCK_NUM; sock++) {
+ 135              		.loc 1 18 0
+ 136 0040 0134     		add	r4, r4, #1
+ 137              	.LVL10:
+ 138 0042 042C     		cmp	r4, #4
+ 139 0044 DFD1     		bne	.L7
+ 140              	.LVL11:
+ 141              	.L4:
+ 142              	.LBE11:
+  24:.\Server.cpp  ****       break;
+  25:.\Server.cpp  ****     }
+  26:.\Server.cpp  ****   }  
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccqLnPtR.s 			page 4
+
+
+  27:.\Server.cpp  **** }
+ 143              		.loc 1 27 0
+ 144              		@ sp needed for prologue
+ 145 0046 7FBD     		pop	{r0, r1, r2, r3, r4, r5, r6, pc}
+ 146              	.L11:
+ 147              		.align	2
+ 148              	.L10:
+ 149 0048 00000000 		.word	_ZN13EthernetClass12_server_portE
+ 150              		.cfi_endproc
+ 151              	.LFE6:
+ 152              		.fnend
+ 153              		.size	_ZN6Server5beginEv, .-_ZN6Server5beginEv
+ 154              		.section	.text._ZN6Server6acceptEv,"ax",%progbits
+ 155              		.align	1
+ 156              		.global	_ZN6Server6acceptEv
+ 157              		.code	16
+ 158              		.thumb_func
+ 159              		.type	_ZN6Server6acceptEv, %function
+ 160              	_ZN6Server6acceptEv:
+ 161              		.fnstart
+ 162              	.LFB7:
+  28:.\Server.cpp  **** 
+  29:.\Server.cpp  **** void Server::accept()
+  30:.\Server.cpp  **** {
+ 163              		.loc 1 30 0
+ 164              		.cfi_startproc
+ 165              	.LVL12:
+ 166 0000 7FB5     		push	{r0, r1, r2, r3, r4, r5, r6, lr}
+ 167              		.save {r0, r1, r2, r3, r4, r5, r6, lr}
+ 168              	.LCFI1:
+ 169              		.cfi_def_cfa_offset 32
+ 170              		.cfi_offset 0, -32
+ 171              		.cfi_offset 1, -28
+ 172              		.cfi_offset 2, -24
+ 173              		.cfi_offset 3, -20
+ 174              		.cfi_offset 4, -16
+ 175              		.cfi_offset 5, -12
+ 176              		.cfi_offset 6, -8
+ 177              		.cfi_offset 14, -4
+  31:.\Server.cpp  ****   int listening = 0;
+  32:.\Server.cpp  ****   
+  33:.\Server.cpp  ****   for (int sock = 0; sock < MAX_SOCK_NUM; sock++) {
+ 178              		.loc 1 33 0
+ 179 0002 0024     		mov	r4, #0
+  30:.\Server.cpp  **** {
+ 180              		.loc 1 30 0
+ 181 0004 051C     		mov	r5, r0
+  31:.\Server.cpp  ****   int listening = 0;
+ 182              		.loc 1 31 0
+ 183 0006 261C     		mov	r6, r4
+ 184              	.LVL13:
+ 185              	.L16:
+ 186              	.LBB13:
+ 187              	.LBB14:
+ 188              	.LBB15:
+  34:.\Server.cpp  ****     Client client(sock);
+ 189              		.loc 1 34 0
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccqLnPtR.s 			page 5
+
+
+ 190 0008 E1B2     		uxtb	r1, r4
+ 191 000a 01A8     		add	r0, sp, #4
+ 192 000c FFF7FEFF 		bl	_ZN6ClientC1Eh
+ 193              	.LVL14:
+  35:.\Server.cpp  ****     
+  36:.\Server.cpp  ****     if (EthernetClass::_server_port[sock] == _port) {
+ 194              		.loc 1 36 0
+ 195 0010 1348     		ldr	r0, .L20
+  29:.\Server.cpp  **** void Server::accept()
+ 196              		.loc 1 29 0
+ 197 0012 6200     		lsl	r2, r4, #1
+ 198              		.loc 1 36 0
+ 199 0014 6B79     		ldrb	r3, [r5, #5]
+ 200 0016 2979     		ldrb	r1, [r5, #4]
+ 201 0018 825A     		ldrh	r2, [r0, r2]
+ 202 001a 1B02     		lsl	r3, r3, #8
+ 203 001c 0B43     		orr	r3, r1
+ 204 001e 9A42     		cmp	r2, r3
+ 205 0020 10D1     		bne	.L13
+  37:.\Server.cpp  ****       if (client.status() == SOCK_LISTEN) {
+ 206              		.loc 1 37 0
+ 207 0022 01A8     		add	r0, sp, #4
+ 208 0024 FFF7FEFF 		bl	_ZN6Client6statusEv
+ 209              	.LVL15:
+ 210 0028 1428     		cmp	r0, #20
+ 211 002a 0AD0     		beq	.L18
+  38:.\Server.cpp  ****         listening = 1;
+  39:.\Server.cpp  ****       } else if (client.status() == SOCK_CLOSE_WAIT && !client.available()) {
+ 212              		.loc 1 39 0
+ 213 002c 01A8     		add	r0, sp, #4
+ 214 002e FFF7FEFF 		bl	_ZN6Client6statusEv
+ 215              	.LVL16:
+ 216 0032 1C28     		cmp	r0, #28
+ 217 0034 06D1     		bne	.L13
+ 218              		.loc 1 39 0 is_stmt 0 discriminator 1
+ 219 0036 01A8     		add	r0, sp, #4
+ 220 0038 FFF7FEFF 		bl	_ZN6Client9availableEv
+ 221              	.LVL17:
+ 222 003c 0028     		cmp	r0, #0
+ 223 003e 0AD0     		beq	.L15
+ 224 0040 00E0     		b	.L13
+ 225              	.L18:
+  38:.\Server.cpp  ****         listening = 1;
+ 226              		.loc 1 38 0 is_stmt 1
+ 227 0042 0126     		mov	r6, #1
+ 228              	.L13:
+ 229              	.LBE15:
+  33:.\Server.cpp  ****   for (int sock = 0; sock < MAX_SOCK_NUM; sock++) {
+ 230              		.loc 1 33 0
+ 231 0044 0134     		add	r4, r4, #1
+ 232              	.LVL18:
+ 233 0046 042C     		cmp	r4, #4
+ 234 0048 DED1     		bne	.L16
+ 235              	.LBE14:
+  40:.\Server.cpp  ****         client.stop();
+  41:.\Server.cpp  ****       }
+  42:.\Server.cpp  ****     } 
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccqLnPtR.s 			page 6
+
+
+  43:.\Server.cpp  ****   }
+  44:.\Server.cpp  ****   
+  45:.\Server.cpp  ****   if (!listening) {
+ 236              		.loc 1 45 0
+ 237 004a 002E     		cmp	r6, #0
+ 238 004c 07D1     		bne	.L12
+  46:.\Server.cpp  ****     begin();
+ 239              		.loc 1 46 0
+ 240 004e 281C     		mov	r0, r5
+ 241 0050 FFF7FEFF 		bl	_ZN6Server5beginEv
+ 242              	.LVL19:
+ 243 0054 03E0     		b	.L12
+ 244              	.LVL20:
+ 245              	.L15:
+ 246              	.LBB17:
+ 247              	.LBB16:
+  40:.\Server.cpp  ****         client.stop();
+ 248              		.loc 1 40 0
+ 249 0056 01A8     		add	r0, sp, #4
+ 250 0058 FFF7FEFF 		bl	_ZN6Client4stopEv
+ 251              	.LVL21:
+ 252 005c F2E7     		b	.L13
+ 253              	.LVL22:
+ 254              	.L12:
+ 255              	.LBE16:
+ 256              	.LBE17:
+ 257              	.LBE13:
+  47:.\Server.cpp  ****   }
+  48:.\Server.cpp  **** }
+ 258              		.loc 1 48 0
+ 259              		@ sp needed for prologue
+ 260              	.LVL23:
+ 261              	.LVL24:
+ 262 005e 7FBD     		pop	{r0, r1, r2, r3, r4, r5, r6, pc}
+ 263              	.L21:
+ 264              		.align	2
+ 265              	.L20:
+ 266 0060 00000000 		.word	_ZN13EthernetClass12_server_portE
+ 267              		.cfi_endproc
+ 268              	.LFE7:
+ 269              		.fnend
+ 270              		.size	_ZN6Server6acceptEv, .-_ZN6Server6acceptEv
+ 271              		.section	.text._ZN6Server9availableEv,"ax",%progbits
+ 272              		.align	1
+ 273              		.global	_ZN6Server9availableEv
+ 274              		.code	16
+ 275              		.thumb_func
+ 276              		.type	_ZN6Server9availableEv, %function
+ 277              	_ZN6Server9availableEv:
+ 278              		.fnstart
+ 279              	.LFB8:
+  49:.\Server.cpp  **** 
+  50:.\Server.cpp  **** Client Server::available()
+  51:.\Server.cpp  **** {
+ 280              		.loc 1 51 0
+ 281              		.cfi_startproc
+ 282              	.LVL25:
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccqLnPtR.s 			page 7
+
+
+ 283 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 284              		.save {r4, r5, r6, r7, lr}
+ 285              	.LCFI2:
+ 286              		.cfi_def_cfa_offset 20
+ 287              		.cfi_offset 4, -20
+ 288              		.cfi_offset 5, -16
+ 289              		.cfi_offset 6, -12
+ 290              		.cfi_offset 7, -8
+ 291              		.cfi_offset 14, -4
+ 292 0002 041C     		mov	r4, r0
+ 293              		.pad #20
+ 294 0004 85B0     		sub	sp, sp, #20
+ 295              	.LCFI3:
+ 296              		.cfi_def_cfa_offset 40
+ 297              	.LBB26:
+  52:.\Server.cpp  ****   accept();
+ 298              		.loc 1 52 0
+ 299 0006 081C     		mov	r0, r1
+ 300              	.LVL26:
+ 301              	.LBE26:
+  51:.\Server.cpp  **** {
+ 302              		.loc 1 51 0
+ 303 0008 0F1C     		mov	r7, r1
+ 304              	.LBB33:
+ 305              		.loc 1 52 0
+ 306 000a FFF7FEFF 		bl	_ZN6Server6acceptEv
+ 307              	.LVL27:
+  53:.\Server.cpp  ****   
+  54:.\Server.cpp  ****   for (int sock = 0; sock < MAX_SOCK_NUM; sock++) {
+ 308              		.loc 1 54 0
+ 309 000e 0026     		mov	r6, #0
+ 310              	.LVL28:
+ 311              	.L26:
+ 312              	.LBB27:
+ 313              	.LBB28:
+  55:.\Server.cpp  ****     Client client(sock);
+ 314              		.loc 1 55 0
+ 315 0010 01AD     		add	r5, sp, #4
+ 316 0012 F1B2     		uxtb	r1, r6
+ 317 0014 281C     		mov	r0, r5
+ 318 0016 FFF7FEFF 		bl	_ZN6ClientC1Eh
+ 319              	.LVL29:
+  56:.\Server.cpp  ****     if (EthernetClass::_server_port[sock] == _port &&
+ 320              		.loc 1 56 0
+ 321 001a 1D48     		ldr	r0, .L31
+  50:.\Server.cpp  **** Client Server::available()
+ 322              		.loc 1 50 0
+ 323 001c 7200     		lsl	r2, r6, #1
+ 324              		.loc 1 56 0
+ 325 001e 7B79     		ldrb	r3, [r7, #5]
+ 326 0020 3979     		ldrb	r1, [r7, #4]
+ 327 0022 825A     		ldrh	r2, [r0, r2]
+ 328 0024 1B02     		lsl	r3, r3, #8
+ 329 0026 0B43     		orr	r3, r1
+ 330 0028 9A42     		cmp	r2, r3
+ 331 002a 04D1     		bne	.L28
+  57:.\Server.cpp  ****         client.status() == SOCK_ESTABLISHED) {
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccqLnPtR.s 			page 8
+
+
+ 332              		.loc 1 57 0
+ 333 002c 281C     		mov	r0, r5
+ 334 002e FFF7FEFF 		bl	_ZN6Client6statusEv
+ 335              	.LVL30:
+  56:.\Server.cpp  ****     if (EthernetClass::_server_port[sock] == _port &&
+ 336              		.loc 1 56 0
+ 337 0032 1728     		cmp	r0, #23
+ 338 0034 07D0     		beq	.L30
+ 339              	.L28:
+ 340              	.LBE28:
+  54:.\Server.cpp  ****   for (int sock = 0; sock < MAX_SOCK_NUM; sock++) {
+ 341              		.loc 1 54 0
+ 342 0036 0136     		add	r6, r6, #1
+ 343              	.LVL31:
+ 344 0038 042E     		cmp	r6, #4
+ 345 003a E9D1     		bne	.L26
+ 346              	.LBE27:
+  58:.\Server.cpp  ****       if (client.available()) {
+  59:.\Server.cpp  ****         // XXX: don't always pick the lowest numbered socket.
+  60:.\Server.cpp  ****         return client;
+  61:.\Server.cpp  ****       }
+  62:.\Server.cpp  ****     }
+  63:.\Server.cpp  ****   }
+  64:.\Server.cpp  ****   
+  65:.\Server.cpp  ****   return Client(255);
+ 347              		.loc 1 65 0
+ 348 003c 201C     		mov	r0, r4
+ 349 003e FF21     		mov	r1, #255
+ 350 0040 FFF7FEFF 		bl	_ZN6ClientC1Eh
+ 351              	.LVL32:
+ 352 0044 20E0     		b	.L22
+ 353              	.LVL33:
+ 354              	.L30:
+ 355              	.LBB32:
+ 356              	.LBB31:
+  58:.\Server.cpp  ****       if (client.available()) {
+ 357              		.loc 1 58 0
+ 358 0046 281C     		mov	r0, r5
+ 359 0048 FFF7FEFF 		bl	_ZN6Client9availableEv
+ 360              	.LVL34:
+ 361 004c 0028     		cmp	r0, #0
+ 362 004e F2D0     		beq	.L28
+ 363              	.LVL35:
+ 364              	.LBB29:
+ 365              	.LBB30:
+ 366              		.file 2 ".\\Client.h"
+   1:.\Client.h    **** #ifndef Client_h
+   2:.\Client.h    **** #define Client_h
+   3:.\Client.h    **** 
+   4:.\Client.h    **** #include "Print.h"
+   5:.\Client.h    **** 
+   6:.\Client.h    **** class Client : public Print {
+ 367              		.loc 2 6 0
+ 368 0050 104F     		ldr	r7, .L31+4
+ 369              	.LVL36:
+ 370 0052 3E0A     		lsr	r6, r7, #8
+ 371 0054 390C     		lsr	r1, r7, #16
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccqLnPtR.s 			page 9
+
+
+ 372 0056 3B0E     		lsr	r3, r7, #24
+ 373 0058 2770     		strb	r7, [r4]
+ 374 005a A170     		strb	r1, [r4, #2]
+ 375 005c E370     		strb	r3, [r4, #3]
+ 376 005e 6670     		strb	r6, [r4, #1]
+ 377 0060 2879     		ldrb	r0, [r5, #4]
+ 378 0062 2071     		strb	r0, [r4, #4]
+ 379 0064 6A68     		ldr	r2, [r5, #4]
+ 380 0066 2E7A     		ldrb	r6, [r5, #8]
+ 381 0068 170A     		lsr	r7, r2, #8
+ 382 006a 3106     		lsl	r1, r6, #24
+ 383 006c 3943     		orr	r1, r7
+ 384 006e 0B0A     		lsr	r3, r1, #8
+ 385 0070 080C     		lsr	r0, r1, #16
+ 386 0072 0A0E     		lsr	r2, r1, #24
+ 387 0074 6171     		strb	r1, [r4, #5]
+ 388 0076 A371     		strb	r3, [r4, #6]
+ 389 0078 E071     		strb	r0, [r4, #7]
+ 390 007a 2272     		strb	r2, [r4, #8]
+ 391 007c AD68     		ldr	r5, [r5, #8]
+ 392              	.LVL37:
+ 393 007e 2F02     		lsl	r7, r5, #8
+ 394 0080 3E0C     		lsr	r6, r7, #16
+ 395 0082 310A     		lsr	r1, r6, #8
+ 396 0084 6672     		strb	r6, [r4, #9]
+ 397 0086 A172     		strb	r1, [r4, #10]
+ 398              	.LVL38:
+ 399              	.L22:
+ 400              	.LBE30:
+ 401              	.LBE29:
+ 402              	.LBE31:
+ 403              	.LBE32:
+ 404              	.LBE33:
+  66:.\Server.cpp  **** }
+ 405              		.loc 1 66 0
+ 406 0088 201C     		mov	r0, r4
+ 407 008a 05B0     		add	sp, sp, #20
+ 408              		@ sp needed for prologue
+ 409              	.LVL39:
+ 410 008c F0BD     		pop	{r4, r5, r6, r7, pc}
+ 411              	.L32:
+ 412 008e C046     		.align	2
+ 413              	.L31:
+ 414 0090 00000000 		.word	_ZN13EthernetClass12_server_portE
+ 415 0094 08000000 		.word	_ZTV6Client+8
+ 416              		.cfi_endproc
+ 417              	.LFE8:
+ 418              		.fnend
+ 419              		.size	_ZN6Server9availableEv, .-_ZN6Server9availableEv
+ 420              		.section	.text._ZN6Server5writeEh,"ax",%progbits
+ 421              		.align	1
+ 422              		.global	_ZN6Server5writeEh
+ 423              		.code	16
+ 424              		.thumb_func
+ 425              		.type	_ZN6Server5writeEh, %function
+ 426              	_ZN6Server5writeEh:
+ 427              		.fnstart
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccqLnPtR.s 			page 10
+
+
+ 428              	.LFB15:
+  67:.\Server.cpp  **** 
+  68:.\Server.cpp  **** void Server::write(uint8_t b) 
+  69:.\Server.cpp  **** {
+ 429              		.loc 1 69 0
+ 430              		.cfi_startproc
+ 431              	.LVL40:
+ 432 0000 7FB5     		push	{r0, r1, r2, r3, r4, r5, r6, lr}
+ 433              		.save {r0, r1, r2, r3, r4, r5, r6, lr}
+ 434              	.LCFI4:
+ 435              		.cfi_def_cfa_offset 32
+ 436              		.cfi_offset 0, -32
+ 437              		.cfi_offset 1, -28
+ 438              		.cfi_offset 2, -24
+ 439              		.cfi_offset 3, -20
+ 440              		.cfi_offset 4, -16
+ 441              		.cfi_offset 5, -12
+ 442              		.cfi_offset 6, -8
+ 443              		.cfi_offset 14, -4
+ 444              		.loc 1 69 0
+ 445 0002 051C     		mov	r5, r0
+ 446 0004 0E1C     		mov	r6, r1
+ 447              	.LBB34:
+  70:.\Server.cpp  ****   accept();
+ 448              		.loc 1 70 0
+ 449 0006 FFF7FEFF 		bl	_ZN6Server6acceptEv
+ 450              	.LVL41:
+  71:.\Server.cpp  ****   
+  72:.\Server.cpp  ****   for (int sock = 0; sock < MAX_SOCK_NUM; sock++) {
+ 451              		.loc 1 72 0
+ 452 000a 0024     		mov	r4, #0
+ 453              	.LVL42:
+ 454              	.L36:
+ 455              	.LBB35:
+ 456              	.LBB36:
+  73:.\Server.cpp  ****     Client client(sock);
+ 457              		.loc 1 73 0
+ 458 000c E1B2     		uxtb	r1, r4
+ 459 000e 01A8     		add	r0, sp, #4
+ 460 0010 FFF7FEFF 		bl	_ZN6ClientC1Eh
+ 461              	.LVL43:
+  74:.\Server.cpp  ****     
+  75:.\Server.cpp  ****     if (EthernetClass::_server_port[sock] == _port &&
+ 462              		.loc 1 75 0
+ 463 0014 0B48     		ldr	r0, .L40
+  68:.\Server.cpp  **** void Server::write(uint8_t b) 
+ 464              		.loc 1 68 0
+ 465 0016 6200     		lsl	r2, r4, #1
+ 466              		.loc 1 75 0
+ 467 0018 6B79     		ldrb	r3, [r5, #5]
+ 468 001a 2979     		ldrb	r1, [r5, #4]
+ 469 001c 825A     		ldrh	r2, [r0, r2]
+ 470 001e 1B02     		lsl	r3, r3, #8
+ 471 0020 0B43     		orr	r3, r1
+ 472 0022 9A42     		cmp	r2, r3
+ 473 0024 04D1     		bne	.L37
+  76:.\Server.cpp  ****         client.status() == SOCK_ESTABLISHED) {
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccqLnPtR.s 			page 11
+
+
+ 474              		.loc 1 76 0
+ 475 0026 01A8     		add	r0, sp, #4
+ 476 0028 FFF7FEFF 		bl	_ZN6Client6statusEv
+ 477              	.LVL44:
+  75:.\Server.cpp  ****     if (EthernetClass::_server_port[sock] == _port &&
+ 478              		.loc 1 75 0
+ 479 002c 1728     		cmp	r0, #23
+ 480 002e 03D0     		beq	.L35
+ 481              	.L37:
+ 482              	.LBE36:
+  72:.\Server.cpp  ****   for (int sock = 0; sock < MAX_SOCK_NUM; sock++) {
+ 483              		.loc 1 72 0
+ 484 0030 0134     		add	r4, r4, #1
+ 485              	.LVL45:
+ 486 0032 042C     		cmp	r4, #4
+ 487 0034 EAD1     		bne	.L36
+ 488              	.LBE35:
+ 489              	.LBE34:
+  77:.\Server.cpp  ****       client.write(b);
+  78:.\Server.cpp  ****     }
+  79:.\Server.cpp  ****   }
+  80:.\Server.cpp  **** }...
+ 490              		.loc 1 80 0
+ 491              		@ sp needed for prologue
+ 492              	.LVL46:
+ 493              	.LVL47:
+ 494 0036 7FBD     		pop	{r0, r1, r2, r3, r4, r5, r6, pc}
+ 495              	.LVL48:
+ 496              	.L35:
+ 497              	.LBB39:
+ 498              	.LBB38:
+ 499              	.LBB37:
+  77:.\Server.cpp  ****       client.write(b);
+ 500              		.loc 1 77 0
+ 501 0038 01A8     		add	r0, sp, #4
+ 502 003a 311C     		mov	r1, r6
+ 503 003c FFF7FEFF 		bl	_ZN6Client5writeEh
+ 504              	.LVL49:
+ 505 0040 F6E7     		b	.L37
+ 506              	.L41:
+ 507 0042 C046     		.align	2
+ 508              	.L40:
+ 509 0044 00000000 		.word	_ZN13EthernetClass12_server_portE
+ 510              	.LBE37:
+ 511              	.LBE38:
+ 512              	.LBE39:
+ 513              		.cfi_endproc
+ 514              	.LFE15:
+ 515              		.fnend
+ 516              		.size	_ZN6Server5writeEh, .-_ZN6Server5writeEh
+ 517              		.global	_ZTV6Server
+ 518              		.section	.rodata
+ 519              		.align	3
+ 520              		.set	.LANCHOR0,. + 0
+ 521              		.type	_ZTV6Server, %object
+ 522              		.size	_ZTV6Server, 12
+ 523              	_ZTV6Server:
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccqLnPtR.s 			page 12
+
+
+ 524 0000 00000000 		.word	0
+ 525 0004 00000000 		.word	0
+ 526 0008 00000000 		.word	_ZN6Server5writeEh
+ 527 000c 00000000 		.text
+ 528              	.Letext0:
+ 529              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\3.0\\psoc creator\\import\\gnu_cs\\arm\\4
+ 530              		.file 4 "./Generated_Source/PSoC4/cytypes.h"
+ 531              		.file 5 ".\\w5100.h"
+ 532              		.file 6 ".\\Print.h"
+ 533              		.file 7 ".\\Server.h"
+ 534              		.file 8 ".\\socket.h"
+ 535              		.section	.debug_info,"",%progbits
+ 536              	.Ldebug_info0:
+ 537 0000 E4060000 		.4byte	0x6e4
+ 538 0004 0200     		.2byte	0x2
+ 539 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 540 000a 04       		.byte	0x4
+ 541 000b 01       		.uleb128 0x1
+ 542 000c 23000000 		.4byte	.LASF42
+ 543 0010 04       		.byte	0x4
+ 544 0011 28020000 		.4byte	.LASF43
+ 545 0015 AF010000 		.4byte	.LASF44
+ 546 0019 90000000 		.4byte	.Ldebug_ranges0+0x90
+ 547 001d 00000000 		.4byte	0
+ 548 0021 00000000 		.4byte	0
+ 549 0025 00000000 		.4byte	.Ldebug_line0
+ 550 0029 02       		.uleb128 0x2
+ 551 002a 01       		.byte	0x1
+ 552 002b 06       		.byte	0x6
+ 553 002c 18010000 		.4byte	.LASF0
+ 554 0030 03       		.uleb128 0x3
+ 555 0031 9A000000 		.4byte	.LASF3
+ 556 0035 03       		.byte	0x3
+ 557 0036 2A       		.byte	0x2a
+ 558 0037 3B000000 		.4byte	0x3b
+ 559 003b 02       		.uleb128 0x2
+ 560 003c 01       		.byte	0x1
+ 561 003d 08       		.byte	0x8
+ 562 003e 0A010000 		.4byte	.LASF1
+ 563 0042 02       		.uleb128 0x2
+ 564 0043 02       		.byte	0x2
+ 565 0044 05       		.byte	0x5
+ 566 0045 19000000 		.4byte	.LASF2
+ 567 0049 03       		.uleb128 0x3
+ 568 004a 5A010000 		.4byte	.LASF4
+ 569 004e 03       		.byte	0x3
+ 570 004f 36       		.byte	0x36
+ 571 0050 54000000 		.4byte	0x54
+ 572 0054 02       		.uleb128 0x2
+ 573 0055 02       		.byte	0x2
+ 574 0056 07       		.byte	0x7
+ 575 0057 81010000 		.4byte	.LASF5
+ 576 005b 02       		.uleb128 0x2
+ 577 005c 04       		.byte	0x4
+ 578 005d 05       		.byte	0x5
+ 579 005e DD000000 		.4byte	.LASF6
+ 580 0062 02       		.uleb128 0x2
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccqLnPtR.s 			page 13
+
+
+ 581 0063 04       		.byte	0x4
+ 582 0064 07       		.byte	0x7
+ 583 0065 16020000 		.4byte	.LASF7
+ 584 0069 02       		.uleb128 0x2
+ 585 006a 08       		.byte	0x8
+ 586 006b 05       		.byte	0x5
+ 587 006c C8000000 		.4byte	.LASF8
+ 588 0070 02       		.uleb128 0x2
+ 589 0071 08       		.byte	0x8
+ 590 0072 07       		.byte	0x7
+ 591 0073 24010000 		.4byte	.LASF9
+ 592 0077 04       		.uleb128 0x4
+ 593 0078 04       		.byte	0x4
+ 594 0079 05       		.byte	0x5
+ 595 007a 696E7400 		.ascii	"int\000"
+ 596 007e 02       		.uleb128 0x2
+ 597 007f 04       		.byte	0x4
+ 598 0080 07       		.byte	0x7
+ 599 0081 3B010000 		.4byte	.LASF10
+ 600 0085 03       		.uleb128 0x3
+ 601 0086 B6000000 		.4byte	.LASF11
+ 602 008a 04       		.byte	0x4
+ 603 008b 5B       		.byte	0x5b
+ 604 008c 3B000000 		.4byte	0x3b
+ 605 0090 03       		.uleb128 0x3
+ 606 0091 93000000 		.4byte	.LASF12
+ 607 0095 04       		.byte	0x4
+ 608 0096 5C       		.byte	0x5c
+ 609 0097 54000000 		.4byte	0x54
+ 610 009b 02       		.uleb128 0x2
+ 611 009c 04       		.byte	0x4
+ 612 009d 04       		.byte	0x4
+ 613 009e BC000000 		.4byte	.LASF13
+ 614 00a2 02       		.uleb128 0x2
+ 615 00a3 08       		.byte	0x8
+ 616 00a4 04       		.byte	0x4
+ 617 00a5 4F020000 		.4byte	.LASF14
+ 618 00a9 02       		.uleb128 0x2
+ 619 00aa 01       		.byte	0x1
+ 620 00ab 08       		.byte	0x8
+ 621 00ac AA010000 		.4byte	.LASF15
+ 622 00b0 02       		.uleb128 0x2
+ 623 00b1 04       		.byte	0x4
+ 624 00b2 07       		.byte	0x7
+ 625 00b3 6E000000 		.4byte	.LASF16
+ 626 00b7 03       		.uleb128 0x3
+ 627 00b8 48020000 		.4byte	.LASF17
+ 628 00bc 05       		.byte	0x5
+ 629 00bd 11       		.byte	0x11
+ 630 00be 85000000 		.4byte	0x85
+ 631 00c2 05       		.uleb128 0x5
+ 632 00c3 03010000 		.4byte	.LASF22
+ 633 00c7 06       		.byte	0x6
+ 634 00c8 07       		.byte	0x7
+ 635 00c9 0C       		.byte	0xc
+ 636 00ca AA010000 		.4byte	0x1aa
+ 637 00ce AA010000 		.4byte	0x1aa
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccqLnPtR.s 			page 14
+
+
+ 638 00d2 06       		.uleb128 0x6
+ 639 00d3 AA010000 		.4byte	0x1aa
+ 640 00d7 02       		.byte	0x2
+ 641 00d8 23       		.byte	0x23
+ 642 00d9 00       		.uleb128 0
+ 643 00da 01       		.byte	0x1
+ 644 00db 07       		.uleb128 0x7
+ 645 00dc FD000000 		.4byte	.LASF45
+ 646 00e0 07       		.byte	0x7
+ 647 00e1 0E       		.byte	0xe
+ 648 00e2 49000000 		.4byte	0x49
+ 649 00e6 02       		.byte	0x2
+ 650 00e7 23       		.byte	0x23
+ 651 00e8 04       		.uleb128 0x4
+ 652 00e9 03       		.byte	0x3
+ 653 00ea 08       		.uleb128 0x8
+ 654 00eb 01       		.byte	0x1
+ 655 00ec 03010000 		.4byte	.LASF22
+ 656 00f0 EC010000 		.4byte	0x1ec
+ 657 00f4 01       		.byte	0x1
+ 658 00f5 01       		.byte	0x1
+ 659 00f6 FE000000 		.4byte	0xfe
+ 660 00fa 0A010000 		.4byte	0x10a
+ 661 00fe 09       		.uleb128 0x9
+ 662 00ff EC010000 		.4byte	0x1ec
+ 663 0103 01       		.byte	0x1
+ 664 0104 0A       		.uleb128 0xa
+ 665 0105 F2010000 		.4byte	0x1f2
+ 666 0109 00       		.byte	0
+ 667 010a 0B       		.uleb128 0xb
+ 668 010b 01       		.byte	0x1
+ 669 010c 00020000 		.4byte	.LASF18
+ 670 0110 01       		.byte	0x1
+ 671 0111 1D       		.byte	0x1d
+ 672 0112 A2000000 		.4byte	.LASF20
+ 673 0116 03       		.byte	0x3
+ 674 0117 01       		.byte	0x1
+ 675 0118 20010000 		.4byte	0x120
+ 676 011c 27010000 		.4byte	0x127
+ 677 0120 09       		.uleb128 0x9
+ 678 0121 EC010000 		.4byte	0x1ec
+ 679 0125 01       		.byte	0x1
+ 680 0126 00       		.byte	0
+ 681 0127 0C       		.uleb128 0xc
+ 682 0128 01       		.byte	0x1
+ 683 0129 03010000 		.4byte	.LASF22
+ 684 012d 01       		.byte	0x1
+ 685 012e 0B       		.byte	0xb
+ 686 012f EC010000 		.4byte	0x1ec
+ 687 0133 01       		.byte	0x1
+ 688 0134 3C010000 		.4byte	0x13c
+ 689 0138 48010000 		.4byte	0x148
+ 690 013c 09       		.uleb128 0x9
+ 691 013d EC010000 		.4byte	0x1ec
+ 692 0141 01       		.byte	0x1
+ 693 0142 0A       		.uleb128 0xa
+ 694 0143 49000000 		.4byte	0x49
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccqLnPtR.s 			page 15
+
+
+ 695 0147 00       		.byte	0
+ 696 0148 0D       		.uleb128 0xd
+ 697 0149 01       		.byte	0x1
+ 698 014a 9B010000 		.4byte	.LASF19
+ 699 014e 01       		.byte	0x1
+ 700 014f 32       		.byte	0x32
+ 701 0150 E6000000 		.4byte	.LASF21
+ 702 0154 FD010000 		.4byte	0x1fd
+ 703 0158 01       		.byte	0x1
+ 704 0159 61010000 		.4byte	0x161
+ 705 015d 68010000 		.4byte	0x168
+ 706 0161 09       		.uleb128 0x9
+ 707 0162 EC010000 		.4byte	0x1ec
+ 708 0166 01       		.byte	0x1
+ 709 0167 00       		.byte	0
+ 710 0168 0E       		.uleb128 0xe
+ 711 0169 01       		.byte	0x1
+ 712 016a 77000000 		.4byte	.LASF23
+ 713 016e 01       		.byte	0x1
+ 714 016f 10       		.byte	0x10
+ 715 0170 5B020000 		.4byte	.LASF30
+ 716 0174 01       		.byte	0x1
+ 717 0175 7D010000 		.4byte	0x17d
+ 718 0179 84010000 		.4byte	0x184
+ 719 017d 09       		.uleb128 0x9
+ 720 017e EC010000 		.4byte	0x1ec
+ 721 0182 01       		.byte	0x1
+ 722 0183 00       		.byte	0
+ 723 0184 0F       		.uleb128 0xf
+ 724 0185 01       		.byte	0x1
+ 725 0186 13000000 		.4byte	.LASF32
+ 726 018a 01       		.byte	0x1
+ 727 018b 44       		.byte	0x44
+ 728 018c 35020000 		.4byte	.LASF33
+ 729 0190 01       		.byte	0x1
+ 730 0191 02       		.byte	0x2
+ 731 0192 10       		.byte	0x10
+ 732 0193 00       		.uleb128 0
+ 733 0194 C2000000 		.4byte	0xc2
+ 734 0198 01       		.byte	0x1
+ 735 0199 9D010000 		.4byte	0x19d
+ 736 019d 09       		.uleb128 0x9
+ 737 019e EC010000 		.4byte	0x1ec
+ 738 01a2 01       		.byte	0x1
+ 739 01a3 0A       		.uleb128 0xa
+ 740 01a4 30000000 		.4byte	0x30
+ 741 01a8 00       		.byte	0
+ 742 01a9 00       		.byte	0
+ 743 01aa 10       		.uleb128 0x10
+ 744 01ab C2000000 		.4byte	.LASF24
+ 745 01af 01       		.byte	0x1
+ 746 01b0 EC010000 		.4byte	0x1ec
+ 747 01b4 08       		.uleb128 0x8
+ 748 01b5 01       		.byte	0x1
+ 749 01b6 C2000000 		.4byte	.LASF24
+ 750 01ba A9020000 		.4byte	0x2a9
+ 751 01be 01       		.byte	0x1
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccqLnPtR.s 			page 16
+
+
+ 752 01bf 01       		.byte	0x1
+ 753 01c0 C8010000 		.4byte	0x1c8
+ 754 01c4 CF010000 		.4byte	0x1cf
+ 755 01c8 09       		.uleb128 0x9
+ 756 01c9 A9020000 		.4byte	0x2a9
+ 757 01cd 01       		.byte	0x1
+ 758 01ce 00       		.byte	0
+ 759 01cf 11       		.uleb128 0x11
+ 760 01d0 01       		.byte	0x1
+ 761 01d1 C2000000 		.4byte	.LASF24
+ 762 01d5 A9020000 		.4byte	0x2a9
+ 763 01d9 01       		.byte	0x1
+ 764 01da 01       		.byte	0x1
+ 765 01db DF010000 		.4byte	0x1df
+ 766 01df 09       		.uleb128 0x9
+ 767 01e0 A9020000 		.4byte	0x2a9
+ 768 01e4 01       		.byte	0x1
+ 769 01e5 0A       		.uleb128 0xa
+ 770 01e6 CF020000 		.4byte	0x2cf
+ 771 01ea 00       		.byte	0
+ 772 01eb 00       		.byte	0
+ 773 01ec 12       		.uleb128 0x12
+ 774 01ed 04       		.byte	0x4
+ 775 01ee C2000000 		.4byte	0xc2
+ 776 01f2 13       		.uleb128 0x13
+ 777 01f3 04       		.byte	0x4
+ 778 01f4 F8010000 		.4byte	0x1f8
+ 779 01f8 14       		.uleb128 0x14
+ 780 01f9 C2000000 		.4byte	0xc2
+ 781 01fd 10       		.uleb128 0x10
+ 782 01fe 7A010000 		.4byte	.LASF25
+ 783 0202 01       		.byte	0x1
+ 784 0203 A9020000 		.4byte	0x2a9
+ 785 0207 08       		.uleb128 0x8
+ 786 0208 01       		.byte	0x1
+ 787 0209 7A010000 		.4byte	.LASF25
+ 788 020d E4040000 		.4byte	0x4e4
+ 789 0211 01       		.byte	0x1
+ 790 0212 01       		.byte	0x1
+ 791 0213 1B020000 		.4byte	0x21b
+ 792 0217 27020000 		.4byte	0x227
+ 793 021b 09       		.uleb128 0x9
+ 794 021c E4040000 		.4byte	0x4e4
+ 795 0220 01       		.byte	0x1
+ 796 0221 0A       		.uleb128 0xa
+ 797 0222 EA040000 		.4byte	0x4ea
+ 798 0226 00       		.byte	0
+ 799 0227 0D       		.uleb128 0xd
+ 800 0228 01       		.byte	0x1
+ 801 0229 94010000 		.4byte	.LASF26
+ 802 022d 02       		.byte	0x2
+ 803 022e 0E       		.byte	0xe
+ 804 022f EC010000 		.4byte	.LASF27
+ 805 0233 30000000 		.4byte	0x30
+ 806 0237 01       		.byte	0x1
+ 807 0238 40020000 		.4byte	0x240
+ 808 023c 47020000 		.4byte	0x247
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccqLnPtR.s 			page 17
+
+
+ 809 0240 09       		.uleb128 0x9
+ 810 0241 E4040000 		.4byte	0x4e4
+ 811 0245 01       		.byte	0x1
+ 812 0246 00       		.byte	0
+ 813 0247 0D       		.uleb128 0xd
+ 814 0248 01       		.byte	0x1
+ 815 0249 9B010000 		.4byte	.LASF19
+ 816 024d 02       		.byte	0x2
+ 817 024e 11       		.byte	0x11
+ 818 024f 63010000 		.4byte	.LASF28
+ 819 0253 77000000 		.4byte	0x77
+ 820 0257 01       		.byte	0x1
+ 821 0258 60020000 		.4byte	0x260
+ 822 025c 67020000 		.4byte	0x267
+ 823 0260 09       		.uleb128 0x9
+ 824 0261 E4040000 		.4byte	0x4e4
+ 825 0265 01       		.byte	0x1
+ 826 0266 00       		.byte	0
+ 827 0267 0E       		.uleb128 0xe
+ 828 0268 01       		.byte	0x1
+ 829 0269 A5010000 		.4byte	.LASF29
+ 830 026d 02       		.byte	0x2
+ 831 026e 14       		.byte	0x14
+ 832 026f 48010000 		.4byte	.LASF31
+ 833 0273 01       		.byte	0x1
+ 834 0274 7C020000 		.4byte	0x27c
+ 835 0278 83020000 		.4byte	0x283
+ 836 027c 09       		.uleb128 0x9
+ 837 027d E4040000 		.4byte	0x4e4
+ 838 0281 01       		.byte	0x1
+ 839 0282 00       		.byte	0
+ 840 0283 0F       		.uleb128 0xf
+ 841 0284 01       		.byte	0x1
+ 842 0285 13000000 		.4byte	.LASF32
+ 843 0289 02       		.byte	0x2
+ 844 028a 10       		.byte	0x10
+ 845 028b 00000000 		.4byte	.LASF34
+ 846 028f 01       		.byte	0x1
+ 847 0290 02       		.byte	0x2
+ 848 0291 10       		.byte	0x10
+ 849 0292 00       		.uleb128 0
+ 850 0293 FD010000 		.4byte	0x1fd
+ 851 0297 01       		.byte	0x1
+ 852 0298 9C020000 		.4byte	0x29c
+ 853 029c 09       		.uleb128 0x9
+ 854 029d E4040000 		.4byte	0x4e4
+ 855 02a1 01       		.byte	0x1
+ 856 02a2 0A       		.uleb128 0xa
+ 857 02a3 30000000 		.4byte	0x30
+ 858 02a7 00       		.byte	0
+ 859 02a8 00       		.byte	0
+ 860 02a9 12       		.uleb128 0x12
+ 861 02aa 04       		.byte	0x4
+ 862 02ab AA010000 		.4byte	0x1aa
+ 863 02af 15       		.uleb128 0x15
+ 864 02b0 B4010000 		.4byte	0x1b4
+ 865 02b4 06       		.byte	0x6
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccqLnPtR.s 			page 18
+
+
+ 866 02b5 1F       		.byte	0x1f
+ 867 02b6 03       		.byte	0x3
+ 868 02b7 BF020000 		.4byte	0x2bf
+ 869 02bb CA020000 		.4byte	0x2ca
+ 870 02bf 16       		.uleb128 0x16
+ 871 02c0 56020000 		.4byte	.LASF35
+ 872 02c4 CA020000 		.4byte	0x2ca
+ 873 02c8 01       		.byte	0x1
+ 874 02c9 00       		.byte	0
+ 875 02ca 14       		.uleb128 0x14
+ 876 02cb A9020000 		.4byte	0x2a9
+ 877 02cf 13       		.uleb128 0x13
+ 878 02d0 04       		.byte	0x4
+ 879 02d1 D5020000 		.4byte	0x2d5
+ 880 02d5 14       		.uleb128 0x14
+ 881 02d6 AA010000 		.4byte	0x1aa
+ 882 02da 15       		.uleb128 0x15
+ 883 02db CF010000 		.4byte	0x1cf
+ 884 02df 06       		.byte	0x6
+ 885 02e0 1F       		.byte	0x1f
+ 886 02e1 03       		.byte	0x3
+ 887 02e2 EA020000 		.4byte	0x2ea
+ 888 02e6 FA020000 		.4byte	0x2fa
+ 889 02ea 16       		.uleb128 0x16
+ 890 02eb 56020000 		.4byte	.LASF35
+ 891 02ef CA020000 		.4byte	0x2ca
+ 892 02f3 01       		.byte	0x1
+ 893 02f4 0A       		.uleb128 0xa
+ 894 02f5 FA020000 		.4byte	0x2fa
+ 895 02f9 00       		.byte	0
+ 896 02fa 14       		.uleb128 0x14
+ 897 02fb CF020000 		.4byte	0x2cf
+ 898 02ff 17       		.uleb128 0x17
+ 899 0300 27010000 		.4byte	0x127
+ 900 0304 00       		.byte	0
+ 901 0305 0D030000 		.4byte	0x30d
+ 902 0309 23030000 		.4byte	0x323
+ 903 030d 16       		.uleb128 0x16
+ 904 030e 56020000 		.4byte	.LASF35
+ 905 0312 23030000 		.4byte	0x323
+ 906 0316 01       		.byte	0x1
+ 907 0317 18       		.uleb128 0x18
+ 908 0318 11020000 		.4byte	.LASF36
+ 909 031c 01       		.byte	0x1
+ 910 031d 0B       		.byte	0xb
+ 911 031e 49000000 		.4byte	0x49
+ 912 0322 00       		.byte	0
+ 913 0323 14       		.uleb128 0x14
+ 914 0324 EC010000 		.4byte	0x1ec
+ 915 0328 19       		.uleb128 0x19
+ 916 0329 FF020000 		.4byte	0x2ff
+ 917 032d 7D000000 		.4byte	.LASF46
+ 918 0331 00000000 		.4byte	.LFB4
+ 919 0335 20000000 		.4byte	.LFE4
+ 920 0339 02       		.byte	0x2
+ 921 033a 7D       		.byte	0x7d
+ 922 033b 00       		.sleb128 0
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccqLnPtR.s 			page 19
+
+
+ 923 033c 45030000 		.4byte	0x345
+ 924 0340 01       		.byte	0x1
+ 925 0341 56030000 		.4byte	0x356
+ 926 0345 1A       		.uleb128 0x1a
+ 927 0346 0D030000 		.4byte	0x30d
+ 928 034a 01       		.byte	0x1
+ 929 034b 50       		.byte	0x50
+ 930 034c 1B       		.uleb128 0x1b
+ 931 034d 17030000 		.4byte	0x317
+ 932 0351 00000000 		.4byte	.LLST0
+ 933 0355 00       		.byte	0
+ 934 0356 1C       		.uleb128 0x1c
+ 935 0357 68010000 		.4byte	0x168
+ 936 035b 00000000 		.4byte	.LFB6
+ 937 035f 4C000000 		.4byte	.LFE6
+ 938 0363 21000000 		.4byte	.LLST1
+ 939 0367 70030000 		.4byte	0x370
+ 940 036b 01       		.byte	0x1
+ 941 036c 03040000 		.4byte	0x403
+ 942 0370 1D       		.uleb128 0x1d
+ 943 0371 56020000 		.4byte	.LASF35
+ 944 0375 23030000 		.4byte	0x323
+ 945 0379 01       		.byte	0x1
+ 946 037a 41000000 		.4byte	.LLST2
+ 947 037e 1E       		.uleb128 0x1e
+ 948 037f 06000000 		.4byte	.LBB11
+ 949 0383 46000000 		.4byte	.LBE11
+ 950 0387 1F       		.uleb128 0x1f
+ 951 0388 6E020000 		.4byte	.LASF37
+ 952 038c 01       		.byte	0x1
+ 953 038d 12       		.byte	0x12
+ 954 038e 77000000 		.4byte	0x77
+ 955 0392 86000000 		.4byte	.LLST3
+ 956 0396 1E       		.uleb128 0x1e
+ 957 0397 06000000 		.4byte	.LBB12
+ 958 039b 40000000 		.4byte	.LBE12
+ 959 039f 20       		.uleb128 0x20
+ 960 03a0 D6000000 		.4byte	.LASF38
+ 961 03a4 01       		.byte	0x1
+ 962 03a5 13       		.byte	0x13
+ 963 03a6 FD010000 		.4byte	0x1fd
+ 964 03aa 02       		.byte	0x2
+ 965 03ab 91       		.byte	0x91
+ 966 03ac 64       		.sleb128 -28
+ 967 03ad 21       		.uleb128 0x21
+ 968 03ae 10000000 		.4byte	.LVL4
+ 969 03b2 C3030000 		.4byte	0x3c3
+ 970 03b6 22       		.uleb128 0x22
+ 971 03b7 01       		.byte	0x1
+ 972 03b8 51       		.byte	0x51
+ 973 03b9 02       		.byte	0x2
+ 974 03ba 76       		.byte	0x76
+ 975 03bb 00       		.sleb128 0
+ 976 03bc 22       		.uleb128 0x22
+ 977 03bd 01       		.byte	0x1
+ 978 03be 50       		.byte	0x50
+ 979 03bf 02       		.byte	0x2
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccqLnPtR.s 			page 20
+
+
+ 980 03c0 91       		.byte	0x91
+ 981 03c1 64       		.sleb128 -28
+ 982 03c2 00       		.byte	0
+ 983 03c3 23       		.uleb128 0x23
+ 984 03c4 16000000 		.4byte	.LVL5
+ 985 03c8 27020000 		.4byte	0x227
+ 986 03cc D7030000 		.4byte	0x3d7
+ 987 03d0 22       		.uleb128 0x22
+ 988 03d1 01       		.byte	0x1
+ 989 03d2 50       		.byte	0x50
+ 990 03d3 02       		.byte	0x2
+ 991 03d4 91       		.byte	0x91
+ 992 03d5 64       		.sleb128 -28
+ 993 03d6 00       		.byte	0
+ 994 03d7 23       		.uleb128 0x23
+ 995 03d8 2A000000 		.4byte	.LVL6
+ 996 03dc AE060000 		.4byte	0x6ae
+ 997 03e0 F0030000 		.4byte	0x3f0
+ 998 03e4 22       		.uleb128 0x22
+ 999 03e5 01       		.byte	0x1
+ 1000 03e6 51       		.byte	0x51
+ 1001 03e7 01       		.byte	0x1
+ 1002 03e8 31       		.byte	0x31
+ 1003 03e9 22       		.uleb128 0x22
+ 1004 03ea 01       		.byte	0x1
+ 1005 03eb 50       		.byte	0x50
+ 1006 03ec 02       		.byte	0x2
+ 1007 03ed 76       		.byte	0x76
+ 1008 03ee 00       		.sleb128 0
+ 1009 03ef 00       		.byte	0
+ 1010 03f0 24       		.uleb128 0x24
+ 1011 03f1 30000000 		.4byte	.LVL7
+ 1012 03f5 D4060000 		.4byte	0x6d4
+ 1013 03f9 22       		.uleb128 0x22
+ 1014 03fa 01       		.byte	0x1
+ 1015 03fb 50       		.byte	0x50
+ 1016 03fc 02       		.byte	0x2
+ 1017 03fd 76       		.byte	0x76
+ 1018 03fe 00       		.sleb128 0
+ 1019 03ff 00       		.byte	0
+ 1020 0400 00       		.byte	0
+ 1021 0401 00       		.byte	0
+ 1022 0402 00       		.byte	0
+ 1023 0403 1C       		.uleb128 0x1c
+ 1024 0404 0A010000 		.4byte	0x10a
+ 1025 0408 00000000 		.4byte	.LFB7
+ 1026 040c 64000000 		.4byte	.LFE7
+ 1027 0410 A5000000 		.4byte	.LLST4
+ 1028 0414 1D040000 		.4byte	0x41d
+ 1029 0418 01       		.byte	0x1
+ 1030 0419 E4040000 		.4byte	0x4e4
+ 1031 041d 1D       		.uleb128 0x1d
+ 1032 041e 56020000 		.4byte	.LASF35
+ 1033 0422 23030000 		.4byte	0x323
+ 1034 0426 01       		.byte	0x1
+ 1035 0427 C5000000 		.4byte	.LLST5
+ 1036 042b 1E       		.uleb128 0x1e
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccqLnPtR.s 			page 21
+
+
+ 1037 042c 08000000 		.4byte	.LBB13
+ 1038 0430 5E000000 		.4byte	.LBE13
+ 1039 0434 1F       		.uleb128 0x1f
+ 1040 0435 07020000 		.4byte	.LASF39
+ 1041 0439 01       		.byte	0x1
+ 1042 043a 1F       		.byte	0x1f
+ 1043 043b 77000000 		.4byte	0x77
+ 1044 043f F1000000 		.4byte	.LLST6
+ 1045 0443 25       		.uleb128 0x25
+ 1046 0444 00000000 		.4byte	.Ldebug_ranges0+0
+ 1047 0448 D2040000 		.4byte	0x4d2
+ 1048 044c 1F       		.uleb128 0x1f
+ 1049 044d 6E020000 		.4byte	.LASF37
+ 1050 0451 01       		.byte	0x1
+ 1051 0452 21       		.byte	0x21
+ 1052 0453 77000000 		.4byte	0x77
+ 1053 0457 05010000 		.4byte	.LLST7
+ 1054 045b 26       		.uleb128 0x26
+ 1055 045c 18000000 		.4byte	.Ldebug_ranges0+0x18
+ 1056 0460 20       		.uleb128 0x20
+ 1057 0461 D6000000 		.4byte	.LASF38
+ 1058 0465 01       		.byte	0x1
+ 1059 0466 22       		.byte	0x22
+ 1060 0467 FD010000 		.4byte	0x1fd
+ 1061 046b 02       		.byte	0x2
+ 1062 046c 91       		.byte	0x91
+ 1063 046d 64       		.sleb128 -28
+ 1064 046e 21       		.uleb128 0x21
+ 1065 046f 10000000 		.4byte	.LVL14
+ 1066 0473 84040000 		.4byte	0x484
+ 1067 0477 22       		.uleb128 0x22
+ 1068 0478 01       		.byte	0x1
+ 1069 0479 51       		.byte	0x51
+ 1070 047a 02       		.byte	0x2
+ 1071 047b 74       		.byte	0x74
+ 1072 047c 00       		.sleb128 0
+ 1073 047d 22       		.uleb128 0x22
+ 1074 047e 01       		.byte	0x1
+ 1075 047f 50       		.byte	0x50
+ 1076 0480 02       		.byte	0x2
+ 1077 0481 91       		.byte	0x91
+ 1078 0482 64       		.sleb128 -28
+ 1079 0483 00       		.byte	0
+ 1080 0484 23       		.uleb128 0x23
+ 1081 0485 28000000 		.4byte	.LVL15
+ 1082 0489 27020000 		.4byte	0x227
+ 1083 048d 98040000 		.4byte	0x498
+ 1084 0491 22       		.uleb128 0x22
+ 1085 0492 01       		.byte	0x1
+ 1086 0493 50       		.byte	0x50
+ 1087 0494 02       		.byte	0x2
+ 1088 0495 91       		.byte	0x91
+ 1089 0496 64       		.sleb128 -28
+ 1090 0497 00       		.byte	0
+ 1091 0498 23       		.uleb128 0x23
+ 1092 0499 32000000 		.4byte	.LVL16
+ 1093 049d 27020000 		.4byte	0x227
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccqLnPtR.s 			page 22
+
+
+ 1094 04a1 AC040000 		.4byte	0x4ac
+ 1095 04a5 22       		.uleb128 0x22
+ 1096 04a6 01       		.byte	0x1
+ 1097 04a7 50       		.byte	0x50
+ 1098 04a8 02       		.byte	0x2
+ 1099 04a9 91       		.byte	0x91
+ 1100 04aa 64       		.sleb128 -28
+ 1101 04ab 00       		.byte	0
+ 1102 04ac 23       		.uleb128 0x23
+ 1103 04ad 3C000000 		.4byte	.LVL17
+ 1104 04b1 47020000 		.4byte	0x247
+ 1105 04b5 C0040000 		.4byte	0x4c0
+ 1106 04b9 22       		.uleb128 0x22
+ 1107 04ba 01       		.byte	0x1
+ 1108 04bb 50       		.byte	0x50
+ 1109 04bc 02       		.byte	0x2
+ 1110 04bd 91       		.byte	0x91
+ 1111 04be 64       		.sleb128 -28
+ 1112 04bf 00       		.byte	0
+ 1113 04c0 24       		.uleb128 0x24
+ 1114 04c1 5C000000 		.4byte	.LVL21
+ 1115 04c5 67020000 		.4byte	0x267
+ 1116 04c9 22       		.uleb128 0x22
+ 1117 04ca 01       		.byte	0x1
+ 1118 04cb 50       		.byte	0x50
+ 1119 04cc 02       		.byte	0x2
+ 1120 04cd 91       		.byte	0x91
+ 1121 04ce 64       		.sleb128 -28
+ 1122 04cf 00       		.byte	0
+ 1123 04d0 00       		.byte	0
+ 1124 04d1 00       		.byte	0
+ 1125 04d2 24       		.uleb128 0x24
+ 1126 04d3 54000000 		.4byte	.LVL19
+ 1127 04d7 56030000 		.4byte	0x356
+ 1128 04db 22       		.uleb128 0x22
+ 1129 04dc 01       		.byte	0x1
+ 1130 04dd 50       		.byte	0x50
+ 1131 04de 02       		.byte	0x2
+ 1132 04df 75       		.byte	0x75
+ 1133 04e0 00       		.sleb128 0
+ 1134 04e1 00       		.byte	0
+ 1135 04e2 00       		.byte	0
+ 1136 04e3 00       		.byte	0
+ 1137 04e4 12       		.uleb128 0x12
+ 1138 04e5 04       		.byte	0x4
+ 1139 04e6 FD010000 		.4byte	0x1fd
+ 1140 04ea 13       		.uleb128 0x13
+ 1141 04eb 04       		.byte	0x4
+ 1142 04ec F0040000 		.4byte	0x4f0
+ 1143 04f0 14       		.uleb128 0x14
+ 1144 04f1 FD010000 		.4byte	0x1fd
+ 1145 04f5 15       		.uleb128 0x15
+ 1146 04f6 07020000 		.4byte	0x207
+ 1147 04fa 02       		.byte	0x2
+ 1148 04fb 06       		.byte	0x6
+ 1149 04fc 02       		.byte	0x2
+ 1150 04fd 05050000 		.4byte	0x505
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccqLnPtR.s 			page 23
+
+
+ 1151 0501 15050000 		.4byte	0x515
+ 1152 0505 16       		.uleb128 0x16
+ 1153 0506 56020000 		.4byte	.LASF35
+ 1154 050a 15050000 		.4byte	0x515
+ 1155 050e 01       		.byte	0x1
+ 1156 050f 0A       		.uleb128 0xa
+ 1157 0510 1A050000 		.4byte	0x51a
+ 1158 0514 00       		.byte	0
+ 1159 0515 14       		.uleb128 0x14
+ 1160 0516 E4040000 		.4byte	0x4e4
+ 1161 051a 14       		.uleb128 0x14
+ 1162 051b EA040000 		.4byte	0x4ea
+ 1163 051f 1C       		.uleb128 0x1c
+ 1164 0520 48010000 		.4byte	0x148
+ 1165 0524 00000000 		.4byte	.LFB8
+ 1166 0528 98000000 		.4byte	.LFE8
+ 1167 052c 2F010000 		.4byte	.LLST8
+ 1168 0530 39050000 		.4byte	0x539
+ 1169 0534 01       		.byte	0x1
+ 1170 0535 FB050000 		.4byte	0x5fb
+ 1171 0539 1D       		.uleb128 0x1d
+ 1172 053a 56020000 		.4byte	.LASF35
+ 1173 053e 23030000 		.4byte	0x323
+ 1174 0542 01       		.byte	0x1
+ 1175 0543 5B010000 		.4byte	.LLST9
+ 1176 0547 25       		.uleb128 0x25
+ 1177 0548 30000000 		.4byte	.Ldebug_ranges0+0x30
+ 1178 054c D4050000 		.4byte	0x5d4
+ 1179 0550 1F       		.uleb128 0x1f
+ 1180 0551 6E020000 		.4byte	.LASF37
+ 1181 0555 01       		.byte	0x1
+ 1182 0556 36       		.byte	0x36
+ 1183 0557 77000000 		.4byte	0x77
+ 1184 055b 87010000 		.4byte	.LLST10
+ 1185 055f 26       		.uleb128 0x26
+ 1186 0560 48000000 		.4byte	.Ldebug_ranges0+0x48
+ 1187 0564 20       		.uleb128 0x20
+ 1188 0565 D6000000 		.4byte	.LASF38
+ 1189 0569 01       		.byte	0x1
+ 1190 056a 37       		.byte	0x37
+ 1191 056b FD010000 		.4byte	0x1fd
+ 1192 056f 02       		.byte	0x2
+ 1193 0570 91       		.byte	0x91
+ 1194 0571 5C       		.sleb128 -36
+ 1195 0572 27       		.uleb128 0x27
+ 1196 0573 F5040000 		.4byte	0x4f5
+ 1197 0577 50000000 		.4byte	.LBB29
+ 1198 057b 88000000 		.4byte	.LBE29
+ 1199 057f 01       		.byte	0x1
+ 1200 0580 3C       		.byte	0x3c
+ 1201 0581 98050000 		.4byte	0x598
+ 1202 0585 1B       		.uleb128 0x1b
+ 1203 0586 0F050000 		.4byte	0x50f
+ 1204 058a A6010000 		.4byte	.LLST11
+ 1205 058e 1B       		.uleb128 0x1b
+ 1206 058f 05050000 		.4byte	0x505
+ 1207 0593 C6010000 		.4byte	.LLST12
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccqLnPtR.s 			page 24
+
+
+ 1208 0597 00       		.byte	0
+ 1209 0598 21       		.uleb128 0x21
+ 1210 0599 1A000000 		.4byte	.LVL29
+ 1211 059d AE050000 		.4byte	0x5ae
+ 1212 05a1 22       		.uleb128 0x22
+ 1213 05a2 01       		.byte	0x1
+ 1214 05a3 51       		.byte	0x51
+ 1215 05a4 02       		.byte	0x2
+ 1216 05a5 76       		.byte	0x76
+ 1217 05a6 00       		.sleb128 0
+ 1218 05a7 22       		.uleb128 0x22
+ 1219 05a8 01       		.byte	0x1
+ 1220 05a9 50       		.byte	0x50
+ 1221 05aa 02       		.byte	0x2
+ 1222 05ab 75       		.byte	0x75
+ 1223 05ac 00       		.sleb128 0
+ 1224 05ad 00       		.byte	0
+ 1225 05ae 23       		.uleb128 0x23
+ 1226 05af 32000000 		.4byte	.LVL30
+ 1227 05b3 27020000 		.4byte	0x227
+ 1228 05b7 C2050000 		.4byte	0x5c2
+ 1229 05bb 22       		.uleb128 0x22
+ 1230 05bc 01       		.byte	0x1
+ 1231 05bd 50       		.byte	0x50
+ 1232 05be 02       		.byte	0x2
+ 1233 05bf 75       		.byte	0x75
+ 1234 05c0 00       		.sleb128 0
+ 1235 05c1 00       		.byte	0
+ 1236 05c2 24       		.uleb128 0x24
+ 1237 05c3 4C000000 		.4byte	.LVL34
+ 1238 05c7 47020000 		.4byte	0x247
+ 1239 05cb 22       		.uleb128 0x22
+ 1240 05cc 01       		.byte	0x1
+ 1241 05cd 50       		.byte	0x50
+ 1242 05ce 02       		.byte	0x2
+ 1243 05cf 75       		.byte	0x75
+ 1244 05d0 00       		.sleb128 0
+ 1245 05d1 00       		.byte	0
+ 1246 05d2 00       		.byte	0
+ 1247 05d3 00       		.byte	0
+ 1248 05d4 23       		.uleb128 0x23
+ 1249 05d5 0E000000 		.4byte	.LVL27
+ 1250 05d9 03040000 		.4byte	0x403
+ 1251 05dd E8050000 		.4byte	0x5e8
+ 1252 05e1 22       		.uleb128 0x22
+ 1253 05e2 01       		.byte	0x1
+ 1254 05e3 50       		.byte	0x50
+ 1255 05e4 02       		.byte	0x2
+ 1256 05e5 77       		.byte	0x77
+ 1257 05e6 00       		.sleb128 0
+ 1258 05e7 00       		.byte	0
+ 1259 05e8 28       		.uleb128 0x28
+ 1260 05e9 44000000 		.4byte	.LVL32
+ 1261 05ed 22       		.uleb128 0x22
+ 1262 05ee 01       		.byte	0x1
+ 1263 05ef 51       		.byte	0x51
+ 1264 05f0 02       		.byte	0x2
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccqLnPtR.s 			page 25
+
+
+ 1265 05f1 09       		.byte	0x9
+ 1266 05f2 FF       		.byte	0xff
+ 1267 05f3 22       		.uleb128 0x22
+ 1268 05f4 01       		.byte	0x1
+ 1269 05f5 50       		.byte	0x50
+ 1270 05f6 02       		.byte	0x2
+ 1271 05f7 74       		.byte	0x74
+ 1272 05f8 00       		.sleb128 0
+ 1273 05f9 00       		.byte	0
+ 1274 05fa 00       		.byte	0
+ 1275 05fb 1C       		.uleb128 0x1c
+ 1276 05fc 84010000 		.4byte	0x184
+ 1277 0600 00000000 		.4byte	.LFB15
+ 1278 0604 48000000 		.4byte	.LFE15
+ 1279 0608 D9010000 		.4byte	.LLST13
+ 1280 060c 15060000 		.4byte	0x615
+ 1281 0610 01       		.byte	0x1
+ 1282 0611 AE060000 		.4byte	0x6ae
+ 1283 0615 1D       		.uleb128 0x1d
+ 1284 0616 56020000 		.4byte	.LASF35
+ 1285 061a 23030000 		.4byte	0x323
+ 1286 061e 01       		.byte	0x1
+ 1287 061f F9010000 		.4byte	.LLST14
+ 1288 0623 29       		.uleb128 0x29
+ 1289 0624 6200     		.ascii	"b\000"
+ 1290 0626 01       		.byte	0x1
+ 1291 0627 44       		.byte	0x44
+ 1292 0628 30000000 		.4byte	0x30
+ 1293 062c 30020000 		.4byte	.LLST15
+ 1294 0630 25       		.uleb128 0x25
+ 1295 0631 60000000 		.4byte	.Ldebug_ranges0+0x60
+ 1296 0635 9D060000 		.4byte	0x69d
+ 1297 0639 1F       		.uleb128 0x1f
+ 1298 063a 6E020000 		.4byte	.LASF37
+ 1299 063e 01       		.byte	0x1
+ 1300 063f 48       		.byte	0x48
+ 1301 0640 77000000 		.4byte	0x77
+ 1302 0644 51020000 		.4byte	.LLST16
+ 1303 0648 26       		.uleb128 0x26
+ 1304 0649 78000000 		.4byte	.Ldebug_ranges0+0x78
+ 1305 064d 20       		.uleb128 0x20
+ 1306 064e D6000000 		.4byte	.LASF38
+ 1307 0652 01       		.byte	0x1
+ 1308 0653 49       		.byte	0x49
+ 1309 0654 FD010000 		.4byte	0x1fd
+ 1310 0658 02       		.byte	0x2
+ 1311 0659 91       		.byte	0x91
+ 1312 065a 64       		.sleb128 -28
+ 1313 065b 21       		.uleb128 0x21
+ 1314 065c 14000000 		.4byte	.LVL43
+ 1315 0660 71060000 		.4byte	0x671
+ 1316 0664 22       		.uleb128 0x22
+ 1317 0665 01       		.byte	0x1
+ 1318 0666 51       		.byte	0x51
+ 1319 0667 02       		.byte	0x2
+ 1320 0668 74       		.byte	0x74
+ 1321 0669 00       		.sleb128 0
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccqLnPtR.s 			page 26
+
+
+ 1322 066a 22       		.uleb128 0x22
+ 1323 066b 01       		.byte	0x1
+ 1324 066c 50       		.byte	0x50
+ 1325 066d 02       		.byte	0x2
+ 1326 066e 91       		.byte	0x91
+ 1327 066f 64       		.sleb128 -28
+ 1328 0670 00       		.byte	0
+ 1329 0671 23       		.uleb128 0x23
+ 1330 0672 2C000000 		.4byte	.LVL44
+ 1331 0676 27020000 		.4byte	0x227
+ 1332 067a 85060000 		.4byte	0x685
+ 1333 067e 22       		.uleb128 0x22
+ 1334 067f 01       		.byte	0x1
+ 1335 0680 50       		.byte	0x50
+ 1336 0681 02       		.byte	0x2
+ 1337 0682 91       		.byte	0x91
+ 1338 0683 64       		.sleb128 -28
+ 1339 0684 00       		.byte	0
+ 1340 0685 24       		.uleb128 0x24
+ 1341 0686 40000000 		.4byte	.LVL49
+ 1342 068a 83020000 		.4byte	0x283
+ 1343 068e 22       		.uleb128 0x22
+ 1344 068f 01       		.byte	0x1
+ 1345 0690 51       		.byte	0x51
+ 1346 0691 02       		.byte	0x2
+ 1347 0692 76       		.byte	0x76
+ 1348 0693 00       		.sleb128 0
+ 1349 0694 22       		.uleb128 0x22
+ 1350 0695 01       		.byte	0x1
+ 1351 0696 50       		.byte	0x50
+ 1352 0697 02       		.byte	0x2
+ 1353 0698 91       		.byte	0x91
+ 1354 0699 64       		.sleb128 -28
+ 1355 069a 00       		.byte	0
+ 1356 069b 00       		.byte	0
+ 1357 069c 00       		.byte	0
+ 1358 069d 24       		.uleb128 0x24
+ 1359 069e 0A000000 		.4byte	.LVL41
+ 1360 06a2 03040000 		.4byte	0x403
+ 1361 06a6 22       		.uleb128 0x22
+ 1362 06a7 01       		.byte	0x1
+ 1363 06a8 50       		.byte	0x50
+ 1364 06a9 02       		.byte	0x2
+ 1365 06aa 75       		.byte	0x75
+ 1366 06ab 00       		.sleb128 0
+ 1367 06ac 00       		.byte	0
+ 1368 06ad 00       		.byte	0
+ 1369 06ae 2A       		.uleb128 0x2a
+ 1370 06af 01       		.byte	0x1
+ 1371 06b0 8C000000 		.4byte	.LASF40
+ 1372 06b4 08       		.byte	0x8
+ 1373 06b5 0F       		.byte	0xf
+ 1374 06b6 85000000 		.4byte	0x85
+ 1375 06ba 01       		.byte	0x1
+ 1376 06bb D4060000 		.4byte	0x6d4
+ 1377 06bf 0A       		.uleb128 0xa
+ 1378 06c0 B7000000 		.4byte	0xb7
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccqLnPtR.s 			page 27
+
+
+ 1379 06c4 0A       		.uleb128 0xa
+ 1380 06c5 85000000 		.4byte	0x85
+ 1381 06c9 0A       		.uleb128 0xa
+ 1382 06ca 90000000 		.4byte	0x90
+ 1383 06ce 0A       		.uleb128 0xa
+ 1384 06cf 85000000 		.4byte	0x85
+ 1385 06d3 00       		.byte	0
+ 1386 06d4 2B       		.uleb128 0x2b
+ 1387 06d5 01       		.byte	0x1
+ 1388 06d6 E5010000 		.4byte	.LASF41
+ 1389 06da 08       		.byte	0x8
+ 1390 06db 13       		.byte	0x13
+ 1391 06dc 85000000 		.4byte	0x85
+ 1392 06e0 01       		.byte	0x1
+ 1393 06e1 0A       		.uleb128 0xa
+ 1394 06e2 B7000000 		.4byte	0xb7
+ 1395 06e6 00       		.byte	0
+ 1396 06e7 00       		.byte	0
+ 1397              		.section	.debug_abbrev,"",%progbits
+ 1398              	.Ldebug_abbrev0:
+ 1399 0000 01       		.uleb128 0x1
+ 1400 0001 11       		.uleb128 0x11
+ 1401 0002 01       		.byte	0x1
+ 1402 0003 25       		.uleb128 0x25
+ 1403 0004 0E       		.uleb128 0xe
+ 1404 0005 13       		.uleb128 0x13
+ 1405 0006 0B       		.uleb128 0xb
+ 1406 0007 03       		.uleb128 0x3
+ 1407 0008 0E       		.uleb128 0xe
+ 1408 0009 1B       		.uleb128 0x1b
+ 1409 000a 0E       		.uleb128 0xe
+ 1410 000b 55       		.uleb128 0x55
+ 1411 000c 06       		.uleb128 0x6
+ 1412 000d 11       		.uleb128 0x11
+ 1413 000e 01       		.uleb128 0x1
+ 1414 000f 52       		.uleb128 0x52
+ 1415 0010 01       		.uleb128 0x1
+ 1416 0011 10       		.uleb128 0x10
+ 1417 0012 06       		.uleb128 0x6
+ 1418 0013 00       		.byte	0
+ 1419 0014 00       		.byte	0
+ 1420 0015 02       		.uleb128 0x2
+ 1421 0016 24       		.uleb128 0x24
+ 1422 0017 00       		.byte	0
+ 1423 0018 0B       		.uleb128 0xb
+ 1424 0019 0B       		.uleb128 0xb
+ 1425 001a 3E       		.uleb128 0x3e
+ 1426 001b 0B       		.uleb128 0xb
+ 1427 001c 03       		.uleb128 0x3
+ 1428 001d 0E       		.uleb128 0xe
+ 1429 001e 00       		.byte	0
+ 1430 001f 00       		.byte	0
+ 1431 0020 03       		.uleb128 0x3
+ 1432 0021 16       		.uleb128 0x16
+ 1433 0022 00       		.byte	0
+ 1434 0023 03       		.uleb128 0x3
+ 1435 0024 0E       		.uleb128 0xe
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccqLnPtR.s 			page 28
+
+
+ 1436 0025 3A       		.uleb128 0x3a
+ 1437 0026 0B       		.uleb128 0xb
+ 1438 0027 3B       		.uleb128 0x3b
+ 1439 0028 0B       		.uleb128 0xb
+ 1440 0029 49       		.uleb128 0x49
+ 1441 002a 13       		.uleb128 0x13
+ 1442 002b 00       		.byte	0
+ 1443 002c 00       		.byte	0
+ 1444 002d 04       		.uleb128 0x4
+ 1445 002e 24       		.uleb128 0x24
+ 1446 002f 00       		.byte	0
+ 1447 0030 0B       		.uleb128 0xb
+ 1448 0031 0B       		.uleb128 0xb
+ 1449 0032 3E       		.uleb128 0x3e
+ 1450 0033 0B       		.uleb128 0xb
+ 1451 0034 03       		.uleb128 0x3
+ 1452 0035 08       		.uleb128 0x8
+ 1453 0036 00       		.byte	0
+ 1454 0037 00       		.byte	0
+ 1455 0038 05       		.uleb128 0x5
+ 1456 0039 02       		.uleb128 0x2
+ 1457 003a 01       		.byte	0x1
+ 1458 003b 03       		.uleb128 0x3
+ 1459 003c 0E       		.uleb128 0xe
+ 1460 003d 0B       		.uleb128 0xb
+ 1461 003e 0B       		.uleb128 0xb
+ 1462 003f 3A       		.uleb128 0x3a
+ 1463 0040 0B       		.uleb128 0xb
+ 1464 0041 3B       		.uleb128 0x3b
+ 1465 0042 0B       		.uleb128 0xb
+ 1466 0043 1D       		.uleb128 0x1d
+ 1467 0044 13       		.uleb128 0x13
+ 1468 0045 01       		.uleb128 0x1
+ 1469 0046 13       		.uleb128 0x13
+ 1470 0047 00       		.byte	0
+ 1471 0048 00       		.byte	0
+ 1472 0049 06       		.uleb128 0x6
+ 1473 004a 1C       		.uleb128 0x1c
+ 1474 004b 00       		.byte	0
+ 1475 004c 49       		.uleb128 0x49
+ 1476 004d 13       		.uleb128 0x13
+ 1477 004e 38       		.uleb128 0x38
+ 1478 004f 0A       		.uleb128 0xa
+ 1479 0050 32       		.uleb128 0x32
+ 1480 0051 0B       		.uleb128 0xb
+ 1481 0052 00       		.byte	0
+ 1482 0053 00       		.byte	0
+ 1483 0054 07       		.uleb128 0x7
+ 1484 0055 0D       		.uleb128 0xd
+ 1485 0056 00       		.byte	0
+ 1486 0057 03       		.uleb128 0x3
+ 1487 0058 0E       		.uleb128 0xe
+ 1488 0059 3A       		.uleb128 0x3a
+ 1489 005a 0B       		.uleb128 0xb
+ 1490 005b 3B       		.uleb128 0x3b
+ 1491 005c 0B       		.uleb128 0xb
+ 1492 005d 49       		.uleb128 0x49
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccqLnPtR.s 			page 29
+
+
+ 1493 005e 13       		.uleb128 0x13
+ 1494 005f 38       		.uleb128 0x38
+ 1495 0060 0A       		.uleb128 0xa
+ 1496 0061 32       		.uleb128 0x32
+ 1497 0062 0B       		.uleb128 0xb
+ 1498 0063 00       		.byte	0
+ 1499 0064 00       		.byte	0
+ 1500 0065 08       		.uleb128 0x8
+ 1501 0066 2E       		.uleb128 0x2e
+ 1502 0067 01       		.byte	0x1
+ 1503 0068 3F       		.uleb128 0x3f
+ 1504 0069 0C       		.uleb128 0xc
+ 1505 006a 03       		.uleb128 0x3
+ 1506 006b 0E       		.uleb128 0xe
+ 1507 006c 49       		.uleb128 0x49
+ 1508 006d 13       		.uleb128 0x13
+ 1509 006e 34       		.uleb128 0x34
+ 1510 006f 0C       		.uleb128 0xc
+ 1511 0070 3C       		.uleb128 0x3c
+ 1512 0071 0C       		.uleb128 0xc
+ 1513 0072 64       		.uleb128 0x64
+ 1514 0073 13       		.uleb128 0x13
+ 1515 0074 01       		.uleb128 0x1
+ 1516 0075 13       		.uleb128 0x13
+ 1517 0076 00       		.byte	0
+ 1518 0077 00       		.byte	0
+ 1519 0078 09       		.uleb128 0x9
+ 1520 0079 05       		.uleb128 0x5
+ 1521 007a 00       		.byte	0
+ 1522 007b 49       		.uleb128 0x49
+ 1523 007c 13       		.uleb128 0x13
+ 1524 007d 34       		.uleb128 0x34
+ 1525 007e 0C       		.uleb128 0xc
+ 1526 007f 00       		.byte	0
+ 1527 0080 00       		.byte	0
+ 1528 0081 0A       		.uleb128 0xa
+ 1529 0082 05       		.uleb128 0x5
+ 1530 0083 00       		.byte	0
+ 1531 0084 49       		.uleb128 0x49
+ 1532 0085 13       		.uleb128 0x13
+ 1533 0086 00       		.byte	0
+ 1534 0087 00       		.byte	0
+ 1535 0088 0B       		.uleb128 0xb
+ 1536 0089 2E       		.uleb128 0x2e
+ 1537 008a 01       		.byte	0x1
+ 1538 008b 3F       		.uleb128 0x3f
+ 1539 008c 0C       		.uleb128 0xc
+ 1540 008d 03       		.uleb128 0x3
+ 1541 008e 0E       		.uleb128 0xe
+ 1542 008f 3A       		.uleb128 0x3a
+ 1543 0090 0B       		.uleb128 0xb
+ 1544 0091 3B       		.uleb128 0x3b
+ 1545 0092 0B       		.uleb128 0xb
+ 1546 0093 8740     		.uleb128 0x2007
+ 1547 0095 0E       		.uleb128 0xe
+ 1548 0096 32       		.uleb128 0x32
+ 1549 0097 0B       		.uleb128 0xb
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccqLnPtR.s 			page 30
+
+
+ 1550 0098 3C       		.uleb128 0x3c
+ 1551 0099 0C       		.uleb128 0xc
+ 1552 009a 64       		.uleb128 0x64
+ 1553 009b 13       		.uleb128 0x13
+ 1554 009c 01       		.uleb128 0x1
+ 1555 009d 13       		.uleb128 0x13
+ 1556 009e 00       		.byte	0
+ 1557 009f 00       		.byte	0
+ 1558 00a0 0C       		.uleb128 0xc
+ 1559 00a1 2E       		.uleb128 0x2e
+ 1560 00a2 01       		.byte	0x1
+ 1561 00a3 3F       		.uleb128 0x3f
+ 1562 00a4 0C       		.uleb128 0xc
+ 1563 00a5 03       		.uleb128 0x3
+ 1564 00a6 0E       		.uleb128 0xe
+ 1565 00a7 3A       		.uleb128 0x3a
+ 1566 00a8 0B       		.uleb128 0xb
+ 1567 00a9 3B       		.uleb128 0x3b
+ 1568 00aa 0B       		.uleb128 0xb
+ 1569 00ab 49       		.uleb128 0x49
+ 1570 00ac 13       		.uleb128 0x13
+ 1571 00ad 3C       		.uleb128 0x3c
+ 1572 00ae 0C       		.uleb128 0xc
+ 1573 00af 64       		.uleb128 0x64
+ 1574 00b0 13       		.uleb128 0x13
+ 1575 00b1 01       		.uleb128 0x1
+ 1576 00b2 13       		.uleb128 0x13
+ 1577 00b3 00       		.byte	0
+ 1578 00b4 00       		.byte	0
+ 1579 00b5 0D       		.uleb128 0xd
+ 1580 00b6 2E       		.uleb128 0x2e
+ 1581 00b7 01       		.byte	0x1
+ 1582 00b8 3F       		.uleb128 0x3f
+ 1583 00b9 0C       		.uleb128 0xc
+ 1584 00ba 03       		.uleb128 0x3
+ 1585 00bb 0E       		.uleb128 0xe
+ 1586 00bc 3A       		.uleb128 0x3a
+ 1587 00bd 0B       		.uleb128 0xb
+ 1588 00be 3B       		.uleb128 0x3b
+ 1589 00bf 0B       		.uleb128 0xb
+ 1590 00c0 8740     		.uleb128 0x2007
+ 1591 00c2 0E       		.uleb128 0xe
+ 1592 00c3 49       		.uleb128 0x49
+ 1593 00c4 13       		.uleb128 0x13
+ 1594 00c5 3C       		.uleb128 0x3c
+ 1595 00c6 0C       		.uleb128 0xc
+ 1596 00c7 64       		.uleb128 0x64
+ 1597 00c8 13       		.uleb128 0x13
+ 1598 00c9 01       		.uleb128 0x1
+ 1599 00ca 13       		.uleb128 0x13
+ 1600 00cb 00       		.byte	0
+ 1601 00cc 00       		.byte	0
+ 1602 00cd 0E       		.uleb128 0xe
+ 1603 00ce 2E       		.uleb128 0x2e
+ 1604 00cf 01       		.byte	0x1
+ 1605 00d0 3F       		.uleb128 0x3f
+ 1606 00d1 0C       		.uleb128 0xc
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccqLnPtR.s 			page 31
+
+
+ 1607 00d2 03       		.uleb128 0x3
+ 1608 00d3 0E       		.uleb128 0xe
+ 1609 00d4 3A       		.uleb128 0x3a
+ 1610 00d5 0B       		.uleb128 0xb
+ 1611 00d6 3B       		.uleb128 0x3b
+ 1612 00d7 0B       		.uleb128 0xb
+ 1613 00d8 8740     		.uleb128 0x2007
+ 1614 00da 0E       		.uleb128 0xe
+ 1615 00db 3C       		.uleb128 0x3c
+ 1616 00dc 0C       		.uleb128 0xc
+ 1617 00dd 64       		.uleb128 0x64
+ 1618 00de 13       		.uleb128 0x13
+ 1619 00df 01       		.uleb128 0x1
+ 1620 00e0 13       		.uleb128 0x13
+ 1621 00e1 00       		.byte	0
+ 1622 00e2 00       		.byte	0
+ 1623 00e3 0F       		.uleb128 0xf
+ 1624 00e4 2E       		.uleb128 0x2e
+ 1625 00e5 01       		.byte	0x1
+ 1626 00e6 3F       		.uleb128 0x3f
+ 1627 00e7 0C       		.uleb128 0xc
+ 1628 00e8 03       		.uleb128 0x3
+ 1629 00e9 0E       		.uleb128 0xe
+ 1630 00ea 3A       		.uleb128 0x3a
+ 1631 00eb 0B       		.uleb128 0xb
+ 1632 00ec 3B       		.uleb128 0x3b
+ 1633 00ed 0B       		.uleb128 0xb
+ 1634 00ee 8740     		.uleb128 0x2007
+ 1635 00f0 0E       		.uleb128 0xe
+ 1636 00f1 4C       		.uleb128 0x4c
+ 1637 00f2 0B       		.uleb128 0xb
+ 1638 00f3 4D       		.uleb128 0x4d
+ 1639 00f4 0A       		.uleb128 0xa
+ 1640 00f5 1D       		.uleb128 0x1d
+ 1641 00f6 13       		.uleb128 0x13
+ 1642 00f7 3C       		.uleb128 0x3c
+ 1643 00f8 0C       		.uleb128 0xc
+ 1644 00f9 64       		.uleb128 0x64
+ 1645 00fa 13       		.uleb128 0x13
+ 1646 00fb 00       		.byte	0
+ 1647 00fc 00       		.byte	0
+ 1648 00fd 10       		.uleb128 0x10
+ 1649 00fe 02       		.uleb128 0x2
+ 1650 00ff 01       		.byte	0x1
+ 1651 0100 03       		.uleb128 0x3
+ 1652 0101 0E       		.uleb128 0xe
+ 1653 0102 3C       		.uleb128 0x3c
+ 1654 0103 0C       		.uleb128 0xc
+ 1655 0104 01       		.uleb128 0x1
+ 1656 0105 13       		.uleb128 0x13
+ 1657 0106 00       		.byte	0
+ 1658 0107 00       		.byte	0
+ 1659 0108 11       		.uleb128 0x11
+ 1660 0109 2E       		.uleb128 0x2e
+ 1661 010a 01       		.byte	0x1
+ 1662 010b 3F       		.uleb128 0x3f
+ 1663 010c 0C       		.uleb128 0xc
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccqLnPtR.s 			page 32
+
+
+ 1664 010d 03       		.uleb128 0x3
+ 1665 010e 0E       		.uleb128 0xe
+ 1666 010f 49       		.uleb128 0x49
+ 1667 0110 13       		.uleb128 0x13
+ 1668 0111 34       		.uleb128 0x34
+ 1669 0112 0C       		.uleb128 0xc
+ 1670 0113 3C       		.uleb128 0x3c
+ 1671 0114 0C       		.uleb128 0xc
+ 1672 0115 64       		.uleb128 0x64
+ 1673 0116 13       		.uleb128 0x13
+ 1674 0117 00       		.byte	0
+ 1675 0118 00       		.byte	0
+ 1676 0119 12       		.uleb128 0x12
+ 1677 011a 0F       		.uleb128 0xf
+ 1678 011b 00       		.byte	0
+ 1679 011c 0B       		.uleb128 0xb
+ 1680 011d 0B       		.uleb128 0xb
+ 1681 011e 49       		.uleb128 0x49
+ 1682 011f 13       		.uleb128 0x13
+ 1683 0120 00       		.byte	0
+ 1684 0121 00       		.byte	0
+ 1685 0122 13       		.uleb128 0x13
+ 1686 0123 10       		.uleb128 0x10
+ 1687 0124 00       		.byte	0
+ 1688 0125 0B       		.uleb128 0xb
+ 1689 0126 0B       		.uleb128 0xb
+ 1690 0127 49       		.uleb128 0x49
+ 1691 0128 13       		.uleb128 0x13
+ 1692 0129 00       		.byte	0
+ 1693 012a 00       		.byte	0
+ 1694 012b 14       		.uleb128 0x14
+ 1695 012c 26       		.uleb128 0x26
+ 1696 012d 00       		.byte	0
+ 1697 012e 49       		.uleb128 0x49
+ 1698 012f 13       		.uleb128 0x13
+ 1699 0130 00       		.byte	0
+ 1700 0131 00       		.byte	0
+ 1701 0132 15       		.uleb128 0x15
+ 1702 0133 2E       		.uleb128 0x2e
+ 1703 0134 01       		.byte	0x1
+ 1704 0135 47       		.uleb128 0x47
+ 1705 0136 13       		.uleb128 0x13
+ 1706 0137 3A       		.uleb128 0x3a
+ 1707 0138 0B       		.uleb128 0xb
+ 1708 0139 3B       		.uleb128 0x3b
+ 1709 013a 0B       		.uleb128 0xb
+ 1710 013b 20       		.uleb128 0x20
+ 1711 013c 0B       		.uleb128 0xb
+ 1712 013d 64       		.uleb128 0x64
+ 1713 013e 13       		.uleb128 0x13
+ 1714 013f 01       		.uleb128 0x1
+ 1715 0140 13       		.uleb128 0x13
+ 1716 0141 00       		.byte	0
+ 1717 0142 00       		.byte	0
+ 1718 0143 16       		.uleb128 0x16
+ 1719 0144 05       		.uleb128 0x5
+ 1720 0145 00       		.byte	0
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccqLnPtR.s 			page 33
+
+
+ 1721 0146 03       		.uleb128 0x3
+ 1722 0147 0E       		.uleb128 0xe
+ 1723 0148 49       		.uleb128 0x49
+ 1724 0149 13       		.uleb128 0x13
+ 1725 014a 34       		.uleb128 0x34
+ 1726 014b 0C       		.uleb128 0xc
+ 1727 014c 00       		.byte	0
+ 1728 014d 00       		.byte	0
+ 1729 014e 17       		.uleb128 0x17
+ 1730 014f 2E       		.uleb128 0x2e
+ 1731 0150 01       		.byte	0x1
+ 1732 0151 47       		.uleb128 0x47
+ 1733 0152 13       		.uleb128 0x13
+ 1734 0153 20       		.uleb128 0x20
+ 1735 0154 0B       		.uleb128 0xb
+ 1736 0155 64       		.uleb128 0x64
+ 1737 0156 13       		.uleb128 0x13
+ 1738 0157 01       		.uleb128 0x1
+ 1739 0158 13       		.uleb128 0x13
+ 1740 0159 00       		.byte	0
+ 1741 015a 00       		.byte	0
+ 1742 015b 18       		.uleb128 0x18
+ 1743 015c 05       		.uleb128 0x5
+ 1744 015d 00       		.byte	0
+ 1745 015e 03       		.uleb128 0x3
+ 1746 015f 0E       		.uleb128 0xe
+ 1747 0160 3A       		.uleb128 0x3a
+ 1748 0161 0B       		.uleb128 0xb
+ 1749 0162 3B       		.uleb128 0x3b
+ 1750 0163 0B       		.uleb128 0xb
+ 1751 0164 49       		.uleb128 0x49
+ 1752 0165 13       		.uleb128 0x13
+ 1753 0166 00       		.byte	0
+ 1754 0167 00       		.byte	0
+ 1755 0168 19       		.uleb128 0x19
+ 1756 0169 2E       		.uleb128 0x2e
+ 1757 016a 01       		.byte	0x1
+ 1758 016b 31       		.uleb128 0x31
+ 1759 016c 13       		.uleb128 0x13
+ 1760 016d 8740     		.uleb128 0x2007
+ 1761 016f 0E       		.uleb128 0xe
+ 1762 0170 11       		.uleb128 0x11
+ 1763 0171 01       		.uleb128 0x1
+ 1764 0172 12       		.uleb128 0x12
+ 1765 0173 01       		.uleb128 0x1
+ 1766 0174 40       		.uleb128 0x40
+ 1767 0175 0A       		.uleb128 0xa
+ 1768 0176 64       		.uleb128 0x64
+ 1769 0177 13       		.uleb128 0x13
+ 1770 0178 9742     		.uleb128 0x2117
+ 1771 017a 0C       		.uleb128 0xc
+ 1772 017b 01       		.uleb128 0x1
+ 1773 017c 13       		.uleb128 0x13
+ 1774 017d 00       		.byte	0
+ 1775 017e 00       		.byte	0
+ 1776 017f 1A       		.uleb128 0x1a
+ 1777 0180 05       		.uleb128 0x5
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccqLnPtR.s 			page 34
+
+
+ 1778 0181 00       		.byte	0
+ 1779 0182 31       		.uleb128 0x31
+ 1780 0183 13       		.uleb128 0x13
+ 1781 0184 02       		.uleb128 0x2
+ 1782 0185 0A       		.uleb128 0xa
+ 1783 0186 00       		.byte	0
+ 1784 0187 00       		.byte	0
+ 1785 0188 1B       		.uleb128 0x1b
+ 1786 0189 05       		.uleb128 0x5
+ 1787 018a 00       		.byte	0
+ 1788 018b 31       		.uleb128 0x31
+ 1789 018c 13       		.uleb128 0x13
+ 1790 018d 02       		.uleb128 0x2
+ 1791 018e 06       		.uleb128 0x6
+ 1792 018f 00       		.byte	0
+ 1793 0190 00       		.byte	0
+ 1794 0191 1C       		.uleb128 0x1c
+ 1795 0192 2E       		.uleb128 0x2e
+ 1796 0193 01       		.byte	0x1
+ 1797 0194 47       		.uleb128 0x47
+ 1798 0195 13       		.uleb128 0x13
+ 1799 0196 11       		.uleb128 0x11
+ 1800 0197 01       		.uleb128 0x1
+ 1801 0198 12       		.uleb128 0x12
+ 1802 0199 01       		.uleb128 0x1
+ 1803 019a 40       		.uleb128 0x40
+ 1804 019b 06       		.uleb128 0x6
+ 1805 019c 64       		.uleb128 0x64
+ 1806 019d 13       		.uleb128 0x13
+ 1807 019e 9742     		.uleb128 0x2117
+ 1808 01a0 0C       		.uleb128 0xc
+ 1809 01a1 01       		.uleb128 0x1
+ 1810 01a2 13       		.uleb128 0x13
+ 1811 01a3 00       		.byte	0
+ 1812 01a4 00       		.byte	0
+ 1813 01a5 1D       		.uleb128 0x1d
+ 1814 01a6 05       		.uleb128 0x5
+ 1815 01a7 00       		.byte	0
+ 1816 01a8 03       		.uleb128 0x3
+ 1817 01a9 0E       		.uleb128 0xe
+ 1818 01aa 49       		.uleb128 0x49
+ 1819 01ab 13       		.uleb128 0x13
+ 1820 01ac 34       		.uleb128 0x34
+ 1821 01ad 0C       		.uleb128 0xc
+ 1822 01ae 02       		.uleb128 0x2
+ 1823 01af 06       		.uleb128 0x6
+ 1824 01b0 00       		.byte	0
+ 1825 01b1 00       		.byte	0
+ 1826 01b2 1E       		.uleb128 0x1e
+ 1827 01b3 0B       		.uleb128 0xb
+ 1828 01b4 01       		.byte	0x1
+ 1829 01b5 11       		.uleb128 0x11
+ 1830 01b6 01       		.uleb128 0x1
+ 1831 01b7 12       		.uleb128 0x12
+ 1832 01b8 01       		.uleb128 0x1
+ 1833 01b9 00       		.byte	0
+ 1834 01ba 00       		.byte	0
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccqLnPtR.s 			page 35
+
+
+ 1835 01bb 1F       		.uleb128 0x1f
+ 1836 01bc 34       		.uleb128 0x34
+ 1837 01bd 00       		.byte	0
+ 1838 01be 03       		.uleb128 0x3
+ 1839 01bf 0E       		.uleb128 0xe
+ 1840 01c0 3A       		.uleb128 0x3a
+ 1841 01c1 0B       		.uleb128 0xb
+ 1842 01c2 3B       		.uleb128 0x3b
+ 1843 01c3 0B       		.uleb128 0xb
+ 1844 01c4 49       		.uleb128 0x49
+ 1845 01c5 13       		.uleb128 0x13
+ 1846 01c6 02       		.uleb128 0x2
+ 1847 01c7 06       		.uleb128 0x6
+ 1848 01c8 00       		.byte	0
+ 1849 01c9 00       		.byte	0
+ 1850 01ca 20       		.uleb128 0x20
+ 1851 01cb 34       		.uleb128 0x34
+ 1852 01cc 00       		.byte	0
+ 1853 01cd 03       		.uleb128 0x3
+ 1854 01ce 0E       		.uleb128 0xe
+ 1855 01cf 3A       		.uleb128 0x3a
+ 1856 01d0 0B       		.uleb128 0xb
+ 1857 01d1 3B       		.uleb128 0x3b
+ 1858 01d2 0B       		.uleb128 0xb
+ 1859 01d3 49       		.uleb128 0x49
+ 1860 01d4 13       		.uleb128 0x13
+ 1861 01d5 02       		.uleb128 0x2
+ 1862 01d6 0A       		.uleb128 0xa
+ 1863 01d7 00       		.byte	0
+ 1864 01d8 00       		.byte	0
+ 1865 01d9 21       		.uleb128 0x21
+ 1866 01da 898201   		.uleb128 0x4109
+ 1867 01dd 01       		.byte	0x1
+ 1868 01de 11       		.uleb128 0x11
+ 1869 01df 01       		.uleb128 0x1
+ 1870 01e0 01       		.uleb128 0x1
+ 1871 01e1 13       		.uleb128 0x13
+ 1872 01e2 00       		.byte	0
+ 1873 01e3 00       		.byte	0
+ 1874 01e4 22       		.uleb128 0x22
+ 1875 01e5 8A8201   		.uleb128 0x410a
+ 1876 01e8 00       		.byte	0
+ 1877 01e9 02       		.uleb128 0x2
+ 1878 01ea 0A       		.uleb128 0xa
+ 1879 01eb 9142     		.uleb128 0x2111
+ 1880 01ed 0A       		.uleb128 0xa
+ 1881 01ee 00       		.byte	0
+ 1882 01ef 00       		.byte	0
+ 1883 01f0 23       		.uleb128 0x23
+ 1884 01f1 898201   		.uleb128 0x4109
+ 1885 01f4 01       		.byte	0x1
+ 1886 01f5 11       		.uleb128 0x11
+ 1887 01f6 01       		.uleb128 0x1
+ 1888 01f7 31       		.uleb128 0x31
+ 1889 01f8 13       		.uleb128 0x13
+ 1890 01f9 01       		.uleb128 0x1
+ 1891 01fa 13       		.uleb128 0x13
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccqLnPtR.s 			page 36
+
+
+ 1892 01fb 00       		.byte	0
+ 1893 01fc 00       		.byte	0
+ 1894 01fd 24       		.uleb128 0x24
+ 1895 01fe 898201   		.uleb128 0x4109
+ 1896 0201 01       		.byte	0x1
+ 1897 0202 11       		.uleb128 0x11
+ 1898 0203 01       		.uleb128 0x1
+ 1899 0204 31       		.uleb128 0x31
+ 1900 0205 13       		.uleb128 0x13
+ 1901 0206 00       		.byte	0
+ 1902 0207 00       		.byte	0
+ 1903 0208 25       		.uleb128 0x25
+ 1904 0209 0B       		.uleb128 0xb
+ 1905 020a 01       		.byte	0x1
+ 1906 020b 55       		.uleb128 0x55
+ 1907 020c 06       		.uleb128 0x6
+ 1908 020d 01       		.uleb128 0x1
+ 1909 020e 13       		.uleb128 0x13
+ 1910 020f 00       		.byte	0
+ 1911 0210 00       		.byte	0
+ 1912 0211 26       		.uleb128 0x26
+ 1913 0212 0B       		.uleb128 0xb
+ 1914 0213 01       		.byte	0x1
+ 1915 0214 55       		.uleb128 0x55
+ 1916 0215 06       		.uleb128 0x6
+ 1917 0216 00       		.byte	0
+ 1918 0217 00       		.byte	0
+ 1919 0218 27       		.uleb128 0x27
+ 1920 0219 1D       		.uleb128 0x1d
+ 1921 021a 01       		.byte	0x1
+ 1922 021b 31       		.uleb128 0x31
+ 1923 021c 13       		.uleb128 0x13
+ 1924 021d 11       		.uleb128 0x11
+ 1925 021e 01       		.uleb128 0x1
+ 1926 021f 12       		.uleb128 0x12
+ 1927 0220 01       		.uleb128 0x1
+ 1928 0221 58       		.uleb128 0x58
+ 1929 0222 0B       		.uleb128 0xb
+ 1930 0223 59       		.uleb128 0x59
+ 1931 0224 0B       		.uleb128 0xb
+ 1932 0225 01       		.uleb128 0x1
+ 1933 0226 13       		.uleb128 0x13
+ 1934 0227 00       		.byte	0
+ 1935 0228 00       		.byte	0
+ 1936 0229 28       		.uleb128 0x28
+ 1937 022a 898201   		.uleb128 0x4109
+ 1938 022d 01       		.byte	0x1
+ 1939 022e 11       		.uleb128 0x11
+ 1940 022f 01       		.uleb128 0x1
+ 1941 0230 00       		.byte	0
+ 1942 0231 00       		.byte	0
+ 1943 0232 29       		.uleb128 0x29
+ 1944 0233 05       		.uleb128 0x5
+ 1945 0234 00       		.byte	0
+ 1946 0235 03       		.uleb128 0x3
+ 1947 0236 08       		.uleb128 0x8
+ 1948 0237 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccqLnPtR.s 			page 37
+
+
+ 1949 0238 0B       		.uleb128 0xb
+ 1950 0239 3B       		.uleb128 0x3b
+ 1951 023a 0B       		.uleb128 0xb
+ 1952 023b 49       		.uleb128 0x49
+ 1953 023c 13       		.uleb128 0x13
+ 1954 023d 02       		.uleb128 0x2
+ 1955 023e 06       		.uleb128 0x6
+ 1956 023f 00       		.byte	0
+ 1957 0240 00       		.byte	0
+ 1958 0241 2A       		.uleb128 0x2a
+ 1959 0242 2E       		.uleb128 0x2e
+ 1960 0243 01       		.byte	0x1
+ 1961 0244 3F       		.uleb128 0x3f
+ 1962 0245 0C       		.uleb128 0xc
+ 1963 0246 03       		.uleb128 0x3
+ 1964 0247 0E       		.uleb128 0xe
+ 1965 0248 3A       		.uleb128 0x3a
+ 1966 0249 0B       		.uleb128 0xb
+ 1967 024a 3B       		.uleb128 0x3b
+ 1968 024b 0B       		.uleb128 0xb
+ 1969 024c 49       		.uleb128 0x49
+ 1970 024d 13       		.uleb128 0x13
+ 1971 024e 3C       		.uleb128 0x3c
+ 1972 024f 0C       		.uleb128 0xc
+ 1973 0250 01       		.uleb128 0x1
+ 1974 0251 13       		.uleb128 0x13
+ 1975 0252 00       		.byte	0
+ 1976 0253 00       		.byte	0
+ 1977 0254 2B       		.uleb128 0x2b
+ 1978 0255 2E       		.uleb128 0x2e
+ 1979 0256 01       		.byte	0x1
+ 1980 0257 3F       		.uleb128 0x3f
+ 1981 0258 0C       		.uleb128 0xc
+ 1982 0259 03       		.uleb128 0x3
+ 1983 025a 0E       		.uleb128 0xe
+ 1984 025b 3A       		.uleb128 0x3a
+ 1985 025c 0B       		.uleb128 0xb
+ 1986 025d 3B       		.uleb128 0x3b
+ 1987 025e 0B       		.uleb128 0xb
+ 1988 025f 49       		.uleb128 0x49
+ 1989 0260 13       		.uleb128 0x13
+ 1990 0261 3C       		.uleb128 0x3c
+ 1991 0262 0C       		.uleb128 0xc
+ 1992 0263 00       		.byte	0
+ 1993 0264 00       		.byte	0
+ 1994 0265 00       		.byte	0
+ 1995              		.section	.debug_loc,"",%progbits
+ 1996              	.Ldebug_loc0:
+ 1997              	.LLST0:
+ 1998 0000 00000000 		.4byte	.LVL0
+ 1999 0004 0E000000 		.4byte	.LVL1
+ 2000 0008 0100     		.2byte	0x1
+ 2001 000a 51       		.byte	0x51
+ 2002 000b 0E000000 		.4byte	.LVL1
+ 2003 000f 20000000 		.4byte	.LFE4
+ 2004 0013 0400     		.2byte	0x4
+ 2005 0015 F3       		.byte	0xf3
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccqLnPtR.s 			page 38
+
+
+ 2006 0016 01       		.uleb128 0x1
+ 2007 0017 51       		.byte	0x51
+ 2008 0018 9F       		.byte	0x9f
+ 2009 0019 00000000 		.4byte	0
+ 2010 001d 00000000 		.4byte	0
+ 2011              	.LLST1:
+ 2012 0021 00000000 		.4byte	.LFB6
+ 2013 0025 02000000 		.4byte	.LCFI0
+ 2014 0029 0200     		.2byte	0x2
+ 2015 002b 7D       		.byte	0x7d
+ 2016 002c 00       		.sleb128 0
+ 2017 002d 02000000 		.4byte	.LCFI0
+ 2018 0031 4C000000 		.4byte	.LFE6
+ 2019 0035 0200     		.2byte	0x2
+ 2020 0037 7D       		.byte	0x7d
+ 2021 0038 20       		.sleb128 32
+ 2022 0039 00000000 		.4byte	0
+ 2023 003d 00000000 		.4byte	0
+ 2024              	.LLST2:
+ 2025 0041 00000000 		.4byte	.LVL2
+ 2026 0045 06000000 		.4byte	.LVL3
+ 2027 0049 0100     		.2byte	0x1
+ 2028 004b 50       		.byte	0x50
+ 2029 004c 06000000 		.4byte	.LVL3
+ 2030 0050 38000000 		.4byte	.LVL8
+ 2031 0054 0100     		.2byte	0x1
+ 2032 0056 55       		.byte	0x55
+ 2033 0057 38000000 		.4byte	.LVL8
+ 2034 005b 40000000 		.4byte	.LVL9
+ 2035 005f 0400     		.2byte	0x4
+ 2036 0061 F3       		.byte	0xf3
+ 2037 0062 01       		.uleb128 0x1
+ 2038 0063 50       		.byte	0x50
+ 2039 0064 9F       		.byte	0x9f
+ 2040 0065 40000000 		.4byte	.LVL9
+ 2041 0069 46000000 		.4byte	.LVL11
+ 2042 006d 0100     		.2byte	0x1
+ 2043 006f 55       		.byte	0x55
+ 2044 0070 46000000 		.4byte	.LVL11
+ 2045 0074 4C000000 		.4byte	.LFE6
+ 2046 0078 0400     		.2byte	0x4
+ 2047 007a F3       		.byte	0xf3
+ 2048 007b 01       		.uleb128 0x1
+ 2049 007c 50       		.byte	0x50
+ 2050 007d 9F       		.byte	0x9f
+ 2051 007e 00000000 		.4byte	0
+ 2052 0082 00000000 		.4byte	0
+ 2053              	.LLST3:
+ 2054 0086 00000000 		.4byte	.LVL2
+ 2055 008a 06000000 		.4byte	.LVL3
+ 2056 008e 0200     		.2byte	0x2
+ 2057 0090 30       		.byte	0x30
+ 2058 0091 9F       		.byte	0x9f
+ 2059 0092 42000000 		.4byte	.LVL10
+ 2060 0096 46000000 		.4byte	.LVL11
+ 2061 009a 0100     		.2byte	0x1
+ 2062 009c 54       		.byte	0x54
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccqLnPtR.s 			page 39
+
+
+ 2063 009d 00000000 		.4byte	0
+ 2064 00a1 00000000 		.4byte	0
+ 2065              	.LLST4:
+ 2066 00a5 00000000 		.4byte	.LFB7
+ 2067 00a9 02000000 		.4byte	.LCFI1
+ 2068 00ad 0200     		.2byte	0x2
+ 2069 00af 7D       		.byte	0x7d
+ 2070 00b0 00       		.sleb128 0
+ 2071 00b1 02000000 		.4byte	.LCFI1
+ 2072 00b5 64000000 		.4byte	.LFE7
+ 2073 00b9 0200     		.2byte	0x2
+ 2074 00bb 7D       		.byte	0x7d
+ 2075 00bc 20       		.sleb128 32
+ 2076 00bd 00000000 		.4byte	0
+ 2077 00c1 00000000 		.4byte	0
+ 2078              	.LLST5:
+ 2079 00c5 00000000 		.4byte	.LVL12
+ 2080 00c9 08000000 		.4byte	.LVL13
+ 2081 00cd 0100     		.2byte	0x1
+ 2082 00cf 50       		.byte	0x50
+ 2083 00d0 08000000 		.4byte	.LVL13
+ 2084 00d4 5E000000 		.4byte	.LVL24
+ 2085 00d8 0100     		.2byte	0x1
+ 2086 00da 55       		.byte	0x55
+ 2087 00db 5E000000 		.4byte	.LVL24
+ 2088 00df 64000000 		.4byte	.LFE7
+ 2089 00e3 0400     		.2byte	0x4
+ 2090 00e5 F3       		.byte	0xf3
+ 2091 00e6 01       		.uleb128 0x1
+ 2092 00e7 50       		.byte	0x50
+ 2093 00e8 9F       		.byte	0x9f
+ 2094 00e9 00000000 		.4byte	0
+ 2095 00ed 00000000 		.4byte	0
+ 2096              	.LLST6:
+ 2097 00f1 00000000 		.4byte	.LVL12
+ 2098 00f5 08000000 		.4byte	.LVL13
+ 2099 00f9 0200     		.2byte	0x2
+ 2100 00fb 30       		.byte	0x30
+ 2101 00fc 9F       		.byte	0x9f
+ 2102 00fd 00000000 		.4byte	0
+ 2103 0101 00000000 		.4byte	0
+ 2104              	.LLST7:
+ 2105 0105 00000000 		.4byte	.LVL12
+ 2106 0109 08000000 		.4byte	.LVL13
+ 2107 010d 0200     		.2byte	0x2
+ 2108 010f 30       		.byte	0x30
+ 2109 0110 9F       		.byte	0x9f
+ 2110 0111 46000000 		.4byte	.LVL18
+ 2111 0115 56000000 		.4byte	.LVL20
+ 2112 0119 0100     		.2byte	0x1
+ 2113 011b 54       		.byte	0x54
+ 2114 011c 5E000000 		.4byte	.LVL22
+ 2115 0120 5E000000 		.4byte	.LVL23
+ 2116 0124 0100     		.2byte	0x1
+ 2117 0126 54       		.byte	0x54
+ 2118 0127 00000000 		.4byte	0
+ 2119 012b 00000000 		.4byte	0
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccqLnPtR.s 			page 40
+
+
+ 2120              	.LLST8:
+ 2121 012f 00000000 		.4byte	.LFB8
+ 2122 0133 02000000 		.4byte	.LCFI2
+ 2123 0137 0200     		.2byte	0x2
+ 2124 0139 7D       		.byte	0x7d
+ 2125 013a 00       		.sleb128 0
+ 2126 013b 02000000 		.4byte	.LCFI2
+ 2127 013f 06000000 		.4byte	.LCFI3
+ 2128 0143 0200     		.2byte	0x2
+ 2129 0145 7D       		.byte	0x7d
+ 2130 0146 14       		.sleb128 20
+ 2131 0147 06000000 		.4byte	.LCFI3
+ 2132 014b 98000000 		.4byte	.LFE8
+ 2133 014f 0200     		.2byte	0x2
+ 2134 0151 7D       		.byte	0x7d
+ 2135 0152 28       		.sleb128 40
+ 2136 0153 00000000 		.4byte	0
+ 2137 0157 00000000 		.4byte	0
+ 2138              	.LLST9:
+ 2139 015b 00000000 		.4byte	.LVL25
+ 2140 015f 0D000000 		.4byte	.LVL27-1
+ 2141 0163 0100     		.2byte	0x1
+ 2142 0165 51       		.byte	0x51
+ 2143 0166 0D000000 		.4byte	.LVL27-1
+ 2144 016a 52000000 		.4byte	.LVL36
+ 2145 016e 0100     		.2byte	0x1
+ 2146 0170 57       		.byte	0x57
+ 2147 0171 52000000 		.4byte	.LVL36
+ 2148 0175 98000000 		.4byte	.LFE8
+ 2149 0179 0400     		.2byte	0x4
+ 2150 017b F3       		.byte	0xf3
+ 2151 017c 01       		.uleb128 0x1
+ 2152 017d 51       		.byte	0x51
+ 2153 017e 9F       		.byte	0x9f
+ 2154 017f 00000000 		.4byte	0
+ 2155 0183 00000000 		.4byte	0
+ 2156              	.LLST10:
+ 2157 0187 0E000000 		.4byte	.LVL27
+ 2158 018b 10000000 		.4byte	.LVL28
+ 2159 018f 0200     		.2byte	0x2
+ 2160 0191 30       		.byte	0x30
+ 2161 0192 9F       		.byte	0x9f
+ 2162 0193 38000000 		.4byte	.LVL31
+ 2163 0197 46000000 		.4byte	.LVL33
+ 2164 019b 0100     		.2byte	0x1
+ 2165 019d 56       		.byte	0x56
+ 2166 019e 00000000 		.4byte	0
+ 2167 01a2 00000000 		.4byte	0
+ 2168              	.LLST11:
+ 2169 01a6 50000000 		.4byte	.LVL35
+ 2170 01aa 7E000000 		.4byte	.LVL37
+ 2171 01ae 0100     		.2byte	0x1
+ 2172 01b0 55       		.byte	0x55
+ 2173 01b1 7E000000 		.4byte	.LVL37
+ 2174 01b5 88000000 		.4byte	.LVL38
+ 2175 01b9 0300     		.2byte	0x3
+ 2176 01bb 91       		.byte	0x91
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccqLnPtR.s 			page 41
+
+
+ 2177 01bc 5C       		.sleb128 -36
+ 2178 01bd 9F       		.byte	0x9f
+ 2179 01be 00000000 		.4byte	0
+ 2180 01c2 00000000 		.4byte	0
+ 2181              	.LLST12:
+ 2182 01c6 50000000 		.4byte	.LVL35
+ 2183 01ca 88000000 		.4byte	.LVL38
+ 2184 01ce 0100     		.2byte	0x1
+ 2185 01d0 54       		.byte	0x54
+ 2186 01d1 00000000 		.4byte	0
+ 2187 01d5 00000000 		.4byte	0
+ 2188              	.LLST13:
+ 2189 01d9 00000000 		.4byte	.LFB15
+ 2190 01dd 02000000 		.4byte	.LCFI4
+ 2191 01e1 0200     		.2byte	0x2
+ 2192 01e3 7D       		.byte	0x7d
+ 2193 01e4 00       		.sleb128 0
+ 2194 01e5 02000000 		.4byte	.LCFI4
+ 2195 01e9 48000000 		.4byte	.LFE15
+ 2196 01ed 0200     		.2byte	0x2
+ 2197 01ef 7D       		.byte	0x7d
+ 2198 01f0 20       		.sleb128 32
+ 2199 01f1 00000000 		.4byte	0
+ 2200 01f5 00000000 		.4byte	0
+ 2201              	.LLST14:
+ 2202 01f9 00000000 		.4byte	.LVL40
+ 2203 01fd 09000000 		.4byte	.LVL41-1
+ 2204 0201 0100     		.2byte	0x1
+ 2205 0203 50       		.byte	0x50
+ 2206 0204 09000000 		.4byte	.LVL41-1
+ 2207 0208 36000000 		.4byte	.LVL47
+ 2208 020c 0100     		.2byte	0x1
+ 2209 020e 55       		.byte	0x55
+ 2210 020f 36000000 		.4byte	.LVL47
+ 2211 0213 38000000 		.4byte	.LVL48
+ 2212 0217 0400     		.2byte	0x4
+ 2213 0219 F3       		.byte	0xf3
+ 2214 021a 01       		.uleb128 0x1
+ 2215 021b 50       		.byte	0x50
+ 2216 021c 9F       		.byte	0x9f
+ 2217 021d 38000000 		.4byte	.LVL48
+ 2218 0221 48000000 		.4byte	.LFE15
+ 2219 0225 0100     		.2byte	0x1
+ 2220 0227 55       		.byte	0x55
+ 2221 0228 00000000 		.4byte	0
+ 2222 022c 00000000 		.4byte	0
+ 2223              	.LLST15:
+ 2224 0230 00000000 		.4byte	.LVL40
+ 2225 0234 09000000 		.4byte	.LVL41-1
+ 2226 0238 0100     		.2byte	0x1
+ 2227 023a 51       		.byte	0x51
+ 2228 023b 09000000 		.4byte	.LVL41-1
+ 2229 023f 48000000 		.4byte	.LFE15
+ 2230 0243 0400     		.2byte	0x4
+ 2231 0245 F3       		.byte	0xf3
+ 2232 0246 01       		.uleb128 0x1
+ 2233 0247 51       		.byte	0x51
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccqLnPtR.s 			page 42
+
+
+ 2234 0248 9F       		.byte	0x9f
+ 2235 0249 00000000 		.4byte	0
+ 2236 024d 00000000 		.4byte	0
+ 2237              	.LLST16:
+ 2238 0251 0A000000 		.4byte	.LVL41
+ 2239 0255 0C000000 		.4byte	.LVL42
+ 2240 0259 0200     		.2byte	0x2
+ 2241 025b 30       		.byte	0x30
+ 2242 025c 9F       		.byte	0x9f
+ 2243 025d 32000000 		.4byte	.LVL45
+ 2244 0261 36000000 		.4byte	.LVL46
+ 2245 0265 0100     		.2byte	0x1
+ 2246 0267 54       		.byte	0x54
+ 2247 0268 00000000 		.4byte	0
+ 2248 026c 00000000 		.4byte	0
+ 2249              		.section	.debug_aranges,"",%progbits
+ 2250 0000 3C000000 		.4byte	0x3c
+ 2251 0004 0200     		.2byte	0x2
+ 2252 0006 00000000 		.4byte	.Ldebug_info0
+ 2253 000a 04       		.byte	0x4
+ 2254 000b 00       		.byte	0
+ 2255 000c 0000     		.2byte	0
+ 2256 000e 0000     		.2byte	0
+ 2257 0010 00000000 		.4byte	.LFB4
+ 2258 0014 20000000 		.4byte	.LFE4-.LFB4
+ 2259 0018 00000000 		.4byte	.LFB6
+ 2260 001c 4C000000 		.4byte	.LFE6-.LFB6
+ 2261 0020 00000000 		.4byte	.LFB7
+ 2262 0024 64000000 		.4byte	.LFE7-.LFB7
+ 2263 0028 00000000 		.4byte	.LFB8
+ 2264 002c 98000000 		.4byte	.LFE8-.LFB8
+ 2265 0030 00000000 		.4byte	.LFB15
+ 2266 0034 48000000 		.4byte	.LFE15-.LFB15
+ 2267 0038 00000000 		.4byte	0
+ 2268 003c 00000000 		.4byte	0
+ 2269              		.section	.debug_ranges,"",%progbits
+ 2270              	.Ldebug_ranges0:
+ 2271 0000 08000000 		.4byte	.LBB14
+ 2272 0004 4A000000 		.4byte	.LBE14
+ 2273 0008 56000000 		.4byte	.LBB17
+ 2274 000c 5E000000 		.4byte	.LBE17
+ 2275 0010 00000000 		.4byte	0
+ 2276 0014 00000000 		.4byte	0
+ 2277 0018 08000000 		.4byte	.LBB15
+ 2278 001c 44000000 		.4byte	.LBE15
+ 2279 0020 56000000 		.4byte	.LBB16
+ 2280 0024 5E000000 		.4byte	.LBE16
+ 2281 0028 00000000 		.4byte	0
+ 2282 002c 00000000 		.4byte	0
+ 2283 0030 10000000 		.4byte	.LBB27
+ 2284 0034 3C000000 		.4byte	.LBE27
+ 2285 0038 46000000 		.4byte	.LBB32
+ 2286 003c 88000000 		.4byte	.LBE32
+ 2287 0040 00000000 		.4byte	0
+ 2288 0044 00000000 		.4byte	0
+ 2289 0048 10000000 		.4byte	.LBB28
+ 2290 004c 36000000 		.4byte	.LBE28
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccqLnPtR.s 			page 43
+
+
+ 2291 0050 46000000 		.4byte	.LBB31
+ 2292 0054 88000000 		.4byte	.LBE31
+ 2293 0058 00000000 		.4byte	0
+ 2294 005c 00000000 		.4byte	0
+ 2295 0060 0C000000 		.4byte	.LBB35
+ 2296 0064 36000000 		.4byte	.LBE35
+ 2297 0068 38000000 		.4byte	.LBB38
+ 2298 006c 48000000 		.4byte	.LBE38
+ 2299 0070 00000000 		.4byte	0
+ 2300 0074 00000000 		.4byte	0
+ 2301 0078 0C000000 		.4byte	.LBB36
+ 2302 007c 30000000 		.4byte	.LBE36
+ 2303 0080 38000000 		.4byte	.LBB37
+ 2304 0084 48000000 		.4byte	.LBE37
+ 2305 0088 00000000 		.4byte	0
+ 2306 008c 00000000 		.4byte	0
+ 2307 0090 00000000 		.4byte	.LFB4
+ 2308 0094 20000000 		.4byte	.LFE4
+ 2309 0098 00000000 		.4byte	.LFB6
+ 2310 009c 4C000000 		.4byte	.LFE6
+ 2311 00a0 00000000 		.4byte	.LFB7
+ 2312 00a4 64000000 		.4byte	.LFE7
+ 2313 00a8 00000000 		.4byte	.LFB8
+ 2314 00ac 98000000 		.4byte	.LFE8
+ 2315 00b0 00000000 		.4byte	.LFB15
+ 2316 00b4 48000000 		.4byte	.LFE15
+ 2317 00b8 00000000 		.4byte	0
+ 2318 00bc 00000000 		.4byte	0
+ 2319              		.section	.debug_line,"",%progbits
+ 2320              	.Ldebug_line0:
+ 2321 0000 DF010000 		.section	.debug_str,"MS",%progbits,1
+ 2321      02003301 
+ 2321      00000201 
+ 2321      FB0E0D00 
+ 2321      01010101 
+ 2322              	.LASF34:
+ 2323 0000 5F5A4E36 		.ascii	"_ZN6Client5writeEh\000"
+ 2323      436C6965 
+ 2323      6E743577 
+ 2323      72697465 
+ 2323      456800
+ 2324              	.LASF32:
+ 2325 0013 77726974 		.ascii	"write\000"
+ 2325      6500
+ 2326              	.LASF2:
+ 2327 0019 73686F72 		.ascii	"short int\000"
+ 2327      7420696E 
+ 2327      7400
+ 2328              	.LASF42:
+ 2329 0023 474E5520 		.ascii	"GNU C++ 4.7.3 20130312 (release) [ARM/embedded-4_7-"
+ 2329      432B2B20 
+ 2329      342E372E 
+ 2329      33203230 
+ 2329      31333033 
+ 2330 0056 6272616E 		.ascii	"branch revision 196615]\000"
+ 2330      63682072 
+ 2330      65766973 
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccqLnPtR.s 			page 44
+
+
+ 2330      696F6E20 
+ 2330      31393636 
+ 2331              	.LASF16:
+ 2332 006e 73697A65 		.ascii	"sizetype\000"
+ 2332      74797065 
+ 2332      00
+ 2333              	.LASF23:
+ 2334 0077 62656769 		.ascii	"begin\000"
+ 2334      6E00
+ 2335              	.LASF46:
+ 2336 007d 5F5A4E36 		.ascii	"_ZN6ServerC2Et\000"
+ 2336      53657276 
+ 2336      65724332 
+ 2336      457400
+ 2337              	.LASF40:
+ 2338 008c 736F636B 		.ascii	"socket\000"
+ 2338      657400
+ 2339              	.LASF12:
+ 2340 0093 75696E74 		.ascii	"uint16\000"
+ 2340      313600
+ 2341              	.LASF3:
+ 2342 009a 75696E74 		.ascii	"uint8_t\000"
+ 2342      385F7400 
+ 2343              	.LASF20:
+ 2344 00a2 5F5A4E36 		.ascii	"_ZN6Server6acceptEv\000"
+ 2344      53657276 
+ 2344      65723661 
+ 2344      63636570 
+ 2344      74457600 
+ 2345              	.LASF11:
+ 2346 00b6 75696E74 		.ascii	"uint8\000"
+ 2346      3800
+ 2347              	.LASF13:
+ 2348 00bc 666C6F61 		.ascii	"float\000"
+ 2348      7400
+ 2349              	.LASF24:
+ 2350 00c2 5072696E 		.ascii	"Print\000"
+ 2350      7400
+ 2351              	.LASF8:
+ 2352 00c8 6C6F6E67 		.ascii	"long long int\000"
+ 2352      206C6F6E 
+ 2352      6720696E 
+ 2352      7400
+ 2353              	.LASF38:
+ 2354 00d6 636C6965 		.ascii	"client\000"
+ 2354      6E7400
+ 2355              	.LASF6:
+ 2356 00dd 6C6F6E67 		.ascii	"long int\000"
+ 2356      20696E74 
+ 2356      00
+ 2357              	.LASF21:
+ 2358 00e6 5F5A4E36 		.ascii	"_ZN6Server9availableEv\000"
+ 2358      53657276 
+ 2358      65723961 
+ 2358      7661696C 
+ 2358      61626C65 
+ 2359              	.LASF45:
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccqLnPtR.s 			page 45
+
+
+ 2360 00fd 5F706F72 		.ascii	"_port\000"
+ 2360      7400
+ 2361              	.LASF22:
+ 2362 0103 53657276 		.ascii	"Server\000"
+ 2362      657200
+ 2363              	.LASF1:
+ 2364 010a 756E7369 		.ascii	"unsigned char\000"
+ 2364      676E6564 
+ 2364      20636861 
+ 2364      7200
+ 2365              	.LASF0:
+ 2366 0118 7369676E 		.ascii	"signed char\000"
+ 2366      65642063 
+ 2366      68617200 
+ 2367              	.LASF9:
+ 2368 0124 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 2368      206C6F6E 
+ 2368      6720756E 
+ 2368      7369676E 
+ 2368      65642069 
+ 2369              	.LASF10:
+ 2370 013b 756E7369 		.ascii	"unsigned int\000"
+ 2370      676E6564 
+ 2370      20696E74 
+ 2370      00
+ 2371              	.LASF31:
+ 2372 0148 5F5A4E36 		.ascii	"_ZN6Client4stopEv\000"
+ 2372      436C6965 
+ 2372      6E743473 
+ 2372      746F7045 
+ 2372      7600
+ 2373              	.LASF4:
+ 2374 015a 75696E74 		.ascii	"uint16_t\000"
+ 2374      31365F74 
+ 2374      00
+ 2375              	.LASF28:
+ 2376 0163 5F5A4E36 		.ascii	"_ZN6Client9availableEv\000"
+ 2376      436C6965 
+ 2376      6E743961 
+ 2376      7661696C 
+ 2376      61626C65 
+ 2377              	.LASF25:
+ 2378 017a 436C6965 		.ascii	"Client\000"
+ 2378      6E7400
+ 2379              	.LASF5:
+ 2380 0181 73686F72 		.ascii	"short unsigned int\000"
+ 2380      7420756E 
+ 2380      7369676E 
+ 2380      65642069 
+ 2380      6E7400
+ 2381              	.LASF26:
+ 2382 0194 73746174 		.ascii	"status\000"
+ 2382      757300
+ 2383              	.LASF19:
+ 2384 019b 61766169 		.ascii	"available\000"
+ 2384      6C61626C 
+ 2384      6500
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccqLnPtR.s 			page 46
+
+
+ 2385              	.LASF29:
+ 2386 01a5 73746F70 		.ascii	"stop\000"
+ 2386      00
+ 2387              	.LASF15:
+ 2388 01aa 63686172 		.ascii	"char\000"
+ 2388      00
+ 2389              	.LASF44:
+ 2390 01af 433A5C55 		.ascii	"C:\\Users\\atsu\\Desktop\\Design01\\W5100_PSoC4_tes"
+ 2390      73657273 
+ 2390      5C617473 
+ 2390      755C4465 
+ 2390      736B746F 
+ 2391 01dd 742E6379 		.ascii	"t.cydsn\000"
+ 2391      64736E00 
+ 2392              	.LASF41:
+ 2393 01e5 6C697374 		.ascii	"listen\000"
+ 2393      656E00
+ 2394              	.LASF27:
+ 2395 01ec 5F5A4E36 		.ascii	"_ZN6Client6statusEv\000"
+ 2395      436C6965 
+ 2395      6E743673 
+ 2395      74617475 
+ 2395      73457600 
+ 2396              	.LASF18:
+ 2397 0200 61636365 		.ascii	"accept\000"
+ 2397      707400
+ 2398              	.LASF39:
+ 2399 0207 6C697374 		.ascii	"listening\000"
+ 2399      656E696E 
+ 2399      6700
+ 2400              	.LASF36:
+ 2401 0211 706F7274 		.ascii	"port\000"
+ 2401      00
+ 2402              	.LASF7:
+ 2403 0216 6C6F6E67 		.ascii	"long unsigned int\000"
+ 2403      20756E73 
+ 2403      69676E65 
+ 2403      6420696E 
+ 2403      7400
+ 2404              	.LASF43:
+ 2405 0228 2E5C5365 		.ascii	".\\Server.cpp\000"
+ 2405      72766572 
+ 2405      2E637070 
+ 2405      00
+ 2406              	.LASF33:
+ 2407 0235 5F5A4E36 		.ascii	"_ZN6Server5writeEh\000"
+ 2407      53657276 
+ 2407      65723577 
+ 2407      72697465 
+ 2407      456800
+ 2408              	.LASF17:
+ 2409 0248 534F434B 		.ascii	"SOCKET\000"
+ 2409      455400
+ 2410              	.LASF14:
+ 2411 024f 646F7562 		.ascii	"double\000"
+ 2411      6C6500
+ 2412              	.LASF35:
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccqLnPtR.s 			page 47
+
+
+ 2413 0256 74686973 		.ascii	"this\000"
+ 2413      00
+ 2414              	.LASF30:
+ 2415 025b 5F5A4E36 		.ascii	"_ZN6Server5beginEv\000"
+ 2415      53657276 
+ 2415      65723562 
+ 2415      6567696E 
+ 2415      457600
+ 2416              	.LASF37:
+ 2417 026e 736F636B 		.ascii	"sock\000"
+ 2417      00
+ 2418              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.7.3 20130312 (release) [ARM/embedded-4_7-br

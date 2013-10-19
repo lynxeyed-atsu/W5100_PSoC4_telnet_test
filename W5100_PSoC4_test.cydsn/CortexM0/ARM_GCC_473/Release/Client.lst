@@ -1,0 +1,3277 @@
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 4
+  10              		.eabi_attribute 34, 0
+  11              		.eabi_attribute 18, 4
+  12              		.code	16
+  13              		.file	"Client.cpp"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text._ZN6Client5writeEh,"ax",%progbits
+  18              		.align	1
+  19              		.global	_ZN6Client5writeEh
+  20              		.code	16
+  21              		.thumb_func
+  22              		.type	_ZN6Client5writeEh, %function
+  23              	_ZN6Client5writeEh:
+  24              		.fnstart
+  25              	.LFB10:
+  26              		.file 1 ".\\Client.cpp"
+   1:.\Client.cpp  **** extern "C" {
+   2:.\Client.cpp  ****   #include "types.h"
+   3:.\Client.cpp  ****   #include "w5100.h"
+   4:.\Client.cpp  ****   #include "socket.h"
+   5:.\Client.cpp  **** }
+   6:.\Client.cpp  **** 
+   7:.\Client.cpp  **** #include "Ethernet.h"
+   8:.\Client.cpp  **** #include "Client.h"
+   9:.\Client.cpp  **** #include "Server.h"
+  10:.\Client.cpp  **** 
+  11:.\Client.cpp  **** Client::Client(uint8_t sock) {
+  12:.\Client.cpp  ****   _sock = sock;
+  13:.\Client.cpp  **** }
+  14:.\Client.cpp  **** 
+  15:.\Client.cpp  **** Client::Client(uint8_t *ip, uint16_t port) {
+  16:.\Client.cpp  ****   _ip = ip;
+  17:.\Client.cpp  ****   _port = port;  
+  18:.\Client.cpp  **** }
+  19:.\Client.cpp  **** 
+  20:.\Client.cpp  **** uint8_t Client::connect() {
+  21:.\Client.cpp  ****   _sock = 255;
+  22:.\Client.cpp  ****   
+  23:.\Client.cpp  ****   for (int i = 0; i < MAX_SOCK_NUM; i++) {
+  24:.\Client.cpp  ****     if (getSn_SR(i) == SOCK_CLOSED) {
+  25:.\Client.cpp  ****       _sock = i;
+  26:.\Client.cpp  ****     }
+  27:.\Client.cpp  ****   }
+  28:.\Client.cpp  ****   
+  29:.\Client.cpp  ****   if (_sock == 255)
+  30:.\Client.cpp  ****     return 0;
+  31:.\Client.cpp  ****     
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 2
+
+
+  32:.\Client.cpp  ****   // XXX: what port should we connect from?
+  33:.\Client.cpp  ****   socket(_sock, Sn_MR_TCP, _port, 0);
+  34:.\Client.cpp  ****   
+  35:.\Client.cpp  ****   if (!::connect(_sock, _ip, _port))
+  36:.\Client.cpp  ****     return 0;
+  37:.\Client.cpp  ****     
+  38:.\Client.cpp  ****   while (status() != SOCK_ESTABLISHED) {
+  39:.\Client.cpp  ****     if (status() == SOCK_CLOSED)
+  40:.\Client.cpp  ****       return 0;
+  41:.\Client.cpp  ****   }
+  42:.\Client.cpp  ****   
+  43:.\Client.cpp  ****   return 1;
+  44:.\Client.cpp  **** }
+  45:.\Client.cpp  **** 
+  46:.\Client.cpp  **** void Client::write(uint8_t b) {
+  27              		.loc 1 46 0
+  28              		.cfi_startproc
+  29              	.LVL0:
+  30 0000 07B5     		push	{r0, r1, r2, lr}
+  31              		.save {r0, r1, r2, lr}
+  32              	.LCFI0:
+  33              		.cfi_def_cfa_offset 16
+  34              		.cfi_offset 0, -16
+  35              		.cfi_offset 1, -12
+  36              		.cfi_offset 2, -8
+  37              		.cfi_offset 14, -4
+  38              	.LVL1:
+  39              		.loc 1 46 0
+  40 0002 6B46     		mov	r3, sp
+  41              	.LVL2:
+  42 0004 D971     		strb	r1, [r3, #7]
+  43 0006 0733     		add	r3, r3, #7
+  47:.\Client.cpp  ****   send(_sock, &b, 1);
+  44              		.loc 1 47 0
+  45 0008 0079     		ldrb	r0, [r0, #4]
+  46              	.LVL3:
+  47 000a 191C     		mov	r1, r3
+  48              	.LVL4:
+  49 000c 0122     		mov	r2, #1
+  50 000e FFF7FEFF 		bl	send
+  51              	.LVL5:
+  48:.\Client.cpp  **** }
+  52              		.loc 1 48 0
+  53              		@ sp needed for prologue
+  54 0012 07BD     		pop	{r0, r1, r2, pc}
+  55              		.cfi_endproc
+  56              	.LFE10:
+  57              		.fnend
+  58              		.size	_ZN6Client5writeEh, .-_ZN6Client5writeEh
+  59              		.section	.text._ZN6ClientC2Eh,"ax",%progbits
+  60              		.align	1
+  61              		.global	_ZN6ClientC2Eh
+  62              		.code	16
+  63              		.thumb_func
+  64              		.type	_ZN6ClientC2Eh, %function
+  65              	_ZN6ClientC2Eh:
+  66              		.fnstart
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 3
+
+
+  67              	.LFB4:
+  11:.\Client.cpp  **** Client::Client(uint8_t sock) {
+  68              		.loc 1 11 0
+  69              		.cfi_startproc
+  70              	.LVL6:
+  71              	.LBB10:
+  11:.\Client.cpp  **** Client::Client(uint8_t sock) {
+  72              		.loc 1 11 0
+  73 0000 054B     		ldr	r3, .L3
+  12:.\Client.cpp  ****   _sock = sock;
+  74              		.loc 1 12 0
+  75 0002 0171     		strb	r1, [r0, #4]
+  11:.\Client.cpp  **** Client::Client(uint8_t sock) {
+  76              		.loc 1 11 0
+  77 0004 0833     		add	r3, r3, #8
+  78 0006 1A0A     		lsr	r2, r3, #8
+  79 0008 0370     		strb	r3, [r0]
+  80 000a 4270     		strb	r2, [r0, #1]
+  81 000c 1A0C     		lsr	r2, r3, #16
+  82 000e 1B0E     		lsr	r3, r3, #24
+  83 0010 8270     		strb	r2, [r0, #2]
+  84 0012 C370     		strb	r3, [r0, #3]
+  85              	.LBE10:
+  13:.\Client.cpp  **** }
+  86              		.loc 1 13 0
+  87              		@ sp needed for prologue
+  88 0014 7047     		bx	lr
+  89              	.L4:
+  90 0016 C046     		.align	2
+  91              	.L3:
+  92 0018 00000000 		.word	.LANCHOR0
+  93              		.cfi_endproc
+  94              	.LFE4:
+  95              		.cantunwind
+  96              		.fnend
+  97              		.size	_ZN6ClientC2Eh, .-_ZN6ClientC2Eh
+  98              		.global	_ZN6ClientC1Eh
+  99              		.thumb_set _ZN6ClientC1Eh,_ZN6ClientC2Eh
+ 100              		.section	.text._ZN6ClientC2EPht,"ax",%progbits
+ 101              		.align	1
+ 102              		.global	_ZN6ClientC2EPht
+ 103              		.code	16
+ 104              		.thumb_func
+ 105              		.type	_ZN6ClientC2EPht, %function
+ 106              	_ZN6ClientC2EPht:
+ 107              		.fnstart
+ 108              	.LFB7:
+  15:.\Client.cpp  **** Client::Client(uint8_t *ip, uint16_t port) {
+ 109              		.loc 1 15 0
+ 110              		.cfi_startproc
+ 111              	.LVL7:
+ 112              	.LBB11:
+ 113 0000 0A4B     		ldr	r3, .L6
+ 114              	.LBE11:
+ 115 0002 10B5     		push	{r4, lr}
+ 116              	.LCFI1:
+ 117              		.cfi_def_cfa_offset 8
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 4
+
+
+ 118              		.cfi_offset 4, -8
+ 119              		.cfi_offset 14, -4
+ 120              	.LBB12:
+  15:.\Client.cpp  **** Client::Client(uint8_t *ip, uint16_t port) {
+ 121              		.loc 1 15 0
+ 122 0004 0833     		add	r3, r3, #8
+ 123 0006 1C0A     		lsr	r4, r3, #8
+ 124 0008 0370     		strb	r3, [r0]
+ 125 000a 4470     		strb	r4, [r0, #1]
+ 126 000c 1C0C     		lsr	r4, r3, #16
+ 127 000e 1B0E     		lsr	r3, r3, #24
+ 128 0010 8470     		strb	r4, [r0, #2]
+ 129 0012 C370     		strb	r3, [r0, #3]
+  16:.\Client.cpp  ****   _ip = ip;
+ 130              		.loc 1 16 0
+ 131 0014 0C0A     		lsr	r4, r1, #8
+ 132 0016 0B0C     		lsr	r3, r1, #16
+ 133 0018 4171     		strb	r1, [r0, #5]
+  17:.\Client.cpp  ****   _port = port;  
+ 134              		.loc 1 17 0
+ 135 001a 4272     		strb	r2, [r0, #9]
+  16:.\Client.cpp  ****   _ip = ip;
+ 136              		.loc 1 16 0
+ 137 001c 090E     		lsr	r1, r1, #24
+ 138              	.LVL8:
+  17:.\Client.cpp  ****   _port = port;  
+ 139              		.loc 1 17 0
+ 140 001e 120A     		lsr	r2, r2, #8
+ 141              	.LVL9:
+  16:.\Client.cpp  ****   _ip = ip;
+ 142              		.loc 1 16 0
+ 143 0020 8471     		strb	r4, [r0, #6]
+ 144 0022 C371     		strb	r3, [r0, #7]
+ 145 0024 0172     		strb	r1, [r0, #8]
+  17:.\Client.cpp  ****   _port = port;  
+ 146              		.loc 1 17 0
+ 147 0026 8272     		strb	r2, [r0, #10]
+ 148              	.LBE12:
+  18:.\Client.cpp  **** }
+ 149              		.loc 1 18 0
+ 150              		@ sp needed for prologue
+ 151 0028 10BD     		pop	{r4, pc}
+ 152              	.L7:
+ 153 002a C046     		.align	2
+ 154              	.L6:
+ 155 002c 00000000 		.word	.LANCHOR0
+ 156              		.cfi_endproc
+ 157              	.LFE7:
+ 158              		.cantunwind
+ 159              		.fnend
+ 160              		.size	_ZN6ClientC2EPht, .-_ZN6ClientC2EPht
+ 161              		.global	_ZN6ClientC1EPht
+ 162              		.thumb_set _ZN6ClientC1EPht,_ZN6ClientC2EPht
+ 163              		.section	.text._ZN6Client9availableEv,"ax",%progbits
+ 164              		.align	1
+ 165              		.global	_ZN6Client9availableEv
+ 166              		.code	16
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 5
+
+
+ 167              		.thumb_func
+ 168              		.type	_ZN6Client9availableEv, %function
+ 169              	_ZN6Client9availableEv:
+ 170              		.fnstart
+ 171              	.LFB11:
+  49:.\Client.cpp  **** 
+  50:.\Client.cpp  **** int Client::available() {
+ 172              		.loc 1 50 0
+ 173              		.cfi_startproc
+ 174              	.LVL10:
+ 175 0000 08B5     		push	{r3, lr}
+ 176              		.save {r3, lr}
+ 177              	.LCFI2:
+ 178              		.cfi_def_cfa_offset 8
+ 179              		.cfi_offset 3, -8
+ 180              		.cfi_offset 14, -4
+  51:.\Client.cpp  ****   return getSn_RX_RSR(_sock);
+ 181              		.loc 1 51 0
+ 182 0002 0079     		ldrb	r0, [r0, #4]
+ 183              	.LVL11:
+ 184 0004 FFF7FEFF 		bl	getSn_RX_RSR
+ 185              	.LVL12:
+  52:.\Client.cpp  **** }
+ 186              		.loc 1 52 0
+ 187              		@ sp needed for prologue
+ 188 0008 08BD     		pop	{r3, pc}
+ 189              		.cfi_endproc
+ 190              	.LFE11:
+ 191              		.fnend
+ 192              		.size	_ZN6Client9availableEv, .-_ZN6Client9availableEv
+ 193              		.section	.text._ZN6Client4readEv,"ax",%progbits
+ 194              		.align	1
+ 195              		.global	_ZN6Client4readEv
+ 196              		.code	16
+ 197              		.thumb_func
+ 198              		.type	_ZN6Client4readEv, %function
+ 199              	_ZN6Client4readEv:
+ 200              		.fnstart
+ 201              	.LFB12:
+  53:.\Client.cpp  **** 
+  54:.\Client.cpp  **** int Client::read() {
+ 202              		.loc 1 54 0
+ 203              		.cfi_startproc
+ 204              	.LVL13:
+ 205 0000 13B5     		push	{r0, r1, r4, lr}
+ 206              		.save {r0, r1, r4, lr}
+ 207              	.LCFI3:
+ 208              		.cfi_def_cfa_offset 16
+ 209              		.cfi_offset 0, -16
+ 210              		.cfi_offset 1, -12
+ 211              		.cfi_offset 4, -8
+ 212              		.cfi_offset 14, -4
+ 213              		.loc 1 54 0
+ 214 0002 041C     		mov	r4, r0
+ 215              	.LBB13:
+  55:.\Client.cpp  ****   uint8_t b;
+  56:.\Client.cpp  ****   if (!available())
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 6
+
+
+ 216              		.loc 1 56 0
+ 217 0004 FFF7FEFF 		bl	_ZN6Client9availableEv
+ 218              	.LVL14:
+ 219 0008 0028     		cmp	r0, #0
+ 220 000a 08D0     		beq	.L11
+  57:.\Client.cpp  ****     return -1;
+  58:.\Client.cpp  ****   recv(_sock, &b, 1);
+ 221              		.loc 1 58 0
+ 222 000c 2079     		ldrb	r0, [r4, #4]
+ 223 000e 6C46     		mov	r4, sp
+ 224              	.LVL15:
+ 225 0010 0734     		add	r4, r4, #7
+ 226 0012 211C     		mov	r1, r4
+ 227 0014 0122     		mov	r2, #1
+ 228 0016 FFF7FEFF 		bl	recv
+ 229              	.LVL16:
+  59:.\Client.cpp  ****   return b;
+ 230              		.loc 1 59 0
+ 231 001a 2078     		ldrb	r0, [r4]
+ 232 001c 01E0     		b	.L10
+ 233              	.LVL17:
+ 234              	.L11:
+  57:.\Client.cpp  ****     return -1;
+ 235              		.loc 1 57 0
+ 236 001e 0120     		mov	r0, #1
+ 237 0020 4042     		neg	r0, r0
+ 238              	.LVL18:
+ 239              	.L10:
+ 240              	.LBE13:
+  60:.\Client.cpp  **** }
+ 241              		.loc 1 60 0
+ 242              		@ sp needed for prologue
+ 243 0022 16BD     		pop	{r1, r2, r4, pc}
+ 244              		.cfi_endproc
+ 245              	.LFE12:
+ 246              		.fnend
+ 247              		.size	_ZN6Client4readEv, .-_ZN6Client4readEv
+ 248              		.section	.text._ZN6Client5flushEv,"ax",%progbits
+ 249              		.align	1
+ 250              		.global	_ZN6Client5flushEv
+ 251              		.code	16
+ 252              		.thumb_func
+ 253              		.type	_ZN6Client5flushEv, %function
+ 254              	_ZN6Client5flushEv:
+ 255              		.fnstart
+ 256              	.LFB13:
+  61:.\Client.cpp  **** 
+  62:.\Client.cpp  **** void Client::flush() {
+ 257              		.loc 1 62 0
+ 258              		.cfi_startproc
+ 259              	.LVL19:
+ 260 0000 10B5     		push	{r4, lr}
+ 261              		.save {r4, lr}
+ 262              	.LCFI4:
+ 263              		.cfi_def_cfa_offset 8
+ 264              		.cfi_offset 4, -8
+ 265              		.cfi_offset 14, -4
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 7
+
+
+ 266 0002 041C     		mov	r4, r0
+ 267              	.LVL20:
+ 268              	.L14:
+  63:.\Client.cpp  ****   while (available())
+ 269              		.loc 1 63 0 discriminator 1
+ 270 0004 201C     		mov	r0, r4
+ 271 0006 FFF7FEFF 		bl	_ZN6Client9availableEv
+ 272              	.LVL21:
+ 273 000a 0028     		cmp	r0, #0
+ 274 000c 03D0     		beq	.L16
+ 275              	.L15:
+  64:.\Client.cpp  ****     read();
+ 276              		.loc 1 64 0
+ 277 000e 201C     		mov	r0, r4
+ 278 0010 FFF7FEFF 		bl	_ZN6Client4readEv
+ 279              	.LVL22:
+ 280 0014 F6E7     		b	.L14
+ 281              	.L16:
+  65:.\Client.cpp  **** }
+ 282              		.loc 1 65 0
+ 283              		@ sp needed for prologue
+ 284              	.LVL23:
+ 285 0016 10BD     		pop	{r4, pc}
+ 286              		.cfi_endproc
+ 287              	.LFE13:
+ 288              		.fnend
+ 289              		.size	_ZN6Client5flushEv, .-_ZN6Client5flushEv
+ 290              		.section	.text._ZN6Client4stopEv,"ax",%progbits
+ 291              		.align	1
+ 292              		.global	_ZN6Client4stopEv
+ 293              		.code	16
+ 294              		.thumb_func
+ 295              		.type	_ZN6Client4stopEv, %function
+ 296              	_ZN6Client4stopEv:
+ 297              		.fnstart
+ 298              	.LFB14:
+  66:.\Client.cpp  **** 
+  67:.\Client.cpp  **** void Client::stop() {
+ 299              		.loc 1 67 0
+ 300              		.cfi_startproc
+ 301              	.LVL24:
+ 302 0000 10B5     		push	{r4, lr}
+ 303              		.save {r4, lr}
+ 304              	.LCFI5:
+ 305              		.cfi_def_cfa_offset 8
+ 306              		.cfi_offset 4, -8
+ 307              		.cfi_offset 14, -4
+ 308              		.loc 1 67 0
+ 309 0002 041C     		mov	r4, r0
+  68:.\Client.cpp  ****   close(_sock);
+ 310              		.loc 1 68 0
+ 311 0004 0079     		ldrb	r0, [r0, #4]
+ 312              	.LVL25:
+ 313 0006 FFF7FEFF 		bl	close
+ 314              	.LVL26:
+  69:.\Client.cpp  ****   disconnect(_sock);
+ 315              		.loc 1 69 0
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 8
+
+
+ 316 000a 2079     		ldrb	r0, [r4, #4]
+ 317 000c FFF7FEFF 		bl	disconnect
+ 318              	.LVL27:
+  70:.\Client.cpp  ****   EthernetClass::_server_port[_sock] = 0;
+ 319              		.loc 1 70 0
+ 320 0010 2279     		ldrb	r2, [r4, #4]
+ 321 0012 024B     		ldr	r3, .L18
+ 322 0014 5000     		lsl	r0, r2, #1
+ 323 0016 0021     		mov	r1, #0
+ 324 0018 C152     		strh	r1, [r0, r3]
+  71:.\Client.cpp  **** }
+ 325              		.loc 1 71 0
+ 326              		@ sp needed for prologue
+ 327              	.LVL28:
+ 328 001a 10BD     		pop	{r4, pc}
+ 329              	.L19:
+ 330              		.align	2
+ 331              	.L18:
+ 332 001c 00000000 		.word	_ZN13EthernetClass12_server_portE
+ 333              		.cfi_endproc
+ 334              	.LFE14:
+ 335              		.fnend
+ 336              		.size	_ZN6Client4stopEv, .-_ZN6Client4stopEv
+ 337              		.section	.text._ZN6Client6statusEv,"ax",%progbits
+ 338              		.align	1
+ 339              		.global	_ZN6Client6statusEv
+ 340              		.code	16
+ 341              		.thumb_func
+ 342              		.type	_ZN6Client6statusEv, %function
+ 343              	_ZN6Client6statusEv:
+ 344              		.fnstart
+ 345              	.LFB16:
+  72:.\Client.cpp  **** 
+  73:.\Client.cpp  **** uint8_t Client::connected() {
+  74:.\Client.cpp  ****   uint8_t s = status();
+  75:.\Client.cpp  ****   return !(s == SOCK_LISTEN || s == SOCK_CLOSED || (s == SOCK_CLOSE_WAIT && !available()));
+  76:.\Client.cpp  **** }
+  77:.\Client.cpp  **** 
+  78:.\Client.cpp  **** uint8_t Client::status() {
+ 346              		.loc 1 78 0
+ 347              		.cfi_startproc
+ 348              	.LVL29:
+ 349 0000 08B5     		push	{r3, lr}
+ 350              		.save {r3, lr}
+ 351              	.LCFI6:
+ 352              		.cfi_def_cfa_offset 8
+ 353              		.cfi_offset 3, -8
+ 354              		.cfi_offset 14, -4
+  79:.\Client.cpp  ****   return getSn_SR(_sock);
+ 355              		.loc 1 79 0
+ 356 0002 0079     		ldrb	r0, [r0, #4]
+ 357              	.LVL30:
+ 358 0004 FFF7FEFF 		bl	getSn_SR
+ 359              	.LVL31:
+  80:.\Client.cpp  **** }
+ 360              		.loc 1 80 0
+ 361              		@ sp needed for prologue
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 9
+
+
+ 362 0008 08BD     		pop	{r3, pc}
+ 363              		.cfi_endproc
+ 364              	.LFE16:
+ 365              		.fnend
+ 366              		.size	_ZN6Client6statusEv, .-_ZN6Client6statusEv
+ 367              		.section	.text._ZN6Client9connectedEv,"ax",%progbits
+ 368              		.align	1
+ 369              		.global	_ZN6Client9connectedEv
+ 370              		.code	16
+ 371              		.thumb_func
+ 372              		.type	_ZN6Client9connectedEv, %function
+ 373              	_ZN6Client9connectedEv:
+ 374              		.fnstart
+ 375              	.LFB15:
+  73:.\Client.cpp  **** uint8_t Client::connected() {
+ 376              		.loc 1 73 0
+ 377              		.cfi_startproc
+ 378              	.LVL32:
+ 379 0000 10B5     		push	{r4, lr}
+ 380              		.save {r4, lr}
+ 381              	.LCFI7:
+ 382              		.cfi_def_cfa_offset 8
+ 383              		.cfi_offset 4, -8
+ 384              		.cfi_offset 14, -4
+  73:.\Client.cpp  **** uint8_t Client::connected() {
+ 385              		.loc 1 73 0
+ 386 0002 041C     		mov	r4, r0
+ 387              	.LBB14:
+  74:.\Client.cpp  ****   uint8_t s = status();
+ 388              		.loc 1 74 0
+ 389 0004 FFF7FEFF 		bl	_ZN6Client6statusEv
+ 390              	.LVL33:
+  75:.\Client.cpp  ****   return !(s == SOCK_LISTEN || s == SOCK_CLOSED || (s == SOCK_CLOSE_WAIT && !available()));
+ 391              		.loc 1 75 0
+ 392 0008 0023     		mov	r3, #0
+ 393 000a 1428     		cmp	r0, #20
+ 394 000c 0AD0     		beq	.L22
+  75:.\Client.cpp  ****   return !(s == SOCK_LISTEN || s == SOCK_CLOSED || (s == SOCK_CLOSE_WAIT && !available()));
+ 395              		.loc 1 75 0 is_stmt 0 discriminator 1
+ 396 000e 9842     		cmp	r0, r3
+ 397 0010 08D0     		beq	.L22
+  75:.\Client.cpp  ****   return !(s == SOCK_LISTEN || s == SOCK_CLOSED || (s == SOCK_CLOSE_WAIT && !available()));
+ 398              		.loc 1 75 0 discriminator 3
+ 399 0012 0123     		mov	r3, #1
+ 400 0014 1C28     		cmp	r0, #28
+ 401 0016 05D1     		bne	.L22
+  75:.\Client.cpp  ****   return !(s == SOCK_LISTEN || s == SOCK_CLOSED || (s == SOCK_CLOSE_WAIT && !available()));
+ 402              		.loc 1 75 0 discriminator 5
+ 403 0018 201C     		mov	r0, r4
+ 404              	.LVL34:
+ 405 001a FFF7FEFF 		bl	_ZN6Client9availableEv
+ 406              	.LVL35:
+ 407 001e 031C     		mov	r3, r0
+ 408 0020 581E     		sub	r0, r3, #1
+ 409 0022 8341     		sbc	r3, r3, r0
+ 410              	.L22:
+ 411              	.LBE14:
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 10
+
+
+  76:.\Client.cpp  **** }
+ 412              		.loc 1 76 0 is_stmt 1 discriminator 6
+ 413 0024 181C     		mov	r0, r3
+ 414              		@ sp needed for prologue
+ 415              	.LVL36:
+ 416 0026 10BD     		pop	{r4, pc}
+ 417              		.cfi_endproc
+ 418              	.LFE15:
+ 419              		.fnend
+ 420              		.size	_ZN6Client9connectedEv, .-_ZN6Client9connectedEv
+ 421              		.section	.text._ZN6Client7connectEv,"ax",%progbits
+ 422              		.align	1
+ 423              		.global	_ZN6Client7connectEv
+ 424              		.code	16
+ 425              		.thumb_func
+ 426              		.type	_ZN6Client7connectEv, %function
+ 427              	_ZN6Client7connectEv:
+ 428              		.fnstart
+ 429              	.LFB9:
+  20:.\Client.cpp  **** uint8_t Client::connect() {
+ 430              		.loc 1 20 0
+ 431              		.cfi_startproc
+ 432              	.LVL37:
+ 433              	.LBB15:
+  21:.\Client.cpp  ****   _sock = 255;
+ 434              		.loc 1 21 0
+ 435 0000 FF23     		mov	r3, #255
+ 436              	.LBE15:
+  20:.\Client.cpp  **** uint8_t Client::connect() {
+ 437              		.loc 1 20 0
+ 438 0002 70B5     		push	{r4, r5, r6, lr}
+ 439              		.save {r4, r5, r6, lr}
+ 440              	.LCFI8:
+ 441              		.cfi_def_cfa_offset 16
+ 442              		.cfi_offset 4, -16
+ 443              		.cfi_offset 5, -12
+ 444              		.cfi_offset 6, -8
+ 445              		.cfi_offset 14, -4
+  20:.\Client.cpp  **** uint8_t Client::connect() {
+ 446              		.loc 1 20 0
+ 447 0004 041C     		mov	r4, r0
+ 448              	.LBB17:
+  21:.\Client.cpp  ****   _sock = 255;
+ 449              		.loc 1 21 0
+ 450 0006 0371     		strb	r3, [r0, #4]
+ 451              	.LVL38:
+  23:.\Client.cpp  ****   for (int i = 0; i < MAX_SOCK_NUM; i++) {
+ 452              		.loc 1 23 0
+ 453 0008 0025     		mov	r5, #0
+ 454              	.LVL39:
+ 455              	.L29:
+ 456              	.LBB16:
+  24:.\Client.cpp  ****     if (getSn_SR(i) == SOCK_CLOSED) {
+ 457              		.loc 1 24 0
+ 458 000a EEB2     		uxtb	r6, r5
+ 459 000c 301C     		mov	r0, r6
+ 460 000e FFF7FEFF 		bl	getSn_SR
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 11
+
+
+ 461              	.LVL40:
+ 462 0012 0028     		cmp	r0, #0
+ 463 0014 00D1     		bne	.L28
+  25:.\Client.cpp  ****       _sock = i;
+ 464              		.loc 1 25 0
+ 465 0016 2671     		strb	r6, [r4, #4]
+ 466              	.L28:
+  23:.\Client.cpp  ****   for (int i = 0; i < MAX_SOCK_NUM; i++) {
+ 467              		.loc 1 23 0
+ 468 0018 0135     		add	r5, r5, #1
+ 469              	.LVL41:
+ 470 001a 042D     		cmp	r5, #4
+ 471 001c F5D1     		bne	.L29
+ 472              	.LBE16:
+  29:.\Client.cpp  ****   if (_sock == 255)
+ 473              		.loc 1 29 0
+ 474 001e 2079     		ldrb	r0, [r4, #4]
+ 475 0020 FF28     		cmp	r0, #255
+ 476 0022 01D1     		bne	.L30
+ 477              	.LVL42:
+ 478              	.L32:
+  30:.\Client.cpp  ****     return 0;
+ 479              		.loc 1 30 0
+ 480 0024 0020     		mov	r0, #0
+ 481 0026 24E0     		b	.L31
+ 482              	.LVL43:
+ 483              	.L30:
+  33:.\Client.cpp  ****   socket(_sock, Sn_MR_TCP, _port, 0);
+ 484              		.loc 1 33 0
+ 485 0028 A27A     		ldrb	r2, [r4, #10]
+ 486 002a 617A     		ldrb	r1, [r4, #9]
+ 487 002c 1202     		lsl	r2, r2, #8
+ 488 002e 0A43     		orr	r2, r1
+ 489 0030 0023     		mov	r3, #0
+ 490 0032 0121     		mov	r1, #1
+ 491 0034 FFF7FEFF 		bl	socket
+ 492              	.LVL44:
+  35:.\Client.cpp  ****   if (!::connect(_sock, _ip, _port))
+ 493              		.loc 1 35 0
+ 494 0038 A579     		ldrb	r5, [r4, #6]
+ 495              	.LVL45:
+ 496 003a 6379     		ldrb	r3, [r4, #5]
+ 497 003c E679     		ldrb	r6, [r4, #7]
+ 498 003e 2902     		lsl	r1, r5, #8
+ 499 0040 3204     		lsl	r2, r6, #16
+ 500 0042 1943     		orr	r1, r3
+ 501 0044 1143     		orr	r1, r2
+ 502 0046 237A     		ldrb	r3, [r4, #8]
+ 503 0048 A27A     		ldrb	r2, [r4, #10]
+ 504 004a 667A     		ldrb	r6, [r4, #9]
+ 505 004c 1D06     		lsl	r5, r3, #24
+ 506 004e 1202     		lsl	r2, r2, #8
+ 507 0050 2079     		ldrb	r0, [r4, #4]
+ 508 0052 2943     		orr	r1, r5
+ 509 0054 3243     		orr	r2, r6
+ 510 0056 FFF7FEFF 		bl	connect
+ 511              	.LVL46:
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 12
+
+
+ 512              	.L43:
+  39:.\Client.cpp  ****     if (status() == SOCK_CLOSED)
+ 513              		.loc 1 39 0
+ 514 005a 0028     		cmp	r0, #0
+ 515 005c E2D0     		beq	.L32
+ 516              	.L42:
+  38:.\Client.cpp  ****   while (status() != SOCK_ESTABLISHED) {
+ 517              		.loc 1 38 0
+ 518 005e 201C     		mov	r0, r4
+ 519 0060 FFF7FEFF 		bl	_ZN6Client6statusEv
+ 520              	.LVL47:
+ 521 0064 1728     		cmp	r0, #23
+ 522 0066 03D0     		beq	.L34
+  39:.\Client.cpp  ****     if (status() == SOCK_CLOSED)
+ 523              		.loc 1 39 0
+ 524 0068 201C     		mov	r0, r4
+ 525 006a FFF7FEFF 		bl	_ZN6Client6statusEv
+ 526              	.LVL48:
+ 527 006e F4E7     		b	.L43
+ 528              	.L34:
+  43:.\Client.cpp  ****   return 1;
+ 529              		.loc 1 43 0
+ 530 0070 0120     		mov	r0, #1
+ 531              	.L31:
+ 532              	.LBE17:
+  44:.\Client.cpp  **** }
+ 533              		.loc 1 44 0
+ 534              		@ sp needed for prologue
+ 535              	.LVL49:
+ 536 0072 70BD     		pop	{r4, r5, r6, pc}
+ 537              		.cfi_endproc
+ 538              	.LFE9:
+ 539              		.fnend
+ 540              		.size	_ZN6Client7connectEv, .-_ZN6Client7connectEv
+ 541              		.section	.text._ZN6ClienteqEi,"ax",%progbits
+ 542              		.align	1
+ 543              		.global	_ZN6ClienteqEi
+ 544              		.code	16
+ 545              		.thumb_func
+ 546              		.type	_ZN6ClienteqEi, %function
+ 547              	_ZN6ClienteqEi:
+ 548              		.fnstart
+ 549              	.LFB17:
+  81:.\Client.cpp  **** 
+  82:.\Client.cpp  **** // the next three functions are a hack so we can compare the client returned
+  83:.\Client.cpp  **** // by Server::available() to null, or use it as the condition in an
+  84:.\Client.cpp  **** // if-statement.  this lets us stay compatible with the Processing network
+  85:.\Client.cpp  **** // library.
+  86:.\Client.cpp  **** 
+  87:.\Client.cpp  **** uint8_t Client::operator==(int p) {
+ 550              		.loc 1 87 0
+ 551              		.cfi_startproc
+ 552              	.LVL50:
+  88:.\Client.cpp  ****   return _sock == 255;
+ 553              		.loc 1 88 0
+ 554 0000 0079     		ldrb	r0, [r0, #4]
+ 555              	.LVL51:
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 13
+
+
+  89:.\Client.cpp  **** }
+ 556              		.loc 1 89 0
+ 557              		@ sp needed for prologue
+  88:.\Client.cpp  ****   return _sock == 255;
+ 558              		.loc 1 88 0
+ 559 0002 FF38     		sub	r0, r0, #255
+ 560 0004 4342     		neg	r3, r0
+ 561 0006 5841     		adc	r0, r0, r3
+ 562              		.loc 1 89 0
+ 563 0008 7047     		bx	lr
+ 564              		.cfi_endproc
+ 565              	.LFE17:
+ 566              		.cantunwind
+ 567              		.fnend
+ 568              		.size	_ZN6ClienteqEi, .-_ZN6ClienteqEi
+ 569              		.section	.text._ZN6ClientneEi,"ax",%progbits
+ 570              		.align	1
+ 571              		.global	_ZN6ClientneEi
+ 572              		.code	16
+ 573              		.thumb_func
+ 574              		.type	_ZN6ClientneEi, %function
+ 575              	_ZN6ClientneEi:
+ 576              		.fnstart
+ 577              	.LFB18:
+  90:.\Client.cpp  **** 
+  91:.\Client.cpp  **** uint8_t Client::operator!=(int p) {
+ 578              		.loc 1 91 0
+ 579              		.cfi_startproc
+ 580              	.LVL52:
+  92:.\Client.cpp  ****   return _sock != 255;
+ 581              		.loc 1 92 0
+ 582 0000 0079     		ldrb	r0, [r0, #4]
+ 583              	.LVL53:
+  93:.\Client.cpp  **** }
+ 584              		.loc 1 93 0
+ 585              		@ sp needed for prologue
+  92:.\Client.cpp  ****   return _sock != 255;
+ 586              		.loc 1 92 0
+ 587 0002 FF38     		sub	r0, r0, #255
+ 588 0004 431E     		sub	r3, r0, #1
+ 589 0006 9841     		sbc	r0, r0, r3
+ 590              		.loc 1 93 0
+ 591 0008 7047     		bx	lr
+ 592              		.cfi_endproc
+ 593              	.LFE18:
+ 594              		.cantunwind
+ 595              		.fnend
+ 596              		.size	_ZN6ClientneEi, .-_ZN6ClientneEi
+ 597              		.section	.text._ZN6ClientcvbEv,"ax",%progbits
+ 598              		.align	1
+ 599              		.global	_ZN6ClientcvbEv
+ 600              		.code	16
+ 601              		.thumb_func
+ 602              		.type	_ZN6ClientcvbEv, %function
+ 603              	_ZN6ClientcvbEv:
+ 604              		.fnstart
+ 605              	.LFB19:
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 14
+
+
+  94:.\Client.cpp  **** 
+  95:.\Client.cpp  **** Client::operator bool() {
+ 606              		.loc 1 95 0
+ 607              		.cfi_startproc
+ 608              	.LVL54:
+  96:.\Client.cpp  ****   return _sock != 255;
+ 609              		.loc 1 96 0
+ 610 0000 0079     		ldrb	r0, [r0, #4]
+ 611              	.LVL55:
+  97:.\Client.cpp  **** }
+ 612              		.loc 1 97 0
+ 613              		@ sp needed for prologue
+  96:.\Client.cpp  ****   return _sock != 255;
+ 614              		.loc 1 96 0
+ 615 0002 FF38     		sub	r0, r0, #255
+ 616 0004 431E     		sub	r3, r0, #1
+ 617 0006 9841     		sbc	r0, r0, r3
+ 618              		.loc 1 97 0
+ 619 0008 7047     		bx	lr
+ 620              		.cfi_endproc
+ 621              	.LFE19:
+ 622              		.cantunwind
+ 623              		.fnend
+ 624              		.size	_ZN6ClientcvbEv, .-_ZN6ClientcvbEv
+ 625              		.global	_ZTV6Client
+ 626              		.section	.rodata
+ 627              		.align	3
+ 628              		.set	.LANCHOR0,. + 0
+ 629              		.type	_ZTV6Client, %object
+ 630              		.size	_ZTV6Client, 12
+ 631              	_ZTV6Client:
+ 632 0000 00000000 		.word	0
+ 633 0004 00000000 		.word	0
+ 634 0008 00000000 		.word	_ZN6Client5writeEh
+ 635 000c 00000000 		.text
+ 636              	.Letext0:
+ 637              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\3.0\\psoc creator\\import\\gnu_cs\\arm\\4
+ 638              		.file 3 "./Generated_Source/PSoC4/cytypes.h"
+ 639              		.file 4 ".\\w5100.h"
+ 640              		.file 5 ".\\Client.h"
+ 641              		.file 6 ".\\socket.h"
+ 642              		.file 7 ".\\Print.h"
+ 643              		.section	.debug_info,"",%progbits
+ 644              	.Ldebug_info0:
+ 645 0000 0C080000 		.4byte	0x80c
+ 646 0004 0200     		.2byte	0x2
+ 647 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 648 000a 04       		.byte	0x4
+ 649 000b 01       		.uleb128 0x1
+ 650 000c 4C000000 		.4byte	.LASF55
+ 651 0010 04       		.byte	0x4
+ 652 0011 44010000 		.4byte	.LASF56
+ 653 0015 3A020000 		.4byte	.LASF57
+ 654 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 655 001d 00000000 		.4byte	0
+ 656 0021 00000000 		.4byte	0
+ 657 0025 00000000 		.4byte	.Ldebug_line0
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 15
+
+
+ 658 0029 02       		.uleb128 0x2
+ 659 002a 01       		.byte	0x1
+ 660 002b 06       		.byte	0x6
+ 661 002c 74010000 		.4byte	.LASF0
+ 662 0030 03       		.uleb128 0x3
+ 663 0031 D3000000 		.4byte	.LASF3
+ 664 0035 02       		.byte	0x2
+ 665 0036 2A       		.byte	0x2a
+ 666 0037 3B000000 		.4byte	0x3b
+ 667 003b 02       		.uleb128 0x2
+ 668 003c 01       		.byte	0x1
+ 669 003d 08       		.byte	0x8
+ 670 003e 5B010000 		.4byte	.LASF1
+ 671 0042 02       		.uleb128 0x2
+ 672 0043 02       		.byte	0x2
+ 673 0044 05       		.byte	0x5
+ 674 0045 42000000 		.4byte	.LASF2
+ 675 0049 03       		.uleb128 0x3
+ 676 004a B6010000 		.4byte	.LASF4
+ 677 004e 02       		.byte	0x2
+ 678 004f 36       		.byte	0x36
+ 679 0050 54000000 		.4byte	0x54
+ 680 0054 02       		.uleb128 0x2
+ 681 0055 02       		.byte	0x2
+ 682 0056 07       		.byte	0x7
+ 683 0057 06020000 		.4byte	.LASF5
+ 684 005b 02       		.uleb128 0x2
+ 685 005c 04       		.byte	0x4
+ 686 005d 05       		.byte	0x5
+ 687 005e 35010000 		.4byte	.LASF6
+ 688 0062 02       		.uleb128 0x2
+ 689 0063 04       		.byte	0x4
+ 690 0064 07       		.byte	0x7
+ 691 0065 A7020000 		.4byte	.LASF7
+ 692 0069 02       		.uleb128 0x2
+ 693 006a 08       		.byte	0x8
+ 694 006b 05       		.byte	0x5
+ 695 006c 27010000 		.4byte	.LASF8
+ 696 0070 02       		.uleb128 0x2
+ 697 0071 08       		.byte	0x8
+ 698 0072 07       		.byte	0x7
+ 699 0073 80010000 		.4byte	.LASF9
+ 700 0077 04       		.uleb128 0x4
+ 701 0078 04       		.byte	0x4
+ 702 0079 05       		.byte	0x5
+ 703 007a 696E7400 		.ascii	"int\000"
+ 704 007e 02       		.uleb128 0x2
+ 705 007f 04       		.byte	0x4
+ 706 0080 07       		.byte	0x7
+ 707 0081 97010000 		.4byte	.LASF10
+ 708 0085 03       		.uleb128 0x3
+ 709 0086 F2000000 		.4byte	.LASF11
+ 710 008a 03       		.byte	0x3
+ 711 008b 5B       		.byte	0x5b
+ 712 008c 3B000000 		.4byte	0x3b
+ 713 0090 03       		.uleb128 0x3
+ 714 0091 BB000000 		.4byte	.LASF12
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 16
+
+
+ 715 0095 03       		.byte	0x3
+ 716 0096 5C       		.byte	0x5c
+ 717 0097 54000000 		.4byte	0x54
+ 718 009b 02       		.uleb128 0x2
+ 719 009c 04       		.byte	0x4
+ 720 009d 04       		.byte	0x4
+ 721 009e 16010000 		.4byte	.LASF13
+ 722 00a2 02       		.uleb128 0x2
+ 723 00a3 08       		.byte	0x8
+ 724 00a4 04       		.byte	0x4
+ 725 00a5 B9020000 		.4byte	.LASF14
+ 726 00a9 02       		.uleb128 0x2
+ 727 00aa 01       		.byte	0x1
+ 728 00ab 08       		.byte	0x8
+ 729 00ac 35020000 		.4byte	.LASF15
+ 730 00b0 02       		.uleb128 0x2
+ 731 00b1 04       		.byte	0x4
+ 732 00b2 07       		.byte	0x7
+ 733 00b3 97000000 		.4byte	.LASF16
+ 734 00b7 03       		.uleb128 0x3
+ 735 00b8 D3020000 		.4byte	.LASF17
+ 736 00bc 04       		.byte	0x4
+ 737 00bd 11       		.byte	0x11
+ 738 00be 85000000 		.4byte	0x85
+ 739 00c2 05       		.uleb128 0x5
+ 740 00c3 04       		.byte	0x4
+ 741 00c4 30000000 		.4byte	0x30
+ 742 00c8 06       		.uleb128 0x6
+ 743 00c9 E8010000 		.4byte	.LASF20
+ 744 00cd 0B       		.byte	0xb
+ 745 00ce 05       		.byte	0x5
+ 746 00cf 06       		.byte	0x6
+ 747 00d0 DD020000 		.4byte	0x2dd
+ 748 00d4 DD020000 		.4byte	0x2dd
+ 749 00d8 07       		.uleb128 0x7
+ 750 00d9 DD020000 		.4byte	0x2dd
+ 751 00dd 02       		.byte	0x2
+ 752 00de 23       		.byte	0x23
+ 753 00df 00       		.uleb128 0
+ 754 00e0 01       		.byte	0x1
+ 755 00e1 08       		.uleb128 0x8
+ 756 00e2 A7000000 		.4byte	.LASF18
+ 757 00e6 05       		.byte	0x5
+ 758 00e7 08       		.byte	0x8
+ 759 00e8 30000000 		.4byte	0x30
+ 760 00ec 02       		.byte	0x2
+ 761 00ed 23       		.byte	0x23
+ 762 00ee 04       		.uleb128 0x4
+ 763 00ef 03       		.byte	0x3
+ 764 00f0 09       		.uleb128 0x9
+ 765 00f1 5F697000 		.ascii	"_ip\000"
+ 766 00f5 05       		.byte	0x5
+ 767 00f6 09       		.byte	0x9
+ 768 00f7 C2000000 		.4byte	0xc2
+ 769 00fb 02       		.byte	0x2
+ 770 00fc 23       		.byte	0x23
+ 771 00fd 05       		.uleb128 0x5
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 17
+
+
+ 772 00fe 03       		.byte	0x3
+ 773 00ff 08       		.uleb128 0x8
+ 774 0100 C0020000 		.4byte	.LASF19
+ 775 0104 05       		.byte	0x5
+ 776 0105 0A       		.byte	0xa
+ 777 0106 49000000 		.4byte	0x49
+ 778 010a 02       		.byte	0x2
+ 779 010b 23       		.byte	0x23
+ 780 010c 09       		.uleb128 0x9
+ 781 010d 03       		.byte	0x3
+ 782 010e 0A       		.uleb128 0xa
+ 783 010f 01       		.byte	0x1
+ 784 0110 E8010000 		.4byte	.LASF20
+ 785 0114 FF020000 		.4byte	0x2ff
+ 786 0118 01       		.byte	0x1
+ 787 0119 01       		.byte	0x1
+ 788 011a 22010000 		.4byte	0x122
+ 789 011e 2E010000 		.4byte	0x12e
+ 790 0122 0B       		.uleb128 0xb
+ 791 0123 FF020000 		.4byte	0x2ff
+ 792 0127 01       		.byte	0x1
+ 793 0128 0C       		.uleb128 0xc
+ 794 0129 05030000 		.4byte	0x305
+ 795 012d 00       		.byte	0
+ 796 012e 0D       		.uleb128 0xd
+ 797 012f 01       		.byte	0x1
+ 798 0130 E8010000 		.4byte	.LASF20
+ 799 0134 01       		.byte	0x1
+ 800 0135 0B       		.byte	0xb
+ 801 0136 FF020000 		.4byte	0x2ff
+ 802 013a 01       		.byte	0x1
+ 803 013b 43010000 		.4byte	0x143
+ 804 013f 4F010000 		.4byte	0x14f
+ 805 0143 0B       		.uleb128 0xb
+ 806 0144 FF020000 		.4byte	0x2ff
+ 807 0148 01       		.byte	0x1
+ 808 0149 0C       		.uleb128 0xc
+ 809 014a 30000000 		.4byte	0x30
+ 810 014e 00       		.byte	0
+ 811 014f 0D       		.uleb128 0xd
+ 812 0150 01       		.byte	0x1
+ 813 0151 E8010000 		.4byte	.LASF20
+ 814 0155 01       		.byte	0x1
+ 815 0156 0F       		.byte	0xf
+ 816 0157 FF020000 		.4byte	0x2ff
+ 817 015b 01       		.byte	0x1
+ 818 015c 64010000 		.4byte	0x164
+ 819 0160 75010000 		.4byte	0x175
+ 820 0164 0B       		.uleb128 0xb
+ 821 0165 FF020000 		.4byte	0x2ff
+ 822 0169 01       		.byte	0x1
+ 823 016a 0C       		.uleb128 0xc
+ 824 016b C2000000 		.4byte	0xc2
+ 825 016f 0C       		.uleb128 0xc
+ 826 0170 49000000 		.4byte	0x49
+ 827 0174 00       		.byte	0
+ 828 0175 0E       		.uleb128 0xe
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 18
+
+
+ 829 0176 01       		.byte	0x1
+ 830 0177 19020000 		.4byte	.LASF21
+ 831 017b 01       		.byte	0x1
+ 832 017c 4E       		.byte	0x4e
+ 833 017d 70020000 		.4byte	.LASF23
+ 834 0181 30000000 		.4byte	0x30
+ 835 0185 01       		.byte	0x1
+ 836 0186 8E010000 		.4byte	0x18e
+ 837 018a 95010000 		.4byte	0x195
+ 838 018e 0B       		.uleb128 0xb
+ 839 018f FF020000 		.4byte	0x2ff
+ 840 0193 01       		.byte	0x1
+ 841 0194 00       		.byte	0
+ 842 0195 0E       		.uleb128 0xe
+ 843 0196 01       		.byte	0x1
+ 844 0197 EA000000 		.4byte	.LASF22
+ 845 019b 01       		.byte	0x1
+ 846 019c 14       		.byte	0x14
+ 847 019d 20020000 		.4byte	.LASF24
+ 848 01a1 30000000 		.4byte	0x30
+ 849 01a5 01       		.byte	0x1
+ 850 01a6 AE010000 		.4byte	0x1ae
+ 851 01aa B5010000 		.4byte	0x1b5
+ 852 01ae 0B       		.uleb128 0xb
+ 853 01af FF020000 		.4byte	0x2ff
+ 854 01b3 01       		.byte	0x1
+ 855 01b4 00       		.byte	0
+ 856 01b5 0F       		.uleb128 0xf
+ 857 01b6 01       		.byte	0x1
+ 858 01b7 37000000 		.4byte	.LASF58
+ 859 01bb 01       		.byte	0x1
+ 860 01bc 2E       		.byte	0x2e
+ 861 01bd 19000000 		.4byte	.LASF59
+ 862 01c1 01       		.byte	0x1
+ 863 01c2 02       		.byte	0x2
+ 864 01c3 10       		.byte	0x10
+ 865 01c4 00       		.uleb128 0
+ 866 01c5 C8000000 		.4byte	0xc8
+ 867 01c9 01       		.byte	0x1
+ 868 01ca D2010000 		.4byte	0x1d2
+ 869 01ce DE010000 		.4byte	0x1de
+ 870 01d2 0B       		.uleb128 0xb
+ 871 01d3 FF020000 		.4byte	0x2ff
+ 872 01d7 01       		.byte	0x1
+ 873 01d8 0C       		.uleb128 0xc
+ 874 01d9 30000000 		.4byte	0x30
+ 875 01dd 00       		.byte	0
+ 876 01de 0E       		.uleb128 0xe
+ 877 01df 01       		.byte	0x1
+ 878 01e0 51010000 		.4byte	.LASF25
+ 879 01e4 01       		.byte	0x1
+ 880 01e5 32       		.byte	0x32
+ 881 01e6 D1010000 		.4byte	.LASF26
+ 882 01ea 77000000 		.4byte	0x77
+ 883 01ee 01       		.byte	0x1
+ 884 01ef F7010000 		.4byte	0x1f7
+ 885 01f3 FE010000 		.4byte	0x1fe
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 19
+
+
+ 886 01f7 0B       		.uleb128 0xb
+ 887 01f8 FF020000 		.4byte	0x2ff
+ 888 01fc 01       		.byte	0x1
+ 889 01fd 00       		.byte	0
+ 890 01fe 0E       		.uleb128 0xe
+ 891 01ff 01       		.byte	0x1
+ 892 0200 22010000 		.4byte	.LASF27
+ 893 0204 01       		.byte	0x1
+ 894 0205 36       		.byte	0x36
+ 895 0206 BF010000 		.4byte	.LASF28
+ 896 020a 77000000 		.4byte	0x77
+ 897 020e 01       		.byte	0x1
+ 898 020f 17020000 		.4byte	0x217
+ 899 0213 1E020000 		.4byte	0x21e
+ 900 0217 0B       		.uleb128 0xb
+ 901 0218 FF020000 		.4byte	0x2ff
+ 902 021c 01       		.byte	0x1
+ 903 021d 00       		.byte	0
+ 904 021e 10       		.uleb128 0x10
+ 905 021f 01       		.byte	0x1
+ 906 0220 3E010000 		.4byte	.LASF29
+ 907 0224 01       		.byte	0x1
+ 908 0225 3E       		.byte	0x3e
+ 909 0226 06000000 		.4byte	.LASF31
+ 910 022a 01       		.byte	0x1
+ 911 022b 33020000 		.4byte	0x233
+ 912 022f 3A020000 		.4byte	0x23a
+ 913 0233 0B       		.uleb128 0xb
+ 914 0234 FF020000 		.4byte	0x2ff
+ 915 0238 01       		.byte	0x1
+ 916 0239 00       		.byte	0
+ 917 023a 10       		.uleb128 0x10
+ 918 023b 01       		.byte	0x1
+ 919 023c EF020000 		.4byte	.LASF30
+ 920 0240 01       		.byte	0x1
+ 921 0241 43       		.byte	0x43
+ 922 0242 A4010000 		.4byte	.LASF32
+ 923 0246 01       		.byte	0x1
+ 924 0247 4F020000 		.4byte	0x24f
+ 925 024b 56020000 		.4byte	0x256
+ 926 024f 0B       		.uleb128 0xb
+ 927 0250 FF020000 		.4byte	0x2ff
+ 928 0254 01       		.byte	0x1
+ 929 0255 00       		.byte	0
+ 930 0256 0E       		.uleb128 0xe
+ 931 0257 01       		.byte	0x1
+ 932 0258 F8000000 		.4byte	.LASF33
+ 933 025c 01       		.byte	0x1
+ 934 025d 49       		.byte	0x49
+ 935 025e EF010000 		.4byte	.LASF34
+ 936 0262 30000000 		.4byte	0x30
+ 937 0266 01       		.byte	0x1
+ 938 0267 6F020000 		.4byte	0x26f
+ 939 026b 76020000 		.4byte	0x276
+ 940 026f 0B       		.uleb128 0xb
+ 941 0270 FF020000 		.4byte	0x2ff
+ 942 0274 01       		.byte	0x1
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 20
+
+
+ 943 0275 00       		.byte	0
+ 944 0276 0E       		.uleb128 0xe
+ 945 0277 01       		.byte	0x1
+ 946 0278 69010000 		.4byte	.LASF35
+ 947 027c 01       		.byte	0x1
+ 948 027d 57       		.byte	0x57
+ 949 027e 02010000 		.4byte	.LASF36
+ 950 0282 30000000 		.4byte	0x30
+ 951 0286 01       		.byte	0x1
+ 952 0287 8F020000 		.4byte	0x28f
+ 953 028b 9B020000 		.4byte	0x29b
+ 954 028f 0B       		.uleb128 0xb
+ 955 0290 FF020000 		.4byte	0x2ff
+ 956 0294 01       		.byte	0x1
+ 957 0295 0C       		.uleb128 0xc
+ 958 0296 77000000 		.4byte	0x77
+ 959 029a 00       		.byte	0
+ 960 029b 0E       		.uleb128 0xe
+ 961 029c 01       		.byte	0x1
+ 962 029d 2C000000 		.4byte	.LASF37
+ 963 02a1 01       		.byte	0x1
+ 964 02a2 5B       		.byte	0x5b
+ 965 02a3 F4020000 		.4byte	.LASF38
+ 966 02a7 30000000 		.4byte	0x30
+ 967 02ab 01       		.byte	0x1
+ 968 02ac B4020000 		.4byte	0x2b4
+ 969 02b0 C0020000 		.4byte	0x2c0
+ 970 02b4 0B       		.uleb128 0xb
+ 971 02b5 FF020000 		.4byte	0x2ff
+ 972 02b9 01       		.byte	0x1
+ 973 02ba 0C       		.uleb128 0xc
+ 974 02bb 77000000 		.4byte	0x77
+ 975 02bf 00       		.byte	0
+ 976 02c0 11       		.uleb128 0x11
+ 977 02c1 01       		.byte	0x1
+ 978 02c2 99020000 		.4byte	.LASF39
+ 979 02c6 01       		.byte	0x1
+ 980 02c7 5F       		.byte	0x5f
+ 981 02c8 84020000 		.4byte	.LASF40
+ 982 02cc 10030000 		.4byte	0x310
+ 983 02d0 01       		.byte	0x1
+ 984 02d1 D5020000 		.4byte	0x2d5
+ 985 02d5 0B       		.uleb128 0xb
+ 986 02d6 FF020000 		.4byte	0x2ff
+ 987 02da 01       		.byte	0x1
+ 988 02db 00       		.byte	0
+ 989 02dc 00       		.byte	0
+ 990 02dd 12       		.uleb128 0x12
+ 991 02de 1C010000 		.4byte	.LASF50
+ 992 02e2 01       		.byte	0x1
+ 993 02e3 FF020000 		.4byte	0x2ff
+ 994 02e7 13       		.uleb128 0x13
+ 995 02e8 01       		.byte	0x1
+ 996 02e9 1C010000 		.4byte	.LASF50
+ 997 02ed 17030000 		.4byte	0x317
+ 998 02f1 01       		.byte	0x1
+ 999 02f2 01       		.byte	0x1
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 21
+
+
+ 1000 02f3 F7020000 		.4byte	0x2f7
+ 1001 02f7 0B       		.uleb128 0xb
+ 1002 02f8 17030000 		.4byte	0x317
+ 1003 02fc 01       		.byte	0x1
+ 1004 02fd 00       		.byte	0
+ 1005 02fe 00       		.byte	0
+ 1006 02ff 05       		.uleb128 0x5
+ 1007 0300 04       		.byte	0x4
+ 1008 0301 C8000000 		.4byte	0xc8
+ 1009 0305 14       		.uleb128 0x14
+ 1010 0306 04       		.byte	0x4
+ 1011 0307 0B030000 		.4byte	0x30b
+ 1012 030b 15       		.uleb128 0x15
+ 1013 030c C8000000 		.4byte	0xc8
+ 1014 0310 02       		.uleb128 0x2
+ 1015 0311 01       		.byte	0x1
+ 1016 0312 02       		.byte	0x2
+ 1017 0313 11010000 		.4byte	.LASF41
+ 1018 0317 05       		.uleb128 0x5
+ 1019 0318 04       		.byte	0x4
+ 1020 0319 DD020000 		.4byte	0x2dd
+ 1021 031d 16       		.uleb128 0x16
+ 1022 031e E7020000 		.4byte	0x2e7
+ 1023 0322 07       		.byte	0x7
+ 1024 0323 1F       		.byte	0x1f
+ 1025 0324 03       		.byte	0x3
+ 1026 0325 2D030000 		.4byte	0x32d
+ 1027 0329 38030000 		.4byte	0x338
+ 1028 032d 17       		.uleb128 0x17
+ 1029 032e B6000000 		.4byte	.LASF42
+ 1030 0332 38030000 		.4byte	0x338
+ 1031 0336 01       		.byte	0x1
+ 1032 0337 00       		.byte	0
+ 1033 0338 15       		.uleb128 0x15
+ 1034 0339 17030000 		.4byte	0x317
+ 1035 033d 18       		.uleb128 0x18
+ 1036 033e B5010000 		.4byte	0x1b5
+ 1037 0342 00000000 		.4byte	.LFB10
+ 1038 0346 14000000 		.4byte	.LFE10
+ 1039 034a 00000000 		.4byte	.LLST0
+ 1040 034e 57030000 		.4byte	0x357
+ 1041 0352 01       		.byte	0x1
+ 1042 0353 88030000 		.4byte	0x388
+ 1043 0357 19       		.uleb128 0x19
+ 1044 0358 B6000000 		.4byte	.LASF42
+ 1045 035c 88030000 		.4byte	0x388
+ 1046 0360 01       		.byte	0x1
+ 1047 0361 20000000 		.4byte	.LLST1
+ 1048 0365 1A       		.uleb128 0x1a
+ 1049 0366 6200     		.ascii	"b\000"
+ 1050 0368 01       		.byte	0x1
+ 1051 0369 2E       		.byte	0x2e
+ 1052 036a 30000000 		.4byte	0x30
+ 1053 036e 41000000 		.4byte	.LLST2
+ 1054 0372 1B       		.uleb128 0x1b
+ 1055 0373 12000000 		.4byte	.LVL5
+ 1056 0377 23070000 		.4byte	0x723
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 22
+
+
+ 1057 037b 1C       		.uleb128 0x1c
+ 1058 037c 01       		.byte	0x1
+ 1059 037d 52       		.byte	0x52
+ 1060 037e 01       		.byte	0x1
+ 1061 037f 31       		.byte	0x31
+ 1062 0380 1C       		.uleb128 0x1c
+ 1063 0381 01       		.byte	0x1
+ 1064 0382 51       		.byte	0x51
+ 1065 0383 02       		.byte	0x2
+ 1066 0384 91       		.byte	0x91
+ 1067 0385 77       		.sleb128 -9
+ 1068 0386 00       		.byte	0
+ 1069 0387 00       		.byte	0
+ 1070 0388 15       		.uleb128 0x15
+ 1071 0389 FF020000 		.4byte	0x2ff
+ 1072 038d 1D       		.uleb128 0x1d
+ 1073 038e 2E010000 		.4byte	0x12e
+ 1074 0392 00       		.byte	0
+ 1075 0393 9B030000 		.4byte	0x39b
+ 1076 0397 B1030000 		.4byte	0x3b1
+ 1077 039b 17       		.uleb128 0x17
+ 1078 039c B6000000 		.4byte	.LASF42
+ 1079 03a0 88030000 		.4byte	0x388
+ 1080 03a4 01       		.byte	0x1
+ 1081 03a5 1E       		.uleb128 0x1e
+ 1082 03a6 DA020000 		.4byte	.LASF43
+ 1083 03aa 01       		.byte	0x1
+ 1084 03ab 0B       		.byte	0xb
+ 1085 03ac 30000000 		.4byte	0x30
+ 1086 03b0 00       		.byte	0
+ 1087 03b1 1F       		.uleb128 0x1f
+ 1088 03b2 8D030000 		.4byte	0x38d
+ 1089 03b6 DB000000 		.4byte	.LASF45
+ 1090 03ba 00000000 		.4byte	.LFB4
+ 1091 03be 1C000000 		.4byte	.LFE4
+ 1092 03c2 02       		.byte	0x2
+ 1093 03c3 7D       		.byte	0x7d
+ 1094 03c4 00       		.sleb128 0
+ 1095 03c5 CE030000 		.4byte	0x3ce
+ 1096 03c9 01       		.byte	0x1
+ 1097 03ca DD030000 		.4byte	0x3dd
+ 1098 03ce 20       		.uleb128 0x20
+ 1099 03cf 9B030000 		.4byte	0x39b
+ 1100 03d3 01       		.byte	0x1
+ 1101 03d4 50       		.byte	0x50
+ 1102 03d5 20       		.uleb128 0x20
+ 1103 03d6 A5030000 		.4byte	0x3a5
+ 1104 03da 01       		.byte	0x1
+ 1105 03db 51       		.byte	0x51
+ 1106 03dc 00       		.byte	0
+ 1107 03dd 1D       		.uleb128 0x1d
+ 1108 03de 4F010000 		.4byte	0x14f
+ 1109 03e2 00       		.byte	0
+ 1110 03e3 EB030000 		.4byte	0x3eb
+ 1111 03e7 0B040000 		.4byte	0x40b
+ 1112 03eb 17       		.uleb128 0x17
+ 1113 03ec B6000000 		.4byte	.LASF42
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 23
+
+
+ 1114 03f0 88030000 		.4byte	0x388
+ 1115 03f4 01       		.byte	0x1
+ 1116 03f5 21       		.uleb128 0x21
+ 1117 03f6 697000   		.ascii	"ip\000"
+ 1118 03f9 01       		.byte	0x1
+ 1119 03fa 0F       		.byte	0xf
+ 1120 03fb C2000000 		.4byte	0xc2
+ 1121 03ff 1E       		.uleb128 0x1e
+ 1122 0400 94020000 		.4byte	.LASF44
+ 1123 0404 01       		.byte	0x1
+ 1124 0405 0F       		.byte	0xf
+ 1125 0406 49000000 		.4byte	0x49
+ 1126 040a 00       		.byte	0
+ 1127 040b 22       		.uleb128 0x22
+ 1128 040c DD030000 		.4byte	0x3dd
+ 1129 0410 C2000000 		.4byte	.LASF46
+ 1130 0414 00000000 		.4byte	.LFB7
+ 1131 0418 30000000 		.4byte	.LFE7
+ 1132 041c 6B000000 		.4byte	.LLST3
+ 1133 0420 29040000 		.4byte	0x429
+ 1134 0424 01       		.byte	0x1
+ 1135 0425 43040000 		.4byte	0x443
+ 1136 0429 20       		.uleb128 0x20
+ 1137 042a EB030000 		.4byte	0x3eb
+ 1138 042e 01       		.byte	0x1
+ 1139 042f 50       		.byte	0x50
+ 1140 0430 23       		.uleb128 0x23
+ 1141 0431 F5030000 		.4byte	0x3f5
+ 1142 0435 8B000000 		.4byte	.LLST4
+ 1143 0439 23       		.uleb128 0x23
+ 1144 043a FF030000 		.4byte	0x3ff
+ 1145 043e AC000000 		.4byte	.LLST5
+ 1146 0442 00       		.byte	0
+ 1147 0443 18       		.uleb128 0x18
+ 1148 0444 DE010000 		.4byte	0x1de
+ 1149 0448 00000000 		.4byte	.LFB11
+ 1150 044c 0A000000 		.4byte	.LFE11
+ 1151 0450 CD000000 		.4byte	.LLST6
+ 1152 0454 5D040000 		.4byte	0x45d
+ 1153 0458 01       		.byte	0x1
+ 1154 0459 75040000 		.4byte	0x475
+ 1155 045d 19       		.uleb128 0x19
+ 1156 045e B6000000 		.4byte	.LASF42
+ 1157 0462 88030000 		.4byte	0x388
+ 1158 0466 01       		.byte	0x1
+ 1159 0467 ED000000 		.4byte	.LLST7
+ 1160 046b 24       		.uleb128 0x24
+ 1161 046c 08000000 		.4byte	.LVL12
+ 1162 0470 4F070000 		.4byte	0x74f
+ 1163 0474 00       		.byte	0
+ 1164 0475 18       		.uleb128 0x18
+ 1165 0476 FE010000 		.4byte	0x1fe
+ 1166 047a 00000000 		.4byte	.LFB12
+ 1167 047e 24000000 		.4byte	.LFE12
+ 1168 0482 0E010000 		.4byte	.LLST8
+ 1169 0486 8F040000 		.4byte	0x48f
+ 1170 048a 01       		.byte	0x1
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 24
+
+
+ 1171 048b DE040000 		.4byte	0x4de
+ 1172 048f 19       		.uleb128 0x19
+ 1173 0490 B6000000 		.4byte	.LASF42
+ 1174 0494 88030000 		.4byte	0x388
+ 1175 0498 01       		.byte	0x1
+ 1176 0499 2E010000 		.4byte	.LLST9
+ 1177 049d 25       		.uleb128 0x25
+ 1178 049e 04000000 		.4byte	.LBB13
+ 1179 04a2 22000000 		.4byte	.LBE13
+ 1180 04a6 26       		.uleb128 0x26
+ 1181 04a7 6200     		.ascii	"b\000"
+ 1182 04a9 01       		.byte	0x1
+ 1183 04aa 37       		.byte	0x37
+ 1184 04ab 30000000 		.4byte	0x30
+ 1185 04af 73010000 		.4byte	.LLST10
+ 1186 04b3 27       		.uleb128 0x27
+ 1187 04b4 08000000 		.4byte	.LVL14
+ 1188 04b8 43040000 		.4byte	0x443
+ 1189 04bc C7040000 		.4byte	0x4c7
+ 1190 04c0 1C       		.uleb128 0x1c
+ 1191 04c1 01       		.byte	0x1
+ 1192 04c2 50       		.byte	0x50
+ 1193 04c3 02       		.byte	0x2
+ 1194 04c4 74       		.byte	0x74
+ 1195 04c5 00       		.sleb128 0
+ 1196 04c6 00       		.byte	0
+ 1197 04c7 1B       		.uleb128 0x1b
+ 1198 04c8 1A000000 		.4byte	.LVL16
+ 1199 04cc 67070000 		.4byte	0x767
+ 1200 04d0 1C       		.uleb128 0x1c
+ 1201 04d1 01       		.byte	0x1
+ 1202 04d2 52       		.byte	0x52
+ 1203 04d3 01       		.byte	0x1
+ 1204 04d4 31       		.byte	0x31
+ 1205 04d5 1C       		.uleb128 0x1c
+ 1206 04d6 01       		.byte	0x1
+ 1207 04d7 51       		.byte	0x51
+ 1208 04d8 02       		.byte	0x2
+ 1209 04d9 74       		.byte	0x74
+ 1210 04da 00       		.sleb128 0
+ 1211 04db 00       		.byte	0
+ 1212 04dc 00       		.byte	0
+ 1213 04dd 00       		.byte	0
+ 1214 04de 18       		.uleb128 0x18
+ 1215 04df 1E020000 		.4byte	0x21e
+ 1216 04e3 00000000 		.4byte	.LFB13
+ 1217 04e7 18000000 		.4byte	.LFE13
+ 1218 04eb 93010000 		.4byte	.LLST11
+ 1219 04ef F8040000 		.4byte	0x4f8
+ 1220 04f3 01       		.byte	0x1
+ 1221 04f4 2B050000 		.4byte	0x52b
+ 1222 04f8 19       		.uleb128 0x19
+ 1223 04f9 B6000000 		.4byte	.LASF42
+ 1224 04fd 88030000 		.4byte	0x388
+ 1225 0501 01       		.byte	0x1
+ 1226 0502 B3010000 		.4byte	.LLST12
+ 1227 0506 27       		.uleb128 0x27
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 25
+
+
+ 1228 0507 0A000000 		.4byte	.LVL21
+ 1229 050b 43040000 		.4byte	0x443
+ 1230 050f 1A050000 		.4byte	0x51a
+ 1231 0513 1C       		.uleb128 0x1c
+ 1232 0514 01       		.byte	0x1
+ 1233 0515 50       		.byte	0x50
+ 1234 0516 02       		.byte	0x2
+ 1235 0517 74       		.byte	0x74
+ 1236 0518 00       		.sleb128 0
+ 1237 0519 00       		.byte	0
+ 1238 051a 1B       		.uleb128 0x1b
+ 1239 051b 14000000 		.4byte	.LVL22
+ 1240 051f 75040000 		.4byte	0x475
+ 1241 0523 1C       		.uleb128 0x1c
+ 1242 0524 01       		.byte	0x1
+ 1243 0525 50       		.byte	0x50
+ 1244 0526 02       		.byte	0x2
+ 1245 0527 74       		.byte	0x74
+ 1246 0528 00       		.sleb128 0
+ 1247 0529 00       		.byte	0
+ 1248 052a 00       		.byte	0
+ 1249 052b 18       		.uleb128 0x18
+ 1250 052c 3A020000 		.4byte	0x23a
+ 1251 0530 00000000 		.4byte	.LFB14
+ 1252 0534 20000000 		.4byte	.LFE14
+ 1253 0538 DF010000 		.4byte	.LLST13
+ 1254 053c 45050000 		.4byte	0x545
+ 1255 0540 01       		.byte	0x1
+ 1256 0541 66050000 		.4byte	0x566
+ 1257 0545 19       		.uleb128 0x19
+ 1258 0546 B6000000 		.4byte	.LASF42
+ 1259 054a 88030000 		.4byte	0x388
+ 1260 054e 01       		.byte	0x1
+ 1261 054f FF010000 		.4byte	.LLST14
+ 1262 0553 24       		.uleb128 0x24
+ 1263 0554 0A000000 		.4byte	.LVL26
+ 1264 0558 8E070000 		.4byte	0x78e
+ 1265 055c 24       		.uleb128 0x24
+ 1266 055d 10000000 		.4byte	.LVL27
+ 1267 0561 A1070000 		.4byte	0x7a1
+ 1268 0565 00       		.byte	0
+ 1269 0566 18       		.uleb128 0x18
+ 1270 0567 75010000 		.4byte	0x175
+ 1271 056b 00000000 		.4byte	.LFB16
+ 1272 056f 0A000000 		.4byte	.LFE16
+ 1273 0573 2B020000 		.4byte	.LLST15
+ 1274 0577 80050000 		.4byte	0x580
+ 1275 057b 01       		.byte	0x1
+ 1276 057c 98050000 		.4byte	0x598
+ 1277 0580 19       		.uleb128 0x19
+ 1278 0581 B6000000 		.4byte	.LASF42
+ 1279 0585 88030000 		.4byte	0x388
+ 1280 0589 01       		.byte	0x1
+ 1281 058a 4B020000 		.4byte	.LLST16
+ 1282 058e 24       		.uleb128 0x24
+ 1283 058f 08000000 		.4byte	.LVL31
+ 1284 0593 B4070000 		.4byte	0x7b4
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 26
+
+
+ 1285 0597 00       		.byte	0
+ 1286 0598 18       		.uleb128 0x18
+ 1287 0599 56020000 		.4byte	0x256
+ 1288 059d 00000000 		.4byte	.LFB15
+ 1289 05a1 28000000 		.4byte	.LFE15
+ 1290 05a5 6C020000 		.4byte	.LLST17
+ 1291 05a9 B2050000 		.4byte	0x5b2
+ 1292 05ad 01       		.byte	0x1
+ 1293 05ae FC050000 		.4byte	0x5fc
+ 1294 05b2 19       		.uleb128 0x19
+ 1295 05b3 B6000000 		.4byte	.LASF42
+ 1296 05b7 88030000 		.4byte	0x388
+ 1297 05bb 01       		.byte	0x1
+ 1298 05bc 8C020000 		.4byte	.LLST18
+ 1299 05c0 25       		.uleb128 0x25
+ 1300 05c1 04000000 		.4byte	.LBB14
+ 1301 05c5 24000000 		.4byte	.LBE14
+ 1302 05c9 26       		.uleb128 0x26
+ 1303 05ca 7300     		.ascii	"s\000"
+ 1304 05cc 01       		.byte	0x1
+ 1305 05cd 4A       		.byte	0x4a
+ 1306 05ce 30000000 		.4byte	0x30
+ 1307 05d2 B8020000 		.4byte	.LLST19
+ 1308 05d6 27       		.uleb128 0x27
+ 1309 05d7 08000000 		.4byte	.LVL33
+ 1310 05db 66050000 		.4byte	0x566
+ 1311 05df EA050000 		.4byte	0x5ea
+ 1312 05e3 1C       		.uleb128 0x1c
+ 1313 05e4 01       		.byte	0x1
+ 1314 05e5 50       		.byte	0x50
+ 1315 05e6 02       		.byte	0x2
+ 1316 05e7 74       		.byte	0x74
+ 1317 05e8 00       		.sleb128 0
+ 1318 05e9 00       		.byte	0
+ 1319 05ea 1B       		.uleb128 0x1b
+ 1320 05eb 1E000000 		.4byte	.LVL35
+ 1321 05ef 43040000 		.4byte	0x443
+ 1322 05f3 1C       		.uleb128 0x1c
+ 1323 05f4 01       		.byte	0x1
+ 1324 05f5 50       		.byte	0x50
+ 1325 05f6 02       		.byte	0x2
+ 1326 05f7 74       		.byte	0x74
+ 1327 05f8 00       		.sleb128 0
+ 1328 05f9 00       		.byte	0
+ 1329 05fa 00       		.byte	0
+ 1330 05fb 00       		.byte	0
+ 1331 05fc 18       		.uleb128 0x18
+ 1332 05fd 95010000 		.4byte	0x195
+ 1333 0601 00000000 		.4byte	.LFB9
+ 1334 0605 74000000 		.4byte	.LFE9
+ 1335 0609 CB020000 		.4byte	.LLST20
+ 1336 060d 16060000 		.4byte	0x616
+ 1337 0611 01       		.byte	0x1
+ 1338 0612 95060000 		.4byte	0x695
+ 1339 0616 19       		.uleb128 0x19
+ 1340 0617 B6000000 		.4byte	.LASF42
+ 1341 061b 88030000 		.4byte	0x388
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 27
+
+
+ 1342 061f 01       		.byte	0x1
+ 1343 0620 EB020000 		.4byte	.LLST21
+ 1344 0624 28       		.uleb128 0x28
+ 1345 0625 0A000000 		.4byte	.LBB16
+ 1346 0629 1E000000 		.4byte	.LBE16
+ 1347 062d 4F060000 		.4byte	0x64f
+ 1348 0631 26       		.uleb128 0x26
+ 1349 0632 6900     		.ascii	"i\000"
+ 1350 0634 01       		.byte	0x1
+ 1351 0635 17       		.byte	0x17
+ 1352 0636 77000000 		.4byte	0x77
+ 1353 063a 17030000 		.4byte	.LLST22
+ 1354 063e 1B       		.uleb128 0x1b
+ 1355 063f 12000000 		.4byte	.LVL40
+ 1356 0643 B4070000 		.4byte	0x7b4
+ 1357 0647 1C       		.uleb128 0x1c
+ 1358 0648 01       		.byte	0x1
+ 1359 0649 50       		.byte	0x50
+ 1360 064a 02       		.byte	0x2
+ 1361 064b 76       		.byte	0x76
+ 1362 064c 00       		.sleb128 0
+ 1363 064d 00       		.byte	0
+ 1364 064e 00       		.byte	0
+ 1365 064f 27       		.uleb128 0x27
+ 1366 0650 38000000 		.4byte	.LVL44
+ 1367 0654 CC070000 		.4byte	0x7cc
+ 1368 0658 67060000 		.4byte	0x667
+ 1369 065c 1C       		.uleb128 0x1c
+ 1370 065d 01       		.byte	0x1
+ 1371 065e 53       		.byte	0x53
+ 1372 065f 01       		.byte	0x1
+ 1373 0660 30       		.byte	0x30
+ 1374 0661 1C       		.uleb128 0x1c
+ 1375 0662 01       		.byte	0x1
+ 1376 0663 51       		.byte	0x51
+ 1377 0664 01       		.byte	0x1
+ 1378 0665 31       		.byte	0x31
+ 1379 0666 00       		.byte	0
+ 1380 0667 24       		.uleb128 0x24
+ 1381 0668 5A000000 		.4byte	.LVL46
+ 1382 066c F2070000 		.4byte	0x7f2
+ 1383 0670 27       		.uleb128 0x27
+ 1384 0671 64000000 		.4byte	.LVL47
+ 1385 0675 66050000 		.4byte	0x566
+ 1386 0679 84060000 		.4byte	0x684
+ 1387 067d 1C       		.uleb128 0x1c
+ 1388 067e 01       		.byte	0x1
+ 1389 067f 50       		.byte	0x50
+ 1390 0680 02       		.byte	0x2
+ 1391 0681 74       		.byte	0x74
+ 1392 0682 00       		.sleb128 0
+ 1393 0683 00       		.byte	0
+ 1394 0684 1B       		.uleb128 0x1b
+ 1395 0685 6E000000 		.4byte	.LVL48
+ 1396 0689 66050000 		.4byte	0x566
+ 1397 068d 1C       		.uleb128 0x1c
+ 1398 068e 01       		.byte	0x1
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 28
+
+
+ 1399 068f 50       		.byte	0x50
+ 1400 0690 02       		.byte	0x2
+ 1401 0691 74       		.byte	0x74
+ 1402 0692 00       		.sleb128 0
+ 1403 0693 00       		.byte	0
+ 1404 0694 00       		.byte	0
+ 1405 0695 29       		.uleb128 0x29
+ 1406 0696 76020000 		.4byte	0x276
+ 1407 069a 00000000 		.4byte	.LFB17
+ 1408 069e 0A000000 		.4byte	.LFE17
+ 1409 06a2 02       		.byte	0x2
+ 1410 06a3 7D       		.byte	0x7d
+ 1411 06a4 00       		.sleb128 0
+ 1412 06a5 AE060000 		.4byte	0x6ae
+ 1413 06a9 01       		.byte	0x1
+ 1414 06aa C8060000 		.4byte	0x6c8
+ 1415 06ae 19       		.uleb128 0x19
+ 1416 06af B6000000 		.4byte	.LASF42
+ 1417 06b3 88030000 		.4byte	0x388
+ 1418 06b7 01       		.byte	0x1
+ 1419 06b8 41030000 		.4byte	.LLST23
+ 1420 06bc 2A       		.uleb128 0x2a
+ 1421 06bd 7000     		.ascii	"p\000"
+ 1422 06bf 01       		.byte	0x1
+ 1423 06c0 57       		.byte	0x57
+ 1424 06c1 77000000 		.4byte	0x77
+ 1425 06c5 01       		.byte	0x1
+ 1426 06c6 51       		.byte	0x51
+ 1427 06c7 00       		.byte	0
+ 1428 06c8 29       		.uleb128 0x29
+ 1429 06c9 9B020000 		.4byte	0x29b
+ 1430 06cd 00000000 		.4byte	.LFB18
+ 1431 06d1 0A000000 		.4byte	.LFE18
+ 1432 06d5 02       		.byte	0x2
+ 1433 06d6 7D       		.byte	0x7d
+ 1434 06d7 00       		.sleb128 0
+ 1435 06d8 E1060000 		.4byte	0x6e1
+ 1436 06dc 01       		.byte	0x1
+ 1437 06dd FB060000 		.4byte	0x6fb
+ 1438 06e1 19       		.uleb128 0x19
+ 1439 06e2 B6000000 		.4byte	.LASF42
+ 1440 06e6 88030000 		.4byte	0x388
+ 1441 06ea 01       		.byte	0x1
+ 1442 06eb 62030000 		.4byte	.LLST24
+ 1443 06ef 2A       		.uleb128 0x2a
+ 1444 06f0 7000     		.ascii	"p\000"
+ 1445 06f2 01       		.byte	0x1
+ 1446 06f3 5B       		.byte	0x5b
+ 1447 06f4 77000000 		.4byte	0x77
+ 1448 06f8 01       		.byte	0x1
+ 1449 06f9 51       		.byte	0x51
+ 1450 06fa 00       		.byte	0
+ 1451 06fb 29       		.uleb128 0x29
+ 1452 06fc C0020000 		.4byte	0x2c0
+ 1453 0700 00000000 		.4byte	.LFB19
+ 1454 0704 0A000000 		.4byte	.LFE19
+ 1455 0708 02       		.byte	0x2
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 29
+
+
+ 1456 0709 7D       		.byte	0x7d
+ 1457 070a 00       		.sleb128 0
+ 1458 070b 14070000 		.4byte	0x714
+ 1459 070f 01       		.byte	0x1
+ 1460 0710 23070000 		.4byte	0x723
+ 1461 0714 19       		.uleb128 0x19
+ 1462 0715 B6000000 		.4byte	.LASF42
+ 1463 0719 88030000 		.4byte	0x388
+ 1464 071d 01       		.byte	0x1
+ 1465 071e 83030000 		.4byte	.LLST25
+ 1466 0722 00       		.byte	0
+ 1467 0723 2B       		.uleb128 0x2b
+ 1468 0724 01       		.byte	0x1
+ 1469 0725 3D000000 		.4byte	.LASF47
+ 1470 0729 06       		.byte	0x6
+ 1471 072a 14       		.byte	0x14
+ 1472 072b 90000000 		.4byte	0x90
+ 1473 072f 01       		.byte	0x1
+ 1474 0730 44070000 		.4byte	0x744
+ 1475 0734 0C       		.uleb128 0xc
+ 1476 0735 B7000000 		.4byte	0xb7
+ 1477 0739 0C       		.uleb128 0xc
+ 1478 073a 44070000 		.4byte	0x744
+ 1479 073e 0C       		.uleb128 0xc
+ 1480 073f 90000000 		.4byte	0x90
+ 1481 0743 00       		.byte	0
+ 1482 0744 05       		.uleb128 0x5
+ 1483 0745 04       		.byte	0x4
+ 1484 0746 4A070000 		.4byte	0x74a
+ 1485 074a 15       		.uleb128 0x15
+ 1486 074b 85000000 		.4byte	0x85
+ 1487 074f 2C       		.uleb128 0x2c
+ 1488 0750 01       		.byte	0x1
+ 1489 0751 C6020000 		.4byte	.LASF48
+ 1490 0755 04       		.byte	0x4
+ 1491 0756 1A01     		.2byte	0x11a
+ 1492 0758 90000000 		.4byte	0x90
+ 1493 075c 01       		.byte	0x1
+ 1494 075d 67070000 		.4byte	0x767
+ 1495 0761 0C       		.uleb128 0xc
+ 1496 0762 B7000000 		.4byte	0xb7
+ 1497 0766 00       		.byte	0
+ 1498 0767 2B       		.uleb128 0x2b
+ 1499 0768 01       		.byte	0x1
+ 1500 0769 EA020000 		.4byte	.LASF49
+ 1501 076d 06       		.byte	0x6
+ 1502 076e 15       		.byte	0x15
+ 1503 076f 90000000 		.4byte	0x90
+ 1504 0773 01       		.byte	0x1
+ 1505 0774 88070000 		.4byte	0x788
+ 1506 0778 0C       		.uleb128 0xc
+ 1507 0779 B7000000 		.4byte	0xb7
+ 1508 077d 0C       		.uleb128 0xc
+ 1509 077e 88070000 		.4byte	0x788
+ 1510 0782 0C       		.uleb128 0xc
+ 1511 0783 90000000 		.4byte	0x90
+ 1512 0787 00       		.byte	0
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 30
+
+
+ 1513 0788 05       		.uleb128 0x5
+ 1514 0789 04       		.byte	0x4
+ 1515 078a 85000000 		.4byte	0x85
+ 1516 078e 2D       		.uleb128 0x2d
+ 1517 078f 01       		.byte	0x1
+ 1518 0790 00000000 		.4byte	.LASF51
+ 1519 0794 06       		.byte	0x6
+ 1520 0795 10       		.byte	0x10
+ 1521 0796 01       		.byte	0x1
+ 1522 0797 A1070000 		.4byte	0x7a1
+ 1523 079b 0C       		.uleb128 0xc
+ 1524 079c B7000000 		.4byte	0xb7
+ 1525 07a0 00       		.byte	0
+ 1526 07a1 2D       		.uleb128 0x2d
+ 1527 07a2 01       		.byte	0x1
+ 1528 07a3 DF020000 		.4byte	.LASF52
+ 1529 07a7 06       		.byte	0x6
+ 1530 07a8 12       		.byte	0x12
+ 1531 07a9 01       		.byte	0x1
+ 1532 07aa B4070000 		.4byte	0x7b4
+ 1533 07ae 0C       		.uleb128 0xc
+ 1534 07af B7000000 		.4byte	0xb7
+ 1535 07b3 00       		.byte	0
+ 1536 07b4 2C       		.uleb128 0x2c
+ 1537 07b5 01       		.byte	0x1
+ 1538 07b6 AD000000 		.4byte	.LASF53
+ 1539 07ba 04       		.byte	0x4
+ 1540 07bb 1801     		.2byte	0x118
+ 1541 07bd 85000000 		.4byte	0x85
+ 1542 07c1 01       		.byte	0x1
+ 1543 07c2 CC070000 		.4byte	0x7cc
+ 1544 07c6 0C       		.uleb128 0xc
+ 1545 07c7 B7000000 		.4byte	0xb7
+ 1546 07cb 00       		.byte	0
+ 1547 07cc 2B       		.uleb128 0x2b
+ 1548 07cd 01       		.byte	0x1
+ 1549 07ce A0000000 		.4byte	.LASF54
+ 1550 07d2 06       		.byte	0x6
+ 1551 07d3 0F       		.byte	0xf
+ 1552 07d4 85000000 		.4byte	0x85
+ 1553 07d8 01       		.byte	0x1
+ 1554 07d9 F2070000 		.4byte	0x7f2
+ 1555 07dd 0C       		.uleb128 0xc
+ 1556 07de B7000000 		.4byte	0xb7
+ 1557 07e2 0C       		.uleb128 0xc
+ 1558 07e3 85000000 		.4byte	0x85
+ 1559 07e7 0C       		.uleb128 0xc
+ 1560 07e8 90000000 		.4byte	0x90
+ 1561 07ec 0C       		.uleb128 0xc
+ 1562 07ed 85000000 		.4byte	0x85
+ 1563 07f1 00       		.byte	0
+ 1564 07f2 2E       		.uleb128 0x2e
+ 1565 07f3 01       		.byte	0x1
+ 1566 07f4 EA000000 		.4byte	.LASF22
+ 1567 07f8 06       		.byte	0x6
+ 1568 07f9 11       		.byte	0x11
+ 1569 07fa 85000000 		.4byte	0x85
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 31
+
+
+ 1570 07fe 01       		.byte	0x1
+ 1571 07ff 0C       		.uleb128 0xc
+ 1572 0800 B7000000 		.4byte	0xb7
+ 1573 0804 0C       		.uleb128 0xc
+ 1574 0805 88070000 		.4byte	0x788
+ 1575 0809 0C       		.uleb128 0xc
+ 1576 080a 90000000 		.4byte	0x90
+ 1577 080e 00       		.byte	0
+ 1578 080f 00       		.byte	0
+ 1579              		.section	.debug_abbrev,"",%progbits
+ 1580              	.Ldebug_abbrev0:
+ 1581 0000 01       		.uleb128 0x1
+ 1582 0001 11       		.uleb128 0x11
+ 1583 0002 01       		.byte	0x1
+ 1584 0003 25       		.uleb128 0x25
+ 1585 0004 0E       		.uleb128 0xe
+ 1586 0005 13       		.uleb128 0x13
+ 1587 0006 0B       		.uleb128 0xb
+ 1588 0007 03       		.uleb128 0x3
+ 1589 0008 0E       		.uleb128 0xe
+ 1590 0009 1B       		.uleb128 0x1b
+ 1591 000a 0E       		.uleb128 0xe
+ 1592 000b 55       		.uleb128 0x55
+ 1593 000c 06       		.uleb128 0x6
+ 1594 000d 11       		.uleb128 0x11
+ 1595 000e 01       		.uleb128 0x1
+ 1596 000f 52       		.uleb128 0x52
+ 1597 0010 01       		.uleb128 0x1
+ 1598 0011 10       		.uleb128 0x10
+ 1599 0012 06       		.uleb128 0x6
+ 1600 0013 00       		.byte	0
+ 1601 0014 00       		.byte	0
+ 1602 0015 02       		.uleb128 0x2
+ 1603 0016 24       		.uleb128 0x24
+ 1604 0017 00       		.byte	0
+ 1605 0018 0B       		.uleb128 0xb
+ 1606 0019 0B       		.uleb128 0xb
+ 1607 001a 3E       		.uleb128 0x3e
+ 1608 001b 0B       		.uleb128 0xb
+ 1609 001c 03       		.uleb128 0x3
+ 1610 001d 0E       		.uleb128 0xe
+ 1611 001e 00       		.byte	0
+ 1612 001f 00       		.byte	0
+ 1613 0020 03       		.uleb128 0x3
+ 1614 0021 16       		.uleb128 0x16
+ 1615 0022 00       		.byte	0
+ 1616 0023 03       		.uleb128 0x3
+ 1617 0024 0E       		.uleb128 0xe
+ 1618 0025 3A       		.uleb128 0x3a
+ 1619 0026 0B       		.uleb128 0xb
+ 1620 0027 3B       		.uleb128 0x3b
+ 1621 0028 0B       		.uleb128 0xb
+ 1622 0029 49       		.uleb128 0x49
+ 1623 002a 13       		.uleb128 0x13
+ 1624 002b 00       		.byte	0
+ 1625 002c 00       		.byte	0
+ 1626 002d 04       		.uleb128 0x4
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 32
+
+
+ 1627 002e 24       		.uleb128 0x24
+ 1628 002f 00       		.byte	0
+ 1629 0030 0B       		.uleb128 0xb
+ 1630 0031 0B       		.uleb128 0xb
+ 1631 0032 3E       		.uleb128 0x3e
+ 1632 0033 0B       		.uleb128 0xb
+ 1633 0034 03       		.uleb128 0x3
+ 1634 0035 08       		.uleb128 0x8
+ 1635 0036 00       		.byte	0
+ 1636 0037 00       		.byte	0
+ 1637 0038 05       		.uleb128 0x5
+ 1638 0039 0F       		.uleb128 0xf
+ 1639 003a 00       		.byte	0
+ 1640 003b 0B       		.uleb128 0xb
+ 1641 003c 0B       		.uleb128 0xb
+ 1642 003d 49       		.uleb128 0x49
+ 1643 003e 13       		.uleb128 0x13
+ 1644 003f 00       		.byte	0
+ 1645 0040 00       		.byte	0
+ 1646 0041 06       		.uleb128 0x6
+ 1647 0042 02       		.uleb128 0x2
+ 1648 0043 01       		.byte	0x1
+ 1649 0044 03       		.uleb128 0x3
+ 1650 0045 0E       		.uleb128 0xe
+ 1651 0046 0B       		.uleb128 0xb
+ 1652 0047 0B       		.uleb128 0xb
+ 1653 0048 3A       		.uleb128 0x3a
+ 1654 0049 0B       		.uleb128 0xb
+ 1655 004a 3B       		.uleb128 0x3b
+ 1656 004b 0B       		.uleb128 0xb
+ 1657 004c 1D       		.uleb128 0x1d
+ 1658 004d 13       		.uleb128 0x13
+ 1659 004e 01       		.uleb128 0x1
+ 1660 004f 13       		.uleb128 0x13
+ 1661 0050 00       		.byte	0
+ 1662 0051 00       		.byte	0
+ 1663 0052 07       		.uleb128 0x7
+ 1664 0053 1C       		.uleb128 0x1c
+ 1665 0054 00       		.byte	0
+ 1666 0055 49       		.uleb128 0x49
+ 1667 0056 13       		.uleb128 0x13
+ 1668 0057 38       		.uleb128 0x38
+ 1669 0058 0A       		.uleb128 0xa
+ 1670 0059 32       		.uleb128 0x32
+ 1671 005a 0B       		.uleb128 0xb
+ 1672 005b 00       		.byte	0
+ 1673 005c 00       		.byte	0
+ 1674 005d 08       		.uleb128 0x8
+ 1675 005e 0D       		.uleb128 0xd
+ 1676 005f 00       		.byte	0
+ 1677 0060 03       		.uleb128 0x3
+ 1678 0061 0E       		.uleb128 0xe
+ 1679 0062 3A       		.uleb128 0x3a
+ 1680 0063 0B       		.uleb128 0xb
+ 1681 0064 3B       		.uleb128 0x3b
+ 1682 0065 0B       		.uleb128 0xb
+ 1683 0066 49       		.uleb128 0x49
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 33
+
+
+ 1684 0067 13       		.uleb128 0x13
+ 1685 0068 38       		.uleb128 0x38
+ 1686 0069 0A       		.uleb128 0xa
+ 1687 006a 32       		.uleb128 0x32
+ 1688 006b 0B       		.uleb128 0xb
+ 1689 006c 00       		.byte	0
+ 1690 006d 00       		.byte	0
+ 1691 006e 09       		.uleb128 0x9
+ 1692 006f 0D       		.uleb128 0xd
+ 1693 0070 00       		.byte	0
+ 1694 0071 03       		.uleb128 0x3
+ 1695 0072 08       		.uleb128 0x8
+ 1696 0073 3A       		.uleb128 0x3a
+ 1697 0074 0B       		.uleb128 0xb
+ 1698 0075 3B       		.uleb128 0x3b
+ 1699 0076 0B       		.uleb128 0xb
+ 1700 0077 49       		.uleb128 0x49
+ 1701 0078 13       		.uleb128 0x13
+ 1702 0079 38       		.uleb128 0x38
+ 1703 007a 0A       		.uleb128 0xa
+ 1704 007b 32       		.uleb128 0x32
+ 1705 007c 0B       		.uleb128 0xb
+ 1706 007d 00       		.byte	0
+ 1707 007e 00       		.byte	0
+ 1708 007f 0A       		.uleb128 0xa
+ 1709 0080 2E       		.uleb128 0x2e
+ 1710 0081 01       		.byte	0x1
+ 1711 0082 3F       		.uleb128 0x3f
+ 1712 0083 0C       		.uleb128 0xc
+ 1713 0084 03       		.uleb128 0x3
+ 1714 0085 0E       		.uleb128 0xe
+ 1715 0086 49       		.uleb128 0x49
+ 1716 0087 13       		.uleb128 0x13
+ 1717 0088 34       		.uleb128 0x34
+ 1718 0089 0C       		.uleb128 0xc
+ 1719 008a 3C       		.uleb128 0x3c
+ 1720 008b 0C       		.uleb128 0xc
+ 1721 008c 64       		.uleb128 0x64
+ 1722 008d 13       		.uleb128 0x13
+ 1723 008e 01       		.uleb128 0x1
+ 1724 008f 13       		.uleb128 0x13
+ 1725 0090 00       		.byte	0
+ 1726 0091 00       		.byte	0
+ 1727 0092 0B       		.uleb128 0xb
+ 1728 0093 05       		.uleb128 0x5
+ 1729 0094 00       		.byte	0
+ 1730 0095 49       		.uleb128 0x49
+ 1731 0096 13       		.uleb128 0x13
+ 1732 0097 34       		.uleb128 0x34
+ 1733 0098 0C       		.uleb128 0xc
+ 1734 0099 00       		.byte	0
+ 1735 009a 00       		.byte	0
+ 1736 009b 0C       		.uleb128 0xc
+ 1737 009c 05       		.uleb128 0x5
+ 1738 009d 00       		.byte	0
+ 1739 009e 49       		.uleb128 0x49
+ 1740 009f 13       		.uleb128 0x13
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 34
+
+
+ 1741 00a0 00       		.byte	0
+ 1742 00a1 00       		.byte	0
+ 1743 00a2 0D       		.uleb128 0xd
+ 1744 00a3 2E       		.uleb128 0x2e
+ 1745 00a4 01       		.byte	0x1
+ 1746 00a5 3F       		.uleb128 0x3f
+ 1747 00a6 0C       		.uleb128 0xc
+ 1748 00a7 03       		.uleb128 0x3
+ 1749 00a8 0E       		.uleb128 0xe
+ 1750 00a9 3A       		.uleb128 0x3a
+ 1751 00aa 0B       		.uleb128 0xb
+ 1752 00ab 3B       		.uleb128 0x3b
+ 1753 00ac 0B       		.uleb128 0xb
+ 1754 00ad 49       		.uleb128 0x49
+ 1755 00ae 13       		.uleb128 0x13
+ 1756 00af 3C       		.uleb128 0x3c
+ 1757 00b0 0C       		.uleb128 0xc
+ 1758 00b1 64       		.uleb128 0x64
+ 1759 00b2 13       		.uleb128 0x13
+ 1760 00b3 01       		.uleb128 0x1
+ 1761 00b4 13       		.uleb128 0x13
+ 1762 00b5 00       		.byte	0
+ 1763 00b6 00       		.byte	0
+ 1764 00b7 0E       		.uleb128 0xe
+ 1765 00b8 2E       		.uleb128 0x2e
+ 1766 00b9 01       		.byte	0x1
+ 1767 00ba 3F       		.uleb128 0x3f
+ 1768 00bb 0C       		.uleb128 0xc
+ 1769 00bc 03       		.uleb128 0x3
+ 1770 00bd 0E       		.uleb128 0xe
+ 1771 00be 3A       		.uleb128 0x3a
+ 1772 00bf 0B       		.uleb128 0xb
+ 1773 00c0 3B       		.uleb128 0x3b
+ 1774 00c1 0B       		.uleb128 0xb
+ 1775 00c2 8740     		.uleb128 0x2007
+ 1776 00c4 0E       		.uleb128 0xe
+ 1777 00c5 49       		.uleb128 0x49
+ 1778 00c6 13       		.uleb128 0x13
+ 1779 00c7 3C       		.uleb128 0x3c
+ 1780 00c8 0C       		.uleb128 0xc
+ 1781 00c9 64       		.uleb128 0x64
+ 1782 00ca 13       		.uleb128 0x13
+ 1783 00cb 01       		.uleb128 0x1
+ 1784 00cc 13       		.uleb128 0x13
+ 1785 00cd 00       		.byte	0
+ 1786 00ce 00       		.byte	0
+ 1787 00cf 0F       		.uleb128 0xf
+ 1788 00d0 2E       		.uleb128 0x2e
+ 1789 00d1 01       		.byte	0x1
+ 1790 00d2 3F       		.uleb128 0x3f
+ 1791 00d3 0C       		.uleb128 0xc
+ 1792 00d4 03       		.uleb128 0x3
+ 1793 00d5 0E       		.uleb128 0xe
+ 1794 00d6 3A       		.uleb128 0x3a
+ 1795 00d7 0B       		.uleb128 0xb
+ 1796 00d8 3B       		.uleb128 0x3b
+ 1797 00d9 0B       		.uleb128 0xb
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 35
+
+
+ 1798 00da 8740     		.uleb128 0x2007
+ 1799 00dc 0E       		.uleb128 0xe
+ 1800 00dd 4C       		.uleb128 0x4c
+ 1801 00de 0B       		.uleb128 0xb
+ 1802 00df 4D       		.uleb128 0x4d
+ 1803 00e0 0A       		.uleb128 0xa
+ 1804 00e1 1D       		.uleb128 0x1d
+ 1805 00e2 13       		.uleb128 0x13
+ 1806 00e3 3C       		.uleb128 0x3c
+ 1807 00e4 0C       		.uleb128 0xc
+ 1808 00e5 64       		.uleb128 0x64
+ 1809 00e6 13       		.uleb128 0x13
+ 1810 00e7 01       		.uleb128 0x1
+ 1811 00e8 13       		.uleb128 0x13
+ 1812 00e9 00       		.byte	0
+ 1813 00ea 00       		.byte	0
+ 1814 00eb 10       		.uleb128 0x10
+ 1815 00ec 2E       		.uleb128 0x2e
+ 1816 00ed 01       		.byte	0x1
+ 1817 00ee 3F       		.uleb128 0x3f
+ 1818 00ef 0C       		.uleb128 0xc
+ 1819 00f0 03       		.uleb128 0x3
+ 1820 00f1 0E       		.uleb128 0xe
+ 1821 00f2 3A       		.uleb128 0x3a
+ 1822 00f3 0B       		.uleb128 0xb
+ 1823 00f4 3B       		.uleb128 0x3b
+ 1824 00f5 0B       		.uleb128 0xb
+ 1825 00f6 8740     		.uleb128 0x2007
+ 1826 00f8 0E       		.uleb128 0xe
+ 1827 00f9 3C       		.uleb128 0x3c
+ 1828 00fa 0C       		.uleb128 0xc
+ 1829 00fb 64       		.uleb128 0x64
+ 1830 00fc 13       		.uleb128 0x13
+ 1831 00fd 01       		.uleb128 0x1
+ 1832 00fe 13       		.uleb128 0x13
+ 1833 00ff 00       		.byte	0
+ 1834 0100 00       		.byte	0
+ 1835 0101 11       		.uleb128 0x11
+ 1836 0102 2E       		.uleb128 0x2e
+ 1837 0103 01       		.byte	0x1
+ 1838 0104 3F       		.uleb128 0x3f
+ 1839 0105 0C       		.uleb128 0xc
+ 1840 0106 03       		.uleb128 0x3
+ 1841 0107 0E       		.uleb128 0xe
+ 1842 0108 3A       		.uleb128 0x3a
+ 1843 0109 0B       		.uleb128 0xb
+ 1844 010a 3B       		.uleb128 0x3b
+ 1845 010b 0B       		.uleb128 0xb
+ 1846 010c 8740     		.uleb128 0x2007
+ 1847 010e 0E       		.uleb128 0xe
+ 1848 010f 49       		.uleb128 0x49
+ 1849 0110 13       		.uleb128 0x13
+ 1850 0111 3C       		.uleb128 0x3c
+ 1851 0112 0C       		.uleb128 0xc
+ 1852 0113 64       		.uleb128 0x64
+ 1853 0114 13       		.uleb128 0x13
+ 1854 0115 00       		.byte	0
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 36
+
+
+ 1855 0116 00       		.byte	0
+ 1856 0117 12       		.uleb128 0x12
+ 1857 0118 02       		.uleb128 0x2
+ 1858 0119 01       		.byte	0x1
+ 1859 011a 03       		.uleb128 0x3
+ 1860 011b 0E       		.uleb128 0xe
+ 1861 011c 3C       		.uleb128 0x3c
+ 1862 011d 0C       		.uleb128 0xc
+ 1863 011e 01       		.uleb128 0x1
+ 1864 011f 13       		.uleb128 0x13
+ 1865 0120 00       		.byte	0
+ 1866 0121 00       		.byte	0
+ 1867 0122 13       		.uleb128 0x13
+ 1868 0123 2E       		.uleb128 0x2e
+ 1869 0124 01       		.byte	0x1
+ 1870 0125 3F       		.uleb128 0x3f
+ 1871 0126 0C       		.uleb128 0xc
+ 1872 0127 03       		.uleb128 0x3
+ 1873 0128 0E       		.uleb128 0xe
+ 1874 0129 49       		.uleb128 0x49
+ 1875 012a 13       		.uleb128 0x13
+ 1876 012b 34       		.uleb128 0x34
+ 1877 012c 0C       		.uleb128 0xc
+ 1878 012d 3C       		.uleb128 0x3c
+ 1879 012e 0C       		.uleb128 0xc
+ 1880 012f 64       		.uleb128 0x64
+ 1881 0130 13       		.uleb128 0x13
+ 1882 0131 00       		.byte	0
+ 1883 0132 00       		.byte	0
+ 1884 0133 14       		.uleb128 0x14
+ 1885 0134 10       		.uleb128 0x10
+ 1886 0135 00       		.byte	0
+ 1887 0136 0B       		.uleb128 0xb
+ 1888 0137 0B       		.uleb128 0xb
+ 1889 0138 49       		.uleb128 0x49
+ 1890 0139 13       		.uleb128 0x13
+ 1891 013a 00       		.byte	0
+ 1892 013b 00       		.byte	0
+ 1893 013c 15       		.uleb128 0x15
+ 1894 013d 26       		.uleb128 0x26
+ 1895 013e 00       		.byte	0
+ 1896 013f 49       		.uleb128 0x49
+ 1897 0140 13       		.uleb128 0x13
+ 1898 0141 00       		.byte	0
+ 1899 0142 00       		.byte	0
+ 1900 0143 16       		.uleb128 0x16
+ 1901 0144 2E       		.uleb128 0x2e
+ 1902 0145 01       		.byte	0x1
+ 1903 0146 47       		.uleb128 0x47
+ 1904 0147 13       		.uleb128 0x13
+ 1905 0148 3A       		.uleb128 0x3a
+ 1906 0149 0B       		.uleb128 0xb
+ 1907 014a 3B       		.uleb128 0x3b
+ 1908 014b 0B       		.uleb128 0xb
+ 1909 014c 20       		.uleb128 0x20
+ 1910 014d 0B       		.uleb128 0xb
+ 1911 014e 64       		.uleb128 0x64
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 37
+
+
+ 1912 014f 13       		.uleb128 0x13
+ 1913 0150 01       		.uleb128 0x1
+ 1914 0151 13       		.uleb128 0x13
+ 1915 0152 00       		.byte	0
+ 1916 0153 00       		.byte	0
+ 1917 0154 17       		.uleb128 0x17
+ 1918 0155 05       		.uleb128 0x5
+ 1919 0156 00       		.byte	0
+ 1920 0157 03       		.uleb128 0x3
+ 1921 0158 0E       		.uleb128 0xe
+ 1922 0159 49       		.uleb128 0x49
+ 1923 015a 13       		.uleb128 0x13
+ 1924 015b 34       		.uleb128 0x34
+ 1925 015c 0C       		.uleb128 0xc
+ 1926 015d 00       		.byte	0
+ 1927 015e 00       		.byte	0
+ 1928 015f 18       		.uleb128 0x18
+ 1929 0160 2E       		.uleb128 0x2e
+ 1930 0161 01       		.byte	0x1
+ 1931 0162 47       		.uleb128 0x47
+ 1932 0163 13       		.uleb128 0x13
+ 1933 0164 11       		.uleb128 0x11
+ 1934 0165 01       		.uleb128 0x1
+ 1935 0166 12       		.uleb128 0x12
+ 1936 0167 01       		.uleb128 0x1
+ 1937 0168 40       		.uleb128 0x40
+ 1938 0169 06       		.uleb128 0x6
+ 1939 016a 64       		.uleb128 0x64
+ 1940 016b 13       		.uleb128 0x13
+ 1941 016c 9742     		.uleb128 0x2117
+ 1942 016e 0C       		.uleb128 0xc
+ 1943 016f 01       		.uleb128 0x1
+ 1944 0170 13       		.uleb128 0x13
+ 1945 0171 00       		.byte	0
+ 1946 0172 00       		.byte	0
+ 1947 0173 19       		.uleb128 0x19
+ 1948 0174 05       		.uleb128 0x5
+ 1949 0175 00       		.byte	0
+ 1950 0176 03       		.uleb128 0x3
+ 1951 0177 0E       		.uleb128 0xe
+ 1952 0178 49       		.uleb128 0x49
+ 1953 0179 13       		.uleb128 0x13
+ 1954 017a 34       		.uleb128 0x34
+ 1955 017b 0C       		.uleb128 0xc
+ 1956 017c 02       		.uleb128 0x2
+ 1957 017d 06       		.uleb128 0x6
+ 1958 017e 00       		.byte	0
+ 1959 017f 00       		.byte	0
+ 1960 0180 1A       		.uleb128 0x1a
+ 1961 0181 05       		.uleb128 0x5
+ 1962 0182 00       		.byte	0
+ 1963 0183 03       		.uleb128 0x3
+ 1964 0184 08       		.uleb128 0x8
+ 1965 0185 3A       		.uleb128 0x3a
+ 1966 0186 0B       		.uleb128 0xb
+ 1967 0187 3B       		.uleb128 0x3b
+ 1968 0188 0B       		.uleb128 0xb
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 38
+
+
+ 1969 0189 49       		.uleb128 0x49
+ 1970 018a 13       		.uleb128 0x13
+ 1971 018b 02       		.uleb128 0x2
+ 1972 018c 06       		.uleb128 0x6
+ 1973 018d 00       		.byte	0
+ 1974 018e 00       		.byte	0
+ 1975 018f 1B       		.uleb128 0x1b
+ 1976 0190 898201   		.uleb128 0x4109
+ 1977 0193 01       		.byte	0x1
+ 1978 0194 11       		.uleb128 0x11
+ 1979 0195 01       		.uleb128 0x1
+ 1980 0196 31       		.uleb128 0x31
+ 1981 0197 13       		.uleb128 0x13
+ 1982 0198 00       		.byte	0
+ 1983 0199 00       		.byte	0
+ 1984 019a 1C       		.uleb128 0x1c
+ 1985 019b 8A8201   		.uleb128 0x410a
+ 1986 019e 00       		.byte	0
+ 1987 019f 02       		.uleb128 0x2
+ 1988 01a0 0A       		.uleb128 0xa
+ 1989 01a1 9142     		.uleb128 0x2111
+ 1990 01a3 0A       		.uleb128 0xa
+ 1991 01a4 00       		.byte	0
+ 1992 01a5 00       		.byte	0
+ 1993 01a6 1D       		.uleb128 0x1d
+ 1994 01a7 2E       		.uleb128 0x2e
+ 1995 01a8 01       		.byte	0x1
+ 1996 01a9 47       		.uleb128 0x47
+ 1997 01aa 13       		.uleb128 0x13
+ 1998 01ab 20       		.uleb128 0x20
+ 1999 01ac 0B       		.uleb128 0xb
+ 2000 01ad 64       		.uleb128 0x64
+ 2001 01ae 13       		.uleb128 0x13
+ 2002 01af 01       		.uleb128 0x1
+ 2003 01b0 13       		.uleb128 0x13
+ 2004 01b1 00       		.byte	0
+ 2005 01b2 00       		.byte	0
+ 2006 01b3 1E       		.uleb128 0x1e
+ 2007 01b4 05       		.uleb128 0x5
+ 2008 01b5 00       		.byte	0
+ 2009 01b6 03       		.uleb128 0x3
+ 2010 01b7 0E       		.uleb128 0xe
+ 2011 01b8 3A       		.uleb128 0x3a
+ 2012 01b9 0B       		.uleb128 0xb
+ 2013 01ba 3B       		.uleb128 0x3b
+ 2014 01bb 0B       		.uleb128 0xb
+ 2015 01bc 49       		.uleb128 0x49
+ 2016 01bd 13       		.uleb128 0x13
+ 2017 01be 00       		.byte	0
+ 2018 01bf 00       		.byte	0
+ 2019 01c0 1F       		.uleb128 0x1f
+ 2020 01c1 2E       		.uleb128 0x2e
+ 2021 01c2 01       		.byte	0x1
+ 2022 01c3 31       		.uleb128 0x31
+ 2023 01c4 13       		.uleb128 0x13
+ 2024 01c5 8740     		.uleb128 0x2007
+ 2025 01c7 0E       		.uleb128 0xe
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 39
+
+
+ 2026 01c8 11       		.uleb128 0x11
+ 2027 01c9 01       		.uleb128 0x1
+ 2028 01ca 12       		.uleb128 0x12
+ 2029 01cb 01       		.uleb128 0x1
+ 2030 01cc 40       		.uleb128 0x40
+ 2031 01cd 0A       		.uleb128 0xa
+ 2032 01ce 64       		.uleb128 0x64
+ 2033 01cf 13       		.uleb128 0x13
+ 2034 01d0 9742     		.uleb128 0x2117
+ 2035 01d2 0C       		.uleb128 0xc
+ 2036 01d3 01       		.uleb128 0x1
+ 2037 01d4 13       		.uleb128 0x13
+ 2038 01d5 00       		.byte	0
+ 2039 01d6 00       		.byte	0
+ 2040 01d7 20       		.uleb128 0x20
+ 2041 01d8 05       		.uleb128 0x5
+ 2042 01d9 00       		.byte	0
+ 2043 01da 31       		.uleb128 0x31
+ 2044 01db 13       		.uleb128 0x13
+ 2045 01dc 02       		.uleb128 0x2
+ 2046 01dd 0A       		.uleb128 0xa
+ 2047 01de 00       		.byte	0
+ 2048 01df 00       		.byte	0
+ 2049 01e0 21       		.uleb128 0x21
+ 2050 01e1 05       		.uleb128 0x5
+ 2051 01e2 00       		.byte	0
+ 2052 01e3 03       		.uleb128 0x3
+ 2053 01e4 08       		.uleb128 0x8
+ 2054 01e5 3A       		.uleb128 0x3a
+ 2055 01e6 0B       		.uleb128 0xb
+ 2056 01e7 3B       		.uleb128 0x3b
+ 2057 01e8 0B       		.uleb128 0xb
+ 2058 01e9 49       		.uleb128 0x49
+ 2059 01ea 13       		.uleb128 0x13
+ 2060 01eb 00       		.byte	0
+ 2061 01ec 00       		.byte	0
+ 2062 01ed 22       		.uleb128 0x22
+ 2063 01ee 2E       		.uleb128 0x2e
+ 2064 01ef 01       		.byte	0x1
+ 2065 01f0 31       		.uleb128 0x31
+ 2066 01f1 13       		.uleb128 0x13
+ 2067 01f2 8740     		.uleb128 0x2007
+ 2068 01f4 0E       		.uleb128 0xe
+ 2069 01f5 11       		.uleb128 0x11
+ 2070 01f6 01       		.uleb128 0x1
+ 2071 01f7 12       		.uleb128 0x12
+ 2072 01f8 01       		.uleb128 0x1
+ 2073 01f9 40       		.uleb128 0x40
+ 2074 01fa 06       		.uleb128 0x6
+ 2075 01fb 64       		.uleb128 0x64
+ 2076 01fc 13       		.uleb128 0x13
+ 2077 01fd 9742     		.uleb128 0x2117
+ 2078 01ff 0C       		.uleb128 0xc
+ 2079 0200 01       		.uleb128 0x1
+ 2080 0201 13       		.uleb128 0x13
+ 2081 0202 00       		.byte	0
+ 2082 0203 00       		.byte	0
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 40
+
+
+ 2083 0204 23       		.uleb128 0x23
+ 2084 0205 05       		.uleb128 0x5
+ 2085 0206 00       		.byte	0
+ 2086 0207 31       		.uleb128 0x31
+ 2087 0208 13       		.uleb128 0x13
+ 2088 0209 02       		.uleb128 0x2
+ 2089 020a 06       		.uleb128 0x6
+ 2090 020b 00       		.byte	0
+ 2091 020c 00       		.byte	0
+ 2092 020d 24       		.uleb128 0x24
+ 2093 020e 898201   		.uleb128 0x4109
+ 2094 0211 00       		.byte	0
+ 2095 0212 11       		.uleb128 0x11
+ 2096 0213 01       		.uleb128 0x1
+ 2097 0214 31       		.uleb128 0x31
+ 2098 0215 13       		.uleb128 0x13
+ 2099 0216 00       		.byte	0
+ 2100 0217 00       		.byte	0
+ 2101 0218 25       		.uleb128 0x25
+ 2102 0219 0B       		.uleb128 0xb
+ 2103 021a 01       		.byte	0x1
+ 2104 021b 11       		.uleb128 0x11
+ 2105 021c 01       		.uleb128 0x1
+ 2106 021d 12       		.uleb128 0x12
+ 2107 021e 01       		.uleb128 0x1
+ 2108 021f 00       		.byte	0
+ 2109 0220 00       		.byte	0
+ 2110 0221 26       		.uleb128 0x26
+ 2111 0222 34       		.uleb128 0x34
+ 2112 0223 00       		.byte	0
+ 2113 0224 03       		.uleb128 0x3
+ 2114 0225 08       		.uleb128 0x8
+ 2115 0226 3A       		.uleb128 0x3a
+ 2116 0227 0B       		.uleb128 0xb
+ 2117 0228 3B       		.uleb128 0x3b
+ 2118 0229 0B       		.uleb128 0xb
+ 2119 022a 49       		.uleb128 0x49
+ 2120 022b 13       		.uleb128 0x13
+ 2121 022c 02       		.uleb128 0x2
+ 2122 022d 06       		.uleb128 0x6
+ 2123 022e 00       		.byte	0
+ 2124 022f 00       		.byte	0
+ 2125 0230 27       		.uleb128 0x27
+ 2126 0231 898201   		.uleb128 0x4109
+ 2127 0234 01       		.byte	0x1
+ 2128 0235 11       		.uleb128 0x11
+ 2129 0236 01       		.uleb128 0x1
+ 2130 0237 31       		.uleb128 0x31
+ 2131 0238 13       		.uleb128 0x13
+ 2132 0239 01       		.uleb128 0x1
+ 2133 023a 13       		.uleb128 0x13
+ 2134 023b 00       		.byte	0
+ 2135 023c 00       		.byte	0
+ 2136 023d 28       		.uleb128 0x28
+ 2137 023e 0B       		.uleb128 0xb
+ 2138 023f 01       		.byte	0x1
+ 2139 0240 11       		.uleb128 0x11
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 41
+
+
+ 2140 0241 01       		.uleb128 0x1
+ 2141 0242 12       		.uleb128 0x12
+ 2142 0243 01       		.uleb128 0x1
+ 2143 0244 01       		.uleb128 0x1
+ 2144 0245 13       		.uleb128 0x13
+ 2145 0246 00       		.byte	0
+ 2146 0247 00       		.byte	0
+ 2147 0248 29       		.uleb128 0x29
+ 2148 0249 2E       		.uleb128 0x2e
+ 2149 024a 01       		.byte	0x1
+ 2150 024b 47       		.uleb128 0x47
+ 2151 024c 13       		.uleb128 0x13
+ 2152 024d 11       		.uleb128 0x11
+ 2153 024e 01       		.uleb128 0x1
+ 2154 024f 12       		.uleb128 0x12
+ 2155 0250 01       		.uleb128 0x1
+ 2156 0251 40       		.uleb128 0x40
+ 2157 0252 0A       		.uleb128 0xa
+ 2158 0253 64       		.uleb128 0x64
+ 2159 0254 13       		.uleb128 0x13
+ 2160 0255 9742     		.uleb128 0x2117
+ 2161 0257 0C       		.uleb128 0xc
+ 2162 0258 01       		.uleb128 0x1
+ 2163 0259 13       		.uleb128 0x13
+ 2164 025a 00       		.byte	0
+ 2165 025b 00       		.byte	0
+ 2166 025c 2A       		.uleb128 0x2a
+ 2167 025d 05       		.uleb128 0x5
+ 2168 025e 00       		.byte	0
+ 2169 025f 03       		.uleb128 0x3
+ 2170 0260 08       		.uleb128 0x8
+ 2171 0261 3A       		.uleb128 0x3a
+ 2172 0262 0B       		.uleb128 0xb
+ 2173 0263 3B       		.uleb128 0x3b
+ 2174 0264 0B       		.uleb128 0xb
+ 2175 0265 49       		.uleb128 0x49
+ 2176 0266 13       		.uleb128 0x13
+ 2177 0267 02       		.uleb128 0x2
+ 2178 0268 0A       		.uleb128 0xa
+ 2179 0269 00       		.byte	0
+ 2180 026a 00       		.byte	0
+ 2181 026b 2B       		.uleb128 0x2b
+ 2182 026c 2E       		.uleb128 0x2e
+ 2183 026d 01       		.byte	0x1
+ 2184 026e 3F       		.uleb128 0x3f
+ 2185 026f 0C       		.uleb128 0xc
+ 2186 0270 03       		.uleb128 0x3
+ 2187 0271 0E       		.uleb128 0xe
+ 2188 0272 3A       		.uleb128 0x3a
+ 2189 0273 0B       		.uleb128 0xb
+ 2190 0274 3B       		.uleb128 0x3b
+ 2191 0275 0B       		.uleb128 0xb
+ 2192 0276 49       		.uleb128 0x49
+ 2193 0277 13       		.uleb128 0x13
+ 2194 0278 3C       		.uleb128 0x3c
+ 2195 0279 0C       		.uleb128 0xc
+ 2196 027a 01       		.uleb128 0x1
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 42
+
+
+ 2197 027b 13       		.uleb128 0x13
+ 2198 027c 00       		.byte	0
+ 2199 027d 00       		.byte	0
+ 2200 027e 2C       		.uleb128 0x2c
+ 2201 027f 2E       		.uleb128 0x2e
+ 2202 0280 01       		.byte	0x1
+ 2203 0281 3F       		.uleb128 0x3f
+ 2204 0282 0C       		.uleb128 0xc
+ 2205 0283 03       		.uleb128 0x3
+ 2206 0284 0E       		.uleb128 0xe
+ 2207 0285 3A       		.uleb128 0x3a
+ 2208 0286 0B       		.uleb128 0xb
+ 2209 0287 3B       		.uleb128 0x3b
+ 2210 0288 05       		.uleb128 0x5
+ 2211 0289 49       		.uleb128 0x49
+ 2212 028a 13       		.uleb128 0x13
+ 2213 028b 3C       		.uleb128 0x3c
+ 2214 028c 0C       		.uleb128 0xc
+ 2215 028d 01       		.uleb128 0x1
+ 2216 028e 13       		.uleb128 0x13
+ 2217 028f 00       		.byte	0
+ 2218 0290 00       		.byte	0
+ 2219 0291 2D       		.uleb128 0x2d
+ 2220 0292 2E       		.uleb128 0x2e
+ 2221 0293 01       		.byte	0x1
+ 2222 0294 3F       		.uleb128 0x3f
+ 2223 0295 0C       		.uleb128 0xc
+ 2224 0296 03       		.uleb128 0x3
+ 2225 0297 0E       		.uleb128 0xe
+ 2226 0298 3A       		.uleb128 0x3a
+ 2227 0299 0B       		.uleb128 0xb
+ 2228 029a 3B       		.uleb128 0x3b
+ 2229 029b 0B       		.uleb128 0xb
+ 2230 029c 3C       		.uleb128 0x3c
+ 2231 029d 0C       		.uleb128 0xc
+ 2232 029e 01       		.uleb128 0x1
+ 2233 029f 13       		.uleb128 0x13
+ 2234 02a0 00       		.byte	0
+ 2235 02a1 00       		.byte	0
+ 2236 02a2 2E       		.uleb128 0x2e
+ 2237 02a3 2E       		.uleb128 0x2e
+ 2238 02a4 01       		.byte	0x1
+ 2239 02a5 3F       		.uleb128 0x3f
+ 2240 02a6 0C       		.uleb128 0xc
+ 2241 02a7 03       		.uleb128 0x3
+ 2242 02a8 0E       		.uleb128 0xe
+ 2243 02a9 3A       		.uleb128 0x3a
+ 2244 02aa 0B       		.uleb128 0xb
+ 2245 02ab 3B       		.uleb128 0x3b
+ 2246 02ac 0B       		.uleb128 0xb
+ 2247 02ad 49       		.uleb128 0x49
+ 2248 02ae 13       		.uleb128 0x13
+ 2249 02af 3C       		.uleb128 0x3c
+ 2250 02b0 0C       		.uleb128 0xc
+ 2251 02b1 00       		.byte	0
+ 2252 02b2 00       		.byte	0
+ 2253 02b3 00       		.byte	0
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 43
+
+
+ 2254              		.section	.debug_loc,"",%progbits
+ 2255              	.Ldebug_loc0:
+ 2256              	.LLST0:
+ 2257 0000 00000000 		.4byte	.LFB10
+ 2258 0004 02000000 		.4byte	.LCFI0
+ 2259 0008 0200     		.2byte	0x2
+ 2260 000a 7D       		.byte	0x7d
+ 2261 000b 00       		.sleb128 0
+ 2262 000c 02000000 		.4byte	.LCFI0
+ 2263 0010 14000000 		.4byte	.LFE10
+ 2264 0014 0200     		.2byte	0x2
+ 2265 0016 7D       		.byte	0x7d
+ 2266 0017 10       		.sleb128 16
+ 2267 0018 00000000 		.4byte	0
+ 2268 001c 00000000 		.4byte	0
+ 2269              	.LLST1:
+ 2270 0020 00000000 		.4byte	.LVL0
+ 2271 0024 0A000000 		.4byte	.LVL3
+ 2272 0028 0100     		.2byte	0x1
+ 2273 002a 50       		.byte	0x50
+ 2274 002b 0A000000 		.4byte	.LVL3
+ 2275 002f 14000000 		.4byte	.LFE10
+ 2276 0033 0400     		.2byte	0x4
+ 2277 0035 F3       		.byte	0xf3
+ 2278 0036 01       		.uleb128 0x1
+ 2279 0037 50       		.byte	0x50
+ 2280 0038 9F       		.byte	0x9f
+ 2281 0039 00000000 		.4byte	0
+ 2282 003d 00000000 		.4byte	0
+ 2283              	.LLST2:
+ 2284 0041 00000000 		.4byte	.LVL0
+ 2285 0045 02000000 		.4byte	.LVL1
+ 2286 0049 0100     		.2byte	0x1
+ 2287 004b 51       		.byte	0x51
+ 2288 004c 04000000 		.4byte	.LVL2
+ 2289 0050 0C000000 		.4byte	.LVL4
+ 2290 0054 0100     		.2byte	0x1
+ 2291 0056 51       		.byte	0x51
+ 2292 0057 0C000000 		.4byte	.LVL4
+ 2293 005b 14000000 		.4byte	.LFE10
+ 2294 005f 0200     		.2byte	0x2
+ 2295 0061 73       		.byte	0x73
+ 2296 0062 07       		.sleb128 7
+ 2297 0063 00000000 		.4byte	0
+ 2298 0067 00000000 		.4byte	0
+ 2299              	.LLST3:
+ 2300 006b 00000000 		.4byte	.LFB7
+ 2301 006f 04000000 		.4byte	.LCFI1
+ 2302 0073 0200     		.2byte	0x2
+ 2303 0075 7D       		.byte	0x7d
+ 2304 0076 00       		.sleb128 0
+ 2305 0077 04000000 		.4byte	.LCFI1
+ 2306 007b 30000000 		.4byte	.LFE7
+ 2307 007f 0200     		.2byte	0x2
+ 2308 0081 7D       		.byte	0x7d
+ 2309 0082 08       		.sleb128 8
+ 2310 0083 00000000 		.4byte	0
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 44
+
+
+ 2311 0087 00000000 		.4byte	0
+ 2312              	.LLST4:
+ 2313 008b 00000000 		.4byte	.LVL7
+ 2314 008f 1E000000 		.4byte	.LVL8
+ 2315 0093 0100     		.2byte	0x1
+ 2316 0095 51       		.byte	0x51
+ 2317 0096 1E000000 		.4byte	.LVL8
+ 2318 009a 30000000 		.4byte	.LFE7
+ 2319 009e 0400     		.2byte	0x4
+ 2320 00a0 F3       		.byte	0xf3
+ 2321 00a1 01       		.uleb128 0x1
+ 2322 00a2 51       		.byte	0x51
+ 2323 00a3 9F       		.byte	0x9f
+ 2324 00a4 00000000 		.4byte	0
+ 2325 00a8 00000000 		.4byte	0
+ 2326              	.LLST5:
+ 2327 00ac 00000000 		.4byte	.LVL7
+ 2328 00b0 20000000 		.4byte	.LVL9
+ 2329 00b4 0100     		.2byte	0x1
+ 2330 00b6 52       		.byte	0x52
+ 2331 00b7 20000000 		.4byte	.LVL9
+ 2332 00bb 30000000 		.4byte	.LFE7
+ 2333 00bf 0400     		.2byte	0x4
+ 2334 00c1 F3       		.byte	0xf3
+ 2335 00c2 01       		.uleb128 0x1
+ 2336 00c3 52       		.byte	0x52
+ 2337 00c4 9F       		.byte	0x9f
+ 2338 00c5 00000000 		.4byte	0
+ 2339 00c9 00000000 		.4byte	0
+ 2340              	.LLST6:
+ 2341 00cd 00000000 		.4byte	.LFB11
+ 2342 00d1 02000000 		.4byte	.LCFI2
+ 2343 00d5 0200     		.2byte	0x2
+ 2344 00d7 7D       		.byte	0x7d
+ 2345 00d8 00       		.sleb128 0
+ 2346 00d9 02000000 		.4byte	.LCFI2
+ 2347 00dd 0A000000 		.4byte	.LFE11
+ 2348 00e1 0200     		.2byte	0x2
+ 2349 00e3 7D       		.byte	0x7d
+ 2350 00e4 08       		.sleb128 8
+ 2351 00e5 00000000 		.4byte	0
+ 2352 00e9 00000000 		.4byte	0
+ 2353              	.LLST7:
+ 2354 00ed 00000000 		.4byte	.LVL10
+ 2355 00f1 04000000 		.4byte	.LVL11
+ 2356 00f5 0100     		.2byte	0x1
+ 2357 00f7 50       		.byte	0x50
+ 2358 00f8 04000000 		.4byte	.LVL11
+ 2359 00fc 0A000000 		.4byte	.LFE11
+ 2360 0100 0400     		.2byte	0x4
+ 2361 0102 F3       		.byte	0xf3
+ 2362 0103 01       		.uleb128 0x1
+ 2363 0104 50       		.byte	0x50
+ 2364 0105 9F       		.byte	0x9f
+ 2365 0106 00000000 		.4byte	0
+ 2366 010a 00000000 		.4byte	0
+ 2367              	.LLST8:
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 45
+
+
+ 2368 010e 00000000 		.4byte	.LFB12
+ 2369 0112 02000000 		.4byte	.LCFI3
+ 2370 0116 0200     		.2byte	0x2
+ 2371 0118 7D       		.byte	0x7d
+ 2372 0119 00       		.sleb128 0
+ 2373 011a 02000000 		.4byte	.LCFI3
+ 2374 011e 24000000 		.4byte	.LFE12
+ 2375 0122 0200     		.2byte	0x2
+ 2376 0124 7D       		.byte	0x7d
+ 2377 0125 10       		.sleb128 16
+ 2378 0126 00000000 		.4byte	0
+ 2379 012a 00000000 		.4byte	0
+ 2380              	.LLST9:
+ 2381 012e 00000000 		.4byte	.LVL13
+ 2382 0132 07000000 		.4byte	.LVL14-1
+ 2383 0136 0100     		.2byte	0x1
+ 2384 0138 50       		.byte	0x50
+ 2385 0139 07000000 		.4byte	.LVL14-1
+ 2386 013d 10000000 		.4byte	.LVL15
+ 2387 0141 0100     		.2byte	0x1
+ 2388 0143 54       		.byte	0x54
+ 2389 0144 10000000 		.4byte	.LVL15
+ 2390 0148 1E000000 		.4byte	.LVL17
+ 2391 014c 0400     		.2byte	0x4
+ 2392 014e F3       		.byte	0xf3
+ 2393 014f 01       		.uleb128 0x1
+ 2394 0150 50       		.byte	0x50
+ 2395 0151 9F       		.byte	0x9f
+ 2396 0152 1E000000 		.4byte	.LVL17
+ 2397 0156 22000000 		.4byte	.LVL18
+ 2398 015a 0100     		.2byte	0x1
+ 2399 015c 54       		.byte	0x54
+ 2400 015d 22000000 		.4byte	.LVL18
+ 2401 0161 24000000 		.4byte	.LFE12
+ 2402 0165 0400     		.2byte	0x4
+ 2403 0167 F3       		.byte	0xf3
+ 2404 0168 01       		.uleb128 0x1
+ 2405 0169 50       		.byte	0x50
+ 2406 016a 9F       		.byte	0x9f
+ 2407 016b 00000000 		.4byte	0
+ 2408 016f 00000000 		.4byte	0
+ 2409              	.LLST10:
+ 2410 0173 1A000000 		.4byte	.LVL16
+ 2411 0177 1E000000 		.4byte	.LVL17
+ 2412 017b 0200     		.2byte	0x2
+ 2413 017d 74       		.byte	0x74
+ 2414 017e 00       		.sleb128 0
+ 2415 017f 22000000 		.4byte	.LVL18
+ 2416 0183 24000000 		.4byte	.LFE12
+ 2417 0187 0200     		.2byte	0x2
+ 2418 0189 74       		.byte	0x74
+ 2419 018a 00       		.sleb128 0
+ 2420 018b 00000000 		.4byte	0
+ 2421 018f 00000000 		.4byte	0
+ 2422              	.LLST11:
+ 2423 0193 00000000 		.4byte	.LFB13
+ 2424 0197 02000000 		.4byte	.LCFI4
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 46
+
+
+ 2425 019b 0200     		.2byte	0x2
+ 2426 019d 7D       		.byte	0x7d
+ 2427 019e 00       		.sleb128 0
+ 2428 019f 02000000 		.4byte	.LCFI4
+ 2429 01a3 18000000 		.4byte	.LFE13
+ 2430 01a7 0200     		.2byte	0x2
+ 2431 01a9 7D       		.byte	0x7d
+ 2432 01aa 08       		.sleb128 8
+ 2433 01ab 00000000 		.4byte	0
+ 2434 01af 00000000 		.4byte	0
+ 2435              	.LLST12:
+ 2436 01b3 00000000 		.4byte	.LVL19
+ 2437 01b7 04000000 		.4byte	.LVL20
+ 2438 01bb 0100     		.2byte	0x1
+ 2439 01bd 50       		.byte	0x50
+ 2440 01be 04000000 		.4byte	.LVL20
+ 2441 01c2 16000000 		.4byte	.LVL23
+ 2442 01c6 0100     		.2byte	0x1
+ 2443 01c8 54       		.byte	0x54
+ 2444 01c9 16000000 		.4byte	.LVL23
+ 2445 01cd 18000000 		.4byte	.LFE13
+ 2446 01d1 0400     		.2byte	0x4
+ 2447 01d3 F3       		.byte	0xf3
+ 2448 01d4 01       		.uleb128 0x1
+ 2449 01d5 50       		.byte	0x50
+ 2450 01d6 9F       		.byte	0x9f
+ 2451 01d7 00000000 		.4byte	0
+ 2452 01db 00000000 		.4byte	0
+ 2453              	.LLST13:
+ 2454 01df 00000000 		.4byte	.LFB14
+ 2455 01e3 02000000 		.4byte	.LCFI5
+ 2456 01e7 0200     		.2byte	0x2
+ 2457 01e9 7D       		.byte	0x7d
+ 2458 01ea 00       		.sleb128 0
+ 2459 01eb 02000000 		.4byte	.LCFI5
+ 2460 01ef 20000000 		.4byte	.LFE14
+ 2461 01f3 0200     		.2byte	0x2
+ 2462 01f5 7D       		.byte	0x7d
+ 2463 01f6 08       		.sleb128 8
+ 2464 01f7 00000000 		.4byte	0
+ 2465 01fb 00000000 		.4byte	0
+ 2466              	.LLST14:
+ 2467 01ff 00000000 		.4byte	.LVL24
+ 2468 0203 06000000 		.4byte	.LVL25
+ 2469 0207 0100     		.2byte	0x1
+ 2470 0209 50       		.byte	0x50
+ 2471 020a 06000000 		.4byte	.LVL25
+ 2472 020e 1A000000 		.4byte	.LVL28
+ 2473 0212 0100     		.2byte	0x1
+ 2474 0214 54       		.byte	0x54
+ 2475 0215 1A000000 		.4byte	.LVL28
+ 2476 0219 20000000 		.4byte	.LFE14
+ 2477 021d 0400     		.2byte	0x4
+ 2478 021f F3       		.byte	0xf3
+ 2479 0220 01       		.uleb128 0x1
+ 2480 0221 50       		.byte	0x50
+ 2481 0222 9F       		.byte	0x9f
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 47
+
+
+ 2482 0223 00000000 		.4byte	0
+ 2483 0227 00000000 		.4byte	0
+ 2484              	.LLST15:
+ 2485 022b 00000000 		.4byte	.LFB16
+ 2486 022f 02000000 		.4byte	.LCFI6
+ 2487 0233 0200     		.2byte	0x2
+ 2488 0235 7D       		.byte	0x7d
+ 2489 0236 00       		.sleb128 0
+ 2490 0237 02000000 		.4byte	.LCFI6
+ 2491 023b 0A000000 		.4byte	.LFE16
+ 2492 023f 0200     		.2byte	0x2
+ 2493 0241 7D       		.byte	0x7d
+ 2494 0242 08       		.sleb128 8
+ 2495 0243 00000000 		.4byte	0
+ 2496 0247 00000000 		.4byte	0
+ 2497              	.LLST16:
+ 2498 024b 00000000 		.4byte	.LVL29
+ 2499 024f 04000000 		.4byte	.LVL30
+ 2500 0253 0100     		.2byte	0x1
+ 2501 0255 50       		.byte	0x50
+ 2502 0256 04000000 		.4byte	.LVL30
+ 2503 025a 0A000000 		.4byte	.LFE16
+ 2504 025e 0400     		.2byte	0x4
+ 2505 0260 F3       		.byte	0xf3
+ 2506 0261 01       		.uleb128 0x1
+ 2507 0262 50       		.byte	0x50
+ 2508 0263 9F       		.byte	0x9f
+ 2509 0264 00000000 		.4byte	0
+ 2510 0268 00000000 		.4byte	0
+ 2511              	.LLST17:
+ 2512 026c 00000000 		.4byte	.LFB15
+ 2513 0270 02000000 		.4byte	.LCFI7
+ 2514 0274 0200     		.2byte	0x2
+ 2515 0276 7D       		.byte	0x7d
+ 2516 0277 00       		.sleb128 0
+ 2517 0278 02000000 		.4byte	.LCFI7
+ 2518 027c 28000000 		.4byte	.LFE15
+ 2519 0280 0200     		.2byte	0x2
+ 2520 0282 7D       		.byte	0x7d
+ 2521 0283 08       		.sleb128 8
+ 2522 0284 00000000 		.4byte	0
+ 2523 0288 00000000 		.4byte	0
+ 2524              	.LLST18:
+ 2525 028c 00000000 		.4byte	.LVL32
+ 2526 0290 07000000 		.4byte	.LVL33-1
+ 2527 0294 0100     		.2byte	0x1
+ 2528 0296 50       		.byte	0x50
+ 2529 0297 07000000 		.4byte	.LVL33-1
+ 2530 029b 26000000 		.4byte	.LVL36
+ 2531 029f 0100     		.2byte	0x1
+ 2532 02a1 54       		.byte	0x54
+ 2533 02a2 26000000 		.4byte	.LVL36
+ 2534 02a6 28000000 		.4byte	.LFE15
+ 2535 02aa 0400     		.2byte	0x4
+ 2536 02ac F3       		.byte	0xf3
+ 2537 02ad 01       		.uleb128 0x1
+ 2538 02ae 50       		.byte	0x50
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 48
+
+
+ 2539 02af 9F       		.byte	0x9f
+ 2540 02b0 00000000 		.4byte	0
+ 2541 02b4 00000000 		.4byte	0
+ 2542              	.LLST19:
+ 2543 02b8 08000000 		.4byte	.LVL33
+ 2544 02bc 1A000000 		.4byte	.LVL34
+ 2545 02c0 0100     		.2byte	0x1
+ 2546 02c2 50       		.byte	0x50
+ 2547 02c3 00000000 		.4byte	0
+ 2548 02c7 00000000 		.4byte	0
+ 2549              	.LLST20:
+ 2550 02cb 00000000 		.4byte	.LFB9
+ 2551 02cf 04000000 		.4byte	.LCFI8
+ 2552 02d3 0200     		.2byte	0x2
+ 2553 02d5 7D       		.byte	0x7d
+ 2554 02d6 00       		.sleb128 0
+ 2555 02d7 04000000 		.4byte	.LCFI8
+ 2556 02db 74000000 		.4byte	.LFE9
+ 2557 02df 0200     		.2byte	0x2
+ 2558 02e1 7D       		.byte	0x7d
+ 2559 02e2 10       		.sleb128 16
+ 2560 02e3 00000000 		.4byte	0
+ 2561 02e7 00000000 		.4byte	0
+ 2562              	.LLST21:
+ 2563 02eb 00000000 		.4byte	.LVL37
+ 2564 02ef 0A000000 		.4byte	.LVL39
+ 2565 02f3 0100     		.2byte	0x1
+ 2566 02f5 50       		.byte	0x50
+ 2567 02f6 0A000000 		.4byte	.LVL39
+ 2568 02fa 72000000 		.4byte	.LVL49
+ 2569 02fe 0100     		.2byte	0x1
+ 2570 0300 54       		.byte	0x54
+ 2571 0301 72000000 		.4byte	.LVL49
+ 2572 0305 74000000 		.4byte	.LFE9
+ 2573 0309 0400     		.2byte	0x4
+ 2574 030b F3       		.byte	0xf3
+ 2575 030c 01       		.uleb128 0x1
+ 2576 030d 50       		.byte	0x50
+ 2577 030e 9F       		.byte	0x9f
+ 2578 030f 00000000 		.4byte	0
+ 2579 0313 00000000 		.4byte	0
+ 2580              	.LLST22:
+ 2581 0317 08000000 		.4byte	.LVL38
+ 2582 031b 0A000000 		.4byte	.LVL39
+ 2583 031f 0200     		.2byte	0x2
+ 2584 0321 30       		.byte	0x30
+ 2585 0322 9F       		.byte	0x9f
+ 2586 0323 1A000000 		.4byte	.LVL41
+ 2587 0327 24000000 		.4byte	.LVL42
+ 2588 032b 0100     		.2byte	0x1
+ 2589 032d 55       		.byte	0x55
+ 2590 032e 28000000 		.4byte	.LVL43
+ 2591 0332 3A000000 		.4byte	.LVL45
+ 2592 0336 0100     		.2byte	0x1
+ 2593 0338 55       		.byte	0x55
+ 2594 0339 00000000 		.4byte	0
+ 2595 033d 00000000 		.4byte	0
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 49
+
+
+ 2596              	.LLST23:
+ 2597 0341 00000000 		.4byte	.LVL50
+ 2598 0345 02000000 		.4byte	.LVL51
+ 2599 0349 0100     		.2byte	0x1
+ 2600 034b 50       		.byte	0x50
+ 2601 034c 02000000 		.4byte	.LVL51
+ 2602 0350 0A000000 		.4byte	.LFE17
+ 2603 0354 0400     		.2byte	0x4
+ 2604 0356 F3       		.byte	0xf3
+ 2605 0357 01       		.uleb128 0x1
+ 2606 0358 50       		.byte	0x50
+ 2607 0359 9F       		.byte	0x9f
+ 2608 035a 00000000 		.4byte	0
+ 2609 035e 00000000 		.4byte	0
+ 2610              	.LLST24:
+ 2611 0362 00000000 		.4byte	.LVL52
+ 2612 0366 02000000 		.4byte	.LVL53
+ 2613 036a 0100     		.2byte	0x1
+ 2614 036c 50       		.byte	0x50
+ 2615 036d 02000000 		.4byte	.LVL53
+ 2616 0371 0A000000 		.4byte	.LFE18
+ 2617 0375 0400     		.2byte	0x4
+ 2618 0377 F3       		.byte	0xf3
+ 2619 0378 01       		.uleb128 0x1
+ 2620 0379 50       		.byte	0x50
+ 2621 037a 9F       		.byte	0x9f
+ 2622 037b 00000000 		.4byte	0
+ 2623 037f 00000000 		.4byte	0
+ 2624              	.LLST25:
+ 2625 0383 00000000 		.4byte	.LVL54
+ 2626 0387 02000000 		.4byte	.LVL55
+ 2627 038b 0100     		.2byte	0x1
+ 2628 038d 50       		.byte	0x50
+ 2629 038e 02000000 		.4byte	.LVL55
+ 2630 0392 0A000000 		.4byte	.LFE19
+ 2631 0396 0400     		.2byte	0x4
+ 2632 0398 F3       		.byte	0xf3
+ 2633 0399 01       		.uleb128 0x1
+ 2634 039a 50       		.byte	0x50
+ 2635 039b 9F       		.byte	0x9f
+ 2636 039c 00000000 		.4byte	0
+ 2637 03a0 00000000 		.4byte	0
+ 2638              		.section	.debug_aranges,"",%progbits
+ 2639 0000 7C000000 		.4byte	0x7c
+ 2640 0004 0200     		.2byte	0x2
+ 2641 0006 00000000 		.4byte	.Ldebug_info0
+ 2642 000a 04       		.byte	0x4
+ 2643 000b 00       		.byte	0
+ 2644 000c 0000     		.2byte	0
+ 2645 000e 0000     		.2byte	0
+ 2646 0010 00000000 		.4byte	.LFB10
+ 2647 0014 14000000 		.4byte	.LFE10-.LFB10
+ 2648 0018 00000000 		.4byte	.LFB4
+ 2649 001c 1C000000 		.4byte	.LFE4-.LFB4
+ 2650 0020 00000000 		.4byte	.LFB7
+ 2651 0024 30000000 		.4byte	.LFE7-.LFB7
+ 2652 0028 00000000 		.4byte	.LFB11
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 50
+
+
+ 2653 002c 0A000000 		.4byte	.LFE11-.LFB11
+ 2654 0030 00000000 		.4byte	.LFB12
+ 2655 0034 24000000 		.4byte	.LFE12-.LFB12
+ 2656 0038 00000000 		.4byte	.LFB13
+ 2657 003c 18000000 		.4byte	.LFE13-.LFB13
+ 2658 0040 00000000 		.4byte	.LFB14
+ 2659 0044 20000000 		.4byte	.LFE14-.LFB14
+ 2660 0048 00000000 		.4byte	.LFB16
+ 2661 004c 0A000000 		.4byte	.LFE16-.LFB16
+ 2662 0050 00000000 		.4byte	.LFB15
+ 2663 0054 28000000 		.4byte	.LFE15-.LFB15
+ 2664 0058 00000000 		.4byte	.LFB9
+ 2665 005c 74000000 		.4byte	.LFE9-.LFB9
+ 2666 0060 00000000 		.4byte	.LFB17
+ 2667 0064 0A000000 		.4byte	.LFE17-.LFB17
+ 2668 0068 00000000 		.4byte	.LFB18
+ 2669 006c 0A000000 		.4byte	.LFE18-.LFB18
+ 2670 0070 00000000 		.4byte	.LFB19
+ 2671 0074 0A000000 		.4byte	.LFE19-.LFB19
+ 2672 0078 00000000 		.4byte	0
+ 2673 007c 00000000 		.4byte	0
+ 2674              		.section	.debug_ranges,"",%progbits
+ 2675              	.Ldebug_ranges0:
+ 2676 0000 00000000 		.4byte	.LFB10
+ 2677 0004 14000000 		.4byte	.LFE10
+ 2678 0008 00000000 		.4byte	.LFB4
+ 2679 000c 1C000000 		.4byte	.LFE4
+ 2680 0010 00000000 		.4byte	.LFB7
+ 2681 0014 30000000 		.4byte	.LFE7
+ 2682 0018 00000000 		.4byte	.LFB11
+ 2683 001c 0A000000 		.4byte	.LFE11
+ 2684 0020 00000000 		.4byte	.LFB12
+ 2685 0024 24000000 		.4byte	.LFE12
+ 2686 0028 00000000 		.4byte	.LFB13
+ 2687 002c 18000000 		.4byte	.LFE13
+ 2688 0030 00000000 		.4byte	.LFB14
+ 2689 0034 20000000 		.4byte	.LFE14
+ 2690 0038 00000000 		.4byte	.LFB16
+ 2691 003c 0A000000 		.4byte	.LFE16
+ 2692 0040 00000000 		.4byte	.LFB15
+ 2693 0044 28000000 		.4byte	.LFE15
+ 2694 0048 00000000 		.4byte	.LFB9
+ 2695 004c 74000000 		.4byte	.LFE9
+ 2696 0050 00000000 		.4byte	.LFB17
+ 2697 0054 0A000000 		.4byte	.LFE17
+ 2698 0058 00000000 		.4byte	.LFB18
+ 2699 005c 0A000000 		.4byte	.LFE18
+ 2700 0060 00000000 		.4byte	.LFB19
+ 2701 0064 0A000000 		.4byte	.LFE19
+ 2702 0068 00000000 		.4byte	0
+ 2703 006c 00000000 		.4byte	0
+ 2704              		.section	.debug_line,"",%progbits
+ 2705              	.Ldebug_line0:
+ 2706 0000 50020000 		.section	.debug_str,"MS",%progbits,1
+ 2706      02002501 
+ 2706      00000201 
+ 2706      FB0E0D00 
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 51
+
+
+ 2706      01010101 
+ 2707              	.LASF51:
+ 2708 0000 636C6F73 		.ascii	"close\000"
+ 2708      6500
+ 2709              	.LASF31:
+ 2710 0006 5F5A4E36 		.ascii	"_ZN6Client5flushEv\000"
+ 2710      436C6965 
+ 2710      6E743566 
+ 2710      6C757368 
+ 2710      457600
+ 2711              	.LASF59:
+ 2712 0019 5F5A4E36 		.ascii	"_ZN6Client5writeEh\000"
+ 2712      436C6965 
+ 2712      6E743577 
+ 2712      72697465 
+ 2712      456800
+ 2713              	.LASF37:
+ 2714 002c 6F706572 		.ascii	"operator!=\000"
+ 2714      61746F72 
+ 2714      213D00
+ 2715              	.LASF58:
+ 2716 0037 77726974 		.ascii	"write\000"
+ 2716      6500
+ 2717              	.LASF47:
+ 2718 003d 73656E64 		.ascii	"send\000"
+ 2718      00
+ 2719              	.LASF2:
+ 2720 0042 73686F72 		.ascii	"short int\000"
+ 2720      7420696E 
+ 2720      7400
+ 2721              	.LASF55:
+ 2722 004c 474E5520 		.ascii	"GNU C++ 4.7.3 20130312 (release) [ARM/embedded-4_7-"
+ 2722      432B2B20 
+ 2722      342E372E 
+ 2722      33203230 
+ 2722      31333033 
+ 2723 007f 6272616E 		.ascii	"branch revision 196615]\000"
+ 2723      63682072 
+ 2723      65766973 
+ 2723      696F6E20 
+ 2723      31393636 
+ 2724              	.LASF16:
+ 2725 0097 73697A65 		.ascii	"sizetype\000"
+ 2725      74797065 
+ 2725      00
+ 2726              	.LASF54:
+ 2727 00a0 736F636B 		.ascii	"socket\000"
+ 2727      657400
+ 2728              	.LASF18:
+ 2729 00a7 5F736F63 		.ascii	"_sock\000"
+ 2729      6B00
+ 2730              	.LASF53:
+ 2731 00ad 67657453 		.ascii	"getSn_SR\000"
+ 2731      6E5F5352 
+ 2731      00
+ 2732              	.LASF42:
+ 2733 00b6 74686973 		.ascii	"this\000"
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 52
+
+
+ 2733      00
+ 2734              	.LASF12:
+ 2735 00bb 75696E74 		.ascii	"uint16\000"
+ 2735      313600
+ 2736              	.LASF46:
+ 2737 00c2 5F5A4E36 		.ascii	"_ZN6ClientC2EPht\000"
+ 2737      436C6965 
+ 2737      6E744332 
+ 2737      45506874 
+ 2737      00
+ 2738              	.LASF3:
+ 2739 00d3 75696E74 		.ascii	"uint8_t\000"
+ 2739      385F7400 
+ 2740              	.LASF45:
+ 2741 00db 5F5A4E36 		.ascii	"_ZN6ClientC2Eh\000"
+ 2741      436C6965 
+ 2741      6E744332 
+ 2741      456800
+ 2742              	.LASF22:
+ 2743 00ea 636F6E6E 		.ascii	"connect\000"
+ 2743      65637400 
+ 2744              	.LASF11:
+ 2745 00f2 75696E74 		.ascii	"uint8\000"
+ 2745      3800
+ 2746              	.LASF33:
+ 2747 00f8 636F6E6E 		.ascii	"connected\000"
+ 2747      65637465 
+ 2747      6400
+ 2748              	.LASF36:
+ 2749 0102 5F5A4E36 		.ascii	"_ZN6ClienteqEi\000"
+ 2749      436C6965 
+ 2749      6E746571 
+ 2749      456900
+ 2750              	.LASF41:
+ 2751 0111 626F6F6C 		.ascii	"bool\000"
+ 2751      00
+ 2752              	.LASF13:
+ 2753 0116 666C6F61 		.ascii	"float\000"
+ 2753      7400
+ 2754              	.LASF50:
+ 2755 011c 5072696E 		.ascii	"Print\000"
+ 2755      7400
+ 2756              	.LASF27:
+ 2757 0122 72656164 		.ascii	"read\000"
+ 2757      00
+ 2758              	.LASF8:
+ 2759 0127 6C6F6E67 		.ascii	"long long int\000"
+ 2759      206C6F6E 
+ 2759      6720696E 
+ 2759      7400
+ 2760              	.LASF6:
+ 2761 0135 6C6F6E67 		.ascii	"long int\000"
+ 2761      20696E74 
+ 2761      00
+ 2762              	.LASF29:
+ 2763 013e 666C7573 		.ascii	"flush\000"
+ 2763      6800
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 53
+
+
+ 2764              	.LASF56:
+ 2765 0144 2E5C436C 		.ascii	".\\Client.cpp\000"
+ 2765      69656E74 
+ 2765      2E637070 
+ 2765      00
+ 2766              	.LASF25:
+ 2767 0151 61766169 		.ascii	"available\000"
+ 2767      6C61626C 
+ 2767      6500
+ 2768              	.LASF1:
+ 2769 015b 756E7369 		.ascii	"unsigned char\000"
+ 2769      676E6564 
+ 2769      20636861 
+ 2769      7200
+ 2770              	.LASF35:
+ 2771 0169 6F706572 		.ascii	"operator==\000"
+ 2771      61746F72 
+ 2771      3D3D00
+ 2772              	.LASF0:
+ 2773 0174 7369676E 		.ascii	"signed char\000"
+ 2773      65642063 
+ 2773      68617200 
+ 2774              	.LASF9:
+ 2775 0180 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 2775      206C6F6E 
+ 2775      6720756E 
+ 2775      7369676E 
+ 2775      65642069 
+ 2776              	.LASF10:
+ 2777 0197 756E7369 		.ascii	"unsigned int\000"
+ 2777      676E6564 
+ 2777      20696E74 
+ 2777      00
+ 2778              	.LASF32:
+ 2779 01a4 5F5A4E36 		.ascii	"_ZN6Client4stopEv\000"
+ 2779      436C6965 
+ 2779      6E743473 
+ 2779      746F7045 
+ 2779      7600
+ 2780              	.LASF4:
+ 2781 01b6 75696E74 		.ascii	"uint16_t\000"
+ 2781      31365F74 
+ 2781      00
+ 2782              	.LASF28:
+ 2783 01bf 5F5A4E36 		.ascii	"_ZN6Client4readEv\000"
+ 2783      436C6965 
+ 2783      6E743472 
+ 2783      65616445 
+ 2783      7600
+ 2784              	.LASF26:
+ 2785 01d1 5F5A4E36 		.ascii	"_ZN6Client9availableEv\000"
+ 2785      436C6965 
+ 2785      6E743961 
+ 2785      7661696C 
+ 2785      61626C65 
+ 2786              	.LASF20:
+ 2787 01e8 436C6965 		.ascii	"Client\000"
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 54
+
+
+ 2787      6E7400
+ 2788              	.LASF34:
+ 2789 01ef 5F5A4E36 		.ascii	"_ZN6Client9connectedEv\000"
+ 2789      436C6965 
+ 2789      6E743963 
+ 2789      6F6E6E65 
+ 2789      63746564 
+ 2790              	.LASF5:
+ 2791 0206 73686F72 		.ascii	"short unsigned int\000"
+ 2791      7420756E 
+ 2791      7369676E 
+ 2791      65642069 
+ 2791      6E7400
+ 2792              	.LASF21:
+ 2793 0219 73746174 		.ascii	"status\000"
+ 2793      757300
+ 2794              	.LASF24:
+ 2795 0220 5F5A4E36 		.ascii	"_ZN6Client7connectEv\000"
+ 2795      436C6965 
+ 2795      6E743763 
+ 2795      6F6E6E65 
+ 2795      63744576 
+ 2796              	.LASF15:
+ 2797 0235 63686172 		.ascii	"char\000"
+ 2797      00
+ 2798              	.LASF57:
+ 2799 023a 433A5C55 		.ascii	"C:\\Users\\atsu\\Desktop\\Design01\\W5100_PSoC4_tes"
+ 2799      73657273 
+ 2799      5C617473 
+ 2799      755C4465 
+ 2799      736B746F 
+ 2800 0268 742E6379 		.ascii	"t.cydsn\000"
+ 2800      64736E00 
+ 2801              	.LASF23:
+ 2802 0270 5F5A4E36 		.ascii	"_ZN6Client6statusEv\000"
+ 2802      436C6965 
+ 2802      6E743673 
+ 2802      74617475 
+ 2802      73457600 
+ 2803              	.LASF40:
+ 2804 0284 5F5A4E36 		.ascii	"_ZN6ClientcvbEv\000"
+ 2804      436C6965 
+ 2804      6E746376 
+ 2804      62457600 
+ 2805              	.LASF44:
+ 2806 0294 706F7274 		.ascii	"port\000"
+ 2806      00
+ 2807              	.LASF39:
+ 2808 0299 6F706572 		.ascii	"operator bool\000"
+ 2808      61746F72 
+ 2808      20626F6F 
+ 2808      6C00
+ 2809              	.LASF7:
+ 2810 02a7 6C6F6E67 		.ascii	"long unsigned int\000"
+ 2810      20756E73 
+ 2810      69676E65 
+ 2810      6420696E 
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 55
+
+
+ 2810      7400
+ 2811              	.LASF14:
+ 2812 02b9 646F7562 		.ascii	"double\000"
+ 2812      6C6500
+ 2813              	.LASF19:
+ 2814 02c0 5F706F72 		.ascii	"_port\000"
+ 2814      7400
+ 2815              	.LASF48:
+ 2816 02c6 67657453 		.ascii	"getSn_RX_RSR\000"
+ 2816      6E5F5258 
+ 2816      5F525352 
+ 2816      00
+ 2817              	.LASF17:
+ 2818 02d3 534F434B 		.ascii	"SOCKET\000"
+ 2818      455400
+ 2819              	.LASF43:
+ 2820 02da 736F636B 		.ascii	"sock\000"
+ 2820      00
+ 2821              	.LASF52:
+ 2822 02df 64697363 		.ascii	"disconnect\000"
+ 2822      6F6E6E65 
+ 2822      637400
+ 2823              	.LASF49:
+ 2824 02ea 72656376 		.ascii	"recv\000"
+ 2824      00
+ 2825              	.LASF30:
+ 2826 02ef 73746F70 		.ascii	"stop\000"
+ 2826      00
+ 2827              	.LASF38:
+ 2828 02f4 5F5A4E36 		.ascii	"_ZN6ClientneEi\000"
+ 2828      436C6965 
+ 2828      6E746E65 
+ 2828      456900
+ 2829              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.7.3 20130312 (release) [ARM/embedded-4_7-br
