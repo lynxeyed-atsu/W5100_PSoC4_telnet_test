@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccxfl0Wb.s 			page 1
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\cc0Yokwc.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccxfl0Wb.s 			page 1
   30:.\Generated_Source\PSoC4/SPI_SCBCLK.c **** * Parameters:
   31:.\Generated_Source\PSoC4/SPI_SCBCLK.c **** *  None
   32:.\Generated_Source\PSoC4/SPI_SCBCLK.c **** *
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccxfl0Wb.s 			page 2
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\cc0Yokwc.s 			page 2
 
 
   33:.\Generated_Source\PSoC4/SPI_SCBCLK.c **** * Returns:
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccxfl0Wb.s 			page 1
   60:.\Generated_Source\PSoC4/SPI_SCBCLK.c **** void SPI_SCBCLK_Stop(void)
   61:.\Generated_Source\PSoC4/SPI_SCBCLK.c **** {
   53              		.loc 1 61 0
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccxfl0Wb.s 			page 3
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\cc0Yokwc.s 			page 3
 
 
   54              		.cfi_startproc
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccxfl0Wb.s 			page 1
   85:.\Generated_Source\PSoC4/SPI_SCBCLK.c **** #if defined (SPI_SCBCLK__FRAC_MASK)
   86:.\Generated_Source\PSoC4/SPI_SCBCLK.c **** 	/* get all but divider bits */
   87:.\Generated_Source\PSoC4/SPI_SCBCLK.c ****     uint32 maskVal = SPI_SCBCLK_DIV_REG & 
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccxfl0Wb.s 			page 4
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\cc0Yokwc.s 			page 4
 
 
   88:.\Generated_Source\PSoC4/SPI_SCBCLK.c ****                     (uint32)(~(SPI_SCBCLK__DIVIDER_MASK | SPI_SCBCLK__FRAC_MASK)); 
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccxfl0Wb.s 			page 1
  106:.\Generated_Source\PSoC4/SPI_SCBCLK.c **** * Summary:
  107:.\Generated_Source\PSoC4/SPI_SCBCLK.c **** *  Gets the clock divider register value.
  108:.\Generated_Source\PSoC4/SPI_SCBCLK.c **** *
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccxfl0Wb.s 			page 5
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\cc0Yokwc.s 			page 5
 
 
  109:.\Generated_Source\PSoC4/SPI_SCBCLK.c **** * Parameters:
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccxfl0Wb.s 			page 1
  136:.\Generated_Source\PSoC4/SPI_SCBCLK.c **** *
  137:.\Generated_Source\PSoC4/SPI_SCBCLK.c **** *******************************************************************************/
  138:.\Generated_Source\PSoC4/SPI_SCBCLK.c **** uint8 SPI_SCBCLK_GetFractionalDividerRegister(void)
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccxfl0Wb.s 			page 6
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\cc0Yokwc.s 			page 6
 
 
  139:.\Generated_Source\PSoC4/SPI_SCBCLK.c **** {
@@ -329,10 +329,10 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccxfl0Wb.s 			page 1
  159 0006 00000000 		.4byte	.Ldebug_abbrev0
  160 000a 04       		.byte	0x4
  161 000b 01       		.uleb128 0x1
- 162 000c 68010000 		.4byte	.LASF24
+ 162 000c 70010000 		.4byte	.LASF24
  163 0010 01       		.byte	0x1
- 164 0011 44000000 		.4byte	.LASF25
- 165 0015 06000000 		.4byte	.LASF26
+ 164 0011 0E000000 		.4byte	.LASF25
+ 165 0015 A7000000 		.4byte	.LASF26
  166 0019 00000000 		.4byte	.Ldebug_ranges0+0
  167 001d 00000000 		.4byte	0
  168 0021 00000000 		.4byte	0
@@ -340,38 +340,38 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccxfl0Wb.s 			page 1
  170 0029 02       		.uleb128 0x2
  171 002a 01       		.byte	0x1
  172 002b 06       		.byte	0x6
- 173 002c D8010000 		.4byte	.LASF0
+ 173 002c E0010000 		.4byte	.LASF0
  174 0030 02       		.uleb128 0x2
  175 0031 01       		.byte	0x1
  176 0032 08       		.byte	0x8
- 177 0033 91000000 		.4byte	.LASF1
+ 177 0033 5B000000 		.4byte	.LASF1
  178 0037 02       		.uleb128 0x2
  179 0038 02       		.byte	0x2
  180 0039 05       		.byte	0x5
- 181 003a 58010000 		.4byte	.LASF2
+ 181 003a 60010000 		.4byte	.LASF2
  182 003e 02       		.uleb128 0x2
  183 003f 02       		.byte	0x2
  184 0040 07       		.byte	0x7
- 185 0041 B1000000 		.4byte	.LASF3
+ 185 0041 7B000000 		.4byte	.LASF3
  186 0045 02       		.uleb128 0x2
  187 0046 04       		.byte	0x4
  188 0047 05       		.byte	0x5
- 189 0048 B1010000 		.4byte	.LASF4
+ 189 0048 B9010000 		.4byte	.LASF4
  190 004c 02       		.uleb128 0x2
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccxfl0Wb.s 			page 7
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\cc0Yokwc.s 			page 7
 
 
  191 004d 04       		.byte	0x4
  192 004e 07       		.byte	0x7
- 193 004f 9F000000 		.4byte	.LASF5
+ 193 004f 69000000 		.4byte	.LASF5
  194 0053 02       		.uleb128 0x2
  195 0054 08       		.byte	0x8
  196 0055 05       		.byte	0x5
- 197 0056 45010000 		.4byte	.LASF6
+ 197 0056 4D010000 		.4byte	.LASF6
  198 005a 02       		.uleb128 0x2
  199 005b 08       		.byte	0x8
  200 005c 07       		.byte	0x7
- 201 005d 06010000 		.4byte	.LASF7
+ 201 005d 0E010000 		.4byte	.LASF7
  202 0061 03       		.uleb128 0x3
  203 0062 04       		.byte	0x4
  204 0063 05       		.byte	0x5
@@ -379,34 +379,34 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccxfl0Wb.s 			page 1
  206 0068 02       		.uleb128 0x2
  207 0069 04       		.byte	0x4
  208 006a 07       		.byte	0x7
- 209 006b F9000000 		.4byte	.LASF8
+ 209 006b 01010000 		.4byte	.LASF8
  210 006f 04       		.uleb128 0x4
- 211 0070 62010000 		.4byte	.LASF9
+ 211 0070 6A010000 		.4byte	.LASF9
  212 0074 02       		.byte	0x2
  213 0075 5B       		.byte	0x5b
  214 0076 30000000 		.4byte	0x30
  215 007a 04       		.uleb128 0x4
- 216 007b EB000000 		.4byte	.LASF10
+ 216 007b F3000000 		.4byte	.LASF10
  217 007f 02       		.byte	0x2
  218 0080 5C       		.byte	0x5c
  219 0081 3E000000 		.4byte	0x3e
  220 0085 04       		.uleb128 0x4
- 221 0086 F2000000 		.4byte	.LASF11
+ 221 0086 FA000000 		.4byte	.LASF11
  222 008a 02       		.byte	0x2
  223 008b 5D       		.byte	0x5d
  224 008c 4C000000 		.4byte	0x4c
  225 0090 02       		.uleb128 0x2
  226 0091 04       		.byte	0x4
  227 0092 04       		.byte	0x4
- 228 0093 8B000000 		.4byte	.LASF12
+ 228 0093 55000000 		.4byte	.LASF12
  229 0097 02       		.uleb128 0x2
  230 0098 08       		.byte	0x8
  231 0099 04       		.byte	0x4
- 232 009a CF000000 		.4byte	.LASF13
+ 232 009a 99000000 		.4byte	.LASF13
  233 009e 02       		.uleb128 0x2
  234 009f 01       		.byte	0x1
  235 00a0 08       		.byte	0x8
- 236 00a1 53010000 		.4byte	.LASF14
+ 236 00a1 5B010000 		.4byte	.LASF14
  237 00a5 04       		.uleb128 0x4
  238 00a6 00000000 		.4byte	.LASF15
  239 00aa 02       		.byte	0x2
@@ -416,9 +416,9 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccxfl0Wb.s 			page 1
  243 00b1 85000000 		.4byte	0x85
  244 00b5 06       		.uleb128 0x6
  245 00b6 01       		.byte	0x1
- 246 00b7 6A000000 		.4byte	.LASF16
+ 246 00b7 34000000 		.4byte	.LASF16
  247 00bb 01       		.byte	0x1
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccxfl0Wb.s 			page 8
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\cc0Yokwc.s 			page 8
 
 
  248 00bc 25       		.byte	0x25
@@ -431,7 +431,7 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccxfl0Wb.s 			page 1
  255 00c9 01       		.byte	0x1
  256 00ca 06       		.uleb128 0x6
  257 00cb 01       		.byte	0x1
- 258 00cc 7B000000 		.4byte	.LASF17
+ 258 00cc 45000000 		.4byte	.LASF17
  259 00d0 01       		.byte	0x1
  260 00d1 3C       		.byte	0x3c
  261 00d2 01       		.byte	0x1
@@ -443,7 +443,7 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccxfl0Wb.s 			page 1
  267 00de 01       		.byte	0x1
  268 00df 07       		.uleb128 0x7
  269 00e0 01       		.byte	0x1
- 270 00e1 E4010000 		.4byte	.LASF27
+ 270 00e1 EC010000 		.4byte	.LASF27
  271 00e5 01       		.byte	0x1
  272 00e6 53       		.byte	0x53
  273 00e7 01       		.byte	0x1
@@ -455,37 +455,37 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccxfl0Wb.s 			page 1
  279 00f3 01       		.byte	0x1
  280 00f4 33010000 		.4byte	0x133
  281 00f8 08       		.uleb128 0x8
- 282 00f9 C4000000 		.4byte	.LASF18
+ 282 00f9 8E000000 		.4byte	.LASF18
  283 00fd 01       		.byte	0x1
  284 00fe 53       		.byte	0x53
  285 00ff 7A000000 		.4byte	0x7a
  286 0103 00000000 		.4byte	.LLST0
  287 0107 08       		.uleb128 0x8
- 288 0108 DD000000 		.4byte	.LASF19
+ 288 0108 E5000000 		.4byte	.LASF19
  289 010c 01       		.byte	0x1
  290 010d 53       		.byte	0x53
  291 010e 6F000000 		.4byte	0x6f
  292 0112 21000000 		.4byte	.LLST1
  293 0116 09       		.uleb128 0x9
- 294 0117 3C000000 		.4byte	.LASF20
+ 294 0117 06000000 		.4byte	.LASF20
  295 011b 01       		.byte	0x1
  296 011c 5D       		.byte	0x5d
  297 011d 85000000 		.4byte	0x85
  298 0121 42000000 		.4byte	.LLST2
  299 0125 0A       		.uleb128 0xa
- 300 0126 D6000000 		.4byte	.LASF21
+ 300 0126 A0000000 		.4byte	.LASF21
  301 012a 01       		.byte	0x1
  302 012b 5F       		.byte	0x5f
  303 012c 85000000 		.4byte	0x85
  304 0130 01       		.byte	0x1
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccxfl0Wb.s 			page 9
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\cc0Yokwc.s 			page 9
 
 
  305 0131 50       		.byte	0x50
  306 0132 00       		.byte	0
  307 0133 0B       		.uleb128 0xb
  308 0134 01       		.byte	0x1
- 309 0135 BA010000 		.4byte	.LASF22
+ 309 0135 C2010000 		.4byte	.LASF22
  310 0139 01       		.byte	0x1
  311 013a 75       		.byte	0x75
  312 013b 01       		.byte	0x1
@@ -498,7 +498,7 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccxfl0Wb.s 			page 1
  319 014b 01       		.byte	0x1
  320 014c 0B       		.uleb128 0xb
  321 014d 01       		.byte	0x1
- 322 014e 1D010000 		.4byte	.LASF23
+ 322 014e 25010000 		.4byte	.LASF23
  323 0152 01       		.byte	0x1
  324 0153 8A       		.byte	0x8a
  325 0154 01       		.byte	0x1
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccxfl0Wb.s 			page 1
  359 0017 00       		.byte	0
  360 0018 0B       		.uleb128 0xb
  361 0019 0B       		.uleb128 0xb
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccxfl0Wb.s 			page 10
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\cc0Yokwc.s 			page 10
 
 
  362 001a 3E       		.uleb128 0x3e
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccxfl0Wb.s 			page 1
  416 0050 40       		.uleb128 0x40
  417 0051 0A       		.uleb128 0xa
  418 0052 9742     		.uleb128 0x2117
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccxfl0Wb.s 			page 11
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\cc0Yokwc.s 			page 11
 
 
  419 0054 0C       		.uleb128 0xc
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccxfl0Wb.s 			page 1
  473 008b 02       		.uleb128 0x2
  474 008c 06       		.uleb128 0x6
  475 008d 00       		.byte	0
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccxfl0Wb.s 			page 12
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\cc0Yokwc.s 			page 12
 
 
  476 008e 00       		.byte	0
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccxfl0Wb.s 			page 1
  530 0017 50       		.byte	0x50
  531 0018 9F       		.byte	0x9f
  532 0019 00000000 		.4byte	0
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccxfl0Wb.s 			page 13
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\cc0Yokwc.s 			page 13
 
 
  533 001d 00000000 		.4byte	0
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccxfl0Wb.s 			page 1
  587 0014 14000000 		.4byte	.LFE2
  588 0018 00000000 		.4byte	.LFB3
  589 001c 0C000000 		.4byte	.LFE3
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccxfl0Wb.s 			page 14
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\cc0Yokwc.s 			page 14
 
 
  590 0020 00000000 		.4byte	.LFB4
@@ -795,140 +795,142 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccxfl0Wb.s 			page 1
  597              	.LASF15:
  598 0000 72656733 		.ascii	"reg32\000"
  598      3200
- 599              	.LASF26:
- 600 0006 433A5C55 		.ascii	"C:\\Users\\atsu\\Desktop\\Design01\\W5100_PSoC4_tes"
- 600      73657273 
- 600      5C617473 
- 600      755C4465 
- 600      736B746F 
- 601 0034 742E6379 		.ascii	"t.cydsn\000"
- 601      64736E00 
- 602              	.LASF20:
- 603 003c 6D61736B 		.ascii	"maskVal\000"
- 603      56616C00 
- 604              	.LASF25:
- 605 0044 2E5C4765 		.ascii	".\\Generated_Source\\PSoC4\\SPI_SCBCLK.c\000"
- 605      6E657261 
- 605      7465645F 
- 605      536F7572 
- 605      63655C50 
- 606              	.LASF16:
- 607 006a 5350495F 		.ascii	"SPI_SCBCLK_Start\000"
- 607      53434243 
- 607      4C4B5F53 
- 607      74617274 
- 607      00
- 608              	.LASF17:
- 609 007b 5350495F 		.ascii	"SPI_SCBCLK_Stop\000"
- 609      53434243 
- 609      4C4B5F53 
- 609      746F7000 
- 610              	.LASF12:
- 611 008b 666C6F61 		.ascii	"float\000"
- 611      7400
- 612              	.LASF1:
- 613 0091 756E7369 		.ascii	"unsigned char\000"
- 613      676E6564 
- 613      20636861 
- 613      7200
- 614              	.LASF5:
- 615 009f 6C6F6E67 		.ascii	"long unsigned int\000"
- 615      20756E73 
- 615      69676E65 
- 615      6420696E 
- 615      7400
- 616              	.LASF3:
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccxfl0Wb.s 			page 15
+ 599              	.LASF20:
+ 600 0006 6D61736B 		.ascii	"maskVal\000"
+ 600      56616C00 
+ 601              	.LASF25:
+ 602 000e 2E5C4765 		.ascii	".\\Generated_Source\\PSoC4\\SPI_SCBCLK.c\000"
+ 602      6E657261 
+ 602      7465645F 
+ 602      536F7572 
+ 602      63655C50 
+ 603              	.LASF16:
+ 604 0034 5350495F 		.ascii	"SPI_SCBCLK_Start\000"
+ 604      53434243 
+ 604      4C4B5F53 
+ 604      74617274 
+ 604      00
+ 605              	.LASF17:
+ 606 0045 5350495F 		.ascii	"SPI_SCBCLK_Stop\000"
+ 606      53434243 
+ 606      4C4B5F53 
+ 606      746F7000 
+ 607              	.LASF12:
+ 608 0055 666C6F61 		.ascii	"float\000"
+ 608      7400
+ 609              	.LASF1:
+ 610 005b 756E7369 		.ascii	"unsigned char\000"
+ 610      676E6564 
+ 610      20636861 
+ 610      7200
+ 611              	.LASF5:
+ 612 0069 6C6F6E67 		.ascii	"long unsigned int\000"
+ 612      20756E73 
+ 612      69676E65 
+ 612      6420696E 
+ 612      7400
+ 613              	.LASF3:
+ 614 007b 73686F72 		.ascii	"short unsigned int\000"
+ 614      7420756E 
+ 614      7369676E 
+ 614      65642069 
+ 614      6E7400
+ 615              	.LASF18:
+ 616 008e 636C6B44 		.ascii	"clkDivider\000"
+ 616      69766964 
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\cc0Yokwc.s 			page 15
 
 
- 617 00b1 73686F72 		.ascii	"short unsigned int\000"
- 617      7420756E 
- 617      7369676E 
- 617      65642069 
- 617      6E7400
- 618              	.LASF18:
- 619 00c4 636C6B44 		.ascii	"clkDivider\000"
- 619      69766964 
- 619      657200
- 620              	.LASF13:
- 621 00cf 646F7562 		.ascii	"double\000"
- 621      6C6500
- 622              	.LASF21:
- 623 00d6 72656756 		.ascii	"regVal\000"
- 623      616C00
+ 616      657200
+ 617              	.LASF13:
+ 618 0099 646F7562 		.ascii	"double\000"
+ 618      6C6500
+ 619              	.LASF21:
+ 620 00a0 72656756 		.ascii	"regVal\000"
+ 620      616C00
+ 621              	.LASF26:
+ 622 00a7 433A5C55 		.ascii	"C:\\Users\\atsu\\Desktop\\W5100_PSoC4_test\\W5100_P"
+ 622      73657273 
+ 622      5C617473 
+ 622      755C4465 
+ 622      736B746F 
+ 623 00d5 536F4334 		.ascii	"SoC4_test.cydsn\000"
+ 623      5F746573 
+ 623      742E6379 
+ 623      64736E00 
  624              	.LASF19:
- 625 00dd 636C6B46 		.ascii	"clkFractional\000"
+ 625 00e5 636C6B46 		.ascii	"clkFractional\000"
  625      72616374 
  625      696F6E61 
  625      6C00
  626              	.LASF10:
- 627 00eb 75696E74 		.ascii	"uint16\000"
+ 627 00f3 75696E74 		.ascii	"uint16\000"
  627      313600
  628              	.LASF11:
- 629 00f2 75696E74 		.ascii	"uint32\000"
+ 629 00fa 75696E74 		.ascii	"uint32\000"
  629      333200
  630              	.LASF8:
- 631 00f9 756E7369 		.ascii	"unsigned int\000"
+ 631 0101 756E7369 		.ascii	"unsigned int\000"
  631      676E6564 
  631      20696E74 
  631      00
  632              	.LASF7:
- 633 0106 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 633 010e 6C6F6E67 		.ascii	"long long unsigned int\000"
  633      206C6F6E 
  633      6720756E 
  633      7369676E 
  633      65642069 
  634              	.LASF23:
- 635 011d 5350495F 		.ascii	"SPI_SCBCLK_GetFractionalDividerRegister\000"
+ 635 0125 5350495F 		.ascii	"SPI_SCBCLK_GetFractionalDividerRegister\000"
  635      53434243 
  635      4C4B5F47 
  635      65744672 
  635      61637469 
  636              	.LASF6:
- 637 0145 6C6F6E67 		.ascii	"long long int\000"
+ 637 014d 6C6F6E67 		.ascii	"long long int\000"
  637      206C6F6E 
  637      6720696E 
  637      7400
  638              	.LASF14:
- 639 0153 63686172 		.ascii	"char\000"
+ 639 015b 63686172 		.ascii	"char\000"
  639      00
  640              	.LASF2:
- 641 0158 73686F72 		.ascii	"short int\000"
+ 641 0160 73686F72 		.ascii	"short int\000"
  641      7420696E 
  641      7400
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\cc0Yokwc.s 			page 16
+
+
  642              	.LASF9:
- 643 0162 75696E74 		.ascii	"uint8\000"
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccxfl0Wb.s 			page 16
-
-
+ 643 016a 75696E74 		.ascii	"uint8\000"
  643      3800
  644              	.LASF24:
- 645 0168 474E5520 		.ascii	"GNU C 4.7.3 20130312 (release) [ARM/embedded-4_7-br"
+ 645 0170 474E5520 		.ascii	"GNU C 4.7.3 20130312 (release) [ARM/embedded-4_7-br"
  645      4320342E 
  645      372E3320 
  645      32303133 
  645      30333132 
- 646 019b 616E6368 		.ascii	"anch revision 196615]\000"
+ 646 01a3 616E6368 		.ascii	"anch revision 196615]\000"
  646      20726576 
  646      6973696F 
  646      6E203139 
  646      36363135 
  647              	.LASF4:
- 648 01b1 6C6F6E67 		.ascii	"long int\000"
+ 648 01b9 6C6F6E67 		.ascii	"long int\000"
  648      20696E74 
  648      00
  649              	.LASF22:
- 650 01ba 5350495F 		.ascii	"SPI_SCBCLK_GetDividerRegister\000"
+ 650 01c2 5350495F 		.ascii	"SPI_SCBCLK_GetDividerRegister\000"
  650      53434243 
  650      4C4B5F47 
  650      65744469 
  650      76696465 
  651              	.LASF0:
- 652 01d8 7369676E 		.ascii	"signed char\000"
+ 652 01e0 7369676E 		.ascii	"signed char\000"
  652      65642063 
  652      68617200 
  653              	.LASF27:
- 654 01e4 5350495F 		.ascii	"SPI_SCBCLK_SetFractionalDividerRegister\000"
+ 654 01ec 5350495F 		.ascii	"SPI_SCBCLK_SetFractionalDividerRegister\000"
  654      53434243 
  654      4C4B5F53 
  654      65744672 

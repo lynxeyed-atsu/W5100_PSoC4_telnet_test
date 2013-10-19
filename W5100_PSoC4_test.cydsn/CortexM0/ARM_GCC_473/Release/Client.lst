@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 1
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccC8yZ3x.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 1
   29:.\Client.cpp  ****   if (_sock == 255)
   30:.\Client.cpp  ****     return 0;
   31:.\Client.cpp  ****     
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 2
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccC8yZ3x.s 			page 2
 
 
   32:.\Client.cpp  ****   // XXX: what port should we connect from?
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 1
   64              		.type	_ZN6ClientC2Eh, %function
   65              	_ZN6ClientC2Eh:
   66              		.fnstart
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 3
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccC8yZ3x.s 			page 3
 
 
   67              	.LFB4:
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 1
  115 0002 10B5     		push	{r4, lr}
  116              	.LCFI1:
  117              		.cfi_def_cfa_offset 8
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 4
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccC8yZ3x.s 			page 4
 
 
  118              		.cfi_offset 4, -8
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 1
  164              		.align	1
  165              		.global	_ZN6Client9availableEv
  166              		.code	16
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 5
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccC8yZ3x.s 			page 5
 
 
  167              		.thumb_func
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 1
  215              	.LBB13:
   55:.\Client.cpp  ****   uint8_t b;
   56:.\Client.cpp  ****   if (!available())
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 6
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccC8yZ3x.s 			page 6
 
 
  216              		.loc 1 56 0
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 1
  263              		.cfi_def_cfa_offset 8
  264              		.cfi_offset 4, -8
  265              		.cfi_offset 14, -4
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 7
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccC8yZ3x.s 			page 7
 
 
  266 0002 041C     		mov	r4, r0
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 1
  314              	.LVL26:
   69:.\Client.cpp  ****   disconnect(_sock);
  315              		.loc 1 69 0
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 8
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccC8yZ3x.s 			page 8
 
 
  316 000a 2079     		ldrb	r0, [r4, #4]
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 1
   80:.\Client.cpp  **** }
  360              		.loc 1 80 0
  361              		@ sp needed for prologue
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 9
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccC8yZ3x.s 			page 9
 
 
  362 0008 08BD     		pop	{r3, pc}
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 1
  409 0022 8341     		sbc	r3, r3, r0
  410              	.L22:
  411              	.LBE14:
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 10
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccC8yZ3x.s 			page 10
 
 
   76:.\Client.cpp  **** }
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 1
  458 000a EEB2     		uxtb	r6, r5
  459 000c 301C     		mov	r0, r6
  460 000e FFF7FEFF 		bl	getSn_SR
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 11
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccC8yZ3x.s 			page 11
 
 
  461              	.LVL40:
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 1
  509 0054 3243     		orr	r2, r6
  510 0056 FFF7FEFF 		bl	connect
  511              	.LVL46:
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 12
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccC8yZ3x.s 			page 12
 
 
  512              	.L43:
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 1
  553              		.loc 1 88 0
  554 0000 0079     		ldrb	r0, [r0, #4]
  555              	.LVL51:
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 13
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccC8yZ3x.s 			page 13
 
 
   89:.\Client.cpp  **** }
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 1
  603              	_ZN6ClientcvbEv:
  604              		.fnstart
  605              	.LFB19:
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 14
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccC8yZ3x.s 			page 14
 
 
   94:.\Client.cpp  **** 
@@ -832,57 +832,57 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 1
  649 000b 01       		.uleb128 0x1
  650 000c 4C000000 		.4byte	.LASF55
  651 0010 04       		.byte	0x4
- 652 0011 44010000 		.4byte	.LASF56
- 653 0015 3A020000 		.4byte	.LASF57
+ 652 0011 82010000 		.4byte	.LASF56
+ 653 0015 BB000000 		.4byte	.LASF57
  654 0019 00000000 		.4byte	.Ldebug_ranges0+0
  655 001d 00000000 		.4byte	0
  656 0021 00000000 		.4byte	0
  657 0025 00000000 		.4byte	.Ldebug_line0
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 15
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccC8yZ3x.s 			page 15
 
 
  658 0029 02       		.uleb128 0x2
  659 002a 01       		.byte	0x1
  660 002b 06       		.byte	0x6
- 661 002c 74010000 		.4byte	.LASF0
+ 661 002c B2010000 		.4byte	.LASF0
  662 0030 03       		.uleb128 0x3
- 663 0031 D3000000 		.4byte	.LASF3
+ 663 0031 11010000 		.4byte	.LASF3
  664 0035 02       		.byte	0x2
  665 0036 2A       		.byte	0x2a
  666 0037 3B000000 		.4byte	0x3b
  667 003b 02       		.uleb128 0x2
  668 003c 01       		.byte	0x1
  669 003d 08       		.byte	0x8
- 670 003e 5B010000 		.4byte	.LASF1
+ 670 003e 99010000 		.4byte	.LASF1
  671 0042 02       		.uleb128 0x2
  672 0043 02       		.byte	0x2
  673 0044 05       		.byte	0x5
  674 0045 42000000 		.4byte	.LASF2
  675 0049 03       		.uleb128 0x3
- 676 004a B6010000 		.4byte	.LASF4
+ 676 004a F4010000 		.4byte	.LASF4
  677 004e 02       		.byte	0x2
  678 004f 36       		.byte	0x36
  679 0050 54000000 		.4byte	0x54
  680 0054 02       		.uleb128 0x2
  681 0055 02       		.byte	0x2
  682 0056 07       		.byte	0x7
- 683 0057 06020000 		.4byte	.LASF5
+ 683 0057 44020000 		.4byte	.LASF5
  684 005b 02       		.uleb128 0x2
  685 005c 04       		.byte	0x4
  686 005d 05       		.byte	0x5
- 687 005e 35010000 		.4byte	.LASF6
+ 687 005e 73010000 		.4byte	.LASF6
  688 0062 02       		.uleb128 0x2
  689 0063 04       		.byte	0x4
  690 0064 07       		.byte	0x7
- 691 0065 A7020000 		.4byte	.LASF7
+ 691 0065 AF020000 		.4byte	.LASF7
  692 0069 02       		.uleb128 0x2
  693 006a 08       		.byte	0x8
  694 006b 05       		.byte	0x5
- 695 006c 27010000 		.4byte	.LASF8
+ 695 006c 65010000 		.4byte	.LASF8
  696 0070 02       		.uleb128 0x2
  697 0071 08       		.byte	0x8
  698 0072 07       		.byte	0x7
- 699 0073 80010000 		.4byte	.LASF9
+ 699 0073 BE010000 		.4byte	.LASF9
  700 0077 04       		.uleb128 0x4
  701 0078 04       		.byte	0x4
  702 0079 05       		.byte	0x5
@@ -890,15 +890,15 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 1
  704 007e 02       		.uleb128 0x2
  705 007f 04       		.byte	0x4
  706 0080 07       		.byte	0x7
- 707 0081 97010000 		.4byte	.LASF10
+ 707 0081 D5010000 		.4byte	.LASF10
  708 0085 03       		.uleb128 0x3
- 709 0086 F2000000 		.4byte	.LASF11
+ 709 0086 30010000 		.4byte	.LASF11
  710 008a 03       		.byte	0x3
  711 008b 5B       		.byte	0x5b
  712 008c 3B000000 		.4byte	0x3b
  713 0090 03       		.uleb128 0x3
- 714 0091 BB000000 		.4byte	.LASF12
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 16
+ 714 0091 F9000000 		.4byte	.LASF12
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccC8yZ3x.s 			page 16
 
 
  715 0095 03       		.byte	0x3
@@ -907,21 +907,21 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 1
  718 009b 02       		.uleb128 0x2
  719 009c 04       		.byte	0x4
  720 009d 04       		.byte	0x4
- 721 009e 16010000 		.4byte	.LASF13
+ 721 009e 54010000 		.4byte	.LASF13
  722 00a2 02       		.uleb128 0x2
  723 00a3 08       		.byte	0x8
  724 00a4 04       		.byte	0x4
- 725 00a5 B9020000 		.4byte	.LASF14
+ 725 00a5 C1020000 		.4byte	.LASF14
  726 00a9 02       		.uleb128 0x2
  727 00aa 01       		.byte	0x1
  728 00ab 08       		.byte	0x8
- 729 00ac 35020000 		.4byte	.LASF15
+ 729 00ac 73020000 		.4byte	.LASF15
  730 00b0 02       		.uleb128 0x2
  731 00b1 04       		.byte	0x4
  732 00b2 07       		.byte	0x7
  733 00b3 97000000 		.4byte	.LASF16
  734 00b7 03       		.uleb128 0x3
- 735 00b8 D3020000 		.4byte	.LASF17
+ 735 00b8 DB020000 		.4byte	.LASF17
  736 00bc 04       		.byte	0x4
  737 00bd 11       		.byte	0x11
  738 00be 85000000 		.4byte	0x85
@@ -929,7 +929,7 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 1
  740 00c3 04       		.byte	0x4
  741 00c4 30000000 		.4byte	0x30
  742 00c8 06       		.uleb128 0x6
- 743 00c9 E8010000 		.4byte	.LASF20
+ 743 00c9 26020000 		.4byte	.LASF20
  744 00cd 0B       		.byte	0xb
  745 00ce 05       		.byte	0x5
  746 00cf 06       		.byte	0x6
@@ -958,12 +958,12 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 1
  769 00fb 02       		.byte	0x2
  770 00fc 23       		.byte	0x23
  771 00fd 05       		.uleb128 0x5
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 17
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccC8yZ3x.s 			page 17
 
 
  772 00fe 03       		.byte	0x3
  773 00ff 08       		.uleb128 0x8
- 774 0100 C0020000 		.4byte	.LASF19
+ 774 0100 C8020000 		.4byte	.LASF19
  775 0104 05       		.byte	0x5
  776 0105 0A       		.byte	0xa
  777 0106 49000000 		.4byte	0x49
@@ -973,7 +973,7 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 1
  781 010d 03       		.byte	0x3
  782 010e 0A       		.uleb128 0xa
  783 010f 01       		.byte	0x1
- 784 0110 E8010000 		.4byte	.LASF20
+ 784 0110 26020000 		.4byte	.LASF20
  785 0114 FF020000 		.4byte	0x2ff
  786 0118 01       		.byte	0x1
  787 0119 01       		.byte	0x1
@@ -987,7 +987,7 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 1
  795 012d 00       		.byte	0
  796 012e 0D       		.uleb128 0xd
  797 012f 01       		.byte	0x1
- 798 0130 E8010000 		.4byte	.LASF20
+ 798 0130 26020000 		.4byte	.LASF20
  799 0134 01       		.byte	0x1
  800 0135 0B       		.byte	0xb
  801 0136 FF020000 		.4byte	0x2ff
@@ -1002,7 +1002,7 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 1
  810 014e 00       		.byte	0
  811 014f 0D       		.uleb128 0xd
  812 0150 01       		.byte	0x1
- 813 0151 E8010000 		.4byte	.LASF20
+ 813 0151 26020000 		.4byte	.LASF20
  814 0155 01       		.byte	0x1
  815 0156 0F       		.byte	0xf
  816 0157 FF020000 		.4byte	0x2ff
@@ -1018,14 +1018,14 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 1
  826 0170 49000000 		.4byte	0x49
  827 0174 00       		.byte	0
  828 0175 0E       		.uleb128 0xe
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 18
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccC8yZ3x.s 			page 18
 
 
  829 0176 01       		.byte	0x1
- 830 0177 19020000 		.4byte	.LASF21
+ 830 0177 57020000 		.4byte	.LASF21
  831 017b 01       		.byte	0x1
  832 017c 4E       		.byte	0x4e
- 833 017d 70020000 		.4byte	.LASF23
+ 833 017d 78020000 		.4byte	.LASF23
  834 0181 30000000 		.4byte	0x30
  835 0185 01       		.byte	0x1
  836 0186 8E010000 		.4byte	0x18e
@@ -1036,10 +1036,10 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 1
  841 0194 00       		.byte	0
  842 0195 0E       		.uleb128 0xe
  843 0196 01       		.byte	0x1
- 844 0197 EA000000 		.4byte	.LASF22
+ 844 0197 28010000 		.4byte	.LASF22
  845 019b 01       		.byte	0x1
  846 019c 14       		.byte	0x14
- 847 019d 20020000 		.4byte	.LASF24
+ 847 019d 5E020000 		.4byte	.LASF24
  848 01a1 30000000 		.4byte	0x30
  849 01a5 01       		.byte	0x1
  850 01a6 AE010000 		.4byte	0x1ae
@@ -1070,15 +1070,15 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 1
  875 01dd 00       		.byte	0
  876 01de 0E       		.uleb128 0xe
  877 01df 01       		.byte	0x1
- 878 01e0 51010000 		.4byte	.LASF25
+ 878 01e0 8F010000 		.4byte	.LASF25
  879 01e4 01       		.byte	0x1
  880 01e5 32       		.byte	0x32
- 881 01e6 D1010000 		.4byte	.LASF26
+ 881 01e6 0F020000 		.4byte	.LASF26
  882 01ea 77000000 		.4byte	0x77
  883 01ee 01       		.byte	0x1
  884 01ef F7010000 		.4byte	0x1f7
  885 01f3 FE010000 		.4byte	0x1fe
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 19
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccC8yZ3x.s 			page 19
 
 
  886 01f7 0B       		.uleb128 0xb
@@ -1087,10 +1087,10 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 1
  889 01fd 00       		.byte	0
  890 01fe 0E       		.uleb128 0xe
  891 01ff 01       		.byte	0x1
- 892 0200 22010000 		.4byte	.LASF27
+ 892 0200 60010000 		.4byte	.LASF27
  893 0204 01       		.byte	0x1
  894 0205 36       		.byte	0x36
- 895 0206 BF010000 		.4byte	.LASF28
+ 895 0206 FD010000 		.4byte	.LASF28
  896 020a 77000000 		.4byte	0x77
  897 020e 01       		.byte	0x1
  898 020f 17020000 		.4byte	0x217
@@ -1101,7 +1101,7 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 1
  903 021d 00       		.byte	0
  904 021e 10       		.uleb128 0x10
  905 021f 01       		.byte	0x1
- 906 0220 3E010000 		.4byte	.LASF29
+ 906 0220 7C010000 		.4byte	.LASF29
  907 0224 01       		.byte	0x1
  908 0225 3E       		.byte	0x3e
  909 0226 06000000 		.4byte	.LASF31
@@ -1114,10 +1114,10 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 1
  916 0239 00       		.byte	0
  917 023a 10       		.uleb128 0x10
  918 023b 01       		.byte	0x1
- 919 023c EF020000 		.4byte	.LASF30
+ 919 023c F7020000 		.4byte	.LASF30
  920 0240 01       		.byte	0x1
  921 0241 43       		.byte	0x43
- 922 0242 A4010000 		.4byte	.LASF32
+ 922 0242 E2010000 		.4byte	.LASF32
  923 0246 01       		.byte	0x1
  924 0247 4F020000 		.4byte	0x24f
  925 024b 56020000 		.4byte	0x256
@@ -1127,10 +1127,10 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 1
  929 0255 00       		.byte	0
  930 0256 0E       		.uleb128 0xe
  931 0257 01       		.byte	0x1
- 932 0258 F8000000 		.4byte	.LASF33
+ 932 0258 36010000 		.4byte	.LASF33
  933 025c 01       		.byte	0x1
  934 025d 49       		.byte	0x49
- 935 025e EF010000 		.4byte	.LASF34
+ 935 025e 2D020000 		.4byte	.LASF34
  936 0262 30000000 		.4byte	0x30
  937 0266 01       		.byte	0x1
  938 0267 6F020000 		.4byte	0x26f
@@ -1138,16 +1138,16 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 1
  940 026f 0B       		.uleb128 0xb
  941 0270 FF020000 		.4byte	0x2ff
  942 0274 01       		.byte	0x1
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 20
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccC8yZ3x.s 			page 20
 
 
  943 0275 00       		.byte	0
  944 0276 0E       		.uleb128 0xe
  945 0277 01       		.byte	0x1
- 946 0278 69010000 		.4byte	.LASF35
+ 946 0278 A7010000 		.4byte	.LASF35
  947 027c 01       		.byte	0x1
  948 027d 57       		.byte	0x57
- 949 027e 02010000 		.4byte	.LASF36
+ 949 027e 40010000 		.4byte	.LASF36
  950 0282 30000000 		.4byte	0x30
  951 0286 01       		.byte	0x1
  952 0287 8F020000 		.4byte	0x28f
@@ -1163,7 +1163,7 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 1
  962 029d 2C000000 		.4byte	.LASF37
  963 02a1 01       		.byte	0x1
  964 02a2 5B       		.byte	0x5b
- 965 02a3 F4020000 		.4byte	.LASF38
+ 965 02a3 FC020000 		.4byte	.LASF38
  966 02a7 30000000 		.4byte	0x30
  967 02ab 01       		.byte	0x1
  968 02ac B4020000 		.4byte	0x2b4
@@ -1176,10 +1176,10 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 1
  975 02bf 00       		.byte	0
  976 02c0 11       		.uleb128 0x11
  977 02c1 01       		.byte	0x1
- 978 02c2 99020000 		.4byte	.LASF39
+ 978 02c2 A1020000 		.4byte	.LASF39
  979 02c6 01       		.byte	0x1
  980 02c7 5F       		.byte	0x5f
- 981 02c8 84020000 		.4byte	.LASF40
+ 981 02c8 8C020000 		.4byte	.LASF40
  982 02cc 10030000 		.4byte	0x310
  983 02d0 01       		.byte	0x1
  984 02d1 D5020000 		.4byte	0x2d5
@@ -1189,16 +1189,16 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 1
  988 02db 00       		.byte	0
  989 02dc 00       		.byte	0
  990 02dd 12       		.uleb128 0x12
- 991 02de 1C010000 		.4byte	.LASF50
+ 991 02de 5A010000 		.4byte	.LASF50
  992 02e2 01       		.byte	0x1
  993 02e3 FF020000 		.4byte	0x2ff
  994 02e7 13       		.uleb128 0x13
  995 02e8 01       		.byte	0x1
- 996 02e9 1C010000 		.4byte	.LASF50
+ 996 02e9 5A010000 		.4byte	.LASF50
  997 02ed 17030000 		.4byte	0x317
  998 02f1 01       		.byte	0x1
  999 02f2 01       		.byte	0x1
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 21
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccC8yZ3x.s 			page 21
 
 
  1000 02f3 F7020000 		.4byte	0x2f7
@@ -1218,7 +1218,7 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 1
  1014 0310 02       		.uleb128 0x2
  1015 0311 01       		.byte	0x1
  1016 0312 02       		.byte	0x2
- 1017 0313 11010000 		.4byte	.LASF41
+ 1017 0313 4F010000 		.4byte	.LASF41
  1018 0317 05       		.uleb128 0x5
  1019 0318 04       		.byte	0x4
  1020 0319 DD020000 		.4byte	0x2dd
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 1
  1054 0372 1B       		.uleb128 0x1b
  1055 0373 12000000 		.4byte	.LVL5
  1056 0377 23070000 		.4byte	0x723
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 22
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccC8yZ3x.s 			page 22
 
 
  1057 037b 1C       		.uleb128 0x1c
@@ -1286,14 +1286,14 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 1
  1079 03a0 88030000 		.4byte	0x388
  1080 03a4 01       		.byte	0x1
  1081 03a5 1E       		.uleb128 0x1e
- 1082 03a6 DA020000 		.4byte	.LASF43
+ 1082 03a6 E2020000 		.4byte	.LASF43
  1083 03aa 01       		.byte	0x1
  1084 03ab 0B       		.byte	0xb
  1085 03ac 30000000 		.4byte	0x30
  1086 03b0 00       		.byte	0
  1087 03b1 1F       		.uleb128 0x1f
  1088 03b2 8D030000 		.4byte	0x38d
- 1089 03b6 DB000000 		.4byte	.LASF45
+ 1089 03b6 19010000 		.4byte	.LASF45
  1090 03ba 00000000 		.4byte	.LFB4
  1091 03be 1C000000 		.4byte	.LFE4
  1092 03c2 02       		.byte	0x2
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 1
  1111 03e7 0B040000 		.4byte	0x40b
  1112 03eb 17       		.uleb128 0x17
  1113 03ec B6000000 		.4byte	.LASF42
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 23
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccC8yZ3x.s 			page 23
 
 
  1114 03f0 88030000 		.4byte	0x388
@@ -1329,14 +1329,14 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 1
  1119 03fa 0F       		.byte	0xf
  1120 03fb C2000000 		.4byte	0xc2
  1121 03ff 1E       		.uleb128 0x1e
- 1122 0400 94020000 		.4byte	.LASF44
+ 1122 0400 9C020000 		.4byte	.LASF44
  1123 0404 01       		.byte	0x1
  1124 0405 0F       		.byte	0xf
  1125 0406 49000000 		.4byte	0x49
  1126 040a 00       		.byte	0
  1127 040b 22       		.uleb128 0x22
  1128 040c DD030000 		.4byte	0x3dd
- 1129 0410 C2000000 		.4byte	.LASF46
+ 1129 0410 00010000 		.4byte	.LASF46
  1130 0414 00000000 		.4byte	.LFB7
  1131 0418 30000000 		.4byte	.LFE7
  1132 041c 6B000000 		.4byte	.LLST3
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 1
  1168 0482 0E010000 		.4byte	.LLST8
  1169 0486 8F040000 		.4byte	0x48f
  1170 048a 01       		.byte	0x1
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 24
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccC8yZ3x.s 			page 24
 
 
  1171 048b DE040000 		.4byte	0x4de
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 1
  1225 0501 01       		.byte	0x1
  1226 0502 B3010000 		.4byte	.LLST12
  1227 0506 27       		.uleb128 0x27
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 25
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccC8yZ3x.s 			page 25
 
 
  1228 0507 0A000000 		.4byte	.LVL21
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 1
  1282 058e 24       		.uleb128 0x24
  1283 058f 08000000 		.4byte	.LVL31
  1284 0593 B4070000 		.4byte	0x7b4
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 26
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccC8yZ3x.s 			page 26
 
 
  1285 0597 00       		.byte	0
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 1
  1339 0616 19       		.uleb128 0x19
  1340 0617 B6000000 		.4byte	.LASF42
  1341 061b 88030000 		.4byte	0x388
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 27
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccC8yZ3x.s 			page 27
 
 
  1342 061f 01       		.byte	0x1
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 1
  1396 0689 66050000 		.4byte	0x566
  1397 068d 1C       		.uleb128 0x1c
  1398 068e 01       		.byte	0x1
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 28
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccC8yZ3x.s 			page 28
 
 
  1399 068f 50       		.byte	0x50
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 1
  1453 0700 00000000 		.4byte	.LFB19
  1454 0704 0A000000 		.4byte	.LFE19
  1455 0708 02       		.byte	0x2
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 29
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccC8yZ3x.s 			page 29
 
 
  1456 0709 7D       		.byte	0x7d
@@ -1714,7 +1714,7 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 1
  1486 074b 85000000 		.4byte	0x85
  1487 074f 2C       		.uleb128 0x2c
  1488 0750 01       		.byte	0x1
- 1489 0751 C6020000 		.4byte	.LASF48
+ 1489 0751 CE020000 		.4byte	.LASF48
  1490 0755 04       		.byte	0x4
  1491 0756 1A01     		.2byte	0x11a
  1492 0758 90000000 		.4byte	0x90
@@ -1725,7 +1725,7 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 1
  1497 0766 00       		.byte	0
  1498 0767 2B       		.uleb128 0x2b
  1499 0768 01       		.byte	0x1
- 1500 0769 EA020000 		.4byte	.LASF49
+ 1500 0769 F2020000 		.4byte	.LASF49
  1501 076d 06       		.byte	0x6
  1502 076e 15       		.byte	0x15
  1503 076f 90000000 		.4byte	0x90
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 1
  1510 0782 0C       		.uleb128 0xc
  1511 0783 90000000 		.4byte	0x90
  1512 0787 00       		.byte	0
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 30
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccC8yZ3x.s 			page 30
 
 
  1513 0788 05       		.uleb128 0x5
@@ -1756,7 +1756,7 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 1
  1525 07a0 00       		.byte	0
  1526 07a1 2D       		.uleb128 0x2d
  1527 07a2 01       		.byte	0x1
- 1528 07a3 DF020000 		.4byte	.LASF52
+ 1528 07a3 E7020000 		.4byte	.LASF52
  1529 07a7 06       		.byte	0x6
  1530 07a8 12       		.byte	0x12
  1531 07a9 01       		.byte	0x1
@@ -1794,11 +1794,11 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 1
  1563 07f1 00       		.byte	0
  1564 07f2 2E       		.uleb128 0x2e
  1565 07f3 01       		.byte	0x1
- 1566 07f4 EA000000 		.4byte	.LASF22
+ 1566 07f4 28010000 		.4byte	.LASF22
  1567 07f8 06       		.byte	0x6
  1568 07f9 11       		.byte	0x11
  1569 07fa 85000000 		.4byte	0x85
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 31
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccC8yZ3x.s 			page 31
 
 
  1570 07fe 01       		.byte	0x1
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 1
  1624 002b 00       		.byte	0
  1625 002c 00       		.byte	0
  1626 002d 04       		.uleb128 0x4
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 32
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccC8yZ3x.s 			page 32
 
 
  1627 002e 24       		.uleb128 0x24
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 1
  1681 0064 3B       		.uleb128 0x3b
  1682 0065 0B       		.uleb128 0xb
  1683 0066 49       		.uleb128 0x49
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 33
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccC8yZ3x.s 			page 33
 
 
  1684 0067 13       		.uleb128 0x13
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 1
  1738 009d 00       		.byte	0
  1739 009e 49       		.uleb128 0x49
  1740 009f 13       		.uleb128 0x13
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 34
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccC8yZ3x.s 			page 34
 
 
  1741 00a0 00       		.byte	0
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 1
  1795 00d7 0B       		.uleb128 0xb
  1796 00d8 3B       		.uleb128 0x3b
  1797 00d9 0B       		.uleb128 0xb
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 35
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccC8yZ3x.s 			page 35
 
 
  1798 00da 8740     		.uleb128 0x2007
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 1
  1852 0113 64       		.uleb128 0x64
  1853 0114 13       		.uleb128 0x13
  1854 0115 00       		.byte	0
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 36
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccC8yZ3x.s 			page 36
 
 
  1855 0116 00       		.byte	0
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 1
  1909 014c 20       		.uleb128 0x20
  1910 014d 0B       		.uleb128 0xb
  1911 014e 64       		.uleb128 0x64
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 37
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccC8yZ3x.s 			page 37
 
 
  1912 014f 13       		.uleb128 0x13
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 1
  1966 0186 0B       		.uleb128 0xb
  1967 0187 3B       		.uleb128 0x3b
  1968 0188 0B       		.uleb128 0xb
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 38
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccC8yZ3x.s 			page 38
 
 
  1969 0189 49       		.uleb128 0x49
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 1
  2023 01c4 13       		.uleb128 0x13
  2024 01c5 8740     		.uleb128 0x2007
  2025 01c7 0E       		.uleb128 0xe
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 39
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccC8yZ3x.s 			page 39
 
 
  2026 01c8 11       		.uleb128 0x11
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 1
  2080 0201 13       		.uleb128 0x13
  2081 0202 00       		.byte	0
  2082 0203 00       		.byte	0
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 40
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccC8yZ3x.s 			page 40
 
 
  2083 0204 23       		.uleb128 0x23
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 1
  2137 023e 0B       		.uleb128 0xb
  2138 023f 01       		.byte	0x1
  2139 0240 11       		.uleb128 0x11
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 41
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccC8yZ3x.s 			page 41
 
 
  2140 0241 01       		.uleb128 0x1
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 1
  2194 0278 3C       		.uleb128 0x3c
  2195 0279 0C       		.uleb128 0xc
  2196 027a 01       		.uleb128 0x1
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 42
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccC8yZ3x.s 			page 42
 
 
  2197 027b 13       		.uleb128 0x13
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 1
  2251 02b1 00       		.byte	0
  2252 02b2 00       		.byte	0
  2253 02b3 00       		.byte	0
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 43
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccC8yZ3x.s 			page 43
 
 
  2254              		.section	.debug_loc,"",%progbits
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 1
  2308 0081 7D       		.byte	0x7d
  2309 0082 08       		.sleb128 8
  2310 0083 00000000 		.4byte	0
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 44
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccC8yZ3x.s 			page 44
 
 
  2311 0087 00000000 		.4byte	0
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 1
  2365 0106 00000000 		.4byte	0
  2366 010a 00000000 		.4byte	0
  2367              	.LLST8:
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 45
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccC8yZ3x.s 			page 45
 
 
  2368 010e 00000000 		.4byte	.LFB12
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 1
  2422              	.LLST11:
  2423 0193 00000000 		.4byte	.LFB13
  2424 0197 02000000 		.4byte	.LCFI4
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 46
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccC8yZ3x.s 			page 46
 
 
  2425 019b 0200     		.2byte	0x2
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 1
  2479 0220 01       		.uleb128 0x1
  2480 0221 50       		.byte	0x50
  2481 0222 9F       		.byte	0x9f
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 47
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccC8yZ3x.s 			page 47
 
 
  2482 0223 00000000 		.4byte	0
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 1
  2536 02ac F3       		.byte	0xf3
  2537 02ad 01       		.uleb128 0x1
  2538 02ae 50       		.byte	0x50
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 48
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccC8yZ3x.s 			page 48
 
 
  2539 02af 9F       		.byte	0x9f
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 1
  2593 0338 55       		.byte	0x55
  2594 0339 00000000 		.4byte	0
  2595 033d 00000000 		.4byte	0
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 49
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccC8yZ3x.s 			page 49
 
 
  2596              	.LLST23:
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 1
  2650 0020 00000000 		.4byte	.LFB7
  2651 0024 30000000 		.4byte	.LFE7-.LFB7
  2652 0028 00000000 		.4byte	.LFB11
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 50
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccC8yZ3x.s 			page 50
 
 
  2653 002c 0A000000 		.4byte	.LFE11-.LFB11
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 1
  2706      02002501 
  2706      00000201 
  2706      FB0E0D00 
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 51
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccC8yZ3x.s 			page 51
 
 
  2706      01010101 
@@ -3058,219 +3058,221 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 1
  2731      00
  2732              	.LASF42:
  2733 00b6 74686973 		.ascii	"this\000"
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 52
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccC8yZ3x.s 			page 52
 
 
  2733      00
- 2734              	.LASF12:
- 2735 00bb 75696E74 		.ascii	"uint16\000"
- 2735      313600
- 2736              	.LASF46:
- 2737 00c2 5F5A4E36 		.ascii	"_ZN6ClientC2EPht\000"
- 2737      436C6965 
- 2737      6E744332 
- 2737      45506874 
- 2737      00
- 2738              	.LASF3:
- 2739 00d3 75696E74 		.ascii	"uint8_t\000"
- 2739      385F7400 
- 2740              	.LASF45:
- 2741 00db 5F5A4E36 		.ascii	"_ZN6ClientC2Eh\000"
- 2741      436C6965 
- 2741      6E744332 
- 2741      456800
- 2742              	.LASF22:
- 2743 00ea 636F6E6E 		.ascii	"connect\000"
- 2743      65637400 
- 2744              	.LASF11:
- 2745 00f2 75696E74 		.ascii	"uint8\000"
- 2745      3800
- 2746              	.LASF33:
- 2747 00f8 636F6E6E 		.ascii	"connected\000"
- 2747      65637465 
- 2747      6400
- 2748              	.LASF36:
- 2749 0102 5F5A4E36 		.ascii	"_ZN6ClienteqEi\000"
- 2749      436C6965 
- 2749      6E746571 
- 2749      456900
- 2750              	.LASF41:
- 2751 0111 626F6F6C 		.ascii	"bool\000"
- 2751      00
- 2752              	.LASF13:
- 2753 0116 666C6F61 		.ascii	"float\000"
- 2753      7400
- 2754              	.LASF50:
- 2755 011c 5072696E 		.ascii	"Print\000"
- 2755      7400
- 2756              	.LASF27:
- 2757 0122 72656164 		.ascii	"read\000"
- 2757      00
- 2758              	.LASF8:
- 2759 0127 6C6F6E67 		.ascii	"long long int\000"
- 2759      206C6F6E 
- 2759      6720696E 
- 2759      7400
- 2760              	.LASF6:
- 2761 0135 6C6F6E67 		.ascii	"long int\000"
- 2761      20696E74 
- 2761      00
- 2762              	.LASF29:
- 2763 013e 666C7573 		.ascii	"flush\000"
- 2763      6800
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 53
+ 2734              	.LASF57:
+ 2735 00bb 433A5C55 		.ascii	"C:\\Users\\atsu\\Desktop\\W5100_PSoC4_test\\W5100_P"
+ 2735      73657273 
+ 2735      5C617473 
+ 2735      755C4465 
+ 2735      736B746F 
+ 2736 00e9 536F4334 		.ascii	"SoC4_test.cydsn\000"
+ 2736      5F746573 
+ 2736      742E6379 
+ 2736      64736E00 
+ 2737              	.LASF12:
+ 2738 00f9 75696E74 		.ascii	"uint16\000"
+ 2738      313600
+ 2739              	.LASF46:
+ 2740 0100 5F5A4E36 		.ascii	"_ZN6ClientC2EPht\000"
+ 2740      436C6965 
+ 2740      6E744332 
+ 2740      45506874 
+ 2740      00
+ 2741              	.LASF3:
+ 2742 0111 75696E74 		.ascii	"uint8_t\000"
+ 2742      385F7400 
+ 2743              	.LASF45:
+ 2744 0119 5F5A4E36 		.ascii	"_ZN6ClientC2Eh\000"
+ 2744      436C6965 
+ 2744      6E744332 
+ 2744      456800
+ 2745              	.LASF22:
+ 2746 0128 636F6E6E 		.ascii	"connect\000"
+ 2746      65637400 
+ 2747              	.LASF11:
+ 2748 0130 75696E74 		.ascii	"uint8\000"
+ 2748      3800
+ 2749              	.LASF33:
+ 2750 0136 636F6E6E 		.ascii	"connected\000"
+ 2750      65637465 
+ 2750      6400
+ 2751              	.LASF36:
+ 2752 0140 5F5A4E36 		.ascii	"_ZN6ClienteqEi\000"
+ 2752      436C6965 
+ 2752      6E746571 
+ 2752      456900
+ 2753              	.LASF41:
+ 2754 014f 626F6F6C 		.ascii	"bool\000"
+ 2754      00
+ 2755              	.LASF13:
+ 2756 0154 666C6F61 		.ascii	"float\000"
+ 2756      7400
+ 2757              	.LASF50:
+ 2758 015a 5072696E 		.ascii	"Print\000"
+ 2758      7400
+ 2759              	.LASF27:
+ 2760 0160 72656164 		.ascii	"read\000"
+ 2760      00
+ 2761              	.LASF8:
+ 2762 0165 6C6F6E67 		.ascii	"long long int\000"
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccC8yZ3x.s 			page 53
 
 
- 2764              	.LASF56:
- 2765 0144 2E5C436C 		.ascii	".\\Client.cpp\000"
- 2765      69656E74 
- 2765      2E637070 
- 2765      00
- 2766              	.LASF25:
- 2767 0151 61766169 		.ascii	"available\000"
- 2767      6C61626C 
- 2767      6500
- 2768              	.LASF1:
- 2769 015b 756E7369 		.ascii	"unsigned char\000"
- 2769      676E6564 
- 2769      20636861 
- 2769      7200
- 2770              	.LASF35:
- 2771 0169 6F706572 		.ascii	"operator==\000"
- 2771      61746F72 
- 2771      3D3D00
- 2772              	.LASF0:
- 2773 0174 7369676E 		.ascii	"signed char\000"
- 2773      65642063 
- 2773      68617200 
- 2774              	.LASF9:
- 2775 0180 6C6F6E67 		.ascii	"long long unsigned int\000"
- 2775      206C6F6E 
- 2775      6720756E 
- 2775      7369676E 
- 2775      65642069 
- 2776              	.LASF10:
- 2777 0197 756E7369 		.ascii	"unsigned int\000"
- 2777      676E6564 
- 2777      20696E74 
- 2777      00
- 2778              	.LASF32:
- 2779 01a4 5F5A4E36 		.ascii	"_ZN6Client4stopEv\000"
- 2779      436C6965 
- 2779      6E743473 
- 2779      746F7045 
- 2779      7600
- 2780              	.LASF4:
- 2781 01b6 75696E74 		.ascii	"uint16_t\000"
- 2781      31365F74 
- 2781      00
- 2782              	.LASF28:
- 2783 01bf 5F5A4E36 		.ascii	"_ZN6Client4readEv\000"
- 2783      436C6965 
- 2783      6E743472 
- 2783      65616445 
- 2783      7600
- 2784              	.LASF26:
- 2785 01d1 5F5A4E36 		.ascii	"_ZN6Client9availableEv\000"
- 2785      436C6965 
- 2785      6E743961 
- 2785      7661696C 
- 2785      61626C65 
- 2786              	.LASF20:
- 2787 01e8 436C6965 		.ascii	"Client\000"
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 54
+ 2762      206C6F6E 
+ 2762      6720696E 
+ 2762      7400
+ 2763              	.LASF6:
+ 2764 0173 6C6F6E67 		.ascii	"long int\000"
+ 2764      20696E74 
+ 2764      00
+ 2765              	.LASF29:
+ 2766 017c 666C7573 		.ascii	"flush\000"
+ 2766      6800
+ 2767              	.LASF56:
+ 2768 0182 2E5C436C 		.ascii	".\\Client.cpp\000"
+ 2768      69656E74 
+ 2768      2E637070 
+ 2768      00
+ 2769              	.LASF25:
+ 2770 018f 61766169 		.ascii	"available\000"
+ 2770      6C61626C 
+ 2770      6500
+ 2771              	.LASF1:
+ 2772 0199 756E7369 		.ascii	"unsigned char\000"
+ 2772      676E6564 
+ 2772      20636861 
+ 2772      7200
+ 2773              	.LASF35:
+ 2774 01a7 6F706572 		.ascii	"operator==\000"
+ 2774      61746F72 
+ 2774      3D3D00
+ 2775              	.LASF0:
+ 2776 01b2 7369676E 		.ascii	"signed char\000"
+ 2776      65642063 
+ 2776      68617200 
+ 2777              	.LASF9:
+ 2778 01be 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 2778      206C6F6E 
+ 2778      6720756E 
+ 2778      7369676E 
+ 2778      65642069 
+ 2779              	.LASF10:
+ 2780 01d5 756E7369 		.ascii	"unsigned int\000"
+ 2780      676E6564 
+ 2780      20696E74 
+ 2780      00
+ 2781              	.LASF32:
+ 2782 01e2 5F5A4E36 		.ascii	"_ZN6Client4stopEv\000"
+ 2782      436C6965 
+ 2782      6E743473 
+ 2782      746F7045 
+ 2782      7600
+ 2783              	.LASF4:
+ 2784 01f4 75696E74 		.ascii	"uint16_t\000"
+ 2784      31365F74 
+ 2784      00
+ 2785              	.LASF28:
+ 2786 01fd 5F5A4E36 		.ascii	"_ZN6Client4readEv\000"
+ 2786      436C6965 
+ 2786      6E743472 
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccC8yZ3x.s 			page 54
 
 
- 2787      6E7400
- 2788              	.LASF34:
- 2789 01ef 5F5A4E36 		.ascii	"_ZN6Client9connectedEv\000"
- 2789      436C6965 
- 2789      6E743963 
- 2789      6F6E6E65 
- 2789      63746564 
- 2790              	.LASF5:
- 2791 0206 73686F72 		.ascii	"short unsigned int\000"
- 2791      7420756E 
- 2791      7369676E 
- 2791      65642069 
- 2791      6E7400
- 2792              	.LASF21:
- 2793 0219 73746174 		.ascii	"status\000"
- 2793      757300
- 2794              	.LASF24:
- 2795 0220 5F5A4E36 		.ascii	"_ZN6Client7connectEv\000"
- 2795      436C6965 
- 2795      6E743763 
- 2795      6F6E6E65 
- 2795      63744576 
- 2796              	.LASF15:
- 2797 0235 63686172 		.ascii	"char\000"
- 2797      00
- 2798              	.LASF57:
- 2799 023a 433A5C55 		.ascii	"C:\\Users\\atsu\\Desktop\\Design01\\W5100_PSoC4_tes"
- 2799      73657273 
- 2799      5C617473 
- 2799      755C4465 
- 2799      736B746F 
- 2800 0268 742E6379 		.ascii	"t.cydsn\000"
- 2800      64736E00 
+ 2786      65616445 
+ 2786      7600
+ 2787              	.LASF26:
+ 2788 020f 5F5A4E36 		.ascii	"_ZN6Client9availableEv\000"
+ 2788      436C6965 
+ 2788      6E743961 
+ 2788      7661696C 
+ 2788      61626C65 
+ 2789              	.LASF20:
+ 2790 0226 436C6965 		.ascii	"Client\000"
+ 2790      6E7400
+ 2791              	.LASF34:
+ 2792 022d 5F5A4E36 		.ascii	"_ZN6Client9connectedEv\000"
+ 2792      436C6965 
+ 2792      6E743963 
+ 2792      6F6E6E65 
+ 2792      63746564 
+ 2793              	.LASF5:
+ 2794 0244 73686F72 		.ascii	"short unsigned int\000"
+ 2794      7420756E 
+ 2794      7369676E 
+ 2794      65642069 
+ 2794      6E7400
+ 2795              	.LASF21:
+ 2796 0257 73746174 		.ascii	"status\000"
+ 2796      757300
+ 2797              	.LASF24:
+ 2798 025e 5F5A4E36 		.ascii	"_ZN6Client7connectEv\000"
+ 2798      436C6965 
+ 2798      6E743763 
+ 2798      6F6E6E65 
+ 2798      63744576 
+ 2799              	.LASF15:
+ 2800 0273 63686172 		.ascii	"char\000"
+ 2800      00
  2801              	.LASF23:
- 2802 0270 5F5A4E36 		.ascii	"_ZN6Client6statusEv\000"
+ 2802 0278 5F5A4E36 		.ascii	"_ZN6Client6statusEv\000"
  2802      436C6965 
  2802      6E743673 
  2802      74617475 
  2802      73457600 
  2803              	.LASF40:
- 2804 0284 5F5A4E36 		.ascii	"_ZN6ClientcvbEv\000"
+ 2804 028c 5F5A4E36 		.ascii	"_ZN6ClientcvbEv\000"
  2804      436C6965 
  2804      6E746376 
  2804      62457600 
  2805              	.LASF44:
- 2806 0294 706F7274 		.ascii	"port\000"
+ 2806 029c 706F7274 		.ascii	"port\000"
  2806      00
  2807              	.LASF39:
- 2808 0299 6F706572 		.ascii	"operator bool\000"
+ 2808 02a1 6F706572 		.ascii	"operator bool\000"
  2808      61746F72 
  2808      20626F6F 
  2808      6C00
  2809              	.LASF7:
- 2810 02a7 6C6F6E67 		.ascii	"long unsigned int\000"
+ 2810 02af 6C6F6E67 		.ascii	"long unsigned int\000"
  2810      20756E73 
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccC8yZ3x.s 			page 55
+
+
  2810      69676E65 
  2810      6420696E 
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccal6xOR.s 			page 55
-
-
  2810      7400
  2811              	.LASF14:
- 2812 02b9 646F7562 		.ascii	"double\000"
+ 2812 02c1 646F7562 		.ascii	"double\000"
  2812      6C6500
  2813              	.LASF19:
- 2814 02c0 5F706F72 		.ascii	"_port\000"
+ 2814 02c8 5F706F72 		.ascii	"_port\000"
  2814      7400
  2815              	.LASF48:
- 2816 02c6 67657453 		.ascii	"getSn_RX_RSR\000"
+ 2816 02ce 67657453 		.ascii	"getSn_RX_RSR\000"
  2816      6E5F5258 
  2816      5F525352 
  2816      00
  2817              	.LASF17:
- 2818 02d3 534F434B 		.ascii	"SOCKET\000"
+ 2818 02db 534F434B 		.ascii	"SOCKET\000"
  2818      455400
  2819              	.LASF43:
- 2820 02da 736F636B 		.ascii	"sock\000"
+ 2820 02e2 736F636B 		.ascii	"sock\000"
  2820      00
  2821              	.LASF52:
- 2822 02df 64697363 		.ascii	"disconnect\000"
+ 2822 02e7 64697363 		.ascii	"disconnect\000"
  2822      6F6E6E65 
  2822      637400
  2823              	.LASF49:
- 2824 02ea 72656376 		.ascii	"recv\000"
+ 2824 02f2 72656376 		.ascii	"recv\000"
  2824      00
  2825              	.LASF30:
- 2826 02ef 73746F70 		.ascii	"stop\000"
+ 2826 02f7 73746F70 		.ascii	"stop\000"
  2826      00
  2827              	.LASF38:
- 2828 02f4 5F5A4E36 		.ascii	"_ZN6ClientneEi\000"
+ 2828 02fc 5F5A4E36 		.ascii	"_ZN6ClientneEi\000"
  2828      436C6965 
  2828      6E746E65 
  2828      456900

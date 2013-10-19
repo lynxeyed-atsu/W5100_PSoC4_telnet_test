@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccCGDjsg.s 			page 1
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\cczTY6Tj.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccCGDjsg.s 			page 1
   30:.\Generated_Source\PSoC4/SPI_CS.c **** ********************************************************************************
   31:.\Generated_Source\PSoC4/SPI_CS.c **** *
   32:.\Generated_Source\PSoC4/SPI_CS.c **** * Summary:
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccCGDjsg.s 			page 2
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\cczTY6Tj.s 			page 2
 
 
   33:.\Generated_Source\PSoC4/SPI_CS.c **** *  Assign a new value to the digital port's data output register.  
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccCGDjsg.s 			page 1
   50:.\Generated_Source\PSoC4/SPI_CS.c **** /*******************************************************************************
   51:.\Generated_Source\PSoC4/SPI_CS.c **** * Function Name: SPI_CS_SetDriveMode
   52:.\Generated_Source\PSoC4/SPI_CS.c **** ********************************************************************************
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccCGDjsg.s 			page 3
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\cczTY6Tj.s 			page 3
 
 
   53:.\Generated_Source\PSoC4/SPI_CS.c **** *
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccCGDjsg.s 			page 1
  100              	.LFB2:
   68:.\Generated_Source\PSoC4/SPI_CS.c **** 
   69:.\Generated_Source\PSoC4/SPI_CS.c **** 
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccCGDjsg.s 			page 4
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\cczTY6Tj.s 			page 4
 
 
   70:.\Generated_Source\PSoC4/SPI_CS.c **** /*******************************************************************************
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccCGDjsg.s 			page 1
   96:.\Generated_Source\PSoC4/SPI_CS.c **** ********************************************************************************
   97:.\Generated_Source\PSoC4/SPI_CS.c **** *
   98:.\Generated_Source\PSoC4/SPI_CS.c **** * Summary:
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccCGDjsg.s 			page 5
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\cczTY6Tj.s 			page 5
 
 
   99:.\Generated_Source\PSoC4/SPI_CS.c **** *  Read the current value assigned to a Digital Port's data output register
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccCGDjsg.s 			page 1
  125:.\Generated_Source\PSoC4/SPI_CS.c ****     * Parameters:  
  126:.\Generated_Source\PSoC4/SPI_CS.c ****     *  None 
  127:.\Generated_Source\PSoC4/SPI_CS.c ****     *
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccCGDjsg.s 			page 6
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\cczTY6Tj.s 			page 6
 
 
  128:.\Generated_Source\PSoC4/SPI_CS.c ****     * Return: 
@@ -352,13 +352,13 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccCGDjsg.s 			page 1
  189 0006 00000000 		.4byte	.Ldebug_abbrev0
  190 000a 04       		.byte	0x4
  191 000b 01       		.uleb128 0x1
- 192 000c 4A010000 		.4byte	.LASF22
+ 192 000c 52010000 		.4byte	.LASF22
  193 0010 01       		.byte	0x1
- 194 0011 4F000000 		.4byte	.LASF23
- 195 0015 06000000 		.4byte	.LASF24
+ 194 0011 19000000 		.4byte	.LASF23
+ 195 0015 95000000 		.4byte	.LASF24
  196 0019 00000000 		.4byte	.Ldebug_ranges0+0
  197 001d 00000000 		.4byte	0
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccCGDjsg.s 			page 7
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\cczTY6Tj.s 			page 7
 
 
  198 0021 00000000 		.4byte	0
@@ -366,35 +366,35 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccCGDjsg.s 			page 1
  200 0029 02       		.uleb128 0x2
  201 002a 01       		.byte	0x1
  202 002b 06       		.byte	0x6
- 203 002c B2010000 		.4byte	.LASF0
+ 203 002c BA010000 		.4byte	.LASF0
  204 0030 02       		.uleb128 0x2
  205 0031 01       		.byte	0x1
  206 0032 08       		.byte	0x8
- 207 0033 77000000 		.4byte	.LASF1
+ 207 0033 41000000 		.4byte	.LASF1
  208 0037 02       		.uleb128 0x2
  209 0038 02       		.byte	0x2
  210 0039 05       		.byte	0x5
- 211 003a 3A010000 		.4byte	.LASF2
+ 211 003a 42010000 		.4byte	.LASF2
  212 003e 02       		.uleb128 0x2
  213 003f 02       		.byte	0x2
  214 0040 07       		.byte	0x7
- 215 0041 9D000000 		.4byte	.LASF3
+ 215 0041 67000000 		.4byte	.LASF3
  216 0045 02       		.uleb128 0x2
  217 0046 04       		.byte	0x4
  218 0047 05       		.byte	0x5
- 219 0048 93010000 		.4byte	.LASF4
+ 219 0048 9B010000 		.4byte	.LASF4
  220 004c 02       		.uleb128 0x2
  221 004d 04       		.byte	0x4
  222 004e 07       		.byte	0x7
- 223 004f 8B000000 		.4byte	.LASF5
+ 223 004f 55000000 		.4byte	.LASF5
  224 0053 02       		.uleb128 0x2
  225 0054 08       		.byte	0x8
  226 0055 05       		.byte	0x5
- 227 0056 1A010000 		.4byte	.LASF6
+ 227 0056 22010000 		.4byte	.LASF6
  228 005a 02       		.uleb128 0x2
  229 005b 08       		.byte	0x8
  230 005c 07       		.byte	0x7
- 231 005d DF000000 		.4byte	.LASF7
+ 231 005d E7000000 		.4byte	.LASF7
  232 0061 03       		.uleb128 0x3
  233 0062 04       		.byte	0x4
  234 0063 05       		.byte	0x5
@@ -402,32 +402,32 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccCGDjsg.s 			page 1
  236 0068 02       		.uleb128 0x2
  237 0069 04       		.byte	0x4
  238 006a 07       		.byte	0x7
- 239 006b D2000000 		.4byte	.LASF8
+ 239 006b DA000000 		.4byte	.LASF8
  240 006f 04       		.uleb128 0x4
- 241 0070 44010000 		.4byte	.LASF9
+ 241 0070 4C010000 		.4byte	.LASF9
  242 0074 02       		.byte	0x2
  243 0075 5B       		.byte	0x5b
  244 0076 30000000 		.4byte	0x30
  245 007a 04       		.uleb128 0x4
- 246 007b CB000000 		.4byte	.LASF10
+ 246 007b D3000000 		.4byte	.LASF10
  247 007f 02       		.byte	0x2
  248 0080 5D       		.byte	0x5d
  249 0081 4C000000 		.4byte	0x4c
  250 0085 02       		.uleb128 0x2
  251 0086 04       		.byte	0x4
  252 0087 04       		.byte	0x4
- 253 0088 71000000 		.4byte	.LASF11
+ 253 0088 3B000000 		.4byte	.LASF11
  254 008c 02       		.uleb128 0x2
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccCGDjsg.s 			page 8
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\cczTY6Tj.s 			page 8
 
 
  255 008d 08       		.byte	0x8
  256 008e 04       		.byte	0x4
- 257 008f C4000000 		.4byte	.LASF12
+ 257 008f 8E000000 		.4byte	.LASF12
  258 0093 02       		.uleb128 0x2
  259 0094 01       		.byte	0x1
  260 0095 08       		.byte	0x8
- 261 0096 35010000 		.4byte	.LASF13
+ 261 0096 3D010000 		.4byte	.LASF13
  262 009a 04       		.uleb128 0x4
  263 009b 00000000 		.4byte	.LASF14
  264 009f 02       		.byte	0x2
@@ -437,7 +437,7 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccCGDjsg.s 			page 1
  268 00a6 7A000000 		.4byte	0x7a
  269 00aa 06       		.uleb128 0x6
  270 00ab 01       		.byte	0x1
- 271 00ac 3C000000 		.4byte	.LASF15
+ 271 00ac 06000000 		.4byte	.LASF15
  272 00b0 01       		.byte	0x1
  273 00b1 2A       		.byte	0x2a
  274 00b2 01       		.byte	0x1
@@ -449,20 +449,20 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccCGDjsg.s 			page 1
  280 00be 01       		.byte	0x1
  281 00bf DE000000 		.4byte	0xde
  282 00c3 07       		.uleb128 0x7
- 283 00c4 49000000 		.4byte	.LASF17
+ 283 00c4 13000000 		.4byte	.LASF17
  284 00c8 01       		.byte	0x1
  285 00c9 2A       		.byte	0x2a
  286 00ca 6F000000 		.4byte	0x6f
  287 00ce 00000000 		.4byte	.LLST0
  288 00d2 08       		.uleb128 0x8
- 289 00d3 85000000 		.4byte	.LASF25
+ 289 00d3 4F000000 		.4byte	.LASF25
  290 00d7 01       		.byte	0x1
  291 00d8 2C       		.byte	0x2c
  292 00d9 6F000000 		.4byte	0x6f
  293 00dd 00       		.byte	0
  294 00de 09       		.uleb128 0x9
  295 00df 01       		.byte	0x1
- 296 00e0 B0000000 		.4byte	.LASF16
+ 296 00e0 7A000000 		.4byte	.LASF16
  297 00e4 01       		.byte	0x1
  298 00e5 40       		.byte	0x40
  299 00e6 01       		.byte	0x1
@@ -472,18 +472,18 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccCGDjsg.s 			page 1
  303 00f3 01       		.byte	0x1
  304 00f4 08010000 		.4byte	0x108
  305 00f8 07       		.uleb128 0x7
- 306 00f9 F6000000 		.4byte	.LASF18
+ 306 00f9 FE000000 		.4byte	.LASF18
  307 00fd 01       		.byte	0x1
  308 00fe 40       		.byte	0x40
  309 00ff 6F000000 		.4byte	0x6f
  310 0103 41000000 		.4byte	.LLST2
  311 0107 00       		.byte	0
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccCGDjsg.s 			page 9
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\cczTY6Tj.s 			page 9
 
 
  312 0108 0A       		.uleb128 0xa
  313 0109 01       		.byte	0x1
- 314 010a FB000000 		.4byte	.LASF19
+ 314 010a 03010000 		.4byte	.LASF19
  315 010e 01       		.byte	0x1
  316 010f 58       		.byte	0x58
  317 0110 01       		.byte	0x1
@@ -496,7 +496,7 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccCGDjsg.s 			page 1
  324 0120 01       		.byte	0x1
  325 0121 0A       		.uleb128 0xa
  326 0122 01       		.byte	0x1
- 327 0123 07010000 		.4byte	.LASF20
+ 327 0123 0F010000 		.4byte	.LASF20
  328 0127 01       		.byte	0x1
  329 0128 6C       		.byte	0x6c
  330 0129 01       		.byte	0x1
@@ -509,7 +509,7 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccCGDjsg.s 			page 1
  337 0139 01       		.byte	0x1
  338 013a 0B       		.uleb128 0xb
  339 013b 01       		.byte	0x1
- 340 013c 9C010000 		.4byte	.LASF21
+ 340 013c A4010000 		.4byte	.LASF21
  341 0140 01       		.byte	0x1
  342 0141 84       		.byte	0x84
  343 0142 01       		.byte	0x1
@@ -521,7 +521,7 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccCGDjsg.s 			page 1
  349 0151 00       		.sleb128 0
  350 0152 01       		.byte	0x1
  351 0153 0C       		.uleb128 0xc
- 352 0154 28010000 		.4byte	.LASF26
+ 352 0154 30010000 		.4byte	.LASF26
  353 0158 01       		.byte	0x1
  354 0159 86       		.byte	0x86
  355 015a 6F000000 		.4byte	0x6f
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccCGDjsg.s 			page 1
  366 0005 13       		.uleb128 0x13
  367 0006 0B       		.uleb128 0xb
  368 0007 03       		.uleb128 0x3
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccCGDjsg.s 			page 10
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\cczTY6Tj.s 			page 10
 
 
  369 0008 0E       		.uleb128 0xe
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccCGDjsg.s 			page 1
  423 003e 00       		.byte	0
  424 003f 06       		.uleb128 0x6
  425 0040 2E       		.uleb128 0x2e
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccCGDjsg.s 			page 11
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\cczTY6Tj.s 			page 11
 
 
  426 0041 01       		.byte	0x1
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccCGDjsg.s 			page 1
  480 0078 3F       		.uleb128 0x3f
  481 0079 0C       		.uleb128 0xc
  482 007a 03       		.uleb128 0x3
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccCGDjsg.s 			page 12
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\cczTY6Tj.s 			page 12
 
 
  483 007b 0E       		.uleb128 0xe
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccCGDjsg.s 			page 1
  537 00b3 0B       		.uleb128 0xb
  538 00b4 27       		.uleb128 0x27
  539 00b5 0C       		.uleb128 0xc
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccCGDjsg.s 			page 13
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\cczTY6Tj.s 			page 13
 
 
  540 00b6 49       		.uleb128 0x49
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccCGDjsg.s 			page 1
  594 0038 08       		.sleb128 8
  595 0039 00000000 		.4byte	0
  596 003d 00000000 		.4byte	0
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccCGDjsg.s 			page 14
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\cczTY6Tj.s 			page 14
 
 
  597              	.LLST2:
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccCGDjsg.s 			page 1
  651 0010 00000000 		.4byte	.LFB2
  652 0014 10000000 		.4byte	.LFE2
  653 0018 00000000 		.4byte	.LFB3
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccCGDjsg.s 			page 15
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\cczTY6Tj.s 			page 15
 
 
  654 001c 10000000 		.4byte	.LFE3
@@ -856,136 +856,138 @@ ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccCGDjsg.s 			page 1
  662              	.LASF14:
  663 0000 72656733 		.ascii	"reg32\000"
  663      3200
- 664              	.LASF24:
- 665 0006 433A5C55 		.ascii	"C:\\Users\\atsu\\Desktop\\Design01\\W5100_PSoC4_tes"
- 665      73657273 
- 665      5C617473 
- 665      755C4465 
- 665      736B746F 
- 666 0034 742E6379 		.ascii	"t.cydsn\000"
- 666      64736E00 
- 667              	.LASF15:
- 668 003c 5350495F 		.ascii	"SPI_CS_Write\000"
- 668      43535F57 
- 668      72697465 
- 668      00
- 669              	.LASF17:
- 670 0049 76616C75 		.ascii	"value\000"
- 670      6500
- 671              	.LASF23:
- 672 004f 2E5C4765 		.ascii	".\\Generated_Source\\PSoC4\\SPI_CS.c\000"
- 672      6E657261 
- 672      7465645F 
- 672      536F7572 
- 672      63655C50 
- 673              	.LASF11:
- 674 0071 666C6F61 		.ascii	"float\000"
- 674      7400
- 675              	.LASF1:
- 676 0077 756E7369 		.ascii	"unsigned char\000"
- 676      676E6564 
- 676      20636861 
- 676      7200
- 677              	.LASF25:
- 678 0085 64725661 		.ascii	"drVal\000"
- 678      6C00
- 679              	.LASF5:
- 680 008b 6C6F6E67 		.ascii	"long unsigned int\000"
- 680      20756E73 
- 680      69676E65 
- 680      6420696E 
- 680      7400
- 681              	.LASF3:
- 682 009d 73686F72 		.ascii	"short unsigned int\000"
- 682      7420756E 
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccCGDjsg.s 			page 16
+ 664              	.LASF15:
+ 665 0006 5350495F 		.ascii	"SPI_CS_Write\000"
+ 665      43535F57 
+ 665      72697465 
+ 665      00
+ 666              	.LASF17:
+ 667 0013 76616C75 		.ascii	"value\000"
+ 667      6500
+ 668              	.LASF23:
+ 669 0019 2E5C4765 		.ascii	".\\Generated_Source\\PSoC4\\SPI_CS.c\000"
+ 669      6E657261 
+ 669      7465645F 
+ 669      536F7572 
+ 669      63655C50 
+ 670              	.LASF11:
+ 671 003b 666C6F61 		.ascii	"float\000"
+ 671      7400
+ 672              	.LASF1:
+ 673 0041 756E7369 		.ascii	"unsigned char\000"
+ 673      676E6564 
+ 673      20636861 
+ 673      7200
+ 674              	.LASF25:
+ 675 004f 64725661 		.ascii	"drVal\000"
+ 675      6C00
+ 676              	.LASF5:
+ 677 0055 6C6F6E67 		.ascii	"long unsigned int\000"
+ 677      20756E73 
+ 677      69676E65 
+ 677      6420696E 
+ 677      7400
+ 678              	.LASF3:
+ 679 0067 73686F72 		.ascii	"short unsigned int\000"
+ 679      7420756E 
+ 679      7369676E 
+ 679      65642069 
+ 679      6E7400
+ 680              	.LASF16:
+ 681 007a 5350495F 		.ascii	"SPI_CS_SetDriveMode\000"
+ 681      43535F53 
+ 681      65744472 
+ 681      6976654D 
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\cczTY6Tj.s 			page 16
 
 
- 682      7369676E 
- 682      65642069 
- 682      6E7400
- 683              	.LASF16:
- 684 00b0 5350495F 		.ascii	"SPI_CS_SetDriveMode\000"
- 684      43535F53 
- 684      65744472 
- 684      6976654D 
- 684      6F646500 
- 685              	.LASF12:
- 686 00c4 646F7562 		.ascii	"double\000"
- 686      6C6500
+ 681      6F646500 
+ 682              	.LASF12:
+ 683 008e 646F7562 		.ascii	"double\000"
+ 683      6C6500
+ 684              	.LASF24:
+ 685 0095 433A5C55 		.ascii	"C:\\Users\\atsu\\Desktop\\W5100_PSoC4_test\\W5100_P"
+ 685      73657273 
+ 685      5C617473 
+ 685      755C4465 
+ 685      736B746F 
+ 686 00c3 536F4334 		.ascii	"SoC4_test.cydsn\000"
+ 686      5F746573 
+ 686      742E6379 
+ 686      64736E00 
  687              	.LASF10:
- 688 00cb 75696E74 		.ascii	"uint32\000"
+ 688 00d3 75696E74 		.ascii	"uint32\000"
  688      333200
  689              	.LASF8:
- 690 00d2 756E7369 		.ascii	"unsigned int\000"
+ 690 00da 756E7369 		.ascii	"unsigned int\000"
  690      676E6564 
  690      20696E74 
  690      00
  691              	.LASF7:
- 692 00df 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 692 00e7 6C6F6E67 		.ascii	"long long unsigned int\000"
  692      206C6F6E 
  692      6720756E 
  692      7369676E 
  692      65642069 
  693              	.LASF18:
- 694 00f6 6D6F6465 		.ascii	"mode\000"
+ 694 00fe 6D6F6465 		.ascii	"mode\000"
  694      00
  695              	.LASF19:
- 696 00fb 5350495F 		.ascii	"SPI_CS_Read\000"
+ 696 0103 5350495F 		.ascii	"SPI_CS_Read\000"
  696      43535F52 
  696      65616400 
  697              	.LASF20:
- 698 0107 5350495F 		.ascii	"SPI_CS_ReadDataReg\000"
+ 698 010f 5350495F 		.ascii	"SPI_CS_ReadDataReg\000"
  698      43535F52 
  698      65616444 
  698      61746152 
  698      656700
  699              	.LASF6:
- 700 011a 6C6F6E67 		.ascii	"long long int\000"
+ 700 0122 6C6F6E67 		.ascii	"long long int\000"
  700      206C6F6E 
  700      6720696E 
  700      7400
  701              	.LASF26:
- 702 0128 6D61736B 		.ascii	"maskedStatus\000"
+ 702 0130 6D61736B 		.ascii	"maskedStatus\000"
  702      65645374 
  702      61747573 
  702      00
  703              	.LASF13:
- 704 0135 63686172 		.ascii	"char\000"
+ 704 013d 63686172 		.ascii	"char\000"
  704      00
  705              	.LASF2:
- 706 013a 73686F72 		.ascii	"short int\000"
+ 706 0142 73686F72 		.ascii	"short int\000"
  706      7420696E 
+ARM GAS  C:\Users\atsu\AppData\Local\Temp\cczTY6Tj.s 			page 17
+
+
  706      7400
  707              	.LASF9:
-ARM GAS  C:\Users\atsu\AppData\Local\Temp\ccCGDjsg.s 			page 17
-
-
- 708 0144 75696E74 		.ascii	"uint8\000"
+ 708 014c 75696E74 		.ascii	"uint8\000"
  708      3800
  709              	.LASF22:
- 710 014a 474E5520 		.ascii	"GNU C 4.7.3 20130312 (release) [ARM/embedded-4_7-br"
+ 710 0152 474E5520 		.ascii	"GNU C 4.7.3 20130312 (release) [ARM/embedded-4_7-br"
  710      4320342E 
  710      372E3320 
  710      32303133 
  710      30333132 
- 711 017d 616E6368 		.ascii	"anch revision 196615]\000"
+ 711 0185 616E6368 		.ascii	"anch revision 196615]\000"
  711      20726576 
  711      6973696F 
  711      6E203139 
  711      36363135 
  712              	.LASF4:
- 713 0193 6C6F6E67 		.ascii	"long int\000"
+ 713 019b 6C6F6E67 		.ascii	"long int\000"
  713      20696E74 
  713      00
  714              	.LASF21:
- 715 019c 5350495F 		.ascii	"SPI_CS_ClearInterrupt\000"
+ 715 01a4 5350495F 		.ascii	"SPI_CS_ClearInterrupt\000"
  715      43535F43 
  715      6C656172 
  715      496E7465 
  715      72727570 
  716              	.LASF0:
- 717 01b2 7369676E 		.ascii	"signed char\000"
+ 717 01ba 7369676E 		.ascii	"signed char\000"
  717      65642063 
  717      68617200 
  718              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.7.3 20130312 (release) [ARM/embedded-4_7-br

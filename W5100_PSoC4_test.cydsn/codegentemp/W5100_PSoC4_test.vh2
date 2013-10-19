@@ -2,7 +2,7 @@
 --	Conversion of W5100_PSoC4_test.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Sat Oct 19 15:41:39 2013
+--	Sat Oct 19 22:39:28 2013
 --
 
 USE cypress.cypress.all;

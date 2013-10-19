@@ -37,7 +37,7 @@
 #include "socket.h"
 #include "w5100.h"
 
-
+#include "device_depend.h"
 
 
 #ifdef __DEF_IINCHIP_PPP__
@@ -59,9 +59,7 @@ static uint16 SBUFBASEADDRESS[MAX_SOCK_NUM]; /**< Tx buffer base address by each
 static uint16 RBUFBASEADDRESS[MAX_SOCK_NUM]; /**< Rx buffer base address by each channel */
 
 int8 SPI_transfer(int8 send_data){
-	SPI_SpiUartWriteTxData(send_data);
-	while( !SPI_SpiUartGetRxBufferSize() );
-	return ((int8)SPI_SpiUartReadRxData());
+	return ((int8)spi_master_send(send_data));
 }
 uint8 getISR(uint8 s)
 {
@@ -103,14 +101,14 @@ uint16 getIINCHIP_TxBASE(uint8 s)
 */
 uint8 IINCHIP_WRITE(uint16 addr,uint8 data)
 {
-	SPI_CS_Write(0);                             // CS=0, SPI start
+	spi_cs_low();                             // CS=0, SPI start
 
 	SPI_transfer(0xF0);
 	SPI_transfer(addr >> 8);
 	SPI_transfer(addr & 0xFF);
 	SPI_transfer(data);
 
-	SPI_CS_Write(1);    
+	spi_cs_high();    
 	return 1;
 }
 
@@ -121,12 +119,12 @@ uint8 IINCHIP_WRITE(uint16 addr,uint8 data)
 uint8 IINCHIP_READ(uint16 addr)
 {
 	uint8 data;
-	SPI_CS_Write(0);				// CS=0, SPI start
+	spi_cs_low();				// CS=0, SPI start
 	SPI_transfer(0x0F);
 	SPI_transfer(addr >> 8);
 	SPI_transfer(addr & 0xFF);
 	data = SPI_transfer(0);
-	SPI_CS_Write(1);				// SPI end
+	spi_cs_high();				// SPI end
 	return data;
 }
 
@@ -136,7 +134,7 @@ uint16 wiz_write_buf(uint16 addr,uint8* buf,uint16 len)
 	uint16 idx = 0;
 	for(idx = 0; idx < len; idx++)
 	{
-		SPI_CS_Write(0);                             // CS=0, SPI start 
+		spi_cs_low();                             // CS=0, SPI start 
 
 		SPI_transfer(0xF0);
 		SPI_transfer(addr >> 8);
@@ -144,7 +142,7 @@ uint16 wiz_write_buf(uint16 addr,uint8* buf,uint16 len)
 		addr++;
 		SPI_transfer(buf[idx]);
 
-		SPI_CS_Write(1);                             // CS=0, SPI end 
+		spi_cs_high();                             // CS=0, SPI end 
 	}
 	return len;
 }
@@ -155,13 +153,13 @@ uint16 wiz_read_buf(uint16 addr, uint8* buf,uint16 len)
 	uint16 idx = 0;
 	for (idx=0; idx<len; idx++)
 	{
-		SPI_CS_Write(0);	// CS=0, SPI start 
+		spi_cs_low();	// CS=0, SPI start 
 		SPI_transfer(0x0F);
 		SPI_transfer(addr >> 8);
 		SPI_transfer(addr & 0xFF);
 		addr++;
 		buf[idx] = SPI_transfer(0);
-		SPI_CS_Write(1);                             // CS=0, SPI end 	   
+		spi_cs_high();                             // CS=0, SPI end 	   
 	   }
 	return len;
 }
@@ -241,8 +239,8 @@ ISR(INT4_vect)
 */ 
 void iinchip_init(void)
 {	
-	CyDelay(300);
-	SPI_Start();
+	wait_delay_ms(300);
+	spi_master_init();
 	setMR( MR_RST );
 #if (__DEF_IINCHIP_BUS__ == __DEF_IINCHIP_INDIRECT_MODE__)
 	setMR( MR_IND | MR_AI );
